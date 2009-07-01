@@ -3,3 +3,12 @@
 
 hu:
   hello: "Szia világ!"
+
+  title: Cím
+  published: Élesítve
+  body: Törzs
+  false: nem
+  show: Megtekintés
+  edit: Szerkesztés
+  destroy: Törlés
+  are_you_sure: Biztos benne?

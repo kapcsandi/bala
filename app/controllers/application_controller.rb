@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password
   
   helper_method :current_user
-  
+  before_filter :set_locale
   private
 
   def current_user_session
@@ -23,4 +23,15 @@ class ApplicationController < ActionController::Base
     return @current_user if defined?(@current_user)
     @current_user = current_user_session && current_user_session.record
   end
+  
+  def set_locale 
+    # if params[:locale] is nil then I18n.default_locale will be used  
+    I18n.locale = extract_locale_from_uri
+    #	params[:locale] 
+  end 
+    
+  def extract_locale_from_uri 
+    parsed_locale = request.host.split('.').last 
+    (I18n.backend.available_locales.include? parsed_locale) ? parsed_locale : nil 
+  end 
 end
