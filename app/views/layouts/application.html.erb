@@ -2,13 +2,19 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
   <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <title><%= h(yield(:title) || "Untitled") %></title>
     <%= stylesheet_link_tag 'application' %>
     <%= yield(:head) %>
   </head>
   <body>
     <div id="container">
-      <div id="user_nav">
+      <div id="user_nav"> 
+	<% I18n.available_locales.each do |locale| 
+          next if locale == :root or locale == :en %>
+        <%= link_to_unless I18n.locale.to_s == locale.to_s, locale, "?locale="+locale.to_s %> |
+        <% end %>
+
         <% if current_user %>
           <%= link_to "Edit Profile", edit_user_path(:current) %> |
           <%= link_to "Logout", logout_path %>

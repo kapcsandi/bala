@@ -25,8 +25,10 @@ class ApplicationController < ActionController::Base
   end
   
   def set_locale 
-    # if params[:locale] is nil then I18n.default_locale will be used  
-    I18n.locale = extract_locale_from_uri
+    #if params[:locale] is nil then I18n.default_locale will be used  
+    # I18n.locale = extract_locale_from_uri
+    
+    I18n.locale = params[:locale] if params[:locale]
     #	params[:locale] 
   end 
     
@@ -34,4 +36,9 @@ class ApplicationController < ActionController::Base
     parsed_locale = request.host.split('.').last 
     (I18n.backend.available_locales.include? parsed_locale) ? parsed_locale : nil 
   end 
+  
+  def default_url_options(options={})
+    logger.debug "default_url_options is passed options: #{options.inspect}\n"
+    { :locale => I18n.locale }
+  end
 end

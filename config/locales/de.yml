@@ -3,3 +3,12 @@
 
 de:
   hello: "Hello world"
+
+  title: Title
+  published: Published
+  body: Body
+  false: nem
+  show: Show
+  edit: Edit
+  destroy: Destroy
+  are_you_sure: Are you sure?

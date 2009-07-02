@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   
   def new
     @page = Page.new
-    @page.page_translations_attributes = [ { :locale => :hu } ] 
+    @page.page_translations_attributes = [ { :locale => params[:locale] } ] 
   end
   
   def create
