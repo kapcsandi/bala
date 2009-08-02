@@ -1,0 +1,76 @@
+<% form_for @house do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label t :city_id %><br />
+    <%= f.collection_select :city_id, City.all, :id, :name, :prompt => t(:select_city) %>
+  </p>
+  <p>
+    <%= f.label t :code %><br />
+    <%= f.text_field :code %>
+  </p>
+  <p>
+    <%= f.label t :persons %><br />
+    <%= f.text_field :persons %>
+  </p>
+  <p>
+    <%= f.label t :floor_area %><br />
+    <%= f.text_field :floor_area %>
+  </p>
+  <p>
+    <%= f.label t :animals %><br />
+    <%= f.text_field :animals %>
+  </p>
+  <p>
+    <%= f.label t :distance_center %><br />
+    <%= f.text_field :distance_center %>
+  </p>
+  <p>
+    <%= f.label t :distance_beach %><br />
+    <%= f.text_field :distance_beach %>
+  </p>
+  <p>
+    <%= f.label t :distance_restaurant %><br />
+    <%= f.text_field :distance_restaurant %>
+  </p>
+  <p>
+    <%= f.label t :house_description %><br />
+    <%= f.text_field :house_description %>
+  </p>
+  <p>
+    <%= f.label t :bedroom_description %><br />
+    <%= f.text_field :bedroom_description %>
+  </p>
+  <p>
+    <%= f.label t :kitchen_description %><br />
+    <%= f.text_field :kitchen_description %>
+  </p>
+  <p>
+    <%= f.label t :bathroom_description %><br />
+    <%= f.text_field :bathroom_description %>
+  </p>
+  <p>
+    <%= f.label t :yard_description %><br />
+    <%= f.text_field :yard_description %>
+  </p>
+  <p>
+    <%= f.label t :other_description %><br />
+    <%= f.text_field :other_description %>
+  </p>
+  <p>
+    <%= f.label t :owner_speaks %><br />
+    <%= f.text_field :owner_speaks %>
+  </p>
+  <p>
+    <%= f.label t :owner_place %><br />
+    <%= f.text_field :owner_place %>
+  </p>
+  <p>
+    <%= f.label t :house_type_id %><br />
+    <%= f.collection_select :house_type_id, HouseType.all, :id, :name, :prompt => t(:select_house_type) %>
+  </p>
+  <p>
+    <%= f.label t :condition_id %><br />
+    <%= f.collection_select :condition_id, Condition.all, :id, :name, :prompt => t(:select_condition) %>
+  </p>
+  <p><%= f.submit t(:submit) %></p>
+<% end %>

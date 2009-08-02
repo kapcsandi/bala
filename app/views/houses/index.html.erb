@@ -1,0 +1,51 @@
+<% title "Houses" %>
+
+<table>
+  <tr>
+    <th>City</th>
+    <th>Code</th>
+    <th>Persons</th>
+    <th>Floor Area</th>
+    <th>Animals</th>
+    <th>Distance Center</th>
+    <th>Distance Beach</th>
+    <th>Distance Restaurant</th>
+    <th>House Description</th>
+    <th>Bedroom Description</th>
+    <th>Kitchen Description</th>
+    <th>Bathroom Description</th>
+    <th>Yard Description</th>
+    <th>Other Description</th>
+    <th>Owner Speaks</th>
+    <th>Owner Place</th>
+    <th>House Type</th>
+    <th>Condition</th>
+  </tr>
+  <% for house in @houses %>
+    <tr>
+      <td><%=h house.city_id %></td>
+      <td><%=h house.code %></td>
+      <td><%=h house.persons %></td>
+      <td><%=h house.floor_area %></td>
+      <td><%=h house.animals %></td>
+      <td><%=h house.distance_center %></td>
+      <td><%=h house.distance_beach %></td>
+      <td><%=h house.distance_restaurant %></td>
+      <td><%=h house.house_description %></td>
+      <td><%=h house.bedroom_description %></td>
+      <td><%=h house.kitchen_description %></td>
+      <td><%=h house.bathroom_description %></td>
+      <td><%=h house.yard_description %></td>
+      <td><%=h house.other_description %></td>
+      <td><%=h house.owner_speaks %></td>
+      <td><%=h house.owner_place %></td>
+      <td><%=h house.house_type_id %></td>
+      <td><%=h house.condition_id %></td>
+      <td><%= link_to "Show", house %></td>
+      <td><%= link_to "Edit", edit_house_path(house) %></td>
+      <td><%= link_to "Destroy", house, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New House", new_house_path %></p>

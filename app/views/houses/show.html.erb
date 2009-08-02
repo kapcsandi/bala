@@ -1,0 +1,80 @@
+<% title "House" %>
+
+<p>
+  <strong>City:</strong>
+  <%=h @house.city_id %>
+</p>
+<p>
+  <strong>Code:</strong>
+  <%=h @house.code %>
+</p>
+<p>
+  <strong>Persons:</strong>
+  <%=h @house.persons %>
+</p>
+<p>
+  <strong>Floor Area:</strong>
+  <%=h @house.floor_area %>
+</p>
+<p>
+  <strong>Animals:</strong>
+  <%=h @house.animals %>
+</p>
+<p>
+  <strong>Distance Center:</strong>
+  <%=h @house.distance_center %>
+</p>
+<p>
+  <strong>Distance Beach:</strong>
+  <%=h @house.distance_beach %>
+</p>
+<p>
+  <strong>Distance Restaurant:</strong>
+  <%=h @house.distance_restaurant %>
+</p>
+<p>
+  <strong>House Description:</strong>
+  <%=h @house.house_description %>
+</p>
+<p>
+  <strong>Bedroom Description:</strong>
+  <%=h @house.bedroom_description %>
+</p>
+<p>
+  <strong>Kitchen Description:</strong>
+  <%=h @house.kitchen_description %>
+</p>
+<p>
+  <strong>Bathroom Description:</strong>
+  <%=h @house.bathroom_description %>
+</p>
+<p>
+  <strong>Yard Description:</strong>
+  <%=h @house.yard_description %>
+</p>
+<p>
+  <strong>Other Description:</strong>
+  <%=h @house.other_description %>
+</p>
+<p>
+  <strong>Owner Speaks:</strong>
+  <%=h @house.owner_speaks %>
+</p>
+<p>
+  <strong>Owner Place:</strong>
+  <%=h @house.owner_place %>
+</p>
+<p>
+  <strong>House Type:</strong>
+  <%=h @house.house_type_id %>
+</p>
+<p>
+  <strong>Condition:</strong>
+  <%=h @house.condition_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_house_path(@house) %> |
+  <%= link_to "Destroy", @house, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", houses_path %>
+</p>

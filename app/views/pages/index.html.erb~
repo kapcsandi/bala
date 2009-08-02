@@ -1,0 +1,19 @@
+<% title "Pages" %>
+
+<table>
+  <tr>
+    <th><%= t :title %></th>
+    <th><%= t :published %></th>
+  </tr>
+  <% for page in @pages %>
+    <tr>
+      <td><%=h page.title %></td>
+      <td><%= t page.published %></td>
+      <td><%= link_to t(:show), page %></td>
+      <td><%= link_to t(:edit), edit_page_path(page) %></td>
+      <td><%= link_to t(:destroy), page, :confirm => t(:are_you_sure), :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Page", new_page_path %></p>

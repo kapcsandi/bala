@@ -1,0 +1,12 @@
+<% title "Page" %>
+
+<p>
+  <strong>Published:</strong>
+  <%=h @page.published %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_page_path(@page) %> |
+  <%= link_to "Destroy", @page, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", pages_path %>
+</p>

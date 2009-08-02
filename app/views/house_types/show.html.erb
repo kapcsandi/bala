@@ -1,0 +1,12 @@
+<% title "House Type" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @house_type.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_house_type_path(@house_type) %> |
+  <%= link_to "Destroy", @house_type, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", house_types_path %>
+</p>

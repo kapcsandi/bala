@@ -1,0 +1,2 @@
+module LaysHelper
+end

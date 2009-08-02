@@ -1,0 +1,14 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+hu:
+  hello: "Szia világ!"
+
+  title: Cím
+  published: Élesítve
+  body: Törzs
+  false: nem
+  show: Megtekintés
+  edit: Szerkesztés
+  destroy: Törlés
+  are_you_sure: Biztos benne?

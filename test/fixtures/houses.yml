@@ -1,0 +1,39 @@
+one:
+  city_id: 1
+  code: MyString
+  persons: 1
+  floor_area: 1
+  animals: 1
+  distance_center: 1
+  distance_beach: 1
+  distance_restaurant: 1
+  house_description: MyString
+  bedroom_description: MyString
+  kitchen_description: MyString
+  bathroom_description: MyString
+  yard_description: MyString
+  other_description: MyString
+  owner_speaks: MyString
+  owner_place: MyString
+  house_type_id: MyString
+  condition_id: 1
+
+two:
+  city_id: 1
+  code: MyString
+  persons: 1
+  floor_area: 1
+  animals: 1
+  distance_center: 1
+  distance_beach: 1
+  distance_restaurant: 1
+  house_description: MyString
+  bedroom_description: MyString
+  kitchen_description: MyString
+  bathroom_description: MyString
+  yard_description: MyString
+  other_description: MyString
+  owner_speaks: MyString
+  owner_place: MyString
+  house_type_id: MyString
+  condition_id: 1

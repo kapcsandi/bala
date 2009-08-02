@@ -1,0 +1,17 @@
+<% title "Lays" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for lay in @lays %>
+    <tr>
+      <td><%=h lay.name %></td>
+      <td><%= link_to "Show", lay %></td>
+      <td><%= link_to "Edit", edit_lay_path(lay) %></td>
+      <td><%= link_to "Destroy", lay, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Lay", new_lay_path %></p>
