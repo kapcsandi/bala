@@ -128,8 +128,19 @@ module ActiveScaffold
       @active_scaffold_custom_paths << path
     end
 
+    def add_active_scaffold_override_path(path)
+      @active_scaffold_paths = nil # Force active_scaffold_paths to rebuild
+      @active_scaffold_overrides.unshift path
+    end
+
     def active_scaffold_paths
-      @active_scaffold_paths ||= ActionView::PathSet.new(@active_scaffold_overrides + @active_scaffold_custom_paths + @active_scaffold_frontends) unless @active_scaffold_overrides.nil? || @active_scaffold_custom_paths.nil? || @active_scaffold_frontends.nil?
+      return @active_scaffold_paths unless @active_scaffold_paths.nil?
+
+      @active_scaffold_paths = ActionView::PathSet.new
+      @active_scaffold_paths.concat @active_scaffold_overrides unless @active_scaffold_overrides.nil?
+      @active_scaffold_paths.concat @active_scaffold_custom_paths unless @active_scaffold_custom_paths.nil?
+      @active_scaffold_paths.concat @active_scaffold_frontends unless @active_scaffold_frontends.nil?
+      @active_scaffold_paths
     end
 
     def active_scaffold_config

@@ -12,6 +12,11 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user
   before_filter :set_locale
+  
+  ActiveScaffold.set_defaults do |config| 
+    config.ignore_columns.add [:created_at, :updated_at, :lock_version]
+  end
+  
   private
 
   def current_user_session

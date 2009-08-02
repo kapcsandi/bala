@@ -8,7 +8,7 @@ class CreatePages < ActiveRecord::Migration
   end
 
   def self.down
-    Article.drop_translation_table! 
+    Page.drop_translation_table! 
     drop_table :pages
   end
 end

@@ -8,7 +8,7 @@ end
   
 module Globalize  
   module Backend
-    class Chain      
+    class Chain < I18n::Backend::Simple
       def initialize(*args)
         add(*args) unless args.empty?
       end
@@ -30,6 +30,14 @@ module Globalize
         end
       end
       
+      def reload!
+        backends.each{|backend| backend.reload! }
+      end
+
+      def available_locales
+        backends.inject([]) { |locales, backend| locales += backend.available_locales }.uniq
+      end
+
       def load_translations(*args)
         backends.each{|backend| backend.load_translations(*args) }
       end
@@ -61,20 +69,15 @@ module Globalize
           begin
             translation = backend.translate(locale.to_sym, key, options) 
             if namespace_lookup?(translation, options)
-              namespace.merge! translation
+              namespace ? namespace.merge!(translation) : translation
             elsif translation
               return translation 
             end
           rescue I18n::MissingTranslationData
+            namespace
           end
         end
         result || default(locale, default, options) || raise(I18n::MissingTranslationData.new(locale, key, options))
-      end
-      
-      def localize(locale, object, format = :default)
-        backends.each do |backend|
-          result = backend.localize(locale, object, format) and return result
-        end
       end
     
       protected

@@ -1,4 +1,20 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :cities
+
+  map.resources :houses
+
+  map.resources :houses
+
+  map.resources :room_types
+
+  map.resources :rooms
+
+  map.resources :lays
+
+  map.resources :lays
+
+  map.resources :house_types
+
   map.resources :pages
 
   map.login "login", :controller => "user_sessions", :action => "new"
@@ -8,6 +24,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :user_sessions
 
   map.resources :users
+  
+  map.resources :conditions, :active_scaffold => true
 
   map.root :controller => "users", :action => "index"
   

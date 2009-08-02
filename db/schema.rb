@@ -9,7 +9,84 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090630211432) do
+ActiveRecord::Schema.define(:version => 20090801053247) do
+
+  create_table "cities", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "condition_translations", :force => true do |t|
+    t.integer  "condition_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "conditions", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "house_translations", :force => true do |t|
+    t.integer  "house_id"
+    t.string   "locale"
+    t.string   "kitchen_description"
+    t.string   "bathroom_description"
+    t.string   "yard_description"
+    t.string   "other_description"
+    t.string   "house_description"
+    t.string   "owner_speaks"
+    t.string   "bedroom_description"
+    t.string   "owner_place"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "house_type_translations", :force => true do |t|
+    t.integer  "house_type_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "house_types", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "houses", :force => true do |t|
+    t.integer  "city_id"
+    t.string   "code"
+    t.integer  "persons"
+    t.integer  "floor_area"
+    t.integer  "animals"
+    t.integer  "distance_center"
+    t.integer  "distance_beach"
+    t.integer  "distance_restaurant"
+    t.integer  "house_type_id"
+    t.integer  "condition_id"
+    t.string   "admin_description"
+    t.string   "hidden_description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lay_translations", :force => true do |t|
+    t.integer  "lay_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lays", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "page_translations", :force => true do |t|
     t.integer  "page_id"
@@ -22,6 +99,19 @@ ActiveRecord::Schema.define(:version => 20090630211432) do
 
   create_table "pages", :force => true do |t|
     t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "room_type_translations", :force => true do |t|
+    t.integer  "room_type_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "room_types", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
