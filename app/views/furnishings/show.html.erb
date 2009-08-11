@@ -1,0 +1,16 @@
+<% title "Furnishing" %>
+
+<p>
+  <strong>Id:</strong>
+  <%=h @furnishing.id %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%=h @furnishing.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_furnishing_path(@furnishing) %> |
+  <%= link_to "Destroy", @furnishing, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", furnishings_path %>
+</p>

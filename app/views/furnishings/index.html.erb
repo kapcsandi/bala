@@ -1,0 +1,19 @@
+<% title "Furnishings" %>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+  </tr>
+  <% for furnishing in @furnishings %>
+    <tr>
+      <td><%=h furnishing.id %></td>
+      <td><%=h furnishing.name %></td>
+      <td><%= link_to "Show", furnishing %></td>
+      <td><%= link_to "Edit", edit_furnishing_path(furnishing) %></td>
+      <td><%= link_to "Destroy", furnishing, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Furnishing", new_furnishing_path %></p>

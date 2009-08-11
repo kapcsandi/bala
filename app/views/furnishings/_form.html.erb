@@ -1,0 +1,12 @@
+<% form_for @furnishing do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

@@ -1,0 +1,16 @@
+<% title "Discount" %>
+
+<p>
+  <strong>House:</strong>
+  <%=h @discount.house_id %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%=h @discount.description %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_discount_path(@discount) %> |
+  <%= link_to "Destroy", @discount, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", discounts_path %>
+</p>

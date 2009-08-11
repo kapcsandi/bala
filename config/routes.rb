@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :furnishings
+
+  map.resources :discounts
+
   map.resources :cities
 
   map.resources :houses

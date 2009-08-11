@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090801053247) do
+ActiveRecord::Schema.define(:version => 20090811183539) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -26,6 +26,33 @@ ActiveRecord::Schema.define(:version => 20090801053247) do
   end
 
   create_table "conditions", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "discount_translations", :force => true do |t|
+    t.integer  "discount_id"
+    t.string   "locale"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "discounts", :force => true do |t|
+    t.integer  "house_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "furnishing_translations", :force => true do |t|
+    t.integer  "furnishing_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "furnishings", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -73,6 +100,7 @@ ActiveRecord::Schema.define(:version => 20090801053247) do
     t.string   "hidden_description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "furnishing_id"
   end
 
   create_table "lay_translations", :force => true do |t|

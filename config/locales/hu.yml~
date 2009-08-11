@@ -12,3 +12,44 @@ hu:
   edit: Szerkesztés
   destroy: Törlés
   are_you_sure: Biztos benne?
+
+  New House: Új ház
+  house: Ház
+  city_id: Település
+  select_city: Válassz települést
+  code: Kód
+  house_type_id: Típus
+  select_house_type: Válassz apartman típust
+  condition_id: Állapot
+  select_condition: Válassz apartman állapotot
+  furnishing_id: Berendezés
+  select_furnishing: Válassz berendezés állapotot
+  discounted: Akciós
+  description: Leírás
+  discount_description: Akció leírása
+
+  errors:
+    blank: nem lehet üres
+
+  activerecord:
+    models:
+      house: Ház
+
+    attributes:
+      house:
+        city_id: Település
+        code: Kód
+        condition: Állapot
+        furnishing: Berendezés
+    errors:
+      template:
+        header: "{{count}} hiba megakadályozta a {{model}} elmentését"
+        body: "Problémák voltak a következő mezőkkel"
+      
+      models:
+        house:
+          attributes:
+             furnishing:
+             condition:
+               blank: nem lehet üres
+             

@@ -9,6 +9,29 @@
     <%= f.text_field :code %>
   </p>
   <p>
+    <%= f.label t :house_type_id %><br />
+    <%= f.collection_select :house_type_id, HouseType.all, :id, :name, :prompt => t(:select_house_type) %>
+  </p>
+  <p>
+    <%= f.label t :condition_id %><br />
+    <%= f.collection_select :condition_id, Condition.all, :id, :name, :prompt => t(:select_condition) %>
+  </p>
+  <p>
+    <%= f.label t :furnishing_id %><br />
+    <%= f.collection_select :furnishing_id, Furnishing.all, :id, :name, :prompt => t(:select_furnishing) %>
+  </p>
+  <p>
+    <%= check_box_tag :discounted, 1, @house.discounted?, :onchange => "$('discount_description').toggle()" %>
+    <%= f.label t :discounted %> <br />
+  </p>
+  <div id="discount_description"<%= "style='display:none'" unless @house.discounted? %>>
+  <p>
+    <% f.fields_for :discount do |d| -%>
+      <%= render :partial => 'discount_form', :locals => { :form => d } %>
+    <% end %>
+  </p>
+  </div>
+  <p>
     <%= f.label t :persons %><br />
     <%= f.text_field :persons %>
   </p>
@@ -63,14 +86,6 @@
   <p>
     <%= f.label t :owner_place %><br />
     <%= f.text_field :owner_place %>
-  </p>
-  <p>
-    <%= f.label t :house_type_id %><br />
-    <%= f.collection_select :house_type_id, HouseType.all, :id, :name, :prompt => t(:select_house_type) %>
-  </p>
-  <p>
-    <%= f.label t :condition_id %><br />
-    <%= f.collection_select :condition_id, Condition.all, :id, :name, :prompt => t(:select_condition) %>
   </p>
   <p><%= f.submit t(:submit) %></p>
 <% end %>

@@ -12,7 +12,9 @@
   <body>
     <div id="container">
       <div id="user_nav"> 
-	<% I18n.available_locales.each do |locale| 
+	<% 
+#	I18n.available_locales
+	[:de, :hu].each do |locale| 
           next if locale == :root or locale == :en %>
         <%= link_to_unless I18n.locale.to_s == locale.to_s, locale, "?locale="+locale.to_s %> |
         <% end %>

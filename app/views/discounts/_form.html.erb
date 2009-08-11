@@ -1,0 +1,12 @@
+<% form_for @discount do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :house_id %><br />
+    <%= f.text_field :house_id %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

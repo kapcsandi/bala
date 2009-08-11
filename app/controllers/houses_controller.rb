@@ -1,4 +1,5 @@
 class HousesController < ApplicationController
+#  before_filter :discounted, :only => [:new, :create, :edit, :update]
   def index
     @houses = House.all
   end
@@ -9,6 +10,7 @@ class HousesController < ApplicationController
   
   def new
     @house = House.new
+    @discount = @house.build_discount
   end
   
   def create
@@ -23,11 +25,17 @@ class HousesController < ApplicationController
   
   def edit
     @house = House.find(params[:id])
+    if @house.discounted?
+      @discount = @house.discount
+    else
+      @discount = @house.build_discount
+    end
   end
   
   def update
     @house = House.find(params[:id])
     if @house.update_attributes(params[:house])
+      @house.discount.destroy unless params[:discounted]
       flash[:notice] = "Successfully updated house."
       redirect_to @house
     else
@@ -41,4 +49,9 @@ class HousesController < ApplicationController
     flash[:notice] = "Successfully destroyed house."
     redirect_to houses_url
   end
+  
+private
+#  def discounted
+    
+#  end
 end
