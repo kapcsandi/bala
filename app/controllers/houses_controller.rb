@@ -11,6 +11,8 @@ class HousesController < ApplicationController
   def new
     @house = House.new
     @discount = @house.build_discount
+    @house.taggables.build
+    @house.tags.build
   end
   
   def create
@@ -25,6 +27,8 @@ class HousesController < ApplicationController
   
   def edit
     @house = House.find(params[:id])
+    @house.taggables.build
+    @house.tags.build
     if @house.discounted?
       @discount = @house.discount
     else

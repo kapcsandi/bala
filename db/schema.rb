@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090811183539) do
+ActiveRecord::Schema.define(:version => 20090812192438) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -103,15 +103,16 @@ ActiveRecord::Schema.define(:version => 20090811183539) do
     t.integer  "furnishing_id"
   end
 
-  create_table "lay_translations", :force => true do |t|
-    t.integer  "lay_id"
-    t.string   "locale"
-    t.string   "name"
+  create_table "houses_taggables", :force => true do |t|
+    t.integer  "house_id"
+    t.integer  "taggable_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "lays", :force => true do |t|
+  create_table "houses_tags", :force => true do |t|
+    t.integer  "house_id"
+    t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -153,6 +154,34 @@ ActiveRecord::Schema.define(:version => 20090811183539) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "tag_translations", :force => true do |t|
+    t.integer  "tag_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "taggable_translations", :force => true do |t|
+    t.integer  "taggable_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "taggables", :force => true do |t|
+    t.string   "context"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", :force => true do |t|
+    t.integer  "taggable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username"

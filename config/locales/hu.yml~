@@ -41,6 +41,8 @@ hu:
         code: Kód
         condition: Állapot
         furnishing: Berendezés
+        house_type: Apartman típusa
+
     errors:
       template:
         header: "{{count}} hiba megakadályozta a {{model}} elmentését"
@@ -50,6 +52,11 @@ hu:
         house:
           attributes:
              furnishing:
+               blank: nem lehet üres
              condition:
+               blank: nem lehet üres
+             house_type:
+               blank: nem lehet üres
+             city_id:
                blank: nem lehet üres
              

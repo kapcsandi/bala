@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :taggables
+
+  map.resources :tags
+
+  map.resources :taggables
+
   map.resources :furnishings
 
   map.resources :discounts
@@ -7,15 +13,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :houses
 
-  map.resources :houses
-
   map.resources :room_types
 
   map.resources :rooms
-
-  map.resources :lays
-
-  map.resources :lays
 
   map.resources :house_types
 

@@ -1,0 +1,12 @@
+<% title "Condition" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @condition.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_condition_path(@condition) %> |
+  <%= link_to "Destroy", @condition, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", conditions_path %>
+</p>

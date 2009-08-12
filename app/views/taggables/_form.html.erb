@@ -1,0 +1,30 @@
+<% form_for @taggable do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :context %><br />
+    <%= f.text_field :context %>
+  </p>
+
+  <div id="tags">
+    <%= f.label :tags %><br />
+  <% f.fields_for :tags do |tag_form| %>
+    <p>
+    <%= tag_form.label :name %>
+    <%= tag_form.text_field :name %>
+    </p>
+    <% unless tag_form.object.new_record? %>
+      <!-- For existing records we add a checkbox to be able to delete records. -->
+      <%= tag_form.label :_delete, "Remove:" %>
+      <%= tag_form.check_box :_delete %>
+     <% end %>
+  <% end %>
+  </div>
+  <p>
+    <%= add_tag_link "Add a tag", f %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

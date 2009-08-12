@@ -8,7 +8,7 @@ class CreateFurnishings < ActiveRecord::Migration
   end
   
   def self.down
-    Furniching.drop_translation_table!
+    Furnishing.drop_translation_table!
     drop_table :furnishings
   end
 end

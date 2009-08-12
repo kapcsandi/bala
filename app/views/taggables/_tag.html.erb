@@ -1,0 +1,8 @@
+<div class="tag">
+<% pf.fields_for :tags, tag do |f| %>
+  <p>
+    <%= f.label :name, "Tag:" %>
+    <%= f.text_field :name %>
+  </p>
+<% end %>
+</div>

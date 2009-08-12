@@ -2,12 +2,10 @@
 
 <table>
   <tr>
-    <th>Id</th>
     <th>Name</th>
   </tr>
   <% for furnishing in @furnishings %>
     <tr>
-      <td><%=h furnishing.id %></td>
       <td><%=h furnishing.name %></td>
       <td><%= link_to "Show", furnishing %></td>
       <td><%= link_to "Edit", edit_furnishing_path(furnishing) %></td>

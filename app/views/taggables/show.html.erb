@@ -1,0 +1,21 @@
+<% title "Taggable" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @taggable.name %>
+</p>
+<p>
+  <strong>Context:</strong>
+  <%=h @taggable.context %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%=h @taggable.tags.map {|tag| tag.name }.join(', ') %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_taggable_path(@taggable) %> |
+  <%= link_to "Destroy", @taggable, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", taggables_path %>
+</p>

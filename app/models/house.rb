@@ -12,8 +12,13 @@ class House < ActiveRecord::Base
   belongs_to :furnishing
   belongs_to :condition
   has_one :discount, :dependent => :destroy
+  has_many :houses_taggables
+  has_many :taggables, :through => :houses_taggables
+  has_many :houses_tags
+  has_many :tags, :through => :houses_tags
 
   accepts_nested_attributes_for :discount, :allow_destroy => true
+  accepts_nested_attributes_for :tags, :allow_destroy => true
   
   validates_presence_of :city_id, :house_type, :condition, :furnishing
   

@@ -39,6 +39,17 @@
     <%= f.label t :floor_area %><br />
     <%= f.text_field :floor_area %>
   </p>
+
+  <% for context in Taggable.all do %>
+  <p>
+    <%= f.label context.context %><br />
+      <% for tag in context.tags %>
+        <%= check_box_tag 'house[tag_ids][]', tag.id, @house.tags.include?(tag) %>
+        <%= f.label tag.name %><br />
+      <% end %>
+  </p>
+  <% end %>
+
   <p>
     <%= f.label t :animals %><br />
     <%= f.text_field :animals %>
