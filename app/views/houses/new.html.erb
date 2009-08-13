@@ -1,5 +1,13 @@
 <% title t "New House" %>
 
-<%= render :partial => 'form' %>
+<% empties = House.column_names.select{|name| name.match(/_id/) }.select{|field| Taggable.find_by_field(field).nil? }.join(', ') %>
 
+<% unless empties.empty? %>
+  Empty disctionary fields:
+  <%= empties %>
+<p><%= link_to "Add Taggabes", new_taggable_path %></p>
+
+<% else %>
+<%= render :partial => 'form' %>
+<% end %>
 <p><%= link_to "Back to List", houses_path %></p>

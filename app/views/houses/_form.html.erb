@@ -2,7 +2,7 @@
   <%= f.error_messages %>
   <p>
     <%= f.label t :city_id %><br />
-    <%= f.collection_select :city_id, City.all, :id, :name, :prompt => t(:select_city) %>
+    <%= f.collection_select :city_id, Taggable.find_by_field('city_id').tags, :id, :name, :prompt => t(:select_city) %>
   </p>
   <p>
     <%= f.label t :code %><br />
@@ -10,15 +10,15 @@
   </p>
   <p>
     <%= f.label t :house_type_id %><br />
-    <%= f.collection_select :house_type_id, HouseType.all, :id, :name, :prompt => t(:select_house_type) %>
+    <%= f.collection_select :house_type_id, Taggable.find_by_field('house_type_id').tags, :id, :name, :prompt => t(:select_house_type) %>
   </p>
   <p>
     <%= f.label t :condition_id %><br />
-    <%= f.collection_select :condition_id, Condition.all, :id, :name, :prompt => t(:select_condition) %>
+    <%= f.collection_select :condition_id, Taggable.find_by_field('condition_id').tags, :id, :name, :prompt => t(:select_condition) %>
   </p>
   <p>
     <%= f.label t :furnishing_id %><br />
-    <%= f.collection_select :furnishing_id, Furnishing.all, :id, :name, :prompt => t(:select_furnishing) %>
+    <%= f.collection_select :furnishing_id, Taggable.find_by_field('furnishing_id').tags, :id, :name, :prompt => t(:select_furnishing) %>
   </p>
   <p>
     <%= check_box_tag :discounted, 1, @house.discounted?, :onchange => "$('discount_description').toggle()" %>
@@ -40,7 +40,7 @@
     <%= f.text_field :floor_area %>
   </p>
 
-  <% for context in Taggable.all do %>
+  <% for context in Taggable.find_all_by_multi(1) do %>
   <p>
     <%= f.label context.context %><br />
       <% for tag in context.tags %>
@@ -52,7 +52,7 @@
 
   <p>
     <%= f.label t :animals %><br />
-    <%= f.text_field :animals %>
+    <%= f.check_box :animals %>
   </p>
   <p>
     <%= f.label t :distance_center %><br />

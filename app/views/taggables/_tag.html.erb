@@ -1,7 +1,7 @@
 <div class="tag">
 <% pf.fields_for :tags, tag do |f| %>
   <p>
-    <%= f.label :name, "Tag:" %>
+    <%= f.label :name, t( :tag ) %>
     <%= f.text_field :name %>
   </p>
 <% end %>

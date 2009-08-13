@@ -2,13 +2,19 @@
 
 <table>
   <tr>
+    <th>Field</th>
     <th>Name</th>
     <th>Context</th>
+    <th>Multi</th>
+    <th>Position</th>
   </tr>
   <% for taggable in @taggables %>
     <tr>
+      <td><%=h taggable.field %></td>
       <td><%=h taggable.name %></td>
       <td><%=h taggable.context %></td>
+      <td><%=h taggable.multi %></td>
+      <td><%=h taggable.position %></td>
       <td><%= link_to "Show", taggable %></td>
       <td><%= link_to "Edit", edit_taggable_path(taggable) %></td>
       <td><%= link_to "Destroy", taggable, :confirm => 'Are you sure?', :method => :delete %></td>

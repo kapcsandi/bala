@@ -29,6 +29,12 @@ hu:
   discount_description: Akció leírása
   persons: Max. személyek száma
   floor_area: Alapterület
+  animals: Háziállat hozható?
+  distance_center: Távolság centrumtól
+  distance_beach: Távolság szabadstrandtól
+  distance_restaurant: Távolság vendéglőtől
+  distance_shop: Távolság élelmiszerbolttól
+  house_description: Megjegyzés 1
   submit: Beküldés
 
   errors:
@@ -42,9 +48,9 @@ hu:
       house:
         city_id: Település
         code: Kód
-        condition: Állapot
-        furnishing: Berendezés
-        house_type: Apartman típusa
+        condition_id: Állapot
+        furnishing_id: Berendezés
+        house_type_id: Apartman típusa
 
     errors:
       template:
@@ -54,11 +60,11 @@ hu:
       models:
         house:
           attributes:
-             furnishing:
+             furnishing_id:
                blank: nem lehet üres
-             condition:
+             condition_id:
                blank: nem lehet üres
-             house_type:
+             house_type_id:
                blank: nem lehet üres
              city_id:
                blank: nem lehet üres

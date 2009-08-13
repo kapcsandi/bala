@@ -1,6 +1,10 @@
 <% form_for @taggable do |f| %>
   <%= f.error_messages %>
   <p>
+    <%= f.label :field %><br />
+    <%= f.text_field :field %>
+  </p>
+  <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
@@ -8,12 +12,20 @@
     <%= f.label :context %><br />
     <%= f.text_field :context %>
   </p>
+  <p>
+    <%= f.label :multi %><br />
+    <%= f.check_box :position %>
+  </p>
+  <p>
+    <%= f.label :position %><br />
+    <%= f.text_field :position %>
+  </p>
 
   <div id="tags">
     <%= f.label :tags %><br />
   <% f.fields_for :tags do |tag_form| %>
     <p>
-    <%= tag_form.label :name %>
+    <%= tag_form.label t :tag %>
     <%= tag_form.text_field :name %>
     </p>
     <% unless tag_form.object.new_record? %>

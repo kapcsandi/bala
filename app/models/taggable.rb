@@ -1,6 +1,6 @@
 class Taggable < ActiveRecord::Base
-  translates :name
-  validates_presence_of :context
+  translates :name, :context
+  validates_presence_of :field, :name, :context
 
   has_many :tags
   has_many :houses_taggables

@@ -1,12 +1,13 @@
 class CreateTaggables < ActiveRecord::Migration
   def self.up
     create_table :taggables do |t|
-#      t.string :name
-      t.string :context
+      t.string :field
+      t.integer :multi
+      t.integer :position
 
       t.timestamps
     end
-    Taggable.create_translation_table! :name => :string
+    Taggable.create_translation_table! :name => :string, :context => :string
   end
 
   def self.down

@@ -3,14 +3,15 @@ class CreateHouses < ActiveRecord::Migration
     create_table :houses do |t|
       t.integer :city_id
       t.string :code
+      t.integer :house_type_id
+      t.integer :condition_id
+      t.integer :furnishing_id
       t.integer :persons
       t.integer :floor_area
       t.integer :animals
       t.integer :distance_center
       t.integer :distance_beach
       t.integer :distance_restaurant
-      t.integer :house_type_id
-      t.integer :condition_id
       t.string :admin_description
       t.string :hidden_description
       t.timestamps

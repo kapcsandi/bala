@@ -1,5 +1,8 @@
 <% title "New Taggable" %>
 
+Empty disctionary fields:
+<%= House.column_names.select{|name| name.match(/_id/) }.select{|field| Taggable.find_by_field(field).nil? }.join(', ') %>
+
 <%= render :partial => 'form' %>
 
 <p><%= link_to "Back to List", taggables_path %></p>
