@@ -18,7 +18,7 @@
 </p>
 <p>
   <strong>Animals:</strong>
-  <%=h @house.animals %>
+  <%= check_box_tag @house.animals, 1, @house.animals==1, :disabled => true %>
 </p>
 <p>
   <strong>Distance Center:</strong>
