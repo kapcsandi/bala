@@ -1,7 +1,7 @@
 body {
   background-color: #FFF;
   font-family: Verdana, Helvetica, Arial;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 a img {
@@ -120,3 +120,5 @@ body {
   float: right;
   font-size: 12px;
 }
+
+th {float:left}

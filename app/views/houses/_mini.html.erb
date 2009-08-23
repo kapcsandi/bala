@@ -1,0 +1,58 @@
+  <tr>
+    <th><%= t :city %></th>
+    <td><%=h house.city %></td>
+  </tr>
+  <tr>
+    <th><%= t :code %></th>
+    <td><%=h house.code %></td>
+  </tr>
+  <tr>
+    <th><%= t :discount %></th>
+    <td><%=h house.discount.description if house.discounted? %></td>
+  </tr>
+  <tr>
+    <td rowspan="10"><%= image_tag house.picture_urls[0], :size => '90x50' %></td>
+    <th><%= t :persons %></th>
+    <td><%=h house.persons %> <%= t('pers') %></td>
+  </tr>
+  <tr>
+    <th><%= t :floor_area %></th>
+    <td><%=h house.floor_area %> <%= t('sqmeter') %></td>
+  </tr>
+  <tr>
+    <th><%= t :animals %></th>
+    <td><%= house.animals==1 ? t('yes_animal') : t('no_animal') %></td>
+  </tr>
+  <tr>
+    <th><%= t :distance_center %></th>
+    <td><%=h house.distance_center %> <%= t('meter') %></td>
+  </tr>
+  <tr>
+    <th><%= t :distance_beach %></th>
+    <td><%=h house.distance_beach %> <%= t('meter') %></td>
+  </tr>
+  <tr>
+    <th><%= t :distance_shop %></th>
+    <td><%=h house.distance_shop %> <%= t('meter') %></td>
+  </tr>
+  <tr>
+    <th><%= t :distance_restaurant %></th>
+    <td><%=h house.distance_restaurant %> <%= t('meter') %></td>
+  </tr>
+  <tr>
+    <th><%= t :house_type_id %></th>
+    <td><%=h house.house_type %></td>
+  </tr>
+  <tr>
+    <th><%= t :condition_id %></th>
+    <td><%=h house.condition %></td>
+  </tr>
+  <tr>
+    <th><%= t :furnishing_id %></th>
+    <td><%=h house.furnishing %></td>
+  </tr>
+  <tr>
+    <td><%= link_to t("Show"), house %></td>
+    <td><%= link_to t("Edit"), edit_house_path(house) %></td>
+    <td><%= link_to t("Destroy"), house, :confirm => t('Are you sure?'), :method => :delete %></td>
+  </tr>

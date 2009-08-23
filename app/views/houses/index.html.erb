@@ -1,39 +1,9 @@
-<% title "Houses" %>
+<% title  t "Houses" %>
 
 <table>
-  <tr>
-    <th>City</th>
-    <th>Code</th>
-    <th>Discount</th>
-    <th>Persons</th>
-    <th>Floor Area</th>
-    <th>Animals</th>
-    <th>Distance Center</th>
-    <th>Distance Beach</th>
-    <th>Distance Restaurant</th>
-    <th>House Type</th>
-    <th>Condition</th>
-    <th>Furnishing</th>
-  </tr>
   <% for house in @houses %>
-    <tr>
-      <td><%=h house.city %></td>
-      <td><%=h house.code %></td>
-      <td><%=h house.discount.description if house.discounted? %></td>
-      <td><%=h house.persons %></td>
-      <td><%=h house.floor_area %></td>
-      <td><%=h house.animals %></td>
-      <td><%=h house.distance_center %></td>
-      <td><%=h house.distance_beach %></td>
-      <td><%=h house.distance_restaurant %></td>
-      <td><%=h house.house_type %></td>
-      <td><%=h house.condition %></td>
-      <td><%=h house.furnishing %></td>
-      <td><%= link_to "Show", house %></td>
-      <td><%= link_to "Edit", edit_house_path(house) %></td>
-      <td><%= link_to "Destroy", house, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
+  <%= render :partial => 'mini', :locals => { :house => house } %>
   <% end %>
 </table>
 
-<p><%= link_to "New House", new_house_path %></p>
+<p><%= link_to t("New House"), new_house_path %></p>

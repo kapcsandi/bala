@@ -264,7 +264,7 @@
       <%= text_area_tag :admin_description, @house.admin_description, :disabled => true  %>
     </p>
   <% end %>
-  <% field_set_tag 'Leírások' do %>
+  <% field_set_tag t('pictures') do %>
     <p>
     <% (0..7).each do |id| %>
       <%= label_tag t :picture_url, :position => id+1 %>
