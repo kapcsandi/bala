@@ -254,8 +254,8 @@
   <% end %>
   <% field_set_tag 'Képek' do %>
     <% (0..7).each do |id| %>
-      <%= f.label t :picture_url %>
-      <%= text_field_tag 'house[picture_urls][]', @house.picture_urls[id] %><br />
+      <%= f.label t :picture_url, :position => id+1 %>
+      <%= text_field_tag 'house[picture_urls][]', @house.picture_urls ? @house.picture_urls[id] : nil %><br />
     <% end %>
   <% end %>
   <p><%= f.submit t(:submit) %></p>

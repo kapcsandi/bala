@@ -13,6 +13,7 @@ class HousesController < ApplicationController
     @discount = @house.build_discount
     @house.taggables.build
     @house.tags.build
+    @empties = empties_helper
   end
   
   def create

@@ -1,11 +1,9 @@
 <% title t "New House" %>
 
-<% empties = empties_helper %>
-
-<% unless empties.empty? %>
+<% unless @empties.empty? %>
   Empty disctionary fields:
-  <%= empties %>
-<p><%= link_to "Add Taggabes", new_taggable_path %></p>
+  <%= @empties %>
+<p><%= link_to "Add Taggabes", new_taggable_path %> or <%= link_to "Setup", setup_path %></p>
 
 <% else %>
 <%= render :partial => 'form' %>

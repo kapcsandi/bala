@@ -267,7 +267,7 @@
   <% field_set_tag 'Leírások' do %>
     <p>
     <% (0..7).each do |id| %>
-      <%= label_tag t :picture_url %>
+      <%= label_tag t :picture_url, :position => id+1 %>
       <%= text_field_tag 'house[picture_urls][]', @house.picture_urls[id], :disabled => true %><br />
     <% end %>
     </p>
