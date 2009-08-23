@@ -91,8 +91,9 @@ hu:
   price_main_season: Főszezon
   house_description: Megjegyzés 1 (ház leírás)
   admin_description: Megjegyzés 2 (admin megjegyzés)
+  picture_urls: Kép útvonal
   submit: Beküldés
-  house: Ház
+  House: Ház
 
   errors:
     blank: nem lehet üres

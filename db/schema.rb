@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090822230337) do
+ActiveRecord::Schema.define(:version => 20090823131409) do
 
   create_table "discount_translations", :force => true do |t|
     t.integer  "discount_id"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(:version => 20090822230337) do
     t.integer  "price_pre_season"
     t.integer  "price_mid_season"
     t.integer  "price_main_season"
+    t.string   "pictures"
   end
 
   create_table "houses_taggables", :force => true do |t|

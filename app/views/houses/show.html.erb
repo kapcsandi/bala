@@ -38,6 +38,15 @@
       <%= label_tag t :floor_area %>:
       <%=h @house.floor_area %>
     </p>
+    <% field = Taggable.find_by_position(80)
+     tagnames = [] %>
+    <p>
+      <%= label_tag field.name %>:
+	<% for tag in field.tags %>
+          <% tagnames << tag.name if @house.tags.include?(tag) %>
+	<% end %>
+      <%= tagnames.join(', ') %>
+    </p>
   <% end %>
   <% field_set_tag 'Helyiségek elrendezése' do %>
     <% for field in Taggable.find_all_by_position([8, 9, 10, 11])
@@ -253,6 +262,14 @@
     <p>
       <%= label_tag t :admin_description %>:<br />
       <%= text_area_tag :admin_description, @house.admin_description, :disabled => true  %>
+    </p>
+  <% end %>
+  <% field_set_tag 'Leírások' do %>
+    <p>
+    <% (0..7).each do |id| %>
+      <%= label_tag t :picture_url %>
+      <%= text_field_tag 'house[picture_urls][]', @house.picture_urls[id], :disabled => true %><br />
+    <% end %>
     </p>
   <% end %>
 

@@ -1,6 +1,6 @@
 <% title t "New House" %>
 
-<% empties = House.column_names.select{|name| name.match(/_id/) }.select{|field| Taggable.find_by_field(field).nil? }.join(', ') %>
+<% empties = empties_helper %>
 
 <% unless empties.empty? %>
   Empty disctionary fields:

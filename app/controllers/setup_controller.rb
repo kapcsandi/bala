@@ -1,8 +1,7 @@
 class SetupController < ApplicationController
   def index
     @result = []
-    empties = House.column_names.select{|name| name.match(/_id/) } + ['accomodation', 'room_types_ground', 'room_types_1st_floor', 'room_types_2nd_floor', 'room_types_mansard', 'owner_speaks']
-    empties = empties.select{|field| Taggable.find_by_field(field).nil? }
+    empties = empties_helper
 
     if params['do']
       empties.each do |field|
@@ -126,6 +125,14 @@ class SetupController < ApplicationController
         taggable.multi = true
         taggable.position = 61
         ['magyar','német','angol','orosz', 'francia', 'olasz'].each do |language|
+          taggable.tags << Tag.new(:name => language)
+        end
+        when 'category':
+        taggable.name = 'Csoport'
+        taggable.context = 'Ház alap infók'
+        taggable.multi = true
+        taggable.position = 80
+        ['Medencés házak', 'Közvetlen vízparti', 'TOP 10', 'FKK', 'Megvásárolható', 'Termál', 'Horvátország'].each do |language|
           taggable.tags << Tag.new(:name => language)
         end
         end

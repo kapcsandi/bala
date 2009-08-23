@@ -71,19 +71,12 @@ class House < ActiveRecord::Base
   def owner_place
     Tag.find(owner_place_id).name unless owner_place_id.nil?
   end
-
-  private
-  def tagnames_by_position(position)
-    Taggable.find_by_position(position).select{|tag| self.tags.include?(tag) }.map{|tag| tag.name}.join(', ')
+  
+  def picture_urls
+    pictures.split(',',8) if pictures
   end
-
-#   
-#   def client_name
-#     client.name if client
-#   end
-# 
-#   def client_name=(name)
-#     return nil if name.blank?
-#     self.client = Client.find_or_create_by_name_and_agency( name,  0)
-#   end
+  
+  def picture_urls=(urls)
+    self.pictures = urls.join(',')
+  end
 end
