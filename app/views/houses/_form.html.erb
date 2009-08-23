@@ -61,8 +61,8 @@
       <%= f.collection_select :terrace_id, Taggable.find_by_field('terrace_id').tags, :id, :name, :prompt => t(:select_terrace) %>
     </p>
     <p>
-      <%= f.check_box :garden_yn %>
-      <%= f.label t :garden_yn %><br />
+      <%= f.check_box :garden %>
+      <%= f.label t :garden %><br />
     </p>
   <% end %>
   <% field_set_tag 'Helyiségek alapterülete' do %>
@@ -86,54 +86,163 @@
       <%= f.label t :bathrooms %><br />
       <%= f.text_field :bathrooms %>
     </p>
-    <% for field in %w(shower_yn bathtub_yn shower_bathtub_yn) %>
+    <% for field in %w(shower bathtub shower_bathtub) %>
     <p>
       <%= f.check_box field %>
       <%= f.label t field %><br />
     </p>
     <% end %>
   <% end %>
-  <p>
-    <%= check_box_tag :discounted, 1, @house.discounted?, :onchange => "$('discount_description').toggle()" %>
-    <%= f.label t :discounted %> <br />
-  </p>
-  <div id="discount_description"<%= "style='display:none'" unless @house.discounted? %>>
-  <p>
-    <% f.fields_for :discount do |d| -%>
-      <%= render :partial => 'discount_form', :locals => { :form => d } %>
-    <% end %>
-  </p>
-  </div>
-
-  <% for context in Taggable.find_all_by_multi(1) do %>
-  <p>
-    <%= f.label context.name %><br />
-      <% for tag in context.tags %>
-        <%= check_box_tag 'house[tag_ids][]', tag.id, @house.tags.include?(tag) %>
-        <%= f.label tag.name %><br />
-      <% end %>
-  </p>
+  <% field_set_tag 'WC' do %>
+    <p>
+      <%= f.label t :wcs %><br />
+      <%= f.text_field :wcs %>
+    </p>
+    <p>
+      <%= f.check_box :wc_separated %>
+      <%= f.label t :wc_separated %><br />
+    </p>
   <% end %>
-
-  <p>
-    <%= f.label t :animals %><br />
-    <%= f.check_box :animals %>
-  </p>
-  <p>
-    <%= f.label t :distance_center %><br />
-    <%= f.text_field :distance_center %>
-  </p>
-  <p>
-    <%= f.label t :distance_beach %><br />
-    <%= f.text_field :distance_beach %>
-  </p>
-  <p>
-    <%= f.label t :distance_restaurant %><br />
-    <%= f.text_field :distance_restaurant %>
-  </p>
-  <p>
-    <%= f.label t :house_description %><br />
-    <%= f.text_field :house_description %>
-  </p>
+  <% field_set_tag 'Konyha' do %>
+    <% for field in %w(fridge coffee_machine micro) %>
+    <p>
+      <%= f.check_box field %>
+      <%= f.label t field %><br />
+    </p>
+    <% end %>
+    <p>
+      <%= f.label t :stove_id %><br />
+      <%= f.collection_select :stove_id, Taggable.find_by_field('stove_id').tags, :id, :name, :prompt => t(:select_stove) %>
+    </p>
+  <% end %>
+  <% field_set_tag 'Egyéb belső felszereltség' do %>
+    <% for field in %w(sat internet) %>
+    <p>
+      <%= f.check_box field %>
+      <%= f.label t field %><br />
+    </p>
+    <% end %>
+    <p>
+      <%= f.label t :clima_id %><br />
+      <%= f.collection_select :clima_id, Taggable.find_by_field('clima_id').tags, :id, :name, :prompt => t(:select_clima) %>
+    </p>
+  <% end %>
+  <% field_set_tag 'Egyéb külső felszereltség' do %>
+    <p>
+      <%= check_box_tag :pool, 1, @house.pool?, :onchange => "$('pool_sq').toggle()" %>
+      <%= f.label t :pool %><br />
+    </p>
+    <div id="pool_sq"<%= "style='display:none'" unless @house.pool? %>>
+      <p>
+	<%= f.label t :pool_sq %><br />
+	<%= f.text_field :pool_sq %>
+      </p>
+    </div>
+    <% for field in %w(garden_seats grill sunbath_seat playground) %>
+    <p>
+      <%= f.check_box field %>
+      <%= f.label t field %><br />
+    </p>
+    <% end %>
+    <p>
+      <%= f.label t :parking_id %><br />
+      <%= f.collection_select :parking_id, Taggable.find_by_field('parking_id').tags, :id, :name, :prompt => t(:select_parking) %>
+    </p>
+  <% end %>
+  <% field_set_tag 'Távolságok' do %>
+    <p>
+      <%= f.label t :distance_center %><br />
+      <%= f.text_field :distance_center %>
+    </p>
+    <p>
+      <%= f.label t :distance_beach %><br />
+      <%= f.text_field :distance_beach %>
+    </p>
+    <p>
+      <%= f.label t :distance_aquapark %><br />
+      <%= f.text_field :distance_aquapark %>
+    </p>
+    <p>
+      <%= f.label t :distance_shop %><br />
+      <%= f.text_field :distance_shop %>
+    </p>
+    <p>
+      <%= f.label t :distance_station %><br />
+      <%= f.text_field :distance_station %>
+    </p>
+    <p>
+      <%= f.label t :distance_medical %><br />
+      <%= f.text_field :distance_medical %>
+    </p>
+    <p>
+      <%= f.label t :distance_mainroad %><br />
+      <%= f.text_field :distance_mainroad %>
+    </p>
+    <p>
+      <%= f.label t :distance_restaurant %><br />
+      <%= f.text_field :distance_restaurant %>
+    </p>
+  <% end %>
+  <% field_set_tag 'Háztulajdonos infók' do %>
+    <% field = Taggable.find_by_position(62) %>
+    <p>
+      <%= f.label field.name %><br />
+	<% for tag in field.tags %>
+	  <%= check_box_tag 'house[tag_ids][]', tag.id, @house.tags.include?(tag) %>
+	  <%= f.label tag.name %><br />
+	<% end %>
+    </p>
+    <p>
+      <%= f.label t :owner_place_id %><br />
+      <%= f.collection_select :owner_place_id, Taggable.find_by_field('owner_place_id').tags, :id, :name, :prompt => t(:select_owner_place) %>
+    </p>
+  <% end %>
+  <% field_set_tag 'Háziállat' do %>
+    <p>
+      <%= check_box_tag :animals, 1, @house.animals?, :onchange => "$('animal_charge').toggle()" %>
+      <%= f.label t :animals %><br />
+    </p>
+    <div id="animal_charge"<%= "style='display:none'" unless @house.pool? %>>
+      <p>
+	<%= f.label t :animal_charge %><br />
+	<%= f.text_field :animal_charge %>
+      </p>
+    </div>
+  <% end %>
+  <% field_set_tag 'Ár' do %>
+    <p>
+      <%= f.label t :price_pre_season %><br />
+      <%= f.text_field :price_pre_season %>
+    </p>
+    <p>
+      <%= f.label t :price_mid_season %><br />
+      <%= f.text_field :price_mid_season %>
+    </p>
+    <p>
+      <%= f.label t :price_main_season %><br />
+      <%= f.text_field :price_main_season %>
+    </p>
+  <% end %>
+  <% field_set_tag 'Leírások' do %>
+    <p>
+      <%= check_box_tag :discounted, 1, @house.discounted?, :onchange => "$('discount_description').toggle()" %>
+      <%= f.label t :discounted %> <br />
+    </p>
+    <div id="discount_description"<%= "style='display:none'" unless @house.discounted? %>>
+    <p>
+      <% f.fields_for :discount do |d| -%>
+	<%= render :partial => 'discount_form', :locals => { :form => d } %>
+      <% end %>
+    </p>
+    </div>
+    <p>
+      <%= f.label t :house_description %><br />
+      <%= f.text_area :house_description, :rows => 5, :cols => 30  %>
+    </p>
+    <p>
+      <%= f.label t :admin_description %><br />
+      <%= f.text_area :admin_description, :rows => 5, :cols => 30  %>
+    </p>
+  <% end %>
   <p><%= f.submit t(:submit) %></p>
 <% end %>

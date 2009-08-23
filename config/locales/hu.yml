@@ -51,18 +51,48 @@ hu:
   extra_bed: Pótágy
   pull_out_bed: Kihúzható
   bathrooms: Fürdőszobák száma
-  shower_yn: Tusoló
-  bathtub_yn: Fürdőkád
-  shower_bathtub_yn: Tusoló + fürdőkád
+  shower: Tusoló
+  bathtub: Fürdőkád
+  shower_bathtub: Tusoló + fürdőkád
+  wcs: WC-k száma
+  wc_separated: külön
+  fridge: Hűtő
+  coffee_machine: Kávéfőző
+  micro: Mikro
+  stove_id: Tűzhely
+  select_stove: Válassz tűzhely típust
+  sat: SAT
+  internet: Internet
+  clima_id: Klíma
+  select_clima: Válassz klíma típust
+  pool: Medence
+  pool_sq: Medence nm
+  garden_seats: Kiülő
+  grill: Grill
+  sunbath_seat: Napozóágy
+  playground: Játszótér
+  parking_id: Parkoló
+  select_parking: Válassz parkoló típust
   animals: Háziállat hozható?
-  garden_yn: Kertkapcsolat
+  garden: Kertkapcsolat
   distance_center: Távolság centrumtól
   distance_beach: Távolság szabadstrandtól
-  distance_restaurant: Távolság vendéglőtől
+  distance_aquapark: Távolság élményfürdőtől
   distance_shop: Távolság élelmiszerbolttól
-  house_description: Megjegyzés 1
-
+  distance_station: Távolság állomástól
+  distance_medical: Távolság orvosi ellátástól
+  distance_mainroad: Távolság főútttól
+  distance_restaurant: Távolság vendéglőtől
+  owner_place_id: Háztulajdonos lakik
+  select_owner_place: Válassz hol lakik a tulajdonos
+  animal_charge: Háziállat felár
+  price_pre_season: Előszezon / Utószezon
+  price_mid_season: Középszezon
+  price_main_season: Főszezon
+  house_description: Megjegyzés 1 (ház leírás)
+  admin_description: Megjegyzés 2 (admin megjegyzés)
   submit: Beküldés
+  House: Ház
 
   errors:
     blank: nem lehet üres

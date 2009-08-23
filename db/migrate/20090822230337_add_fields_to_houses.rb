@@ -8,7 +8,7 @@ class AddFieldsToHouses < ActiveRecord::Migration
     add_column :houses, :kitchen_dining_room, :integer
     add_column :houses, :balcony, :integer
     add_column :houses, :terrace_id, :integer
-    add_column :houses, :garden_yn, :integer
+    add_column :houses, :garden, :integer
     add_column :houses, :living_room_sq, :integer
     add_column :houses, :living_dining_room_sq, :integer
     add_column :houses, :kitchen_sq, :integer
@@ -22,24 +22,24 @@ class AddFieldsToHouses < ActiveRecord::Migration
     add_column :houses, :extra_bed, :integer
     add_column :houses, :pull_out_bed, :integer
     add_column :houses, :bathrooms, :integer
-    add_column :houses, :shower_yn, :integer
-    add_column :houses, :bathtub_yn, :integer
-    add_column :houses, :shower_bathtub_yn, :integer
-    add_column :houses, :wc, :integer
-    add_column :houses, :wc_separated_yn, :integer
-    add_column :houses, :fridge_yn, :integer
-    add_column :houses, :coffe_machine_yn, :integer
-    add_column :houses, :micro_yn, :integer
+    add_column :houses, :shower, :integer
+    add_column :houses, :bathtub, :integer
+    add_column :houses, :shower_bathtub, :integer
+    add_column :houses, :wcs, :integer
+    add_column :houses, :wc_separated, :integer
+    add_column :houses, :fridge, :integer
+    add_column :houses, :coffee_machine, :integer
+    add_column :houses, :micro, :integer
     add_column :houses, :stove_id, :integer
-    add_column :houses, :sat_yn, :integer
-    add_column :houses, :internet_yn, :integer
+    add_column :houses, :sat, :integer
+    add_column :houses, :internet, :integer
     add_column :houses, :clima_id, :integer
-    add_column :houses, :pool_yn, :integer
+    add_column :houses, :pool, :integer
     add_column :houses, :pool_sq, :integer
-    add_column :houses, :garden_seats_yn, :integer
-    add_column :houses, :grill_yn, :integer
-    add_column :houses, :sunbath_seat_yn, :integer
-    add_column :houses, :playground_yn, :integer
+    add_column :houses, :garden_seats, :integer
+    add_column :houses, :grill, :integer
+    add_column :houses, :sunbath_seat, :integer
+    add_column :houses, :playground, :integer
     add_column :houses, :parking_id, :integer
     add_column :houses, :distance_aquapark, :integer
     add_column :houses, :distance_shop, :integer
@@ -65,24 +65,24 @@ class AddFieldsToHouses < ActiveRecord::Migration
     remove_column :houses, :distance_shop
     remove_column :houses, :distance_aquapark
     remove_column :houses, :parking_id
-    remove_column :houses, :playground_yn
-    remove_column :houses, :sunbath_seat_yn
-    remove_column :houses, :grill_yn
-    remove_column :houses, :garden_seats_yn
+    remove_column :houses, :playground
+    remove_column :houses, :sunbath_seat
+    remove_column :houses, :grill
+    remove_column :houses, :garden_seats
     remove_column :houses, :pool_sq
-    remove_column :houses, :pool_yn
+    remove_column :houses, :pool
     remove_column :houses, :clima_id
-    remove_column :houses, :internet_yn
-    remove_column :houses, :sat_yn
+    remove_column :houses, :internet
+    remove_column :houses, :sat
     remove_column :houses, :stove_id
-    remove_column :houses, :micro_yn
-    remove_column :houses, :coffe_machine_yn
-    remove_column :houses, :fridge_yn
-    remove_column :houses, :wc_separated_yn
-    remove_column :houses, :wc
-    remove_column :houses, :shower_bathtub_yn
-    remove_column :houses, :bathtub_yn
-    remove_column :houses, :shower_yn
+    remove_column :houses, :micro
+    remove_column :houses, :coffee_machine
+    remove_column :houses, :fridge
+    remove_column :houses, :wc_separated
+    remove_column :houses, :wcs
+    remove_column :houses, :shower_bathtub
+    remove_column :houses, :bathtub
+    remove_column :houses, :shower
     remove_column :houses, :bathrooms
     remove_column :houses, :pull_out_bed
     remove_column :houses, :extra_bed
@@ -96,7 +96,7 @@ class AddFieldsToHouses < ActiveRecord::Migration
     remove_column :houses, :kitchen_sq
     remove_column :houses, :living_dining_room_sq
     remove_column :houses, :living_room_sq
-    remove_column :houses, :garden_yn
+    remove_column :houses, :garden
     remove_column :houses, :terrace_id
     remove_column :houses, :balcony
     remove_column :houses, :kitchen_dining_room
