@@ -2,7 +2,7 @@ class TaggablesController < ApplicationController
   # GET /taggables
   # GET /taggables.xml
   def index
-    @taggables = Taggable.all
+    @taggables = Taggable.all(:order => :position)
 
     respond_to do |format|
       format.html # index.html.erb

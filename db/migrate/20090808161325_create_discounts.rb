@@ -8,7 +8,7 @@ class CreateDiscounts < ActiveRecord::Migration
   end
   
   def self.down
-    Descount.drop_translation_table!
+    Discount.drop_translation_table!
     drop_table :discounts
   end
 end

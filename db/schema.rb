@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090812192438) do
+ActiveRecord::Schema.define(:version => 20090822230337) do
 
   create_table "discount_translations", :force => true do |t|
     t.integer  "discount_id"
@@ -28,14 +28,7 @@ ActiveRecord::Schema.define(:version => 20090812192438) do
   create_table "house_translations", :force => true do |t|
     t.integer  "house_id"
     t.string   "locale"
-    t.string   "owner_place"
-    t.string   "kitchen_description"
-    t.string   "bathroom_description"
-    t.string   "yard_description"
-    t.string   "other_description"
     t.string   "house_description"
-    t.string   "owner_speaks"
-    t.string   "bedroom_description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -56,6 +49,57 @@ ActiveRecord::Schema.define(:version => 20090812192438) do
     t.string   "hidden_description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "bedroom"
+    t.integer  "living_room"
+    t.integer  "living_dining_room"
+    t.integer  "kitchen"
+    t.integer  "dining_room"
+    t.integer  "kitchen_dining_room"
+    t.integer  "balcony"
+    t.integer  "terrace_id"
+    t.integer  "garden_yn"
+    t.integer  "living_room_sq"
+    t.integer  "living_dining_room_sq"
+    t.integer  "kitchen_sq"
+    t.integer  "dining_room_sq"
+    t.integer  "kitchen_dining_room_sq"
+    t.integer  "terrace_sq"
+    t.integer  "balcony_sq"
+    t.integer  "yard_sq"
+    t.integer  "double_bed"
+    t.integer  "single_bed"
+    t.integer  "extra_bed"
+    t.integer  "pull_out_bed"
+    t.integer  "bathrooms"
+    t.integer  "shower_yn"
+    t.integer  "bathtub_yn"
+    t.integer  "shower_bathtub_yn"
+    t.integer  "wc"
+    t.integer  "wc_separated_yn"
+    t.integer  "fridge_yn"
+    t.integer  "coffe_machine_yn"
+    t.integer  "micro_yn"
+    t.integer  "stove_id"
+    t.integer  "sat_yn"
+    t.integer  "internet_yn"
+    t.integer  "clima_id"
+    t.integer  "pool_yn"
+    t.integer  "pool_sq"
+    t.integer  "garden_seats_yn"
+    t.integer  "grill_yn"
+    t.integer  "sunbath_seat_yn"
+    t.integer  "playground_yn"
+    t.integer  "parking_id"
+    t.integer  "distance_aquapark"
+    t.integer  "distance_shop"
+    t.integer  "distance_station"
+    t.integer  "distance_medical"
+    t.integer  "distance_mainroad"
+    t.integer  "owner_place_id"
+    t.integer  "animal_charge"
+    t.integer  "price_pre_season"
+    t.integer  "price_mid_season"
+    t.integer  "price_main_season"
   end
 
   create_table "houses_taggables", :force => true do |t|
@@ -75,8 +119,8 @@ ActiveRecord::Schema.define(:version => 20090812192438) do
   create_table "page_translations", :force => true do |t|
     t.integer  "page_id"
     t.string   "locale"
-    t.string   "title"
     t.text     "body"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

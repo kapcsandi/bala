@@ -1,16 +1,6 @@
 class House < ActiveRecord::Base
-  translates :house_description, 
-    :bedroom_description,
-    :kitchen_description,
-    :bathroom_description,
-    :yard_description,
-    :other_description,
-    :owner_speaks,
-    :owner_place
+  translates :house_description
 
-#  belongs_to :house_type
-#  belongs_to :furnishing
-#  belongs_to :condition
   has_one :discount, :dependent => :destroy
   has_many :houses_taggables
   has_many :taggables, :through => :houses_taggables, :order => :position

@@ -16,15 +16,7 @@ class CreateHouses < ActiveRecord::Migration
       t.string :hidden_description
       t.timestamps
     end
-    House.create_translation_table! :house_description => :string,
-      :bedroom_description => :string,
-      :kitchen_description => :string,
-      :bathroom_description => :string,
-      :yard_description => :string,
-      :other_description => :string,
-      :owner_speaks => :string,
-      :owner_place => :string
-
+    House.create_translation_table! :house_description => :string
   end
   
   def self.down

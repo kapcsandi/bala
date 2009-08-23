@@ -29,12 +29,39 @@ hu:
   discount_description: Akció leírása
   persons: Max. személyek száma
   floor_area: Alapterület
+  bedroom: Hálószobák
+  living_room: Nappali
+  living_dining_room: Nappali + étkező
+  kitchen: Konyha
+  dining_room: Étkező
+  kitchen_dining_room: Étkező + konyha
+  balcony: Erkély
+  terrace_id: Terasz
+  select_terrace: Válassz terasz típust
+  living_room_sq: Nappali
+  living_dining_room_sq: Nappali + étkező
+  kitchen_sq: Konyha
+  dining_room_sq: Étkező
+  kitchen_dining_room_sq: Étkező + konyha
+  balcony_sq: Erkély
+  terrace_sq: Terasz
+  yard_sq: Kert
+  double_bed: Dupla
+  single_bed: Egyszemélyes
+  extra_bed: Pótágy
+  pull_out_bed: Kihúzható
+  bathrooms: Fürdőszobák száma
+  shower_yn: Tusoló
+  bathtub_yn: Fürdőkád
+  shower_bathtub_yn: Tusoló + fürdőkád
   animals: Háziállat hozható?
+  garden_yn: Kertkapcsolat
   distance_center: Távolság centrumtól
   distance_beach: Távolság szabadstrandtól
   distance_restaurant: Távolság vendéglőtől
   distance_shop: Távolság élelmiszerbolttól
   house_description: Megjegyzés 1
+
   submit: Beküldés
 
   errors:

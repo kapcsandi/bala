@@ -1,25 +1,98 @@
 <% form_for @house do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label t :city_id %><br />
-    <%= f.collection_select :city_id, Taggable.find_by_field('city_id').tags, :id, :name, :prompt => t(:select_city) %>
-  </p>
-  <p>
-    <%= f.label t :code %><br />
-    <%= f.text_field :code %>
-  </p>
-  <p>
-    <%= f.label t :house_type_id %><br />
-    <%= f.collection_select :house_type_id, Taggable.find_by_field('house_type_id').tags, :id, :name, :prompt => t(:select_house_type) %>
-  </p>
-  <p>
-    <%= f.label t :condition_id %><br />
-    <%= f.collection_select :condition_id, Taggable.find_by_field('condition_id').tags, :id, :name, :prompt => t(:select_condition) %>
-  </p>
-  <p>
-    <%= f.label t :furnishing_id %><br />
-    <%= f.collection_select :furnishing_id, Taggable.find_by_field('furnishing_id').tags, :id, :name, :prompt => t(:select_furnishing) %>
-  </p>
+  <% field_set_tag 'Ház alapinfók' do %>
+    <p>
+      <%= f.label t :city_id %><br />
+      <%= f.collection_select :city_id, Taggable.find_by_field('city_id').tags, :id, :name, :prompt => t(:select_city) %>
+    </p>
+    <p>
+      <%= f.label t :code %><br />
+      <%= f.text_field :code %>
+    </p>
+    <p>
+      <%= f.label t :persons %><br />
+      <%= f.text_field :persons %>
+    </p>
+    <p>
+      <%= f.label t :house_type_id %><br />
+      <%= f.collection_select :house_type_id, Taggable.find_by_field('house_type_id').tags, :id, :name, :prompt => t(:select_house_type) %>
+    </p>
+    <p>
+      <%= f.label t :condition_id %><br />
+      <%= f.collection_select :condition_id, Taggable.find_by_field('condition_id').tags, :id, :name, :prompt => t(:select_condition) %>
+    </p>
+    <p>
+      <%= f.label t :furnishing_id %><br />
+      <%= f.collection_select :furnishing_id, Taggable.find_by_field('furnishing_id').tags, :id, :name, :prompt => t(:select_furnishing) %>
+    </p>
+    <% field = Taggable.find_by_position(6) %>
+    <p>
+      <%= f.label field.name %><br />
+	<% for tag in field.tags %>
+	  <%= check_box_tag 'house[tag_ids][]', tag.id, @house.tags.include?(tag) %>
+	  <%= f.label tag.name %><br />
+	<% end %>
+    </p>
+    <p>
+      <%= f.label t :floor_area %><br />
+      <%= f.text_field :floor_area %>
+    </p>
+  <% end %>
+  <% field_set_tag 'Helyiségek elrendezése' do %>
+    <% for field in Taggable.find_all_by_position([8, 9, 10, 11]) %>
+    <p>
+      <%= f.label field.name %><br />
+	<% for tag in field.tags %>
+	  <%= check_box_tag 'house[tag_ids][]', tag.id, @house.tags.include?(tag) %>
+	  <%= f.label tag.name %><br />
+	<% end %>
+    </p>
+    <% end %>
+  <% end %>
+  <% field_set_tag 'Helyiségek' do %>
+    <% for field in %w(bedroom living_room living_dining_room kitchen dining_room kitchen_dining_room balcony) %>
+    <p>
+      <%= f.label t field %><br />
+      <%= f.text_field field %>
+    </p>
+    <% end %>
+    <p>
+      <%= f.label t :terrace_id %><br />
+      <%= f.collection_select :terrace_id, Taggable.find_by_field('terrace_id').tags, :id, :name, :prompt => t(:select_terrace) %>
+    </p>
+    <p>
+      <%= f.check_box :garden_yn %>
+      <%= f.label t :garden_yn %><br />
+    </p>
+  <% end %>
+  <% field_set_tag 'Helyiségek alapterülete' do %>
+    <% for field in %w(living_room_sq living_dining_room_sq kitchen_sq dining_room_sq kitchen_dining_room_sq terrace_sq balcony_sq yard_sq) %>
+    <p>
+      <%= f.label t field %><br />
+      <%= f.text_field field %>
+    </p>
+    <% end %>
+  <% end %>
+  <% field_set_tag 'Ágyak' do %>
+    <% for field in %w(double_bed single_bed extra_bed pull_out_bed) %>
+    <p>
+      <%= f.label t field %><br />
+      <%= f.text_field field %>
+    </p>
+    <% end %>
+  <% end %>
+  <% field_set_tag 'Fürdőszoba' do %>
+    <p>
+      <%= f.label t :bathrooms %><br />
+      <%= f.text_field :bathrooms %>
+    </p>
+    <% for field in %w(shower_yn bathtub_yn shower_bathtub_yn) %>
+    <p>
+      <%= f.check_box field %>
+      <%= f.label t field %><br />
+    </p>
+    <% end %>
+  <% end %>
   <p>
     <%= check_box_tag :discounted, 1, @house.discounted?, :onchange => "$('discount_description').toggle()" %>
     <%= f.label t :discounted %> <br />
@@ -31,18 +104,10 @@
     <% end %>
   </p>
   </div>
-  <p>
-    <%= f.label t :persons %><br />
-    <%= f.text_field :persons %>
-  </p>
-  <p>
-    <%= f.label t :floor_area %><br />
-    <%= f.text_field :floor_area %>
-  </p>
 
   <% for context in Taggable.find_all_by_multi(1) do %>
   <p>
-    <%= f.label context.context %><br />
+    <%= f.label context.name %><br />
       <% for tag in context.tags %>
         <%= check_box_tag 'house[tag_ids][]', tag.id, @house.tags.include?(tag) %>
         <%= f.label tag.name %><br />
@@ -69,34 +134,6 @@
   <p>
     <%= f.label t :house_description %><br />
     <%= f.text_field :house_description %>
-  </p>
-  <p>
-    <%= f.label t :bedroom_description %><br />
-    <%= f.text_field :bedroom_description %>
-  </p>
-  <p>
-    <%= f.label t :kitchen_description %><br />
-    <%= f.text_field :kitchen_description %>
-  </p>
-  <p>
-    <%= f.label t :bathroom_description %><br />
-    <%= f.text_field :bathroom_description %>
-  </p>
-  <p>
-    <%= f.label t :yard_description %><br />
-    <%= f.text_field :yard_description %>
-  </p>
-  <p>
-    <%= f.label t :other_description %><br />
-    <%= f.text_field :other_description %>
-  </p>
-  <p>
-    <%= f.label t :owner_speaks %><br />
-    <%= f.text_field :owner_speaks %>
-  </p>
-  <p>
-    <%= f.label t :owner_place %><br />
-    <%= f.text_field :owner_place %>
   </p>
   <p><%= f.submit t(:submit) %></p>
 <% end %>
