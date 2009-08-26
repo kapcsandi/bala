@@ -6,37 +6,57 @@
     <title><%= h(yield(:title) || "Untitled") %></title>
     <%= stylesheet_link_tag 'application' %>
     <%= javascript_include_tag :defaults %>
-    <%= active_scaffold_includes %>
+<link rel="stylesheet" href="/stylesheets/blueprint/screen.css" type="text/css" media="screen, projection" />
+<link rel="stylesheet" href="/stylesheets/blueprint/print.css" type="text/css" media="print" />
+<!--[if lt IE 8]>
+  <link rel="stylesheet" href="/stylesheets/blueprint/ie.css" type="text/css" media="screen, projection" />
+<![endif]-->
     <%= yield(:head) %>
   </head>
   <body>
-    <div id="container">
-      <div id="user_nav"> 
-	<% 
-#	I18n.available_locales
-	[:de, :hu].each do |locale| 
-          next if locale == :root or locale == :en %>
-        <%= link_to_unless I18n.locale.to_s == locale.to_s, locale, "?locale="+locale.to_s %> |
-        <% end %>
+    <div class="container">
+      <div id="head" class="span-24 last">
+	<div id="logo" class="span-6 showgrid">LOGO</div>
+	<div id="search" class="span-9 showgrid">SEARCH</div>
+	<div id="login" class="span-9 last showgrid">
+	  <div class="span-4 prepend-5"> 
+	    <% 
+      #	I18n.available_locales
+	    [:de, :hu].each do |locale| 
+	      next if locale == :root or locale == :en %>
+	    <%= link_to_unless I18n.locale.to_s == locale.to_s, locale, "?locale="+locale.to_s %> |
+	    <% end %>
 
-        <% if current_user %>
-          <%= link_to "Edit Profile", edit_user_path(:current) %> |
-          <%= link_to "Logout", logout_path %>
-        <% else %>
-          <%= link_to "Register", new_user_path %> |
-          <%= link_to "Login", login_path %>
-        <% end %>
+	    <% if current_user %>
+	      <%= link_to "Edit Profile", edit_user_path(:current) %> |
+	      <%= link_to "Logout", logout_path %>
+	    <% else %>
+	      <%= link_to "Register", new_user_path %> |
+	      <%= link_to "Login", login_path %>
+	    <% end %>
+	  </div>
+	</div>      
       </div>
       
       <%- flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <%= content_tag :div, msg, :id => "flash_#{name}", :class => "#{name}" %>
       <%- end -%>
       
       <%- if show_title? -%>
         <h1><%=h yield(:title) %></h1>
       <%- end -%>
-      
+      <div id="left" class="span-6 showgrid border">MENU
+	<% (1..10).each do |i| %>
+	<div class="span-6">menu <%= i %></div>
+	<% end %>
+      </div>
+      <div id="content" class="span-18 last">
       <%= yield %>
+      </div>
+      <div id="foot" class="span-24">
+      FOOTER
+      </div>
+      
     </div>
   </body>
 </html>

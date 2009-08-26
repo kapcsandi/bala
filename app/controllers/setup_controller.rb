@@ -32,7 +32,7 @@ class SetupController < ApplicationController
           taggable.tags << Tag.new(:name => condition)
         end
         when 'furnishing_id':
-        taggable.name = 'Bere1;3Bndezés'
+        taggable.name = 'Berendezés'
         taggable.context = 'Ház alapinfók'
         taggable.multi = false
         taggable.position = 5
