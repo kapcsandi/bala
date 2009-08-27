@@ -3,6 +3,7 @@
 
 hu:
   hello: "Szia világ!"
+  home: Főoldal
 
   title: Cím
   published: Élesítve
@@ -104,9 +105,30 @@ hu:
   yes_animal: igen
   no_animal: nem
   pictures: Képek
-  person: fő
+  pers: fő
   meter: m
   sqmeter: m&sup3;
+  back_to_list: Vissza a listához
+
+# top menu
+  booking:
+  chart:
+  special_offers:
+  contact:
+  programs:
+
+# left menu
+  infos_a_z: Infók A-Z
+  map: Térkép
+  weather: Időjárás
+  calendar: Balaton kalendárium
+  sights: Balatoni látnivalók, városok
+  offers: Kedvezményes éttermek
+  terms: Üzleti szabályzat
+  impressum: Impresszum
+  owners: Tulajdonosoknak
+  admin_login: Admin belépés
+
 
   errors:
     blank: nem lehet üres

@@ -15,10 +15,14 @@
   </head>
   <body>
     <div class="container">
-      <div id="head" class="span-24 last">
-	<div id="logo" class="span-6 showgrid">LOGO</div>
-	<div id="search" class="span-9 showgrid">SEARCH</div>
-	<div id="login" class="span-9 last showgrid">
+      <div id="top" class="span-24">
+	<div id="logo" class="span-6">
+	  <a href="/" title="<%= t :home %>">
+	    <div>LOGO</div>
+	  </a>
+	</div>
+	<div id="search" class="span-9">SEARCH</div>
+	<div id="login" class="span-9 last">
 	  <div class="span-4 prepend-5"> 
 	    <% 
       #	I18n.available_locales
@@ -37,24 +41,26 @@
 	  </div>
 	</div>      
       </div>
-      
+      <div class="span-24">
+      <% ['home', :booking, :chart, :special_offers, :contact, 'programs'].each do |item| %>
+      <div class="menu span-3<%= if item == 'home' then ' append-6' end %><%= if item == 'programs' then ' last' end %>"><a href="#"><%= t item %></a></div>
+      <% end %>
       <%- flash.each do |name, msg| -%>
         <%= content_tag :div, msg, :id => "flash_#{name}", :class => "#{name}" %>
       <%- end -%>
-      
-      <%- if show_title? -%>
-        <h1><%=h yield(:title) %></h1>
-      <%- end -%>
-      <div id="left" class="span-6 showgrid border">MENU
-	<% (1..10).each do |i| %>
-	<div class="span-6">menu <%= i %></div>
+      </div>
+      <div id="left" class="span-6 border">
+	<% [:infos_a_z, :map, :weather, :calendar, :sights, :offers, :terms, :impressum, :owners, :admin_login].each do |item| %>
+	<div class="menu span-6 border"><a href="#"><%= t item %></a></div>
 	<% end %>
       </div>
       <div id="content" class="span-18 last">
+      <%- if show_title? -%>
+        <h1><%=h yield(:title) %></h1>
+      <%- end -%>
       <%= yield %>
       </div>
       <div id="foot" class="span-24">
-      FOOTER
       </div>
       
     </div>
