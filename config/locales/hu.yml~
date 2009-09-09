@@ -97,6 +97,11 @@ hu:
   House: Ház
   Houses: Apartmanok
   Show: Megnéz
+  Details: Részletek
+  Boooking: Foglalás
+  Photos: Képek
+  Select: Megjelölés
+  Print:  Nyomtatás
   Edit: Szerkeszt
   Destroy: Töröl
   city: Település
@@ -111,11 +116,11 @@ hu:
   back_to_list: Vissza a listához
 
 # top menu
-  booking:
-  chart:
-  special_offers:
-  contact:
-  programs:
+  booking: Foglalás
+  chart: Bevásárlókosár
+  special_offers: Akciók
+  contact: Kapcsolat
+  programs: Programok
 
 # left menu
   infos_a_z: Infók A-Z

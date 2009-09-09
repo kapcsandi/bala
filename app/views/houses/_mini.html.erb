@@ -1,58 +1,58 @@
-  <tr>
-    <th><%= t :city %></th>
-    <td><%=h house.city %></td>
-  </tr>
-  <tr>
-    <th><%= t :code %></th>
-    <td><%=h house.code %></td>
-  </tr>
-  <tr>
-    <th><%= t :discount %></th>
-    <td><%=h house.discount.description if house.discounted? %></td>
-  </tr>
-  <tr>
-    <td rowspan="10"><%= image_tag house.picture_urls[0], :size => '90x50' %></td>
-    <th><%= t :persons %></th>
-    <td><%=h house.persons %> <%= t('pers') %></td>
-  </tr>
-  <tr>
-    <th><%= t :floor_area %></th>
-    <td><%=h house.floor_area %> <%= t('sqmeter') %></td>
-  </tr>
-  <tr>
-    <th><%= t :animals %></th>
-    <td><%= house.animals==1 ? t('yes_animal') : t('no_animal') %></td>
-  </tr>
-  <tr>
-    <th><%= t :distance_center %></th>
-    <td><%=h house.distance_center %> <%= t('meter') %></td>
-  </tr>
-  <tr>
-    <th><%= t :distance_beach %></th>
-    <td><%=h house.distance_beach %> <%= t('meter') %></td>
-  </tr>
-  <tr>
-    <th><%= t :distance_shop %></th>
-    <td><%=h house.distance_shop %> <%= t('meter') %></td>
-  </tr>
-  <tr>
-    <th><%= t :distance_restaurant %></th>
-    <td><%=h house.distance_restaurant %> <%= t('meter') %></td>
-  </tr>
-  <tr>
-    <th><%= t :house_type_id %></th>
-    <td><%=h house.house_type %></td>
-  </tr>
-  <tr>
-    <th><%= t :condition_id %></th>
-    <td><%=h house.condition %></td>
-  </tr>
-  <tr>
-    <th><%= t :furnishing_id %></th>
-    <td><%=h house.furnishing %></td>
-  </tr>
-  <tr>
-    <td><%= link_to t("Show"), house %></td>
-    <td><%= link_to t("Edit"), edit_house_path(house) %></td>
-    <td><%= link_to t("Destroy"), house, :confirm => t('Are you sure?'), :method => :delete %></td>
-  </tr>
+<div class="mini">
+  <div class="span-18 last">
+    <span class="label"><%= t :city %>:</span>
+    <span class="field"><%=h house.city %></span>
+&nbsp;
+    <span class="label"><%= t :code %>:</span>
+    <span class="field"><%=h house.code %></span>
+&nbsp;<% if house.discounted?  %>
+    <span class="label"><%= t :discount %>:</span>
+    <span class="field"><%=h house.discount.description %></span>
+    <% end %>
+  </div>
+  <div class="span-6">
+    <span class="field" rowspan="10"><%= image_tag house.picture_urls[0], :size => '210x140' %></span>
+  </div>
+  <div class="span-6">
+    <span class="label"><%= t :persons %></span>
+    <span class="field"><%=h house.persons %> <%= t('pers') %></span>
+  <br />
+    <span class="label"><%= t :house_type_id %></span>
+    <span class="field"><%=h house.house_type %></span>
+  <br />
+    <span class="label"><%= t :condition_id %></span>
+    <span class="field"><%=h house.condition %></span>
+  <br />
+    <span class="label"><%= t :furnishing_id %></span>
+    <span class="field"><%=h house.furnishing %></span>
+  <br />
+    <span class="label"><%= t :floor_area %></span>
+    <span class="field"><%=h house.floor_area %> <%= t('sqmeter') %></span>
+  </div>
+  <div class="span-6 last">
+    <span class="label"><%= t :animals %></span>
+    <span class="field"><%= house.animals==1 ? t('yes_animal') : t('no_animal') %></span>
+  <br />
+    <span class="label"><%= t :distance_center %></span>
+    <span class="field"><%=h house.distance_center %> <%= t('meter') %></span>
+  <br />
+    <span class="label"><%= t :distance_beach %></span>
+    <span class="field"><%=h house.distance_beach %> <%= t('meter') %></span>
+  <br />
+    <span class="label"><%= t :distance_shop %></span>
+    <span class="field"><%=h house.distance_shop %> <%= t('meter') %></span>
+  <br />
+    <span class="label"><%= t :distance_restaurant %></span>
+    <span class="field"><%=h house.distance_restaurant %> <%= t('meter') %></span>
+  </div>
+  <div class="span-12 last">
+    <span class="field"><%= link_to t("Details"), house %></span>
+    <span class="field"><%= link_to t("Photos"), house %></span>
+    <span class="field"><%= link_to t("Booking"), house %></span>
+    <span class="field"><%= link_to t("Select"), house %></span>
+    <span class="field"><%= link_to t("Print"), house %></span>
+  <br />
+    <span class="field"><%= link_to t("Edit"), edit_house_path(house) %></span>
+    <span class="field"><%= link_to t("Destroy"), house, :confirm => t('Are you sure?'), :method => :delete %></span>
+  </div>
+</div>

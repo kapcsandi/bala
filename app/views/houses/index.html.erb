@@ -1,9 +1,9 @@
-<% title  t "Houses" %>
+<!-- % title  t "Houses" %-->
 
-<table>
+<div class="minis">
   <% for house in @houses %>
   <%= render :partial => 'mini', :locals => { :house => house } %>
   <% end %>
-</table>
+</div>
 
 <p><%= link_to t("New House"), new_house_path %></p>
