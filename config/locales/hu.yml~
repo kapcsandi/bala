@@ -32,15 +32,16 @@ hu:
   floor_area: Alapterület
   bedroom: Hálószobák
   living_room: Nappali
-  living_dining_room: Nappali + étkező
+  living_dining_room: Nappali + étkező + konyha
   kitchen: Konyha
   dining_room: Étkező
   kitchen_dining_room: Étkező + konyha
-  balcony: Erkély
+  balcony_id: Erkély
   terrace_id: Terasz
   select_terrace: Válassz terasz típust
+  select_balcony: Válassz erkély típust
   living_room_sq: Nappali
-  living_dining_room_sq: Nappali + étkező
+  living_dining_room_sq: Nappali + étkező + konyha
   kitchen_sq: Konyha
   dining_room_sq: Étkező
   kitchen_dining_room_sq: Étkező + konyha
@@ -80,7 +81,7 @@ hu:
   distance_beach: Távolság szabadstrandtól
   distance_aquapark: Távolság élményfürdőtől
   distance_shop: Távolság élelmiszerbolttól
-  distance_station: Távolság állomástól
+  distance_station: Távolság pályaudvartól
   distance_medical: Távolság orvosi ellátástól
   distance_mainroad: Távolság főútttól
   distance_restaurant: Távolság vendéglőtől
@@ -98,7 +99,7 @@ hu:
   Houses: Apartmanok
   Show: Megnéz
   Details: Részletek
-  Boooking: Foglalás
+  Booking: Foglalás
   Photos: Képek
   Select: Megjelölés
   Print:  Nyomtatás
@@ -114,6 +115,12 @@ hu:
   meter: m
   sqmeter: m&sup3;
   back_to_list: Vissza a listához
+
+#messages
+  Empty dictionary fields: Üres szótár(ak)
+  add_taggables: Szótárak bővítése
+  Setup: Setup
+  or: vagy
 
 # top menu
   booking: Foglalás

@@ -14,6 +14,10 @@
       <%= f.text_field :persons %>
     </p>
     <p>
+      <%= f.label t :children %><br />
+      <%= f.text_field :children %>
+    </p>
+    <p>
       <%= f.label t :house_type_id %><br />
       <%= f.collection_select :house_type_id, Taggable.find_by_field('house_type_id').tags, :id, :name, :prompt => t(:select_house_type) %>
     </p>
@@ -58,7 +62,7 @@
     <% end %>
   <% end %>
   <% field_set_tag 'Helyiségek' do %>
-    <% for field in %w(bedroom living_room living_dining_room kitchen dining_room kitchen_dining_room balcony) %>
+    <% for field in %w(bedroom living_room living_dining_room kitchen dining_room kitchen_dining_room) %>
     <p>
       <%= f.label t field %><br />
       <%= f.text_field field %>
@@ -67,6 +71,10 @@
     <p>
       <%= f.label t :terrace_id %><br />
       <%= f.collection_select :terrace_id, Taggable.find_by_field('terrace_id').tags, :id, :name, :prompt => t(:select_terrace) %>
+    </p>
+    <p>
+      <%= f.label t :balcony_id %><br />
+      <%= f.collection_select :balcony_id, Taggable.find_by_field('balcony_id').tags, :id, :name, :prompt => t(:select_balcony) %>
     </p>
     <p>
       <%= f.check_box :garden %>
@@ -148,8 +156,13 @@
     </div>
     <% for field in %w(garden_seats grill sunbath_seat playground) %>
     <p>
+      <% if field != 'sunbath_seat' %>
       <%= f.check_box field %>
       <%= f.label t field %><br />
+      <% else %>
+      <%= f.label t field %><br />
+      <%= f.text_field field %>    
+      <% end %>
     </p>
     <% end %>
     <p>

@@ -19,7 +19,7 @@ class HousesController < ApplicationController
   def create
     @house = House.new(params[:house])
     if @house.save
-      flash[:notice] = "Successfully created house."
+      flash[:notice] = t "Successfully created house."
       redirect_to @house
     else
       render :action => 'new'
@@ -41,7 +41,7 @@ class HousesController < ApplicationController
     @house = House.find(params[:id])
     if @house.update_attributes(params[:house])
       @house.discount.destroy unless params[:discounted]
-      flash[:notice] = "Successfully updated house."
+      flash[:notice] = t "Successfully updated house."
       redirect_to @house
     else
       render :action => 'edit'
@@ -51,12 +51,10 @@ class HousesController < ApplicationController
   def destroy
     @house = House.find(params[:id])
     @house.destroy
-    flash[:notice] = "Successfully destroyed house."
+    flash[:notice] = t "Successfully destroyed house."
     redirect_to houses_url
   end
   
 private
-#  def discounted
-    
-#  end
+
 end

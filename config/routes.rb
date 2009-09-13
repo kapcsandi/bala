@@ -3,27 +3,14 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :tags
 
-  map.resources :taggables
-
-  map.resources :furnishings
-
-  map.resources :discounts
-
-  map.resources :cities
-
   map.resources :houses
-
-  map.resources :room_types
-
-  map.resources :rooms
-
-  map.resources :house_types
 
   map.resources :pages
 
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
 
+  map.setup "setup", :controller => "setup", :action => "index" 
   
   map.resources :user_sessions
 
