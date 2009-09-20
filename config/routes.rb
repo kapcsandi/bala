@@ -18,7 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :conditions, :active_scaffold => true
 
-  map.root :controller => "users", :action => "index"
+  map.root :controller => "root", :action => "index"
   
   # The priority is based upon order of creation: first created -> highest priority.
 
