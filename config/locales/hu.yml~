@@ -28,7 +28,8 @@ hu:
   discounted: Akciós
   description: Leírás
   discount_description: Akció leírása
-  persons: Max. személyek száma
+  persons: Max. személyek száma (felnőtt)
+  children: Max. gyerekek száma
   floor_area: Alapterület
   bedroom: Hálószobák
   living_room: Nappali
@@ -115,6 +116,10 @@ hu:
   meter: m
   sqmeter: m&sup3;
   back_to_list: Vissza a listához
+#search
+  date_from: Dátumtól
+  date_to: Dátumig
+  search: Keresés
 
 #messages
   Empty dictionary fields: Üres szótár(ak)

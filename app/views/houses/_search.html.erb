@@ -1,0 +1,15 @@
+SEARCH
+<% form_for 'search', :url => houses_path, :html => { :method => :get }  do |f| %>
+  <%= t :city %>
+  <%= select_tag 'city', Taggable.find_by_field('city_id').tags.map{|tag| '<option value="' + tag.id.to_s + '">' + tag.name + '</option>'} %>
+  <br />
+  <%= t :persons %>
+  <%= f.text_field :persons_lte %>
+  <br />
+  <%= t :date_from %>
+  <%= calendar_date_select 'search', 'from', :order => [:year, :month, :day] %>
+  <br />
+  <%= t :date_to %>
+  <%= calendar_date_select 'search', 'to', :order => [:year, :month, :day] %>
+  <%= submit_tag :search %>
+<% end %>
