@@ -1,11 +1,12 @@
 class HousesController < ApplicationController
 #  before_filter :discounted, :only => [:new, :create, :edit, :update]
   def index
-    search = House.search
+    search = House.search #(params[:search])
 #    search.persons_lte = params[:search][:persons_lte] if params[:search] and params[:search][:persons_lte]
-    search.city_id = params[:city]
-    @houses = search.all
-    
+    search.city_id = params[:city] unless params[:city].blank?
+    search.persons_gte = params[:search][:persons_gte] unless params[:search][:persons_gte].blank?
+    search.code_like = params[:search][:code_like] unless params[:search][:code_like].blank?
+    @houses = search.all    
   end
   
   def show

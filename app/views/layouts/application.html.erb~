@@ -6,7 +6,7 @@
     <title><%= h(yield(:title) || "Untitled") %></title>
     <%= stylesheet_link_tag 'application' %>
     <%= javascript_include_tag :defaults %>
-    <%= calendar_date_select_includes "silver", :locale => :locale %>
+    <%= calendar_date_select_includes "silver", :locale => I18n.locale %>
 
 <link rel="stylesheet" href="/stylesheets/blueprint/screen.css" type="text/css" media="screen, projection" />
 <link rel="stylesheet" href="/stylesheets/blueprint/print.css" type="text/css" media="print" />
@@ -23,8 +23,8 @@
 	    <div>LOGO</div>
 	  </a>
 	</div>
-	<div id="search" class="span-9">
-	<% render :partial => 'houses/search' %>
+	<div id="search" class="span-9 border">
+	<%= render :partial => 'houses/search' %>
 	</div>
 	<div id="login" class="span-9 last">
 	  <div class="span-4 prepend-5"> 
