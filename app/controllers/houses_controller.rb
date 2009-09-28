@@ -7,9 +7,9 @@ class HousesController < ApplicationController
     else
       search = House.search
     end
-    search.city_id = params[:city] unless params[:city].blank?
-    search.persons_gte = params[:search][:persons_gte] unless params[:search].nil? or params[:search][:persons_gte].blank?
-    search.code_like = params[:search][:code_like] unless params[:search].nil? or params[:search][:code_like].blank?
+    search.city_id = params[:place].to_i unless params[:place].blank?
+    search.persons_gte = params[:persons_gte].to_i unless  params[:persons_gte].blank?
+    search.code_like = params[:q][:code_like] unless params[:q].nil? or params[:q][:code_like].blank?
     @houses = search.all
     @cart = find_cart
   end
