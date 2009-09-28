@@ -5,7 +5,7 @@ class House < ActiveRecord::Base
   has_many :houses_taggables
   has_many :taggables, :through => :houses_taggables, :order => :position
   has_many :houses_tags
-  has_many :tags, :through => :houses_tags
+  has_many :tags, :through => :houses_tags, :uniq => true
 
   accepts_nested_attributes_for :discount, :allow_destroy => true
   accepts_nested_attributes_for :tags, :allow_destroy => true
@@ -80,3 +80,5 @@ class House < ActiveRecord::Base
     self.pictures = urls.join(',')
   end
 end
+
+# script/generate model reservation house_id:integer from:date to:date persons:integer user_id:integer status:integer comment:text

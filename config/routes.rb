@@ -7,6 +7,11 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :pages
 
+  map.reservation "reservation", :controller => "reservation", :action => "index"
+  map.cart "cart", :controller => "reservation", :action => "index"
+  map.special_offers "special_offers", :controller => "reservation", :action => "index"
+  map.contact "contact", :controller => "reservation", :action => "index"
+  
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
 

@@ -1,0 +1,9 @@
+<% title  "Bevásárlóosár" %>
+
+<div class="minis">
+  <% for item in @cart.items %>
+  <%= item.code %>
+  <% end %>
+</div>
+
+<p><%= button_to t("Empty Cart"), :action => :empty_cart %></p>

@@ -8,7 +8,7 @@
     <span class="field"><%=h house.code %></span>
     </div>
     <div class="span-2 last">
-    <%= check_box_tag "checked_#{house.id}", 1 %>
+    <%= check_box_tag "checked_#{house.id}", 1, @cart.items.include?(house), :disabled => true %>
     </div>
 <br /><% if house.discounted?  %>
     <span class="label"><%= t :discount %>:</span>
@@ -58,11 +58,13 @@
     <span class="field"><%= link_to t("Photos"), house %></span>
     </div>
     <div class="span-3">
-    <span class="field"><%= link_to t("Booking"), house %></span>
+    <span class="field"><%= button_to t("Booking"), :action => :add_to_cart %></span>
     </div>
     <div class="span-3">
-    <span class="field"><%= link_to_function t("Select"), 
+    <span class="field"><%= button_to_function t("Select"), 
 "if ($('checked_#{house.id}').checked) { $('checked_#{house.id}').checked=false } else { $('checked_#{house.id}').checked=true }" %></span>
+    </div>
+    <span class="field"><%= button_to t("Select"), :action => :add_to_cart, :id => house.id %></span>
     </div>
     <div class="span-3 last">
     <span class="field"><%= link_to t("Print"), house %></span>

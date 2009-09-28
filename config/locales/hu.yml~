@@ -117,8 +117,8 @@ hu:
   sqmeter: m&sup3;
   back_to_list: Vissza a listához
 #search
-  date_from: Dátumtól
-  date_to: Dátumig
+  date_from: Érkezés dátuma
+  date_to: Távozás dátuma
   search: Keresés
 
 #messages
@@ -126,10 +126,10 @@ hu:
   add_taggables: Szótárak bővítése
   Setup: Setup
   or: vagy
-
+  Empty Cart: Törlés
 # top menu
   booking: Foglalás
-  chart: Bevásárlókosár
+  cart: Bevásárlókosár
   special_offers: Akciók
   contact: Kapcsolat
   programs: Programok

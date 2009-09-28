@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090913100952) do
+ActiveRecord::Schema.define(:version => 20090928165657) do
 
   create_table "discount_translations", :force => true do |t|
     t.integer  "discount_id"
@@ -129,6 +129,18 @@ ActiveRecord::Schema.define(:version => 20090913100952) do
 
   create_table "pages", :force => true do |t|
     t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reservations", :force => true do |t|
+    t.integer  "house_id"
+    t.date     "from"
+    t.date     "to"
+    t.integer  "persons"
+    t.integer  "user_id"
+    t.integer  "status"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

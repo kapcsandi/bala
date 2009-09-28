@@ -46,8 +46,10 @@
 	</div>      
       </div>
       <div class="span-24">
-      <% ['home', :booking, :chart, :special_offers, :contact, 'programs'].each do |item| %>
-      <div class="menu span-3<%= if item == 'home' then ' append-6' end %><%= if item == 'programs' then ' last' end %>"><a href="#"><%= t item %></a></div>
+      <% ['home', :reservation, :cart, :special_offers, :contact, 'programs'].each do |item| %>
+      <div class="menu span-3<%= if item == 'home' then ' append-6' end %><%= if item == 'programs' then ' last' end %>">
+	<%= link_to t(item), item %>
+      </div>
       <% end %>
       <%- flash.each do |name, msg| -%>
         <%= content_tag :div, msg, :id => "flash_#{name}", :class => "#{name}" %>
