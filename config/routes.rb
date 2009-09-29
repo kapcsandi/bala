@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :pages
 
+  map.home "home", :controller => "root", :action => "index"
   map.reservation "reservation", :controller => "reservation", :action => "index"
   map.cart "cart", :controller => "reservation", :action => "index"
   map.special_offers "special_offers", :controller => "reservation", :action => "index"

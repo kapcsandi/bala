@@ -1,4 +1,6 @@
 class SetupController < ApplicationController
+  require 'csv'
+  
   def index
     @result = []
     empties = empties_helper
@@ -154,4 +156,17 @@ class SetupController < ApplicationController
     end
   end
 
+  def upload
+  end
+  
+  def csv_import
+    @parsed_file=CSV::Reader.parse(params[:dump][:file], ';')
+    n=0
+    @cucc = ['a']
+    @parsed_file.each do |row|
+      @cucc << row[0]
+      n+=1
+    end
+#    flash.now[:message] = "CSV Import Successful, #{n} new records added to database.<br />params was = #{params.inspect}<br />#{data_error}"
+  end
 end

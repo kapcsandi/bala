@@ -57,3 +57,12 @@ th {float:left}
 #logo {height:130px}
 .menu {height:32px;margin-bottom:13px}
 input,select{width:auto}
+#logo,#search,#login {background:lightgray}
+.label{height:30px}
+.field{height:40px}
+.menu-item{padding:10px 0;background-color:orange;font-weight:bold;margin:10px 0;text-align:center}
+#left .menu{padding:10px 0 0 10px}
+#content{margin-top:10px}
+.categories .category {height:210px;border:1px solid;padding:5px;margin:0 0 10px 0}
+.categories .item{}
+.minis {line-height:2em}
