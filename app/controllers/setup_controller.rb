@@ -160,13 +160,18 @@ class SetupController < ApplicationController
   end
   
   def csv_import
-    @parsed_file=CSV::Reader.parse(params[:dump][:file], ';')
-    n=0
-    @cucc = ['a']
-    @parsed_file.each do |row|
-      @cucc << row[0]
-      n+=1
+    if params[:dump].nil?
+      redirect_to :action =>:upload
+    else
+      @parsed_file=CSV::Reader.parse(params[:dump][:file], ';')
+      n=0
+      @lines = []
+      @parsed_file.each do |row|
+        @lines << row[0]
+        n+=1
+      end
+      data_error = ''
+      flash.now[:message] = "CSV Import Successful, #{n} new records added to database.<br />params was = #{params.inspect}<br />#{data_error}"
     end
-#    flash.now[:message] = "CSV Import Successful, #{n} new records added to database.<br />params was = #{params.inspect}<br />#{data_error}"
   end
 end

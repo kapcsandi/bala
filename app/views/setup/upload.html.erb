@@ -1,6 +1,6 @@
 <h1>Setup#upload</h1>
 <% form_for :dump, 
-  :url=>{:controller=>"setup", :action=>"cvs_import"},
+  :url=>{:controller=>"setup", :action=>"csv_import"},
   :html => { :multipart => true } do |f| -%>
   <label for="dump_file">
   Select a CSV File :
