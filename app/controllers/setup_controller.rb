@@ -167,8 +167,54 @@ class SetupController < ApplicationController
       n=0
       @lines = []
       @parsed_file.each do |row|
-        @lines << row[0]
+        line = row
+        next if line[0] !~ /^[0-9\-\/]+/
         n+=1
+        house = House.find_or_initialize_by_code(line[0])
+        house.persons = line[1]
+        house.children = line[2]
+        taggable_id = Taggable.find_by_field('house_type_id')
+        tags = Tag.find_all_by_taggable_id(taggable_id)
+        name = case line[3]
+        when 'Onallo haz':
+          'Önálló ház'
+        when 'hazresz':
+          'Házrész'
+        when 'Ikerhaz':
+          'Ikerház'
+        when 'apartmanhaz'
+          'Apartmanház'
+        end
+        house.house_type_id = tags.select{|tag| tag.name == name}.first.id
+        
+        taggable_id = Taggable.find_by_field('condition_id')
+        tags = Tag.find_all_by_taggable_id(taggable_id)
+        name = case line[4]
+        when 'felujitott':
+          'Felújított'
+        when 'hagyomanyos':
+          'Hagyományos'
+        end
+        house.condition_id = tags.select{|tag| tag.name == name}.first.id
+        
+        taggable_id = Taggable.find_by_field('furnishing_id')
+        tags = Tag.find_all_by_taggable_id(taggable_id)
+        name = case line[5]
+        when 'jo minosegu':
+          'jó minőségű'
+        when 'hagyomanyos':
+          'hagyományos'
+        when 'modern':
+          'modern'
+        end
+        house.furnishing_id = tags.select{|tag| tag.name == name}.first.id
+        house.city_id = Taggable.find_by_field('city_id').tags.first.id
+
+        if house.save
+          @lines << line[0]
+        else
+          @lines << house.errors.first.message
+        end
       end
       data_error = ''
       flash.now[:message] = "CSV Import Successful, #{n} new records added to database.<br />params was = #{params.inspect}<br />#{data_error}"
