@@ -427,8 +427,8 @@ class SetupController < ApplicationController
 	unless line[74].nil?
 	  house.discount = Discount.new(:description => line[73])
 	end
-	house.house_description = line[75]
-	house.admin_description = line[76]
+	house.house_description = line[75].to_s
+	house.admin_description = line[76].to_s
         if house.save
 	  n+=1
           @lines << line[0]
