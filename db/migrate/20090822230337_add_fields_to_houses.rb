@@ -3,28 +3,29 @@ class AddFieldsToHouses < ActiveRecord::Migration
     add_column :houses, :bedroom, :integer
     add_column :houses, :living_room, :integer
     add_column :houses, :living_dining_room, :integer
+    add_column :houses, :living_dining_kitchen, :integer
     add_column :houses, :kitchen, :integer
     add_column :houses, :dining_room, :integer
     add_column :houses, :kitchen_dining_room, :integer
     add_column :houses, :balcony, :integer
     add_column :houses, :terrace_id, :integer
     add_column :houses, :garden, :integer
-    add_column :houses, :living_room_sq, :integer
-    add_column :houses, :living_dining_room_sq, :integer
-    add_column :houses, :kitchen_sq, :integer
-    add_column :houses, :dining_room_sq, :integer
-    add_column :houses, :kitchen_dining_room_sq, :integer
-    add_column :houses, :terrace_sq, :integer
-    add_column :houses, :balcony_sq, :integer
-    add_column :houses, :yard_sq, :integer
+    add_column :houses, :living_room_sq, :string
+    add_column :houses, :living_dining_room_sq, :string
+    add_column :houses, :kitchen_sq, :string
+    add_column :houses, :kitchen_dining_room_sq, :string
+    add_column :houses, :dining_room_sq, :string
+    add_column :houses, :living_dining_kitchen_sq, :string
+    add_column :houses, :terrace_sq, :string
+    add_column :houses, :balcony_sq, :string
+    add_column :houses, :yard_sq, :string
     add_column :houses, :double_bed, :integer
-    add_column :houses, :single_bed, :integer
+    add_column :houses, :single_bed, :string
     add_column :houses, :extra_bed, :integer
     add_column :houses, :pull_out_bed, :integer
     add_column :houses, :bathrooms, :integer
     add_column :houses, :shower, :integer
     add_column :houses, :bathtub, :integer
-    add_column :houses, :shower_bathtub, :integer
     add_column :houses, :wcs, :integer
     add_column :houses, :wc_separated, :integer
     add_column :houses, :fridge, :integer
@@ -48,15 +49,21 @@ class AddFieldsToHouses < ActiveRecord::Migration
     add_column :houses, :distance_mainroad, :integer
     add_column :houses, :owner_place_id, :integer
     add_column :houses, :animal_charge, :integer
-    add_column :houses, :price_pre_season, :integer
-    add_column :houses, :price_mid_season, :integer
-    add_column :houses, :price_main_season, :integer
+    add_column :houses, :price_pre_season_per_day, :decimal, :precision => 5, :scale => 2
+    add_column :houses, :price_mid_season_per_day, :decimal, :precision => 5, :scale =>  2
+    add_column :houses, :price_main_season_per_day, :decimal, :precision => 5, :scale =>  2
+    add_column :houses, :price_pre_season_per_week, :decimal, :precision => 5, :scale =>  2
+    add_column :houses, :price_mid_season_per_week, :decimal, :precision => 5, :scale =>  2
+    add_column :houses, :price_main_season_per_week, :decimal, :precision => 5, :scale =>  2
   end
 
   def self.down
-    remove_column :houses, :price_main_season
-    remove_column :houses, :price_mid_season
-    remove_column :houses, :price_pre_season
+    remove_column :houses, :price_main_season_per_week
+    remove_column :houses, :price_mid_season_per_week
+    remove_column :houses, :price_pre_season_per_week
+    remove_column :houses, :price_main_season_per_day
+    remove_column :houses, :price_mid_season_per_day
+    remove_column :houses, :price_pre_season_per_day
     remove_column :houses, :animal_charge
     remove_column :houses, :owner_place_id
     remove_column :houses, :distance_mainroad
@@ -94,6 +101,7 @@ class AddFieldsToHouses < ActiveRecord::Migration
     remove_column :houses, :kitchen_dining_room_sq
     remove_column :houses, :dining_room_sq
     remove_column :houses, :kitchen_sq
+    remove_column :houses, :living_dining_kitchen_sq
     remove_column :houses, :living_dining_room_sq
     remove_column :houses, :living_room_sq
     remove_column :houses, :garden
@@ -102,6 +110,7 @@ class AddFieldsToHouses < ActiveRecord::Migration
     remove_column :houses, :kitchen_dining_room
     remove_column :houses, :dining_room
     remove_column :houses, :kitchen
+    remove_column :houses, :living_dining_kitchen
     remove_column :houses, :living_dining_room
     remove_column :houses, :living_room
     remove_column :houses, :bedroom

@@ -33,7 +33,8 @@ hu:
   floor_area: Alapterület
   bedroom: Hálószobák
   living_room: Nappali
-  living_dining_room: Nappali + étkező + konyha
+  living_dining_kitchen: Nappali + étkező + konyha
+  living_dining_room: Nappali + étkező
   kitchen: Konyha
   dining_room: Étkező
   kitchen_dining_room: Étkező + konyha
@@ -128,7 +129,7 @@ hu:
   or: vagy
   Empty Cart: Törlés
 # top menu
-  booking: Foglalás
+  reservation: Foglalás
   cart: Bevásárlókosár
   special_offers: Akciók
   contact: Kapcsolat

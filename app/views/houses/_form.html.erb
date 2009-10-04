@@ -102,7 +102,7 @@
       <%= f.label t :bathrooms %><br />
       <%= f.text_field :bathrooms %>
     </p>
-    <% for field in %w(shower bathtub shower_bathtub) %>
+    <% for field in %w(shower bathtub) %>
     <p>
       <%= f.check_box field %>
       <%= f.label t field %><br />
@@ -230,18 +230,32 @@
       </p>
     </div>
   <% end %>
-  <% field_set_tag 'Ár' do %>
+  <% field_set_tag 'Ár / fő / nap' do %>
     <p>
       <%= f.label t :price_pre_season %><br />
-      <%= f.text_field :price_pre_season %>
+      <%= f.text_field :price_pre_season_per_day %>
     </p>
     <p>
       <%= f.label t :price_mid_season %><br />
-      <%= f.text_field :price_mid_season %>
+      <%= f.text_field :price_mid_season_per_day %>
     </p>
     <p>
       <%= f.label t :price_main_season %><br />
-      <%= f.text_field :price_main_season %>
+      <%= f.text_field :price_main_season_per_day %>
+    </p>
+  <% end %>
+  <% field_set_tag 'Ár / fő / hét' do %>
+    <p>
+      <%= f.label t :price_pre_season %><br />
+      <%= f.text_field :price_pre_season_per_week %>
+    </p>
+    <p>
+      <%= f.label t :price_mid_season %><br />
+      <%= f.text_field :price_mid_season_per_week %>
+    </p>
+    <p>
+      <%= f.label t :price_main_season %><br />
+      <%= f.text_field :price_main_season_per_week %>
     </p>
   <% end %>
   <% field_set_tag 'Leírások' do %>

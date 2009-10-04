@@ -105,7 +105,7 @@
       <%= label_tag t :bathrooms %>:
       <%=h @house.bathrooms %>
     </p>
-    <% for field in %w(shower bathtub shower_bathtub) %>
+    <% for field in %w(shower bathtub) %>
     <p>
       <%= label_tag t field %>:
       <%= check_box_tag @house[field], 1, @house[field]==1, :disabled => true %>
@@ -149,9 +149,9 @@
   <% field_set_tag 'Egyéb külső felszereltség' do %>
     <p>
       <%= label_tag t :pool %>:
-      <%= check_box_tag :pool, 1, @house.pool?, :disabled => true %>
+      <%= check_box_tag :pool, 1, @house.pool, :disabled => true %>
     </p>
-    <div id="pool_sq"<%= "style='display:none'" unless @house.pool? %>>
+    <div id="pool_sq"<%= "style='display:none'" unless @house.pool %>>
       <p>
 	<%= label_tag t :pool_sq %>:
 	<%=h @house.pool_sq %>
@@ -222,27 +222,41 @@
   <% field_set_tag 'Háziállat' do %>
     <p>
       <%= label_tag t :animals %>:
-      <%= check_box_tag :animals, 1, @house.animals?, :disabled => true %>
+      <%= check_box_tag :animals, 1, @house.animals, :disabled => true %>
     </p>
-    <div id="animal_charge"<%= "style='display:none'" unless @house.pool? %>>
+    <div id="animal_charge"<%= "style='display:none'" unless @house.animals %>>
       <p>
 	<%= label_tag t :animal_charge %>:
 	<%=h @house.animal_charge %>
       </p>
     </div>
   <% end %>
-  <% field_set_tag 'Ár' do %>
+  <% field_set_tag 'Ár / fő / éj' do %>
     <p>
       <%= label_tag t :price_pre_season %>:
-      <%=h @house.price_pre_season %>
+      <%=h @house.price_pre_season_per_day %>
     </p>
     <p>
       <%= label_tag t :price_mid_season %>:
-      <%=h @house.price_mid_season %>
+      <%=h @house.price_mid_season_per_day %>
     </p>
     <p>
       <%= label_tag t :price_main_season %>:
-      <%=h @house.price_main_season %>
+      <%=h @house.price_main_season_per_day %>
+    </p>
+  <% end %>
+  <% field_set_tag 'Ár / fő / hét' do %>
+    <p>
+      <%= label_tag t :price_pre_season %>:
+      <%=h @house.price_pre_season_per_week %>
+    </p>
+    <p>
+      <%= label_tag t :price_mid_season %>:
+      <%=h @house.price_mid_season_per_week %>
+    </p>
+    <p>
+      <%= label_tag t :price_main_season %>:
+      <%=h @house.price_main_season_per_week %>
     </p>
   <% end %>
   <% field_set_tag 'Leírások' do %>
@@ -269,7 +283,7 @@
     <% (0..7).each do |id| %>
       <%= label_tag t :picture_url, :position => id+1 %>
       <%= text_field_tag 'house[picture_urls][]', @house.picture_urls[id], :disabled => true %><br />
-    <% end %>
+    <% end if @house.picture_urls.respond_to?('index') %>
     </p>
   <% end %>
 

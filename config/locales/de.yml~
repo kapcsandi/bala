@@ -4,11 +4,11 @@
 de:
   hello: "Hello world"
 
-  title: Titel
-  published: Élesítve
-  body: Törzs
+  title: Title
+  published: Published
+  body: Body
   false: nem
-  show: Beobachten
+  show: Show
   edit: Edit
   destroy: Destroy
-  are_you_sure: Klar?
+  are_you_sure: Are you sure?

@@ -8,4 +8,5 @@ class Tag < ActiveRecord::Base
   def houses
     House.scoped(:joins => :tags, :conditions => { :tags => { :id => id }})
   end
+  
 end

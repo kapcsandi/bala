@@ -23,6 +23,7 @@
 	    <div>LOGO</div>
 	  </a>
 	</div>
+	<% if controller.controller_name != 'setup' %>
 	<div id="search" class="span-9 border">
 	<%= render :partial => 'houses/search' %>
 	</div>
@@ -43,7 +44,8 @@
 	      <%= link_to "Login", login_path %>
 	    <% end %>
 	  </div>
-	</div>      
+	</div>
+	<% end %>
       </div>
       <div class="span-24">
       <% ['home', :reservation, :cart, :special_offers, :contact, 'programs'].each do |item| %>
