@@ -223,7 +223,7 @@
       <%= check_box_tag :animals, 1, @house.animals?, :onchange => "$('animal_charge').toggle()" %>
       <%= f.label t :animals %><br />
     </p>
-    <div id="animal_charge"<%= "style='display:none'" unless @house.pool? %>>
+    <div id="animal_charge"<%= "style='display:none'" unless @house.animals? %>>
       <p>
 	<%= f.label t :animal_charge %><br />
 	<%= f.text_field :animal_charge %>

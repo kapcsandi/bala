@@ -21,7 +21,7 @@ class House < ActiveRecord::Base
   end
   
   def pool?
-    if self.pool.nil? or self.pool.new_record? or self.pool == 0
+    if self.pool.nil? or self.new_record? or self.pool == 0
       false
     else
       true
@@ -29,7 +29,7 @@ class House < ActiveRecord::Base
   end
   
   def animals?
-    if self.animals.nil? or self.animals.new_record? or self.animals == 0
+    if self.animals.nil? or self.new_record? or self.animals == 0
       false
     else
       true

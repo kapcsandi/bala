@@ -387,7 +387,7 @@ class SetupController < ApplicationController
 	# BK - BL => Háztulaj infók
 	taggable = Taggable.find_by_field('owner_speaks')
 	names = line[62].split(',').map do |name|
-	  name = name.downcase.strip.gsub(/nemet/,'német').gsub(/agya/,'magyar')
+	  name = name.downcase.strip.gsub(/nemet/,'német').gsub(/.*agya.*/,'magyar')
 	  atag = taggable.tags.find_by_name(name)
 	  unless atag
 	  taggable.tags << Tag.new(:name => name)
