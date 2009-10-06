@@ -79,6 +79,10 @@ class House < ActiveRecord::Base
   def picture_urls=(urls)
     self.pictures = urls.join(',')
   end
+  
+  def self.per_page
+    10
+  end
 end
 
 # script/generate model reservation house_id:integer from:date to:date persons:integer user_id:integer status:integer comment:text

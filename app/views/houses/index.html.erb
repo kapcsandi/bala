@@ -1,5 +1,6 @@
 <!-- % title  t "Houses" %-->
-
+<%= t( :houses_found, :count => @houses_count ) %>
+<%= will_paginate @houses, :prev => t(:prev_page) %>
 <div class="minis">
   <% for house in @houses %>
   <div id="house_<%= house.id %>" class="mini house <%= cycle('odd', 'even') %>">

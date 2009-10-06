@@ -3,14 +3,14 @@ class HousesController < ApplicationController
   def index
     tag = Taggable.find_by_field('category').tags.find_by_name(params[:category]) unless params[:category].blank?
     if tag
-      search = tag.houses.search
+      search = tag.houses.searchlogic
     else
-      search = House.search
+      search = House.searchlogic
     end
     search.city_id = params[:place].to_i unless params[:place].blank?
     search.persons_gte = params[:persons_gte].to_i unless  params[:persons_gte].blank?
     search.code_like = params[:q][:code_like] unless params[:q].nil? or params[:q][:code_like].blank?
-    @houses = search.all(:select => "id,code, city_id, persons, animals, pictures, house_type_id, condition_id, furnishing_id, floor_area, distance_center, distance_beach, distance_restaurant, distance_shop, distance_mainroad, distance_station", :limit => 10)
+    @houses, @houses_count = search.all(:select => "houses.id,code, city_id, persons, animals, pictures, house_type_id, condition_id, furnishing_id, floor_area, distance_center, distance_beach, distance_restaurant, distance_shop, distance_mainroad, distance_station").paginate(:page => params[:page], :per_page => 10), search.count
     @cart = find_cart
   end
   

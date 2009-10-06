@@ -128,7 +128,7 @@ hu:
   add_taggables: Szótárak bővítése
   Setup: Setup
   or: vagy
-  Empty Cart: Törlés
+  Empty Cart: Bevásárlókosár törlése
 # top menu
   booking: Foglalás
   booking_title: Foglalás
@@ -149,7 +149,7 @@ hu:
   impressum: Impresszum
   owners: Tulajdonosoknak
   admin_login: Admin belépés
-
+  houses_found: "Találatok száma: {{count}}"
 
   errors:
     blank: nem lehet üres
