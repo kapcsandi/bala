@@ -2,5 +2,5 @@ authlogic
 nifty-generators
 searchlogic
 calendar_date_select
-will_paginate
+mislav-will_paginate
 
