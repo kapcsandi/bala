@@ -10,7 +10,7 @@ class HousesController < ApplicationController
     search.city_id = params[:place].to_i unless params[:place].blank?
     search.persons_gte = params[:persons_gte].to_i unless  params[:persons_gte].blank?
     search.code_like = params[:q][:code_like] unless params[:q].nil? or params[:q][:code_like].blank?
-    @houses = search.all
+    @houses = search.all(:select => "id,code, city_id, persons, animals, pictures, house_type_id, condition_id, furnishing_id, floor_area, distance_center, distance_beach, distance_restaurant, distance_shop, distance_mainroad, distance_station", :limit => 10)
     @cart = find_cart
   end
   
@@ -66,10 +66,12 @@ class HousesController < ApplicationController
     redirect_to houses_url
   end
   
-  def add_to_cart
+  def cart
     @cart = find_cart
     house = House.find(params[:id]) if params[:id].to_i > 0
-    @cart.add_remove_house(house) if house
+    @cart.add_house(house) if house and params[:cart] == 'add'
+    @cart.remove_house(house) if house and params[:cart] == 'del'
+    @selected = House.find_all_by_id(@cart.items)
   end
   
   def empty_cart
@@ -77,7 +79,16 @@ class HousesController < ApplicationController
     redirect_to_index("Your cart is currently empty.")
   end
   
-private
+  def booking
+    @cart = find_cart
+    @selected = House.find_all_by_id(@cart.items)
+  end
+  
+  def special
+    redirect_to_index("Not implemented yet.")
+  end
+  
+  private
 
   def find_cart
     session[:cart] ||= Cart.new

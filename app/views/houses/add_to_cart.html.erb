@@ -1,9 +1,9 @@
-<% title  "Bevásárlóosár" %>
+<% title t(:cart_title) %>
 
-<div class="minis">
-  <% for item in @cart.items %>
-  <%= item.code %>
+<div class="span-18 last minis">
+  <% for item in @selected %>
+  <%= render :partial => 'mini', :locals => { :house => item } %>
   <% end %>
 </div>
 
-<p><%= button_to t("Empty Cart"), :action => :empty_cart %></p>
+<div><%= button_to t("Empty Cart"), :action => :empty_cart %></div>

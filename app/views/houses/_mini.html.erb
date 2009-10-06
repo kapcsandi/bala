@@ -1,4 +1,3 @@
-<div id="house_<%= house.id %>" class="mini">
   <div class="span-18 last">
     <div class="span-16">
     <span class="label"><%= t :city %>:</span>
@@ -8,7 +7,7 @@
     <span class="field"><%=h house.code %></span>
     </div>
     <div class="span-2 last">
-    <%= check_box_tag "checked_#{house.id}", 1, @cart.items.include?(house), :disabled => true %>
+    <%= check_box_tag "checked_#{house.id}", 1, @cart.items.include?(house.id), :disabled => true %>
     </div>
 <br /><% if house.discounted?  %>
     <span class="label"><%= t :discount %>:</span>
@@ -50,26 +49,3 @@
     <span class="label"><%= t :distance_restaurant %>:</span>
     <span class="field"><%=h house.distance_restaurant %> <%= t('meter') %></span>
   </div>
-  <div class="span-18 last">
-    <div class="span-3">
-    <span class="field"><%= link_to t("Details"), house %></span>
-    </div>
-    <div class="span-3">
-    <span class="field"><%= link_to t("Photos"), house %></span>
-    </div>
-    <div class="span-3">
-    <span class="field"><%= button_to t("Booking"), :action => :add_to_cart %></span>
-    </div>
-    <div class="span-3">
-    <span class="field"><%= button_to_function t("Select"), 
-"if ($('checked_#{house.id}').checked) { $('checked_#{house.id}').checked=false } else { $('checked_#{house.id}').checked=true }" %></span>
-    <span class="field"><%= button_to t("Select"), :action => :add_to_cart, :id => house.id %></span>
-    </div>
-    <div class="span-3 last">
-    <span class="field"><%= link_to t("Print"), house %></span>
-    </div>
-  <br />
-    <span class="field"><%= link_to t("Edit"), edit_house_path(house) %></span>
-    <span class="field"><%= link_to t("Destroy"), house, :confirm => t('Are you sure?'), :method => :delete %></span>
-  </div>
-</div>

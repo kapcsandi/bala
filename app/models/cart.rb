@@ -5,17 +5,30 @@ class Cart
     @items = []
   end
   
-  def add_remove_house(house)
+  def add_house(house)
     begin
-    current_item = @items.find {|item|item == house}
+    current_item = @items.find {|item|item == house.id}
     rescue
-      flash[:notice] ="Anyad!"
+#      flash[:notice] ="Anyad!"
       return
     end
     if current_item
-      @items.delete(house)
+#      flash[:notice] = "Már a kosárban van."
     else
-      @items << house
+      @items << house.id
+    end
+  end
+  def remove_house(house)
+    begin
+    current_item = @items.find {|item|item == house.id}
+    rescue
+#      flash[:notice] ="Anyad!"
+      return
+    end
+    if current_item
+      @items.delete(house.id)
+    else
+#      flash[:notice] = "Nincs a kosárban. Ejnye!"
     end
   end
 end

@@ -43,7 +43,8 @@ hu:
   select_terrace: Válassz terasz típust
   select_balcony: Válassz erkély típust
   living_room_sq: Nappali
-  living_dining_room_sq: Nappali + étkező + konyha
+  living_dining_kitchen_sq: Nappali + étkező + konyha
+  living_dining_room_sq: Nappali + étkező
   kitchen_sq: Konyha
   dining_room_sq: Étkező
   kitchen_dining_room_sq: Étkező + konyha
@@ -129,8 +130,10 @@ hu:
   or: vagy
   Empty Cart: Törlés
 # top menu
-  reservation: Foglalás
+  booking: Foglalás
+  booking_title: Foglalás
   cart: Bevásárlókosár
+  cart_title: Bevásárlókosár tartalma
   special_offers: Akciók
   contact: Kapcsolat
   programs: Programok

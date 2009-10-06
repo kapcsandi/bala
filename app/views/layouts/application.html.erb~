@@ -19,15 +19,21 @@
     <div class="container">
       <div id="top" class="span-24">
 	<div id="logo" class="span-6">
+	  <% content_tag 'div', :class => 'inner' do %>
 	  <a href="/" title="<%= t :home %>">
 	    <div>LOGO</div>
 	  </a>
+	  <% end %>
 	</div>
+	<% if controller.controller_name != 'setup' %>
 	<div id="search" class="span-9 border">
+	  <% content_tag 'div', :class => 'inner' do %>
 	<%= render :partial => 'houses/search' %>
+	  <% end %>
 	</div>
 	<div id="login" class="span-9 last">
 	  <div class="span-4 prepend-5"> 
+	  <% content_tag 'div', :class => 'inner' do %>
 	    <% 
       #	I18n.available_locales
 	    [:de, :hu].each do |locale| 
@@ -43,7 +49,9 @@
 	      <%= link_to "Login", login_path %>
 	    <% end %>
 	  </div>
-	</div>      
+	</div>
+	<% end %>
+	<% end %>
       </div>
       <div class="span-24">
       <% ['home', :reservation, :cart, :special_offers, :contact, 'programs'].each do |item| %>

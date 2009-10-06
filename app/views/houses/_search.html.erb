@@ -1,6 +1,6 @@
 <% form_for 'q', :url => houses_path, :html => { :method => :get }  do |f| %>
   <div class="span-3 label"><%= t :city %></div>
-  <div class="span-6 last field">
+  <div class="span-5 last field">
   <%= select_tag 'place', Taggable.find_by_field('city_id').tags.map{|tag| 
     if params[:place] == tag.id.to_s
       '<option selected value="' + tag.id.to_s + '">' + tag.name + '</option>'
@@ -11,7 +11,7 @@
   %>
   </div>
   <div class="span-3 label"><%= t :persons %></div>
-  <div class="span-6 last field">
+  <div class="span-5 last field">
   <% p_o = ''
   (1..15).each do |item|
     p_o += '<option'
@@ -22,16 +22,18 @@
   <%= select_tag :persons_gte, p_o %>
   </div>
   <div class="span-3 label"><%= t :date_from %></div>
-  <div class="span-6 last field">
+  <div class="span-5 last field">
   <%= calendar_date_select 'q', 'from', :order => [:year, :month, :day], :size=> 15, :value => params[:q] ? params[:q][:from] : '' %>
   </div>
   <div class="span-3 label"><%= t :date_to %></div>
-  <div class="span-6 last field">
+  <div class="span-5 last field">
   <%= calendar_date_select 'q', 'to', :order => [:year, :month, :day], :size=> 15, :value => params[:q] ? params[:q][:to] : '' %>
   </div>
   <div class="span-3 label"><%= t :code %></div>
-  <div class="span-6 last field">
+  <div class="span-5 last field">
   <%= f.text_field :code_like, :size=> 15, :value => params[:search] ? params[:q][:code_like] : '' %>
   </div>
+  <div class="prepend-3 span-3 label">
   <%= submit_tag t :search %>
+  </div>
 <% end %>

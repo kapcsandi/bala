@@ -1,5 +1,4 @@
-<% title t "House" %>
-
+<%= render :partial => 'mini', :locals => { :house => @house, :cycle_class => '' } %>
   <% field_set_tag 'Ház alapinfók' do %>
     <p>
       <%= label_tag t :city_id %>:

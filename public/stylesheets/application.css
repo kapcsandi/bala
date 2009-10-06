@@ -1,7 +1,8 @@
 #flash_notice, #flash_error {
   padding: 5px 8px;
-  margin: 10px 0;
+  margin: 20px 0;
   width: 70%;
+  clear:both;
 }
 
 #flash_notice {
@@ -58,12 +59,15 @@ th {float:left}
 .menu {height:32px;margin-bottom:13px}
 input,select{width:auto}
 #logo,#search,#login {background:lightgray}
-.label{height:30px}
-.field{height:40px}
+.label{margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
+#search .label {height:25px;float:left}
+#search .field {float:left}
 .menu-item{padding:10px 0;background-color:orange;font-weight:bold;margin:10px 0;text-align:center}
 #left .menu{padding:10px 0 0 10px}
 #content{margin-top:10px}
 .categories .category {height:210px;border:1px solid;padding:5px;margin:0 0 10px 0}
 .categories .item{}
-.minis {line-height:2em}
+.mini {line-height:2em}
 #top{margin-top:5px}
+.inner {padding:10px}
+.even {background-color:#312311;}

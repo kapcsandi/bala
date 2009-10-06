@@ -1,0 +1,10 @@
+<% title t(:booking_title) %>
+
+<div class="span-18 last minis">
+  <% for house in @selected %>
+  <%= render :partial => 'mini', :locals => { :house => house } %>
+  <%= render :partial => 'navigation' , :locals => { :house => house }%>
+  <% end %>
+</div>
+
+<div><%= button_to t("Empty Cart"), :action => :empty_cart %></div>

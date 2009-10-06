@@ -8,10 +8,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :pages
 
   map.home "home", :controller => "root", :action => "index"
-  map.reservation "reservation", :controller => "reservation", :action => "index"
-  map.cart "cart", :controller => "reservation", :action => "index"
-  map.special_offers "special_offers", :controller => "reservation", :action => "index"
-  map.contact "contact", :controller => "reservation", :action => "index"
+  map.booking "booking", :controller => "houses", :action => "booking"
+  map.cart "cart", :controller => "houses", :action => "cart"
+  map.special_offers "special_offers", :controller => "houses", :action => "special"
+  map.contact "contact", :controller => "root", :action => "contact"
+  map.contact "programs", :controller => "root", :action => "programs"
   
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
