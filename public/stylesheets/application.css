@@ -1,6 +1,6 @@
 #flash_notice, #flash_error {
   padding: 5px 8px;
-  margin: 20px 0;
+  margin: 40px 0;
   width: 70%;
   clear:both;
 }
@@ -67,7 +67,9 @@ input,select{width:auto}
 #content{margin-top:10px}
 .categories .category {height:210px;border:1px solid;padding:5px;margin:0 0 10px 0}
 .categories .item{}
-.mini {line-height:2em}
+.mini {line-height:2em;margin:10px 0}
 #top{margin-top:5px}
 .inner {padding:10px}
-.even {background-color:#312311;}
+.even {background-color:#f0f0f0}
+.odd {background-color:#e0e0e0}
+.mini {overflow:hidden}

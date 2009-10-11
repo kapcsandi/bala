@@ -1,0 +1,5 @@
+<div class="span-18 last cart">
+  <%= render :partial => '/houses/cart_item', :object => @selected %>
+</div>
+
+<div><%= button_to t("Go to Cart"), :controller => :houses, :action => :cart %></div>

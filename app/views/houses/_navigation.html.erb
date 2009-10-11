@@ -10,7 +10,7 @@
     </div>
     <div class="span-4">
     <% 
-if controller.action_name == 'cart'
+if controller.action_name == 'cart' or @cart.items.include?(house.id)
   cart_button_label = 'Törlés a kosárból'
   cart_action = 'del'
 else

@@ -150,6 +150,8 @@ hu:
   owners: Tulajdonosoknak
   admin_login: Admin belépés
   houses_found: "Találatok száma: {{count}}"
+  prev_link: előző
+  next_link: következő
 
   errors:
     blank: nem lehet üres

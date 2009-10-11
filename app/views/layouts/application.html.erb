@@ -23,12 +23,13 @@
 	  <a href="/" title="<%= t :home %>">
 	    <div>LOGO</div>
 	  </a>
+	  <%#= render :partial => 'houses/cart', :object => @cart %>
 	  <% end %>
 	</div>
 	<% if controller.controller_name != 'setup' %>
 	<div id="search" class="span-9 border">
 	  <% content_tag 'div', :class => 'inner' do %>
-	<%= render :partial => 'houses/search' %>
+	    <%= render :partial => 'houses/search' %>
 	  <% end %>
 	</div>
 	<div id="login" class="span-9 last">
@@ -55,7 +56,7 @@
       </div>
       <div class="span-24">
       <% ['home', :booking, :cart, :special_offers, :contact, 'programs'].each do |item| %>
-      <div class="menu span-3<%= if item == 'home' then ' append-6' end %><%= if item == 'programs' then ' last' end %>">
+      <div class="menu span-3<%= if item == 'home' then ' prepend-6' end %><%= if item == 'programs' then ' last' end %>">
 	<div class="menu-item <%= item.to_s %>"><%= link_to t(item), item %></div>
       </div>
       <% end %>

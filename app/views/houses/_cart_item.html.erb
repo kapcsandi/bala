@@ -1,0 +1,6 @@
+<% link_to cart_item do %>
+  <%= image_tag cart_item.picture_urls[0], :size => '210x140' if cart_item.picture_urls %>
+<% end  if cart_item %>
+  <div class="item details">
+<%= truncate( cart_item.house_description(80), :length => 40 ) if cart_item %>
+  </div>

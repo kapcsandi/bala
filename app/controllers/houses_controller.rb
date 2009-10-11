@@ -68,10 +68,25 @@ class HousesController < ApplicationController
   
   def cart
     @cart = find_cart
-    house = House.find(params[:id]) if params[:id].to_i > 0
-    @cart.add_house(house) if house and params[:cart] == 'add'
-    @cart.remove_house(house) if house and params[:cart] == 'del'
-    @selected = House.find_all_by_id(@cart.items)
+    begin
+      house = House.find(params[:id]) if params[:id]
+    rescue ActiveRecord::RecordNotFound
+      logger.error("Attempt to access invalid house #p{params[:id]}")
+      redirect_to_index("Invalid house")
+    else
+      if params[:cart] == 'add'
+	@cart.add_house(house)
+	flash[:notice] = "House succesfully added to cart."
+      end
+      if params[:cart] == 'del'
+	@cart.remove_house(house)
+	flash[:notice] = "House successfully removed from cart."
+      end
+      @selected = House.find_all_by_id(@cart.items)
+      if params[:cart]
+	redirect_to :back
+      end
+    end
   end
   
   def empty_cart
