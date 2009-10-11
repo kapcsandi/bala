@@ -23,7 +23,7 @@
 	  <a href="/" title="<%= t :home %>">
 	    <div>LOGO</div>
 	  </a>
-	  <%= render :partial => 'houses/cart', :object => @cart %>
+	  <%#= render :partial => 'houses/cart', :object => @cart %>
 	  <% end %>
 	</div>
 	<% if controller.controller_name != 'setup' %>
@@ -61,7 +61,7 @@
       </div>
       <% end %>
       <%- flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, :id => "flash_#{name}", :class => "#{name}" %>
+        <%= content_tag :div, msg, :id => "flash_#{name}", :class => "#{name} prepend-6" %>
       <%- end -%>
       </div>
       <div id="left" class="span-6 border">

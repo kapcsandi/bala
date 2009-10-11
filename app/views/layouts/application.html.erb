@@ -54,14 +54,14 @@
 	<% end %>
 	<% end %>
       </div>
-      <div class="span-24">
+      <div class="span-24 prepend-6">
       <% ['home', :booking, :cart, :special_offers, :contact, 'programs'].each do |item| %>
-      <div class="menu span-3<%= if item == 'home' then ' prepend-6' end %><%= if item == 'programs' then ' last' end %>">
+      <div class="menu span-3<%= if item == 'home' then '' end %><%= if item == 'programs' then ' last' end %>">
 	<div class="menu-item <%= item.to_s %>"><%= link_to t(item), item %></div>
       </div>
       <% end %>
       <%- flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, :id => "flash_#{name}", :class => "#{name}" %>
+        <%= content_tag :div, msg, :id => "flash_#{name}", :class => "#{name} prepend-6" %>
       <%- end -%>
       </div>
       <div id="left" class="span-6 border">
