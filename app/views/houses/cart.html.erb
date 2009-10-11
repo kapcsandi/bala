@@ -2,9 +2,12 @@
 
 <div class="span-18 last minis">
   <% for house in @selected %>
+  <div id="house_<%= house.id %>" class="mini house <%= cycle('odd', 'even') %>">
   <%= render :partial => 'mini', :locals => { :house => house } %>
   <%= render :partial => 'navigation' , :locals => { :house => house }%>
+  </div>
   <% end %>
+<div class="span-6"><%= button_to t("Empty Cart"), :action => :empty_cart %></div>
+<div class="span-6"><%= button_to t("Back to houses"), :back, :method => 'get' %></div>
 </div>
 
-<div><%= button_to t("Empty Cart"), :action => :empty_cart %></div>
