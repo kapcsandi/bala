@@ -67,9 +67,8 @@ input,select{width:auto}
 #content{margin-top:10px}
 .categories .category {height:210px;border:1px solid;padding:5px;margin:0 0 10px 0}
 .categories .item{}
-.mini {line-height:2em;margin:10px 0}
+.mini {line-height:2em;overflow:hidden;margin:5px 0}
 #top{margin-top:5px}
 .inner {padding:10px}
-.even {background-color:#f0f0f0}
-.odd {background-color:#e0e0e0}
-.mini {overflow:hidden}
+.even {background-color:#f6f6f6}
+.odd {background-color:#efefef}
