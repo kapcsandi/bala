@@ -15,7 +15,7 @@
   <% p_o = ''
   (1..15).each do |item|
     p_o += '<option'
-    p_o += ' selected' if params[:persons_gte].to_i == item
+    p_o += ' selected' if params[:persons_gte].to_i == item or (item==2 and not params[:persons_gte])
     p_o += ' value="'+item.to_s+'">'+item.to_s+'</option>'
   end
   %>

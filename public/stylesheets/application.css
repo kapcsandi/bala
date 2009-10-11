@@ -56,7 +56,7 @@
 
 th {float:left}
 #logo {height:130px}
-.menu {height:32px;margin-bottom:13px}
+.menu {height:50px;margin-bottom:13px}
 input,select{width:auto}
 #logo,#search,#login {background:lightgray}
 .label{margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
