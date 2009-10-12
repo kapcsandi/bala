@@ -18,8 +18,8 @@ hu:
   house: Ház
   city_id: Település
   select_city: Válassz települést
-  code: Kód
-  house_type_id: Típus
+  code: Ház kód
+  house_type_id: Ház típus
   select_house_type: Válassz apartman típust
   condition_id: Állapot
   select_condition: Válassz apartman állapotot
@@ -123,7 +123,9 @@ hu:
   date_from: Érkezés dátuma
   date_to: Távozás dátuma
   search: Keresés
-
+  detailed_search: Részletes kereső
+  simple_search: Egyszerű kereső
+  rooms: Szobák száma
 #messages
   Empty dictionary fields: Üres szótár(ak)
   add_taggables: Szótárak bővítése

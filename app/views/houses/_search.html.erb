@@ -33,7 +33,8 @@
   <div class="span-5 last field">
   <%= f.text_field :code_like, :size=> 15, :value => params[:search] ? params[:q][:code_like] : '' %>
   </div>
-  <div class="prepend-3 span-3 label">
-  <%= submit_tag t :search %>
+  <div class="prepend-15 span-3">
+  <%= submit_tag t :search %><br />
+  <%= link_to  t(:detailed_search), url_for(:controller => 'houses', :action => 'index', :advanced => '1'), :method => :get  %>
   </div>
 <% end %>
