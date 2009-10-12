@@ -119,12 +119,13 @@ hu:
   sqmeter: m&sup3;
   back_to_list: Vissza a listához
   Back to houses: Vissza az apartmanokhoz
+  nincs: nincs
 #search
   date_from: Érkezés dátuma
   date_to: Távozás dátuma
   search: Keresés
   detailed_search: Részletes kereső
-  hide_detailed_search: Egyszerű kereső
+  simple_search: Egyszerű kereső
   rooms: Szobák száma
 #messages
   Empty dictionary fields: Üres szótár(ak)

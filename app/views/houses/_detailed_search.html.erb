@@ -59,26 +59,29 @@
   <fieldgroup>
     <div class="span-2 label"><%= t :sat %></div>
     <div class="span-1 last field">
-    <%= f.check_box 'sat' %>
+    <%= check_box_tag 'sat', 1, params[:sat] == '1' %>
     </div>
     <div class="span-2 label"><%= t :clima_id %></div>
     <div class="span-1 last field">
-    <%= f.check_box 'klima' %>
+    <%= check_box_tag 'clima', 1, params[:clima] == '1' %>
     </div>
     <div class="span-2 label"><%= t :internet %></div>
     <div class="span-1 last field">
-    <%= f.check_box 'internet' %>
+    <%= check_box_tag 'internet', 1, params[:internet] == '1'  %>
     </div>
     <div class="span-2 label"><%= t :pool %></div>
     <div class="span-1 last field">
-    <%= f.check_box 'pool' %>
+    <%= check_box_tag 'pool', 1, params[:pool] == '1' %>
     </div>
     <div class="span-2 label"><%= t :grill %></div>
     <div class="span-1 last field">
-    <%= f.check_box 'grill' %>
+    <%= check_box_tag 'grill', 1, params[:grill] == '1' %>
     </div>
   </fieldgroup>
   <div class="prepend-15 span-3">
+  <% if params[:advanced] %>
+  <input type="hidden" name="advanced" value="<%= params[:advanced] %>">
+  <% end %>
   <%= submit_tag t :search %><br />
   <%= link_to  t(:simple_search), url_for(:controller => 'houses', :action => 'index', :advanced => '0'), :method => :get  %>
   </div>
