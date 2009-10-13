@@ -14,7 +14,7 @@ class SetupController < ApplicationController
         taggable.context = 'Ház alapinfók'
         taggable.multi = false
         taggable.position = 0
-        %w(Balatonakarattya Balatonszemes Siófok Balatonlelle).each do |city|
+        %w(Balatonlelle Balatonboglár).each do |city|
           taggable.tags << Tag.new( :name => city)
         end
         when 'house_type_id':
@@ -172,7 +172,13 @@ class SetupController < ApplicationController
         next if line[0] !~ /^[0-9\-\/]+/
         house = House.find_or_initialize_by_code(line[0]) # A => code, Kód
 	house.tags.build
-        house.city_id = Taggable.find_by_field('city_id').tags.first.id # Település 24 =>, 25 =>,
+	cities = Taggable.find_by_field('city_id').tags
+        house.city_id = case house.code
+	when /^25/
+	  cities.find_by_name(/lelle/).id
+	when /^24/
+	  cities.find_by_name(/bogl/).id
+	end # Település 24 => Balatonboglár, 25 => Balatonlelle
         house.persons = line[1] # B => persons, Maximum felnőtt fő
         house.children = line[2] # C => children, Maximum gyerek fő
         taggable_id = Taggable.find_by_field('house_type_id')
