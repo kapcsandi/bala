@@ -54,13 +54,14 @@
 }
 
 
-th {float:left}
+/* th {float:left} */
 #logo,#login {height:50px}
 .menu {height:50px;margin-bottom:13px}
-input,select{width:auto}
+input,select{width:auto;font-size:100%}
+option{}
 #logo,#search,#login {background:lightgray}
 .label{margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
-#search .label {height:25px;float:left}
+#search .label {margin:0.5em;float:left}
 #search .field {float:left}
 .menu-item{padding:10px 0;background-color:orange;font-weight:bold;margin:10px 0;text-align:center}
 #left .menu{padding:10px 0 0 10px}
@@ -69,6 +70,8 @@ input,select{width:auto}
 .categories .item{}
 .mini {line-height:2em;overflow:hidden;margin:5px 0}
 #top{margin-top:5px}
-.inner {padding:10px}
+.inner {padding:15px;overflow:hidden}
 .even {background-color:#f6f6f6}
 .odd {background-color:#efefef}
+.calendar_date_select {width:210px}
+.field img{display:block;float:right; padding-top:5px;padding-right:8px;}

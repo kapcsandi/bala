@@ -6,6 +6,7 @@ hu:
   home: Főoldal
 
   title: Cím
+  Untitled: BALA demo - nincs cím
   published: Élesítve
   body: Törzs
   false: nem
@@ -119,7 +120,6 @@ hu:
   sqmeter: m&sup3;
   back_to_list: Vissza a listához
   Back to houses: Vissza az apartmanokhoz
-  nincs: nincs
 #search
   date_from: Érkezés dátuma
   date_to: Távozás dátuma
@@ -127,6 +127,7 @@ hu:
   detailed_search: Részletes kereső
   simple_search: Egyszerű kereső
   rooms: Szobák száma
+  all: mindegy
 #messages
   Empty dictionary fields: Üres szótár(ak)
   add_taggables: Szótárak bővítése

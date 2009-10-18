@@ -6,6 +6,7 @@ hu:
   home: Főoldal
 
   title: Cím
+  Untitled: BALA demo -
   published: Élesítve
   body: Törzs
   false: nem
@@ -126,6 +127,7 @@ hu:
   detailed_search: Részletes kereső
   simple_search: Egyszerű kereső
   rooms: Szobák száma
+  all: mindegy
 #messages
   Empty dictionary fields: Üres szótár(ak)
   add_taggables: Szótárak bővítése

@@ -1,6 +1,7 @@
 <% form_for 'q', :url => houses_path, :html => { :method => :get }  do |f| %>
+ <div style="overflow:hidden">
   <div class="span-3 label"><%= t :city %></div>
-  <div class="span-5 last field">
+  <div class="span-3 field">
   <%= select_tag 'place', Taggable.find_by_field('city_id').tags.map{|tag| 
     if params[:place] == tag.id.to_s
       '<option selected value="' + tag.id.to_s + '">' + tag.name + '</option>'
@@ -10,8 +11,8 @@
   } 
   %>
   </div>
-  <div class="span-3 label"><%= t :persons %></div>
-  <div class="span-5 last field">
+  <div class="span-5 label"><%= t :persons %></div>
+  <div class="span-1 field">
   <% p_o = ''
   (1..15).each do |item|
     p_o += '<option'
@@ -21,20 +22,23 @@
   %>
   <%= select_tag :persons_gte, p_o %>
   </div>
+  <div class="span-2 label"><%= t :code %></div>
+  <div class="span-3 last field">
+  <%= f.text_field :code_like, :size=> 12, :value => params[:search] ? params[:q][:code_like] : '' %>
+  </div>
+ </div>
+ <div style="overflow:hidden"> 
   <div class="span-3 label"><%= t :date_from %></div>
-  <div class="span-5 last field">
+  <div class="span-4 last field">
   <%= calendar_date_select 'q', 'from', :order => [:year, :month, :day], :size=> 15, :value => params[:q] ? params[:q][:from] : '' %>
   </div>
-  <div class="span-3 label"><%= t :date_to %></div>
-  <div class="span-5 last field">
+  <div class="label"><%= t :date_to %></div>
+  <div class="span-4 last field">
   <%= calendar_date_select 'q', 'to', :order => [:year, :month, :day], :size=> 15, :value => params[:q] ? params[:q][:to] : '' %>
   </div>
-  <div class="span-3 label"><%= t :code %></div>
-  <div class="span-5 last field">
-  <%= f.text_field :code_like, :size=> 15, :value => params[:search] ? params[:q][:code_like] : '' %>
-  </div>
-  <div class="prepend-15 span-3">
+  <div class="prepend-1 span-3">
   <%= submit_tag t :search %><br />
   <%= link_to  t(:detailed_search), url_for(:controller => 'houses', :action => 'index', :advanced => '1'), :method => :get  %>
   </div>
+ </div>
 <% end %>

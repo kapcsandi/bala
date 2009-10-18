@@ -17,6 +17,10 @@ class HousesController < ApplicationController
       search.internet = params[:internet] unless params[:internet].blank? or params[:internet] != '1'
       search.grill = params[:grill] unless params[:grill].blank? or params[:grill] != '1'
       search.pool = params[:pool] unless params[:pool].blank? or params[:pool] != '1'
+      search.animals = params[:animals] unless params[:animals].blank? or params[:animals] != '1'
+      search.parking_id = params[:parking] unless params[:parking].blank? #or params[:parking] == t('all')
+      search.distance_center = params[:distance_center] unless params[:distance_center].blank? or params[:distance_center] != t('all')
+      search.distance_beach = params[:distance_beach] unless params[:distance_beach].blank? or params[:distance_beach] != t('all')
     end
     
     @houses, @houses_count = search.all(:select => "houses.id,code, city_id, persons, animals, pictures, house_type_id, condition_id, furnishing_id, floor_area, distance_center, distance_beach, distance_restaurant, distance_shop, distance_mainroad, distance_station").paginate(:page => params[:page], :per_page => 10), search.count
