@@ -6,7 +6,7 @@ hu:
   home: Főoldal
 
   title: Cím
-  Untitled: BALA demo - nincs cím
+  Untitled: BALA demo -
   published: Élesítve
   body: Törzs
   false: nem
@@ -114,6 +114,7 @@ hu:
   Are you sure: Biztos benne?
   yes_animal: igen
   no_animal: nem
+  nincs
   pictures: Képek
   pers: fő
   meter: m

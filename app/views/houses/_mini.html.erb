@@ -35,7 +35,7 @@
   </div>
   <div class="span-6 last">
     <span class="label"><%= t :animals %>:</span>
-    <span class="field"><%= house.animals==1 ? t('yes_animal') : t('no_animal') %></span>
+    <span class="field"><%= house.animals? ? t('yes_animal') : t('no_animal') %></span>
   <br />
     <span class="label"><%= t :distance_center %>:</span>
     <span class="field"><%=h house.distance_center %> <%= t('meter') %></span>
