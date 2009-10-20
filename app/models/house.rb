@@ -13,6 +13,7 @@ class House < ActiveRecord::Base
   validates_presence_of :city_id, :house_type_id, :condition_id, :furnishing_id
 
   named_scope :discounts, {:joins => :discount}
+#  named_scope :in_city, {:joins => { :taggables => :tags }}
 
   
   def discounted?

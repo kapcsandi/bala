@@ -175,9 +175,9 @@ class SetupController < ApplicationController
 	cities = Taggable.find_by_field('city_id').tags
         house.city_id = case house.code
 	when /^25/
-	  cities.find_by_name(/lelle/).id
+	  cities.find_by_name('Balatonlelle').id
 	when /^24/
-	  cities.find_by_name(/bogl/).id
+	  cities.find_by_name('Balatonboglár').id
 	end # Település 24 => Balatonboglár, 25 => Balatonlelle
         house.persons = line[1] # B => persons, Maximum felnőtt fő
         house.children = line[2] # C => children, Maximum gyerek fő

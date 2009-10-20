@@ -7,12 +7,7 @@
     <%= javascript_include_tag :defaults %>
     <%= calendar_date_select_includes "silver", :locale => I18n.locale %>
 
-<link rel="stylesheet" href="/stylesheets/blueprint/screen.css" type="text/css" media="screen, projection" />
-<link rel="stylesheet" href="/stylesheets/blueprint/print.css" type="text/css" media="print" />
-<!--[if lt IE 8]>
-  <link rel="stylesheet" href="/stylesheets/blueprint/ie.css" type="text/css" media="screen, projection" />
-<![endif]-->
-    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'blueprint/screen', 'application', :cache => true %>
     <%= yield(:head) %>
   </head>
   <body>
@@ -60,8 +55,8 @@
 	<% end %>
       </div>
       <div class="span-18 prepend-6">
-      <% ['home', :booking, :cart, :special_offers, :contact, 'programs'].each do |item| %>
-      <div class="menu span-3<%= if item == 'home' then '' end %><%= if item == 'programs' then ' last' end %>">
+      <% ['/home', :booking, :cart, :special_offers, :contact, 'programs'].each do |item| %>
+      <div class="menu span-3<%= if item == '/home' then '' end %><%= if item == 'programs' then ' last' end %>">
 	<div class="menu-item <%= item.to_s %>"><%= link_to t(item), item %></div>
       </div>
       <% end %>

@@ -11,20 +11,25 @@ class HousesController < ApplicationController
         search = House.searchlogic
       end
     end
-    search.city_id = params[:place].to_i unless params[:place].blank?
-    search.persons_gte = params[:persons_gte].to_i unless  params[:persons_gte].blank?
-    search.code_like = params[:q][:code_like] unless params[:q].nil? or params[:q][:code_like].blank?
-    if params[:advanced] == '1'
-      search.house_type_id = params[:type] unless params[:type].blank?
+    search.persons_gte = params[:q][:persons].to_i unless params[:q].nil? or params[:q][:persons].blank?
+    search.code_like = params[:q][:code] unless params[:q].nil? or params[:q][:code].blank?
+    unless params[:q].nil? or params[:q][:where].blank? 
+      city = Taggable.find_by_field('city_id').tags.find_by_name(params[:q][:where])
+      search.city_id = city.id if city
+    end
+    if params[:advanced] == '1' and params[:q]
+      house_type = Taggable.find_by_field('house_type_id').tags.find_by_name(params[:q][:type]) unless params[:q][:type].blank?
+      search.house_type_id = house_type.id if house_type
       search.sat = params[:sat] unless params[:sat].blank? or params[:sat] != '1'
       search.clima_id = Taggable.find_by_field('clima_id').tags.select{|tag| tag.name(:locale => 'hu') != 'nincs' }.map{|tag| tag.id} unless params[:clima].blank? or params[:clima] != '1'
       search.internet = params[:internet] unless params[:internet].blank? or params[:internet] != '1'
       search.grill = params[:grill] unless params[:grill].blank? or params[:grill] != '1'
       search.pool = params[:pool] unless params[:pool].blank? or params[:pool] != '1'
       search.animals = params[:animals] unless params[:animals].blank? or params[:animals] != '1'
-      search.parking_id = params[:parking] unless params[:parking].blank? #or params[:parking] == t('all')
-      search.distance_center = params[:distance_center] unless params[:distance_center].blank? or params[:distance_center] != t('all')
-      search.distance_beach = params[:distance_beach] unless params[:distance_beach].blank? or params[:distance_beach] != t('all')
+      parking = Taggable.find_by_field('parking_id').tags.find_by_name(params[:q][:parking]) unless params[:q][:parking].blank?
+      search.parking_id = parking.id if parking
+      search.distance_center_lte = params[:q][:distance_center].to_i unless params[:q][:distance_center].blank?
+      search.distance_beach_lte = params[:q][:distance_beach].to_i unless params[:q][:distance_beach].blank?
     end
     
     @houses, @houses_count = search.all(:select => "houses.id,code, city_id, persons, animals, pictures, house_type_id, condition_id, furnishing_id, floor_area, distance_center, distance_beach, distance_restaurant, distance_shop, distance_mainroad, distance_station").paginate(:page => params[:page], :per_page => 10), search.count

@@ -2,29 +2,15 @@
  <div style="overflow:hidden">
   <div class="span-3 label"><%= t :city %></div>
   <div class="span-3 field">
-  <%= select_tag 'place', Taggable.find_by_field('city_id').tags.map{|tag| 
-    if params[:place] == tag.id.to_s
-      '<option selected value="' + tag.id.to_s + '">' + tag.name + '</option>'
-    else
-      '<option value="' + tag.id.to_s + '">' + tag.name + '</option>'
-    end
-  } 
-  %>
+  <%= f.select 'where', Taggable.find_by_field('city_id').tags.map{|tag| tag.name }, :selected => (params[:q] ? params[:q][:where] : ''), :include_blank => true %>
   </div>
   <div class="span-5 label"><%= t :persons %></div>
   <div class="span-1 field">
-  <% p_o = ''
-  (1..15).each do |item|
-    p_o += '<option'
-    p_o += ' selected' if params[:persons_gte].to_i == item or (item==2 and not params[:persons_gte])
-    p_o += ' value="'+item.to_s+'">'+item.to_s+'</option>'
-  end
-  %>
-  <%= select_tag :persons_gte, p_o %>
+  <%= f.select :persons, (1..15), :selected => (params[:q] ? params[:q][:persons].to_i : ''), :include_blank => true %>
   </div>
   <div class="span-2 label"><%= t :code %></div>
   <div class="span-3 last field">
-  <%= f.text_field :code_like, :size=> 12, :value => params[:search] ? params[:q][:code_like] : '' %>
+  <%= f.text_field :code, :size=> 12, :value => (params[:q] ? params[:q][:code] : '') %>
   </div>
  </div>
  <div style="overflow:hidden"> 
