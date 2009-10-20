@@ -5,7 +5,11 @@ class HousesController < ApplicationController
     if tag
       search = tag.houses.searchlogic
     else
-      search = House.searchlogic
+      if params[:discount]
+	search = House.discounts.searchlogic
+      else
+        search = House.searchlogic
+      end
     end
     search.city_id = params[:place].to_i unless params[:place].blank?
     search.persons_gte = params[:persons_gte].to_i unless  params[:persons_gte].blank?

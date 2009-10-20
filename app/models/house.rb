@@ -11,6 +11,9 @@ class House < ActiveRecord::Base
   accepts_nested_attributes_for :tags, :allow_destroy => true
   
   validates_presence_of :city_id, :house_type_id, :condition_id, :furnishing_id
+
+  named_scope :discounts, {:joins => :discount}
+
   
   def discounted?
     if self.discount.nil? or self.discount.new_record? or self.discount == 0

@@ -10,7 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.home "home", :controller => "root", :action => "index"
   map.booking "booking", :controller => "houses", :action => "booking"
   map.cart "cart", :controller => "houses", :action => "cart"
-  map.special_offers "special_offers", :controller => "houses", :action => "special"
+  map.special_offers "special_offers", :controller => "houses", :action => "index", :discount => true
   map.contact "contact", :controller => "root", :action => "contact"
   map.contact "programs", :controller => "root", :action => "programs"
   
