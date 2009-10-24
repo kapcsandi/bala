@@ -79,7 +79,7 @@ option{}
 #houses_show fieldset.fullwidth p {width:100%;float:auto}
 body{background-color:#CBCBCC; color:;font-family:sans-serif,arial;}
 #top{background-color:#}
-#search{background-color:#F4C13F;margin-top:10px}
+#search{background-color:#F4C13F;margin:10px 10px 10px 0}
 #menu{background-color:#D3E0EA}
 .menu-item{background-color:#1B619B;}
 .menu-item a {color:#F8F2E5}
@@ -90,4 +90,5 @@ body{background-color:#CBCBCC; color:;font-family:sans-serif,arial;}
 #top .left{height:50px;background-color:#2B5A88 }
 a:hover {color:#D75A20}
 .container{background-color:#ffffff}
-#site-name {font-size:30px;font-weight:bold}
+#site-name a {font-size:30px;font-weight:bold;text-decoration:none}
+/* #slogan{font-size:12px;font-weight:normal} */
