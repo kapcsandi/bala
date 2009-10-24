@@ -45,7 +45,7 @@
       <div id="menu" class="span-24 last">
 	<% ['home', :booking, :cart, :special_offers, :contact, 'programs'].each do |item| %>
 	<div class="menu span-3 append-1 last<%= if item == 'home' then ' prepend-1' else '' end %><%= if item == 'programs' then ' last' end %>">
-	<div class="menu-item <%= item.to_s %>"><%= link_to t(item), item %></div>
+	<div class="menu-item <%= item.to_s %>"><%= link_to t(item), (item=='home' ? '/home' : item) %></div>
 	</div>
 	<% end %>
 	<%- flash.each do |name, msg| -%>
