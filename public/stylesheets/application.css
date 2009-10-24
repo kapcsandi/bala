@@ -77,12 +77,13 @@ option{}
 
 #houses_show fieldset p {width:30%;float:left}
 #houses_show fieldset.fullwidth p {width:100%;float:auto}
-body{background-color:#9A9A9B; color:;font-family:sans-serif,arial;}
-#top{background-color:#ACCBE0}
+body{background-color:#CBCBCC; color:;font-family:sans-serif,arial;}
+#top{background-color:#}
+#search{background-color:#F4C13F}
 #menu{background-color:#D3E0EA}
 .menu-item{background-color:#1B619B;}
 .menu-item a {color:#F8F2E5}
-#left{background-color:#1B619B}
+#left{background-color:#2B5A88}
 #left a {color:#F8F2E5}
 #foot{background-color:#}
 a:hover {color:#D75A20}

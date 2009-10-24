@@ -12,15 +12,16 @@
   </head>
   <body>
     <div class="container" id="<%= controller_name %>_<%= action_name %>">
-      <div id="top" class="span-24"><img src="/images/bg.png" />
-	<div id="logo" class="span-18">
+      <div id="top" class="span-24">
+	<div id="logo" class="span-6">
 	  <% content_tag 'div', :class => 'inner' do %>
 	  <a href="/" title="<%= t :home %>">
-	    <div>BALA</div>
-	    
+	    <div>BALA</div>	    
 	  </a>
-	  <%#= render :partial => 'houses/cart', :object => @cart %>
 	  <% end %>
+	</div>
+	<div id="search" class="prepend-6 span-18 last">
+	  <%#= render :partial => 'houses/cart', :object => @cart %>
 	</div>
 	
 	<div id="login" class="span-6 last">
