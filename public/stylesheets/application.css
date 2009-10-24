@@ -55,7 +55,7 @@
 
 
 /* th {float:left} */
-#logo,#login {height:50px}
+#logo,#login {}
 .menu {height:50px;margin-bottom:13px}
 input,select{width:auto;font-size:100%}
 option{}
@@ -64,8 +64,8 @@ option{}
 #search .label {margin:0.5em;float:left}
 #search .field {float:left}
 .menu-item{padding:10px 0;font-weight:bold;margin:10px 0;text-align:center}
-#left .menu{padding:10px 0 0 10px}
-#content{margin-top:10px}
+/* #left .menu{padding:10px 0 0 10px} */
+#content{}
 .categories .category {height:210px;border:1px solid;padding:5px;margin:0 0 10px 0}
 .categories .item{}
 .mini {line-height:2em;overflow:hidden;margin:5px 0}
@@ -79,12 +79,15 @@ option{}
 #houses_show fieldset.fullwidth p {width:100%;float:auto}
 body{background-color:#CBCBCC; color:;font-family:sans-serif,arial;}
 #top{background-color:#}
-#search{background-color:#F4C13F}
+#search{background-color:#F4C13F;margin-top:10px}
 #menu{background-color:#D3E0EA}
 .menu-item{background-color:#1B619B;}
 .menu-item a {color:#F8F2E5}
-#left{background-color:#2B5A88}
+#left {background-color:#D3E0EA}
+#left .menu{background-color:#2B5A88}
 #left a {color:#F8F2E5}
 #foot{background-color:#}
+#top .left{height:50px;background-color:#2B5A88 }
 a:hover {color:#D75A20}
 .container{background-color:#ffffff}
+#site-name {font-size:30px;font-weight:bold}
