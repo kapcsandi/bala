@@ -11,7 +11,7 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <div class="container">
+    <div class="container" id="<%= controller_name %> <%= action_name %>">
       <div id="top" class="span-24">
 	<div id="logo" class="span-18">
 	  <% content_tag 'div', :class => 'inner' do %>
@@ -55,8 +55,8 @@
 	<% end %>
       </div>
       <div class="span-18 prepend-6">
-      <% ['/home', :booking, :cart, :special_offers, :contact, 'programs'].each do |item| %>
-      <div class="menu span-3<%= if item == '/home' then '' end %><%= if item == 'programs' then ' last' end %>">
+      <% ['home', :booking, :cart, :special_offers, :contact, 'programs'].each do |item| %>
+      <div class="menu span-3<%= if item == 'home' then '' end %><%= if item == 'programs' then ' last' end %>">
 	<div class="menu-item <%= item.to_s %>"><%= link_to t(item), item %></div>
       </div>
       <% end %>

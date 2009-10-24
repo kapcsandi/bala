@@ -230,7 +230,7 @@
       <%=h @house.price_main_season_per_week %>
     </p>
   <% end %>
-  <% field_set_tag 'Leírások' do %>
+  <% field_set_tag 'Leírások', :class => 'descriptions' do %>
     <p>
       <%= label_tag t :discounted %> :
       <%= check_box_tag :discounted, 1, @house.discounted?, :disabled => true %>

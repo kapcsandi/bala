@@ -75,3 +75,6 @@ option{}
 .odd {background-color:#efefef}
 .calendar_date_select {width:210px}
 .field img{display:block;float:right; padding-top:5px;padding-right:8px;}
+
+#houses_show fieldset p {width:30%;float:left}
+#houses_show fieldset.descriptions p {width:100%;float:auto}
