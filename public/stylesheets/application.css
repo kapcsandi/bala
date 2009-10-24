@@ -63,7 +63,7 @@ option{}
 .label{margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
 #search .label {margin:0.5em;float:left}
 #search .field {float:left}
-.menu-item{padding:10px 0;font-weight:bold;margin:10px 0;text-align:center}
+.menu-item{padding:10px 0;font-size:1.1em;margin:10px 0;text-align:center}
 /* #left .menu{padding:10px 0 0 10px} */
 #content{}
 .categories .category {height:210px;border:1px solid;padding:5px;margin:0 0 10px 0}
