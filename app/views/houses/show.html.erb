@@ -1,5 +1,5 @@
 <div style="overflow:hidden;clear:both"><%= render :partial => 'mini', :locals => { :house => @house, :cycle_class => '' } %>
-</div>  <% field_set_tag 'Ház alapinfók' do %>
+</div>  <% field_set_tag 'Ház alapinfók', :class => 'fullwidth' do %>
     <% field = Taggable.find_by_position(6)
      tagnames = [] %>
     <p>
@@ -230,7 +230,7 @@
       <%=h @house.price_main_season_per_week %>
     </p>
   <% end %>
-  <% field_set_tag 'Leírások', :class => 'descriptions' do %>
+  <% field_set_tag 'Leírások', :class => 'fullwidth' do %>
     <p>
       <%= label_tag t :discounted %> :
       <%= check_box_tag :discounted, 1, @house.discounted?, :disabled => true %>
@@ -249,7 +249,7 @@
       <%= text_area_tag :admin_description, @house.admin_description, :disabled => true  %>
     </p>
   <% end %>
-  <% field_set_tag t('pictures') do %>
+  <% field_set_tag t('pictures'), :class => 'fullwidth' do %>
     <p>
     <% (0..7).each do |id| %>
       <%= label_tag t :picture_url, :position => id+1 %>

@@ -59,17 +59,16 @@
 .menu {height:50px;margin-bottom:13px}
 input,select{width:auto;font-size:100%}
 option{}
-#logo,#search,#login {background:lightgray}
+#logo,#search,#login {}
 .label{margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
 #search .label {margin:0.5em;float:left}
 #search .field {float:left}
-.menu-item{padding:10px 0;background-color:orange;font-weight:bold;margin:10px 0;text-align:center}
+.menu-item{padding:10px 0;font-weight:bold;margin:10px 0;text-align:center}
 #left .menu{padding:10px 0 0 10px}
 #content{margin-top:10px}
 .categories .category {height:210px;border:1px solid;padding:5px;margin:0 0 10px 0}
 .categories .item{}
 .mini {line-height:2em;overflow:hidden;margin:5px 0}
-#top{margin-top:5px}
 .inner {padding:15px;overflow:hidden}
 .even {background-color:#f6f6f6}
 .odd {background-color:#efefef}
@@ -77,4 +76,14 @@ option{}
 .field img{display:block;float:right; padding-top:5px;padding-right:8px;}
 
 #houses_show fieldset p {width:30%;float:left}
-#houses_show fieldset.descriptions p {width:100%;float:auto}
+#houses_show fieldset.fullwidth p {width:100%;float:auto}
+body{background-color:#9A9A9B; color:;font-family:sans-serif,arial;}
+#top{background-color:#ACCBE0}
+#menu{background-color:#D3E0EA}
+.menu-item{background-color:#1B619B;}
+.menu-item a {color:#F8F2E5}
+#left{background-color:#1B619B}
+#left a {color:#F8F2E5}
+#foot{background-color:#}
+a:hover {color:#D75A20}
+.container{background-color:#ffffff}

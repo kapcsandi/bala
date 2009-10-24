@@ -11,12 +11,13 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <div class="container" id="<%= controller_name %> <%= action_name %>">
-      <div id="top" class="span-24">
+    <div class="container" id="<%= controller_name %>_<%= action_name %>">
+      <div id="top" class="span-24"><img src="/images/bg.png" />
 	<div id="logo" class="span-18">
 	  <% content_tag 'div', :class => 'inner' do %>
 	  <a href="/" title="<%= t :home %>">
 	    <div>BALA</div>
+	    
 	  </a>
 	  <%#= render :partial => 'houses/cart', :object => @cart %>
 	  <% end %>
@@ -54,7 +55,7 @@
 	</div>
 	<% end %>
       </div>
-      <div class="span-18 prepend-6">
+      <div id="menu" class="span-18 prepend-6">
       <% ['home', :booking, :cart, :special_offers, :contact, 'programs'].each do |item| %>
       <div class="menu span-3<%= if item == 'home' then '' end %><%= if item == 'programs' then ' last' end %>">
 	<div class="menu-item <%= item.to_s %>"><%= link_to t(item), item %></div>
