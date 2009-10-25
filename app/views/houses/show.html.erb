@@ -1,5 +1,7 @@
 <div class="inner">
-<div class="mini"><%= render :partial => 'mini', :locals => { :house => @house, :cycle_class => '' } %>
+<div class="mini">
+<%= render :partial => 'mini', :locals => { :house => @house, :cycle_class => '' } %>
+<%= render :partial => 'navigation' , :locals => { :house => @house }%>
 </div>  
 <a name="details"></a>
 <% field_set_tag t('house_basics'), :class => 'fullwidth' do %>

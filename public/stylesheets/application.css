@@ -78,7 +78,7 @@ option{}
 #houses_show fieldset.fullwidth p {width:100%;float:auto}
 #houses_show textarea {height:auto;width:90%}
 .photos div {text-align:center;background-color:#F8F2E5;width:200px;float:left;margin:5px 15px;padding:5px 0 0}
-body{background-color:#CBCBCC; color:;font-family:sans-serif,arial;}
+body{font-family:sans-serif,arial}
 #top{background-color:#}
 #search{background-color:#F4C13F;margin:10px 10px 10px 0}
 #menu{background-color:#D3E0EA}
@@ -86,11 +86,10 @@ body{background-color:#CBCBCC; color:;font-family:sans-serif,arial;}
 .menu-item a {color:#F8F2E5}
 #left {background-color:#D3E0EA}
 #left .menu{background-color:#2B5A88}
-#left a {color:#F8F2E5}
 #foot{background-color:#}
 #top .left{height:50px;background-color:#2B5A88 }
 a:hover {color:#D75A20}
-.container{background-color:#ffffff}
+.container{background-color:#ffffff;border:1px solid beige}
 #site-name a {font-size:30px;font-weight:bold;text-decoration:none}
 .pagination {float:right;padding:0 15px}
 .count{font-size:1.1em;color:#D75A20}
