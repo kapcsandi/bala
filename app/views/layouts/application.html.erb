@@ -62,7 +62,7 @@
       </div>
       <div id="content" class="span-19 last">
     <% if controller_name != 'setup' %>
-    <div id="search" class="">
+    <div id="search" style="overflow:hidden">
       <% content_tag 'div', :class => 'inner' do %>
 	<% if params[:advanced]=='1' %>
 	<%= render :partial => 'houses/detailed_search' %>
