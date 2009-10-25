@@ -1,7 +1,6 @@
 #flash_notice, #flash_error {
   padding: 5px 8px;
-  margin: 40px 0;
-  width: 70%;
+  margin: 40px;
   clear:both;
 }
 
@@ -68,15 +67,16 @@ option{}
 #content{}
 .categories .category {height:210px;border:1px solid;padding:5px;margin:0 0 10px 0}
 .categories .item{}
-.mini {line-height:2em;overflow:hidden;margin:5px 0}
-.inner {padding:15px;overflow:hidden}
+.mini {line-height:2em;overflow:hidden;margin:5px 0;padding:5px}
+.inner {padding:5px 20px 5px 5px}
 .even {background-color:#f6f6f6}
 .odd {background-color:#efefef}
 .calendar_date_select {width:210px}
-.field img{display:block;float:right; padding-top:5px;padding-right:8px;}
+.field img{display:block;float:right;}
 
 #houses_show fieldset p {width:30%;float:left}
 #houses_show fieldset.fullwidth p {width:100%;float:auto}
+#houses_show textarea {height:auto;width:90%}
 body{background-color:#CBCBCC; color:;font-family:sans-serif,arial;}
 #top{background-color:#}
 #search{background-color:#F4C13F;margin:10px 10px 10px 0}
@@ -91,4 +91,7 @@ body{background-color:#CBCBCC; color:;font-family:sans-serif,arial;}
 a:hover {color:#D75A20}
 .container{background-color:#ffffff}
 #site-name a {font-size:30px;font-weight:bold;text-decoration:none}
+.pagination {float:right;padding:0 15px}
+.count{font-size:1.1em;color:#D75A20}
+.mini .location {font-size:1.2em}
 /* #slogan{font-size:12px;font-weight:normal} */

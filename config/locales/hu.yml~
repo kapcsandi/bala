@@ -114,11 +114,30 @@ hu:
   Are you sure: Biztos benne?
   yes_animal: igen
   no_animal: nem
-  nincs
+  nincs: nincs
   pictures: Képek
   pers: fő
   meter: m
   sqmeter: m&sup3;
+#field sets
+  house_basics: Ház alapinfók
+  house_layout: Helyiségek elrendezése
+  house_rooms: Helyiségek
+  house_rooms_sq: Helyiségek alapterülete
+  house_beds: Ágyak
+  house_bathrooms: Fürdőszoba
+  house_wc: WC
+  house_kitchen: Konyha
+  house_inters: Egyéb belső felszereltség
+  house_outers: Egyéb külső felszereltség
+  house_distances: Távolságok
+  house_owner_infos: Háztulajdonos infók
+  house_animals: Háziállat
+  house_price_day: Ár / fő / nap
+  house_price_week: Ár / fő / hét
+  house_description: Leírások
+  house_photos: Képek
+#links
   back_to_list: Vissza a listához
   Back to houses: Vissza az apartmanokhoz
 #search
@@ -130,12 +149,20 @@ hu:
   rooms: Szobák száma
   all: mindegy
 #messages
+  house_added: Az apartman létrehozása sikeres volt
+  house_updated: Az apartman módosítása sikeres volt
+  house_destroyed: Az apartman törlése sikeres volt
+  house_added_to_cart: Az apartman hozzá lett adva a Bevásárlókosárhoz
+  house_removed_from_cart: Az apartman törölve lett a Bevásárlókosárból
   Empty dictionary fields: Üres szótár(ak)
   add_taggables: Szótárak bővítése
   Setup: Setup
   or: vagy
   Empty Cart: Bevásárlókosár törlése
   Go to Cart: Bevásárlókosár
+  not_implemented_yet: Fejlesztés alatt.
+  cart_is_empty: A Bevásárlókosara üres
+  invalid_house: Ez az apartman nem létezik
 # top menu
   booking: Foglalás
   booking_title: Foglalás
@@ -156,7 +183,7 @@ hu:
   impressum: Impresszum
   owners: Tulajdonosoknak
   admin_login: Admin belépés
-  houses_found: "Találatok száma: {{count}}"
+  houses_found: "Találatok száma: <span class=\"count\">{{count}}</span>"
   prev_link: előző
   next_link: következő
 

@@ -15,7 +15,6 @@ class House < ActiveRecord::Base
   named_scope :discounts, {:joins => :discount}
 #  named_scope :in_city, {:joins => { :taggables => :tags }}
 
-  
   def discounted?
     if self.discount.nil? or self.discount.new_record? or self.discount == 0
       false
@@ -76,11 +75,11 @@ class House < ActiveRecord::Base
     Tag.find(owner_place_id).name unless owner_place_id.nil?
   end
   
-  def picture_urls
-    pictures.split(',',8) if pictures
+  def picture_ids
+    pictures.split(',',8).map{|pid| 'http://bala.clix5.com/'+self.code+'/'+pid+'_thumb.jpg' if pid !~ /,/ }.compact if pictures
   end
   
-  def picture_urls=(urls)
+  def picture_ids=(urls)
     self.pictures = urls.join(',')
   end
   

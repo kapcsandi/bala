@@ -1,6 +1,7 @@
 <% form_for @house do |f| %>
   <%= f.error_messages %>
-  <% field_set_tag 'Ház alapinfók' do %>
+  <a name="details">
+  <% field_set_tag t('house_basics') do %>
     <p>
       <%= f.label t :city_id %><br />
       <%= f.collection_select :city_id, Taggable.find_by_field('city_id').tags, :id, :name, :prompt => t(:select_city) %>
@@ -50,7 +51,8 @@
 	<% end %>
     </p>
   <% end %>
-  <% field_set_tag 'Helyiségek elrendezése' do %>
+  </a>
+  <% field_set_tag t('house_layout') do %>
     <% for field in Taggable.find_all_by_position([8, 9, 10, 11]) %>
     <p>
       <%= f.label field.name %><br />
@@ -61,7 +63,7 @@
     </p>
     <% end %>
   <% end %>
-  <% field_set_tag 'Helyiségek' do %>
+  <% field_set_tag t('house_rooms') do %>
     <% for field in %w(living_dining_room bedroom living_room living_dining_kitchen kitchen dining_room kitchen_dining_room) %>
     <p>
       <%= f.label t field %><br />
@@ -81,7 +83,7 @@
       <%= f.label t :garden %><br />
     </p>
   <% end %>
-  <% field_set_tag 'Helyiségek alapterülete' do %>
+  <% field_set_tag t('house_rooms_sq') do %>
     <% for field in %w(living_room_sq living_dining_room_sq living_dining_kitchen_sq kitchen_sq dining_room_sq kitchen_dining_room_sq terrace_sq balcony_sq yard_sq) %>
     <p>
       <%= f.label t field %><br />
@@ -89,7 +91,7 @@
     </p>
     <% end %>
   <% end %>
-  <% field_set_tag 'Ágyak' do %>
+  <% field_set_tag t('house_beds') do %>
     <% for field in %w(double_bed single_bed extra_bed pull_out_bed) %>
     <p>
       <%= f.label t field %><br />
@@ -97,7 +99,7 @@
     </p>
     <% end %>
   <% end %>
-  <% field_set_tag 'Fürdőszoba' do %>
+  <% field_set_tag t('house_bathrooms') do %>
     <p>
       <%= f.label t :bathrooms %><br />
       <%= f.text_field :bathrooms %>
@@ -109,7 +111,7 @@
     </p>
     <% end %>
   <% end %>
-  <% field_set_tag 'WC' do %>
+  <% field_set_tag t('house_wc') do %>
     <p>
       <%= f.label t :wcs %><br />
       <%= f.text_field :wcs %>
@@ -119,7 +121,7 @@
       <%= f.label t :wc_separated %><br />
     </p>
   <% end %>
-  <% field_set_tag 'Konyha' do %>
+  <% field_set_tag t('house_kitchen') do %>
     <% for field in %w(fridge coffee_machine micro) %>
     <p>
       <%= f.check_box field %>
@@ -131,7 +133,7 @@
       <%= f.collection_select :stove_id, Taggable.find_by_field('stove_id').tags, :id, :name, :prompt => t(:select_stove) %>
     </p>
   <% end %>
-  <% field_set_tag 'Egyéb belső felszereltség' do %>
+  <% field_set_tag t('house_inters') do %>
     <% for field in %w(sat internet) %>
     <p>
       <%= f.check_box field %>
@@ -143,7 +145,7 @@
       <%= f.collection_select :clima_id, Taggable.find_by_field('clima_id').tags, :id, :name, :prompt => t(:select_clima) %>
     </p>
   <% end %>
-  <% field_set_tag 'Egyéb külső felszereltség' do %>
+  <% field_set_tag t('house_outers') do %>
     <p>
       <%= check_box_tag :pool, 1, @house.pool?, :onchange => "$('pool_sq').toggle()" %>
       <%= f.label t :pool %><br />
@@ -170,7 +172,7 @@
       <%= f.collection_select :parking_id, Taggable.find_by_field('parking_id').tags, :id, :name, :prompt => t(:select_parking) %>
     </p>
   <% end %>
-  <% field_set_tag 'Távolságok' do %>
+  <% field_set_tag t('house_distances') do %>
     <p>
       <%= f.label t :distance_center %><br />
       <%= f.text_field :distance_center %>
@@ -204,7 +206,7 @@
       <%= f.text_field :distance_restaurant %>
     </p>
   <% end %>
-  <% field_set_tag 'Háztulajdonos infók' do %>
+  <% field_set_tag t('house_owner_infos') do %>
     <% field = Taggable.find_by_position(61) %>
     <p>
       <%= f.label field.name %><br />
@@ -218,7 +220,7 @@
       <%= f.collection_select :owner_place_id, Taggable.find_by_field('owner_place_id').tags, :id, :name, :prompt => t(:select_owner_place) %>
     </p>
   <% end %>
-  <% field_set_tag 'Háziállat' do %>
+  <% field_set_tag t('house_animal') do %>
     <p>
       <%= check_box_tag :animals, 1, @house.animals?, :onchange => "$('animal_charge').toggle()" %>
       <%= f.label t :animals %><br />
@@ -230,7 +232,7 @@
       </p>
     </div>
   <% end %>
-  <% field_set_tag 'Ár / fő / nap' do %>
+  <% field_set_tag t('house_price_day') do %>
     <p>
       <%= f.label t :price_pre_season %><br />
       <%= f.text_field :price_pre_season_per_day %>
@@ -244,7 +246,7 @@
       <%= f.text_field :price_main_season_per_day %>
     </p>
   <% end %>
-  <% field_set_tag 'Ár / fő / hét' do %>
+  <% field_set_tag t('house_price_week') do %>
     <p>
       <%= f.label t :price_pre_season %><br />
       <%= f.text_field :price_pre_season_per_week %>
@@ -258,7 +260,7 @@
       <%= f.text_field :price_main_season_per_week %>
     </p>
   <% end %>
-  <% field_set_tag 'Leírások' do %>
+  <% field_set_tag t('house_description') do %>
     <p>
       <%= check_box_tag :discounted, 1, @house.discounted?, :onchange => "$('discount_description').toggle()" %>
       <%= f.label t :discounted %> <br />
@@ -279,11 +281,13 @@
       <%= f.text_area :admin_description, :rows => 5, :cols => 30  %>
     </p>
   <% end %>
-  <% field_set_tag 'Képek' do %>
+<a name="photos">
+  <% field_set_tag t('house_photos') do %>
     <% (0..7).each do |id| %>
       <%= f.label t :picture_url, :position => id+1 %>
-      <%= text_field_tag 'house[picture_urls][]', @house.picture_urls ? @house.picture_urls[id] : nil %><br />
+      <%= text_field_tag 'house[picture_ids][]', @house.picture_ids ? @house.picture_ids[id] : nil %><br />
     <% end %>
   <% end %>
+</a>
   <p><%= f.submit t(:submit) %></p>
 <% end %>

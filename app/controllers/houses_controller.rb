@@ -52,7 +52,7 @@ class HousesController < ApplicationController
   def create
     @house = House.new(params[:house])
     if @house.save
-      flash[:notice] = t "Successfully created house."
+      flash[:notice] = t "house_added"
       redirect_to @house
     else
       render :action => 'new'
@@ -74,7 +74,7 @@ class HousesController < ApplicationController
     @house = House.find(params[:id])
     if @house.update_attributes(params[:house])
       @house.discount.destroy unless params[:discounted]
-      flash[:notice] = t "Successfully updated house."
+      flash[:notice] = t "house_updated"
       redirect_to @house
     else
       render :action => 'edit'
@@ -84,7 +84,7 @@ class HousesController < ApplicationController
   def destroy
     @house = House.find(params[:id]) 
     @house.destroy
-    flash[:notice] = t "Successfully destroyed house."
+    flash[:notice] = t "house_deleted"
     redirect_to houses_url
   end
   
@@ -94,15 +94,15 @@ class HousesController < ApplicationController
       house = House.find(params[:id]) if params[:id]
     rescue ActiveRecord::RecordNotFound
       logger.error("Attempt to access invalid house #p{params[:id]}")
-      redirect_to_index("Invalid house")
+      redirect_to_index("invalid_house")
     else
       if params[:cart] == 'add'
 	@cart.add_house(house)
-	flash[:notice] = "House succesfully added to cart."
+	flash[:notice] = t "house_added_to_cart"
       end
       if params[:cart] == 'del'
 	@cart.remove_house(house)
-	flash[:notice] = "House successfully removed from cart."
+	flash[:notice] = t "house_removed_from_cart"
       end
       @selected = House.find_all_by_id(@cart.items)
       if params[:cart]
@@ -113,7 +113,7 @@ class HousesController < ApplicationController
   
   def empty_cart
     session[:cart] = nil
-    redirect_to_index("Your cart is currently empty.")
+    redirect_to_index("cart_is_empty")
   end
   
   def booking
@@ -122,7 +122,7 @@ class HousesController < ApplicationController
   end
   
   def special
-    redirect_to_index("Not implemented yet.")
+    redirect_to_index("no_implemented_yet")
   end
   
   private
@@ -132,7 +132,7 @@ class HousesController < ApplicationController
   end
   
   def redirect_to_index(msg)
-    flash[:notice] = msg
+    flash[:notice] = t(msg)
     redirect_to :action => :index
   end
 end

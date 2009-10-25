@@ -431,10 +431,11 @@ class SetupController < ApplicationController
 	house.price_mid_season_per_week = line[71].to_s.gsub(/,/,'.').to_f
 	house.price_main_season_per_week = line[72].to_s.gsub(/,/,'.').to_f
 	unless line[74].nil?
-	  house.discount = Discount.new(:description => line[73])
+	  house.discount = Discount.new(:description => line[74])
 	end
 	house.house_description = line[75].to_s
 	house.admin_description = line[76].to_s
+	house.picture_ids = line[77..96]
         if house.save
 	  n+=1
           @lines << line[0]
