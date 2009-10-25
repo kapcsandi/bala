@@ -167,7 +167,7 @@ class SetupController < ApplicationController
       n=0
       @lines = []
       @parsed_file.each do |row|
-#	begin
+	begin
         line = row
         next if line[0] !~ /^[0-9\-\/]+/
         house = House.find_or_initialize_by_code(line[0]) # A => code, Kód
@@ -443,12 +443,12 @@ class SetupController < ApplicationController
         else
           @lines << house.errors.first.message
         end
-#	rescue => ex
-#	  @lines << "#{ex.backtrace}: #{ex.message} (#{ex.class})"
-#	  @lines << tags.map.inspect
-#	  @lines << line.inspect
-#	  @lines << names.inspect
-#	end
+	rescue => ex
+	  @lines << "#{ex.backtrace}: #{ex.message} (#{ex.class})"
+	  @lines << tags.map.inspect
+	  @lines << line.inspect
+	  @lines << names.inspect
+	end
       end
       data_error = ''
       flash.now[:message] = "CSV Import Successful, #{n} new records added to database.<br />params was = #{params.inspect}<br />#{data_error}"
