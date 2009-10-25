@@ -154,6 +154,7 @@ hu:
   house_destroyed: Az apartman törlése sikeres volt
   house_added_to_cart: Az apartman hozzá lett adva a Bevásárlókosárhoz
   house_removed_from_cart: Az apartman törölve lett a Bevásárlókosárból
+  house_not_in_any_group: " - (az apartman nem tartozik egyik csoporthoz sem)"
   Empty dictionary fields: Üres szótár(ak)
   add_taggables: Szótárak bővítése
   Setup: Setup

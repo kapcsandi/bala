@@ -1,6 +1,6 @@
 <% form_for @house do |f| %>
   <%= f.error_messages %>
-  <a name="details">
+  <a name="details"></a>
   <% field_set_tag t('house_basics') do %>
     <p>
       <%= f.label t :city_id %><br />
@@ -51,7 +51,6 @@
 	<% end %>
     </p>
   <% end %>
-  </a>
   <% field_set_tag t('house_layout') do %>
     <% for field in Taggable.find_all_by_position([8, 9, 10, 11]) %>
     <p>
@@ -281,13 +280,12 @@
       <%= f.text_area :admin_description, :rows => 5, :cols => 30  %>
     </p>
   <% end %>
-<a name="photos">
+<a name="photos"></a>
   <% field_set_tag t('house_photos') do %>
-    <% (0..7).each do |id| %>
+    <% (0..@house.picture_urls.count-1).each do |id| %>
       <%= f.label t :picture_url, :position => id+1 %>
-      <%= text_field_tag 'house[picture_ids][]', @house.picture_ids ? @house.picture_ids[id] : nil %><br />
+      <%= text_field_tag 'house[picture_urls][]', @house.picture_urls ? @house.picture_urls[id] : nil %><br />
     <% end %>
   <% end %>
-</a>
   <p><%= f.submit t(:submit) %></p>
 <% end %>

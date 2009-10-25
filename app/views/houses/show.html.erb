@@ -19,7 +19,11 @@
 	<% for tag in field.tags %>
           <% tagnames << tag.name if @house.tags.include?(tag) %>
 	<% end %>
-      <%= tagnames.join(', ') %>
+      <%= unless tagnames.empty? 
+	tagnames.join(', ')
+      else
+	t('house_not_in_any_group')
+      end %>
     </p>
   <% end %>
   <% field_set_tag t('house_layout') do %>
@@ -253,7 +257,7 @@
     </p>
   <% end %>
   <a name="photos">  </a>
-  <% field_set_tag t('pictures') do %>
+  <% field_set_tag t('pictures'), :class => 'photos' do %>
     <% @house.picture_ids.each do |id| %>
     <p>
       <%= image_tag id %>

@@ -77,6 +77,7 @@ option{}
 #houses_show fieldset p {width:30%;float:left}
 #houses_show fieldset.fullwidth p {width:100%;float:auto}
 #houses_show textarea {height:auto;width:90%}
+#houses_show fieldset.photos p {text-align:center}
 body{background-color:#CBCBCC; color:;font-family:sans-serif,arial;}
 #top{background-color:#}
 #search{background-color:#F4C13F;margin:10px 10px 10px 0}
