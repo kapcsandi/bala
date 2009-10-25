@@ -75,16 +75,16 @@ class House < ActiveRecord::Base
     Tag.find(owner_place_id).name unless owner_place_id.nil?
   end
   
-  def picture_ids
+  def picture_urls
     pictures.split(',').map{|pid| 'http://bala.clix5.com/'+self.code+'/'+pid+'_thumb.jpg' if pid !~ /,/ }.compact if pictures
   end
   
-  def picture_urls
+  def picture_ids
     pictures.split(',') if pictures
   end
 
-  def picture_urls=(urls)
-    self.pictures = urls.join(',')
+  def picture_ids=(ids)
+    self.pictures = ids.join(',')
   end
   
   def self.per_page

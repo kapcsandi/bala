@@ -16,7 +16,7 @@
   </div>
   <div class="span-6">
     <% link_to :action => 'show', :id => house, :anchor => 'photos' do %>
-    <div style="width:220px;height:150px;text-align:center"><span class="field" rowspan="10"><% if house.picture_ids %><%= image_tag house.picture_ids[0], :size => '210x140' %><% else t('no_picture') end %></span></div>
+    <div class="photos"><div><% if house.picture_ids %><%= image_tag house.picture_urls[0] %><% else t('no_picture') end %></div></div>
     <% end %>
   </div>
   <div class="span-6">

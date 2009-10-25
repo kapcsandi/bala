@@ -258,10 +258,10 @@
   <% end %>
   <a name="photos">  </a>
   <% field_set_tag t('pictures'), :class => 'photos' do %>
-    <% @house.picture_ids.each do |id| %>
-    <p>
+    <% @house.picture_urls.each do |id| %>
+    <div>
       <%= image_tag id %>
-    </p>
+    </div>
     <% end if @house.picture_ids.respond_to?('index') %>
   <% end %>
 

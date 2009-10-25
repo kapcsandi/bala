@@ -5,7 +5,7 @@
   <div class="item title"><span class="title"><%= link_to category[:name], :controller => :houses, :action => :index, :category => category[:name] %></span></div>
 <% unless category[:house].nil? or category[:house].picture_ids.nil? %>
 <% link_to category[:house] do %>
-  <%= image_tag category[:house].picture_ids[0], :size => '210x140' %>
+  <%= image_tag category[:house].picture_urls[0], :size => '210x140' %>
 <% end %>
 <% end %>
   <div class="item details">

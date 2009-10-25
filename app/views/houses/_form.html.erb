@@ -282,9 +282,9 @@
   <% end %>
 <a name="photos"></a>
   <% field_set_tag t('house_photos') do %>
-    <% (0..@house.picture_urls.count-1).each do |id| %>
+    <% (0..@house.picture_ids.count-1).each do |id| %>
       <%= f.label t :picture_url, :position => id+1 %>
-      <%= text_field_tag 'house[picture_urls][]', @house.picture_urls ? @house.picture_urls[id] : nil %><br />
+      <%= text_field_tag 'house[picture_ids][]', @house.picture_ids ? @house.picture_ids[id] : nil %><br />
     <% end %>
   <% end %>
   <p><%= f.submit t(:submit) %></p>
