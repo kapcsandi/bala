@@ -80,7 +80,7 @@ option{}
 .photos div {text-align:center;background-color:#F8F2E5;width:200px;float:left;margin:5px 15px;padding:5px 0 0}
 body{font-family:sans-serif,arial}
 #top{background-color:#}
-#search{background-color:#F4C13F;margin:10px 10px 10px 0}
+#search{background-color:#F4C13F;margin:10px 10px 10px 0;padding-bottom:10px}
 #menu{background-color:#D3E0EA}
 .menu-item{background-color:#1B619B;}
 .menu-item a {color:#F8F2E5}
@@ -92,6 +92,6 @@ a:hover {color:#D75A20}
 .container{background-color:#ffffff;border:1px solid beige}
 #site-name a {font-size:30px;font-weight:bold;text-decoration:none}
 .pagination {float:right;padding:0 15px}
-.count{font-size:1.1em;color:#D75A20}
+.count{font-size:1.1em;color:#D75A20;font-weight:bold}
 .mini .location {font-size:1.2em}
 /* #slogan{font-size:12px;font-weight:normal} */
