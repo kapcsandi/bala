@@ -164,6 +164,7 @@ hu:
   not_implemented_yet: Fejlesztés alatt.
   cart_is_empty: A Bevásárlókosara üres
   invalid_house: Ez az apartman nem létezik
+  Are you sure?: Biztos benne?
 # top menu
   booking: Foglalás
   booking_title: Foglalás

@@ -1,6 +1,16 @@
 class Cart
   attr_reader :items
   
+  class Item 
+    attr_accessor :elem, :position
+    
+    def initialize
+      elem, position = nil, 0
+    end
+    
+#    acts_as_list
+  end
+  
   def initialize
     @items = []
   end
