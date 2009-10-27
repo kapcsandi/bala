@@ -55,14 +55,14 @@
 	
   </div>
       
-      <div id="left" class="span-4 prepend-1">
+      <div id="left" class="span-4 prepend-1 last">
 	<% [:infos_a_z, :map, :weather, :calendar, :sights, :offers, :terms, :impressum, :owners, :admin_login].each do |item| %>
 	<div class="menu-item span-3"><a href="#"><%= t item %></a></div>
 	<% end %>
       </div>
       <div id="content" class="span-19 last">
     <% if controller_name != 'setup' %>
-    <div id="search" class="">
+    <div id="search" style="overflow:hidden">
       <% content_tag 'div', :class => 'inner' do %>
 	<% if params[:advanced]=='1' %>
 	<%= render :partial => 'houses/detailed_search' %>

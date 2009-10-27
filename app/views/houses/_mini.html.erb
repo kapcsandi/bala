@@ -15,9 +15,9 @@
     <% end %>
   </div>
   <div class="span-6">
-    <% link_to :action => 'show', :id => house, :anchor => 'photos' do %>
-    <div class="photos"><div><% if house.picture_ids %><%= image_tag house.picture_urls[0] %><% else t('no_picture') end %></div></div>
-    <% end %>
+    <div class="photos"><% link_to :action => 'show', :id => house, :anchor => 'photos' do %>
+    <div><% if house.picture_ids %><%= image_tag house.picture_urls[0] %><% else t('no_picture') end %></div>
+    <% end %></div>
   </div>
   <div class="span-6">
     <span class="label"><%= t :persons %>:</span>

@@ -54,11 +54,9 @@
 
 
 /* th {float:left} */
-#logo,#login {}
 .menu {height:50px;margin-bottom:13px}
 input,select{width:auto;font-size:100%}
 option{}
-#logo,#search,#login {}
 .label{margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
 #search .label {margin:0.5em;float:left}
 #search .field {float:left}
@@ -67,7 +65,7 @@ option{}
 #content{}
 .categories .category {height:210px;border:1px solid;padding:5px;margin:0 0 10px 0}
 .categories .item{}
-.mini {line-height:2em;overflow:hidden;margin:5px 0;padding:5px}
+.mini {line-height:2em;overflow:hidden;margin:5px 0;padding:5px;border:1px solid #cccccc}
 .inner {padding:5px 20px 5px 5px}
 .even {background-color:#f6f6f6}
 .odd {background-color:#efefef}
@@ -77,21 +75,25 @@ option{}
 #houses_show fieldset p {width:33%;float:left}
 #houses_show fieldset.fullwidth p {width:100%;float:auto}
 #houses_show textarea {height:auto;width:90%}
-.photos div {text-align:center;background-color:#F8F2E5;width:200px;float:left;margin:5px 15px;padding:5px 0 0}
-body{font-family:sans-serif,arial}
+.photos div {text-align:center;background-color:#FCFCFC;width:200px;float:left;margin:5px 15px;padding:5px 0 0}
+.photos a img {border:1px solid #ffffff}
+.photos a:hover img {border:1px solid #D75A20}
+body{font-family:'Trebuchet MS',Lucida,Verdana;}
 #top{background-color:#}
-#search{background-color:#F4C13F;margin:10px 10px 10px 0;padding-bottom:10px}
-#menu{background-color:#D3E0EA}
-.menu-item{background-color:#1B619B;}
+#search{background-color:#F4C13F;padding-bottom:10px;margin-bottom:10px;border:3px solid #F5D24F}
+#menu{background-color:#D3E0EA;border:3px solid #E3F0FA;border-bottom:none}
+.menu-item{background-color:#1B619B;border:3px solid #E3F0FA;}
 .menu-item a {color:#F8F2E5}
-#left {background-color:#D3E0EA}
+#left {background-color:#D3E0EA;border:3px solid #E3F0FA;border-top:none;border-right:none;}
 #left .menu{background-color:#2B5A88}
 #foot{background-color:#}
 #top .left{height:50px;background-color:#2B5A88 }
 a:hover {color:#D75A20}
-.container{background-color:#ffffff;border:1px solid beige}
+.container{background-color:#ffffff}
+#content {margin:5px 0 5px 5px}
 #site-name a {font-size:30px;font-weight:bold;text-decoration:none}
 .pagination {float:right;padding:0 15px}
 .count{font-size:1.1em;color:#D75A20;font-weight:bold}
 .mini .location {font-size:1.2em}
+.categories {margin:0 20px}
 /* #slogan{font-size:12px;font-weight:normal} */
