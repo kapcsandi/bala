@@ -1,10 +1,12 @@
 <% title t(:booking_title) %>
 
-<div class="span-18 last minis">
+<div class="">
   <% for house in @selected %>
+  <div id="house_<%= house.id %>" class="mini house <%= cycle('odd', 'even') %>">
   <%= render :partial => 'mini', :locals => { :house => house } %>
   <%= render :partial => 'navigation' , :locals => { :house => house }%>
+  </div>
   <% end %>
 </div>
 
-<div><%= button_to t("Empty Cart"), :action => :empty_cart %></div>
+<div><%= button_to t("cancel_booking"), :action => :empty_cart %></div>

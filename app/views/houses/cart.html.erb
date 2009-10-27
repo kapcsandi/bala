@@ -1,6 +1,6 @@
 <% title t(:cart_title) %>
 
-<div class="span-18 last minis">
+<div class="">
   <% for house in @selected %>
   <div id="house_<%= house.id %>" class="mini house <%= cycle('odd', 'even') %>">
   <%= render :partial => 'mini', :locals => { :house => house } %>

@@ -1,6 +1,6 @@
 #flash_notice, #flash_error {
   padding: 5px 8px;
-  margin: 40px;
+  margin: 10px;
   clear:both;
 }
 
@@ -86,7 +86,7 @@ body{font-family:'Trebuchet MS',Lucida,Verdana;}
 .menu-item a {color:#F8F2E5}
 #left {background-color:#D3E0EA;border:3px solid #E3F0FA;border-top:none;border-right:none;}
 #left .menu{background-color:#2B5A88}
-#foot{background-color:#}
+#foot{}
 #top .left{height:50px;background-color:#2B5A88 }
 a:hover {color:#D75A20}
 .container{background-color:#ffffff}

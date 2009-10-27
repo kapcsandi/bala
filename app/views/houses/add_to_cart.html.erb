@@ -1,6 +1,6 @@
 <% title t(:cart_title) %>
 
-<div class="span-18 last minis">
+<div class="">
   <% for item in @selected %>
   <%= render :partial => 'mini', :locals => { :house => item } %>
   <% end %>

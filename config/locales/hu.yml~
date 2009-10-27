@@ -97,7 +97,7 @@ hu:
   price_main_season: Főszezon
   house_description: Megjegyzés 1 (ház leírás)
   admin_description: Megjegyzés 2 (admin megjegyzés)
-  picture_url: "Kép útvonal {{position}}"
+  picture_url: "{{position}}. kép neve"
   submit: Beküldés
   House: Ház
   Houses: Apartmanok
