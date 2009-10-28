@@ -54,17 +54,20 @@
 
 
 /* th {float:left} */
-.menu {height:50px;margin-bottom:13px}
+.menu {}
 input,select{width:auto;font-size:100%}
 option{}
 .label{margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
 #search .label {margin:0.5em;float:left}
 #search .field {float:left}
-.menu-item{padding:10px 0;font-size:1.1em;margin:10px 0;text-align:center}
+.menu-item{padding:5px 0;font-size:1.1em;margin:5px 0;text-align:center}
+#menu .menu-item{margin:0 auto}
+#menu .menu {margin-right:10px}
+#menu .last {margin-right:0}
 /* #left .menu{padding:10px 0 0 10px} */
-#content{}
 .categories .category {height:210px;border:1px solid;padding:5px;margin:0 0 10px 0}
 .categories .item{}
+.category .title {font-size:1.2em;font-weight:bold}
 .mini {line-height:2em;overflow:hidden;margin:5px 0;padding:5px;border:1px solid #cccccc}
 .inner {padding:5px 20px 5px 5px}
 .even {background-color:#f6f6f6}
@@ -79,14 +82,15 @@ option{}
 .photos a img {border:1px solid #ffffff}
 .photos a:hover img {border:1px solid #D75A20}
 body{font-family:'Trebuchet MS',Lucida,Verdana;}
-#top{background-color:#}
-#search{background-color:#F4C13F;padding-bottom:10px;margin-bottom:10px;border:3px solid #F5D24F}
-#menu{background-color:#D3E0EA;border:3px solid #E3F0FA;border-bottom:none}
+#search{background-color:#F5D24F;padding-bottom:10px;margin-bottom:10px;border:2px solid #F4C13F}
+#menu {background-color:#D3E0EA;border:2px solid #E3F0FA;border-left:none;border-right:none;margin:0 auto;overflow:hidden;clear:both}
+#menu .inner {width:950px;margin:0 auto;overflow:hidden;clear:both}
 .menu-item{background-color:#1B619B;border:3px solid #E3F0FA;}
-.menu-item a {color:#F8F2E5}
-#left {background-color:#D3E0EA;border:3px solid #E3F0FA;border-top:none;border-right:none;}
+.menu-item a {color:#F8F2E5;font-size:1.2em}
+#left {margin-right:30px}
 #left .menu{background-color:#2B5A88}
-#foot{}
+#top{margin:0 auto}
+#top .inner {width:950px;margin:0 auto;padding:2px}
 #top .left{height:50px;background-color:#2B5A88 }
 a:hover {color:#D75A20}
 .container{background-color:#ffffff}

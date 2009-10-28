@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :bookings
+
   map.resources :taggables
 
   map.resources :tags

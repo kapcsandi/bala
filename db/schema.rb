@@ -9,7 +9,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090928165657) do
+ActiveRecord::Schema.define(:version => 20091027204029) do
+
+  create_table "bookings", :force => true do |t|
+    t.date     "from"
+    t.date     "to"
+    t.integer  "nights"
+    t.integer  "persons"
+    t.boolean  "with_animals"
+    t.text     "notes"
+    t.string   "phone"
+    t.string   "mobile"
+    t.string   "email"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "company"
+    t.string   "address"
+    t.string   "city"
+    t.string   "postcode"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "discount_translations", :force => true do |t|
     t.integer  "discount_id"

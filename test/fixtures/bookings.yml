@@ -1,0 +1,35 @@
+one:
+  from: 2009-10-27
+  to: 2009-10-27
+  nights: 1
+  persons: 1
+  with_animals: false
+  notes: MyText
+  phone: MyString
+  mobile: MyString
+  email: MyString
+  firstname: MyString
+  lastname: MyString
+  company: MyString
+  address: MyString
+  city: MyString
+  postcode: MyString
+  country: MyString
+
+two:
+  from: 2009-10-27
+  to: 2009-10-27
+  nights: 1
+  persons: 1
+  with_animals: false
+  notes: MyText
+  phone: MyString
+  mobile: MyString
+  email: MyString
+  firstname: MyString
+  lastname: MyString
+  company: MyString
+  address: MyString
+  city: MyString
+  postcode: MyString
+  country: MyString

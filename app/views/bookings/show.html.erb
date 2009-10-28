@@ -1,0 +1,72 @@
+<% title "Booking" %>
+
+<p>
+  <strong>From:</strong>
+  <%=h @booking.from %>
+</p>
+<p>
+  <strong>To:</strong>
+  <%=h @booking.to %>
+</p>
+<p>
+  <strong>Nights:</strong>
+  <%=h @booking.nights %>
+</p>
+<p>
+  <strong>Persons:</strong>
+  <%=h @booking.persons %>
+</p>
+<p>
+  <strong>With Animals:</strong>
+  <%=h @booking.with_animals %>
+</p>
+<p>
+  <strong>Notes:</strong>
+  <%=h @booking.notes %>
+</p>
+<p>
+  <strong>Phone:</strong>
+  <%=h @booking.phone %>
+</p>
+<p>
+  <strong>Mobile:</strong>
+  <%=h @booking.mobile %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%=h @booking.email %>
+</p>
+<p>
+  <strong>Firstname:</strong>
+  <%=h @booking.firstname %>
+</p>
+<p>
+  <strong>Lastname:</strong>
+  <%=h @booking.lastname %>
+</p>
+<p>
+  <strong>Company:</strong>
+  <%=h @booking.company %>
+</p>
+<p>
+  <strong>Address:</strong>
+  <%=h @booking.address %>
+</p>
+<p>
+  <strong>City:</strong>
+  <%=h @booking.city %>
+</p>
+<p>
+  <strong>Postcode:</strong>
+  <%=h @booking.postcode %>
+</p>
+<p>
+  <strong>Country:</strong>
+  <%=h @booking.country %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_booking_path(@booking) %> |
+  <%= link_to "Destroy", @booking, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", bookings_path %>
+</p>

@@ -1,0 +1,47 @@
+<% title "Bookings" %>
+
+<table>
+  <tr>
+    <th>From</th>
+    <th>To</th>
+    <th>Nights</th>
+    <th>Persons</th>
+    <th>With Animals</th>
+    <th>Notes</th>
+    <th>Phone</th>
+    <th>Mobile</th>
+    <th>Email</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Company</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>Postcode</th>
+    <th>Country</th>
+  </tr>
+  <% for booking in @bookings %>
+    <tr>
+      <td><%=h booking.from %></td>
+      <td><%=h booking.to %></td>
+      <td><%=h booking.nights %></td>
+      <td><%=h booking.persons %></td>
+      <td><%=h booking.with_animals %></td>
+      <td><%=h booking.notes %></td>
+      <td><%=h booking.phone %></td>
+      <td><%=h booking.mobile %></td>
+      <td><%=h booking.email %></td>
+      <td><%=h booking.firstname %></td>
+      <td><%=h booking.lastname %></td>
+      <td><%=h booking.company %></td>
+      <td><%=h booking.address %></td>
+      <td><%=h booking.city %></td>
+      <td><%=h booking.postcode %></td>
+      <td><%=h booking.country %></td>
+      <td><%= link_to "Show", booking %></td>
+      <td><%= link_to "Edit", edit_booking_path(booking) %></td>
+      <td><%= link_to "Destroy", booking, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Booking", new_booking_path %></p>
