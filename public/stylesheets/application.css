@@ -94,6 +94,7 @@ body{font-family:'Trebuchet MS',Lucida,Verdana;}
 #top{margin:0 auto}
 #top .inner {width:950px;margin:0 auto;padding:2px}
 #top .left{height:50px;background-color:#2B5A88 }
+a {color:#1B619B}
 a:hover {color:#D75A20}
 .container{background-color:#ffffff}
 #content {margin:5px 0 5px 5px}
