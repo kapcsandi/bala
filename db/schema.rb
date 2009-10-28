@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091027204029) do
+ActiveRecord::Schema.define(:version => 20091028200419) do
 
   create_table "bookings", :force => true do |t|
     t.date     "from"
@@ -127,6 +127,14 @@ ActiveRecord::Schema.define(:version => 20091027204029) do
     t.decimal  "price_main_season_per_week"
     t.string   "pictures"
     t.integer  "balcony_id"
+  end
+
+  create_table "houses_bookings", :force => true do |t|
+    t.integer  "house_id"
+    t.integer  "booking_id"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "houses_taggables", :force => true do |t|

@@ -85,9 +85,9 @@ body{font-family:'Trebuchet MS',Lucida,Verdana;}
 #search{background-color:#F5D24F;padding-bottom:10px;margin-bottom:10px;border:2px solid #F4C13F}
 #search img {margin-top:7px}
 #search fieldset {margin:0}
-#menu {background-color:#D3E0EA;border:2px solid #E3F0FA;border-left:none;border-right:none;margin:0 auto;overflow:hidden;clear:both}
+#menu {background-color:#ACCBE0;border:2px solid #D3E0EA;border-left:none;border-right:none;margin:0 auto;overflow:hidden;clear:both}
 #menu .inner {width:950px;margin:0 auto;overflow:hidden;clear:both}
-.menu-item{background-color:#1B619B;border:3px solid #E3F0FA;}
+.menu-item{background-color:#1B619B;border:2px solid #D3E0EA;}
 .menu-item a {color:#F8F2E5;font-size:1.2em}
 #left {margin-right:30px}
 #left .menu{background-color:#2B5A88}

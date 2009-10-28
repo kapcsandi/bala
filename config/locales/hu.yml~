@@ -6,7 +6,7 @@ hu:
   home: Főoldal
 
   title: Cím
-  Untitled: BALA demo -
+  Untitled: BALA demo
   published: Élesítve
   body: Törzs
   false: nem
@@ -190,25 +190,40 @@ hu:
   prev_link: előző
   next_link: következő
 
+  validates_timeliness:
+    error_value_formats:
+      date: '%Y-%m-%d'
+      time: '%H:%M:%S'
+      datetime: '%Y-%m-%d %H:%M:%S'
+
   errors:
     blank: nem lehet üres
 
   activerecord:
     models:
       house: Ház
+      booking: Foglalás
 
     attributes:
       house:
         city_id: Település
-        code: Kód
+        code: Házkód
         condition_id: Állapot
         furnishing_id: Berendezés
         house_type_id: Apartman típusa
+      booking:
+        persons: Személyek száma
+        from: Érkezés dátuma
+        to: Távozás dátuma
+        firstname: Keresztnév
+        lastname: Családnév
+        email: E-mail
+        phone: Telefon
 
     errors:
       template:
         header: "{{count}} hiba megakadályozta a {{model}} elmentését"
-        body: "Problémák voltak a következő mezőkkel"
+        body: "Problémák voltak a következő mezők kitöltésével"
       
       models:
         house:
@@ -221,4 +236,30 @@ hu:
                blank: nem lehet üres
              city_id:
                blank: nem lehet üres
+             code:
+               blank: nem lehet üres
+    
+        booking:
+          attributes:
+            persons:
+              not_a_number: nem szám
+            from:
+              blank: nem lehet üres
+              invalid: érvénytelen formátumú
              
+            to:
+              blank: nem lehet üres
+              invalid: érvénytelen formátumú
+            firstname:
+              blank: nem lehet üres
+            lastname:
+              blank: nem lehet üres
+            phone:
+              blank: nem lehet üres
+            email:
+              blank: nem lehet üres
+              invalid: nem megfelő formátumú
+
+
+
+

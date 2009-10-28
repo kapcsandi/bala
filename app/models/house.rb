@@ -6,12 +6,15 @@ class House < ActiveRecord::Base
   has_many :taggables, :through => :houses_taggables, :order => :position
   has_many :houses_tags
   has_many :tags, :through => :houses_tags, :uniq => true
+  has_many :houses_bookings
+  has_many :bookings, :through => :houses_bookings, :uniq => true
 
   accepts_nested_attributes_for :discount, :allow_destroy => true
   accepts_nested_attributes_for :tags, :allow_destroy => true
   
-  validates_presence_of :city_id, :house_type_id, :condition_id, :furnishing_id
-
+  validates_presence_of :code, :city_id, :house_type_id, :condition_id, :furnishing_id
+  validates_uniqueness_of :code
+  
   named_scope :discounts, {:joins => :discount}
 #  named_scope :in_city, {:joins => { :taggables => :tags }}
 

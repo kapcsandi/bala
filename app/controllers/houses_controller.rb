@@ -51,6 +51,7 @@ class HousesController < ApplicationController
   
   def create
     @house = House.new(params[:house])
+    @empties = empties_helper
     if @house.save
       flash[:notice] = t "house_added"
       redirect_to @house

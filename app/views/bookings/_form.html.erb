@@ -1,5 +1,13 @@
 <% form_for @booking do |f| %>
   <%= f.error_messages %>
+  <div id="stamps">
+  <% for house in @houses do %>
+    <div id="house_<%= house.id %>">
+    <%= render :partial => 'houses/stamp', :locals => { :house => house} %>
+    </div>
+  <% end %>
+  </div>
+<br class="clear" />
   <p>
     <%= f.label :from %><br />
     <%= f.calendar_date_select 'from' %>
@@ -10,7 +18,7 @@
   </p>
   <p>
     <%= f.label :nights %><br />
-    <%= f.text_field :nights %>
+    <%= f.text_field :nights, :disabled => true %>
   </p>
   <p>
     <%= f.label :persons %><br />

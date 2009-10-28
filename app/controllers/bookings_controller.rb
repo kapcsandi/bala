@@ -9,10 +9,15 @@ class BookingsController < ApplicationController
   
   def new
     @booking = Booking.new
+    @booking.houses.build
+    cart = find_cart
+    @houses = House.find(cart.items)
   end
   
   def create
     @booking = Booking.new(params[:booking])
+    cart = find_cart
+    @houses = House.find(cart.items)
     if @booking.save
       flash[:notice] = "Successfully created booking."
       redirect_to @booking
@@ -23,6 +28,7 @@ class BookingsController < ApplicationController
   
   def edit
     @booking = Booking.find(params[:id])
+    @houses = @booking.houses
   end
   
   def update
@@ -41,4 +47,11 @@ class BookingsController < ApplicationController
     flash[:notice] = "Successfully destroyed booking."
     redirect_to bookings_url
   end
+
+private
+
+  def find_cart
+    session[:cart] ||= Cart.new
+  end
+
 end
