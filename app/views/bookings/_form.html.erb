@@ -10,7 +10,7 @@
 <br class="clear" />
   <p>
     <%= f.label :from %><br />
-    <%= f.calendar_date_select 'from' %>
+    <%= f.calendar_date_select 'from', :order => [:year, :month, :day], :format => "%Y-%m-%d" %>
   </p>
   <p>
     <%= f.label :to %><br />

@@ -190,6 +190,7 @@ hu:
   prev_link: előző
   next_link: következő
 
+  long_date_format: '%Y-%m-%d'
   validates_timeliness:
     error_value_formats:
       date: '%Y-%m-%d'
