@@ -166,6 +166,22 @@ hu:
   cart_is_empty: A Bevásárlókosara üres
   invalid_house: Ez az apartman nem létezik
   Are you sure?: Biztos benne?
+#booking
+  nights: Éjszakák száma
+  with_animals: Állatot is hozunk
+  notes: Üzenet
+  phone: Telefon
+  mobile: Mobil
+  email: E-mail
+  email_repeat: E-mail megismétlése
+  firstname: Keresztnév
+  lastname: Családnév
+  company: Cégnév
+  address: Cím
+  city: Város
+  postcode: Irányítószám
+  country: Ország
+  booking_submit: "Foglalás indítása"
 # top menu
   booking: Foglalás
   booking_title: Foglalás

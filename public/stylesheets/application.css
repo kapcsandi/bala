@@ -53,8 +53,6 @@
   list-style: disc;
 }
 
-
-/* th {float:left} */
 #main {height:auto !important;margin:0 auto -8.6em;min-height:100%;}
 input,select{width:auto;font-size:100%}
 option{}
@@ -65,9 +63,8 @@ option{}
 #menu .menu-item{margin:0 auto}
 #menu .menu {margin-right:10px}
 #menu .last {margin-right:0}
-/* #left .menu{padding:10px 0 0 10px} */
-.categories .category {height:210px;border:1px solid;padding:5px;margin:0 0 10px 0}
-.categories .item{}
+.categories .category {height:210px;border:2px solid orange;padding:5px 10px;margin:0 14px 10px 0;float:left}
+.categories .category.last {margin-right:0}
 .category .title {font-size:1.2em;font-weight:bold}
 .mini {line-height:2em;overflow:hidden;margin:5px 0;padding:5px;border:1px solid #cccccc}
 .inner {padding:5px 20px 5px 5px}
@@ -75,7 +72,6 @@ option{}
 .odd {background-color:#efefef}
 .calendar_date_select {width:210px}
 .field img{display:block;float:right;}
-
 #houses_show fieldset p {width:33%;float:left}
 #houses_show fieldset.fullwidth p {width:100%;float:auto}
 #houses_show textarea {height:auto;width:90%}
@@ -86,23 +82,19 @@ body{font-family:'Trebuchet MS',Lucida,Verdana;}
 #search{background-color:#F5D24F;padding-bottom:10px;margin-bottom:10px;border:2px solid #F4C13F}
 #search img {margin-top:7px}
 #search fieldset {margin:0}
-#menu {background:#ACCBE0 url(/images/bg.png) repeat-x;/*border:2px solid #D3E0EA;border-left:none;border-right:none;*/margin:0 auto;height:43px;padding-top:15px;overflow:hidden;clear:both}
+#menu {background:#ACCBE0 url(/images/bg.png) repeat-x;margin:0 auto;height:43px;padding-top:15px;overflow:hidden;clear:both}
 #menu .inner {width:950px;margin:0 auto;overflow:hidden;clear:both}
 .menu-item {border:2px solid #D3E0EA;}
 a .menu-item{ font-size:1.2em;font-weight:bold}
-a:hover .menu-item {border-color:#D75A20}
-#left {margin-right:30px}
-#left .menu{background-color:#2B5A88}
-#top{margin:0 auto}
+a:hover .menu-item {border-color:#D75A20;background-color:#D3E0EA}
+#top {margin:0 auto}
 #top .inner {padding:2px;margin:0 auto;float:none}
 #top .left{height:50px;background-color:#2B5A88 }
 a {color:#1B619B}
 a:hover {color:#D75A20}
 .container{background-color:#ffffff}
-#content {margin:5px 0 5px 5px}
+#content {margin:5px 0}
 #site-name a {font-size:30px;font-weight:bold;text-decoration:none}
 .pagination {float:right;padding:0 15px}
 .count{font-size:1.1em;color:#D75A20;font-weight:bold}
 .mini .location {font-size:1.2em}
-.categories {margin:0 20px}
-/* #slogan{font-size:12px;font-weight:normal} */

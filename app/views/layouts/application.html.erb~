@@ -12,7 +12,7 @@
   <body>
     <div id="main">
       <div id="top">
-	<div class="span-24">
+	<div class="inner span-24">
 	<div id="logo" class="span-12">
 	<% content_tag 'div', :class => 'inner' do %>
 	  <div id="site-name"><a href="/" title="<%= t :home %>"> bala </a>   
@@ -41,9 +41,15 @@
 	</div>
 	</div>
 	<div id="menu" class=""><div class="inner">
-	  <% ['home', :booking, :cart, :special_offers, :contact, 'programs'].each do |item| %>
-	  <div class="menu span-4<%= if item == 'home' then ' psrepend-1' else '' end %><%= if item == 'programs' then ' last' end %>">
-	  <% link_to :action => (item=='home' ? '/home' : item) do %><div class="menu-item <%= item.to_s %>"><%= t(item) %></div><% end %>
+	  <% ['home', 'booking', :cart, :special_offers, :contact, 'programs'].each do |item| %>
+	  <div class="menu span-4<%= if item == 'programs' then ' last' end %>">
+	  <% link_to (
+	  case item
+	  when 'home': home_path
+	  when 'booking': new_booking_path
+	  else item
+	  end
+	  ) do %><div class="menu-item <%= item.to_s %>"><%= t(item) %></div><% end %>
 	  </div>
 	  <% end %>
 	</div></div>
@@ -51,9 +57,11 @@
     <div class="container" id="<%= controller_name %>_<%= action_name %>">
       <div id="left" class="span-4">
       <% [:infos_a_z, :map, :weather, :calendar, :sights, :offers, :terms, :impressum, :owners, :admin_login].each do |item| %>
+	<div class="menu span-4">
 	<% link_to do %>
-	  <div class="menu-item span-4"><%= t item %></div>
+	  <div class="menu-item"><%= t item %></div>
 	<% end %>
+	</div>
       <% end %>
       </div>
   <div id="content" class="span-19 last">

@@ -9,68 +9,68 @@
   </div>
 <br class="clear" />
   <p>
-    <%= f.label :from %><br />
-    <%= date_select f, :from %>
+    <%= f.label t :date_from %><br />
+    <%= f.calendar_date_select :from %>
   </p>
   <p>
-    <%= f.label :to %><br />
-    <%= date_select f, :to %>
+    <%= f.label t :date_to %><br />
+    <%= f.calendar_date_select :to %>
   </p>
   <p>
-    <%= f.label :nights %><br />
+    <%= f.label t :nights %><br />
     <%= f.text_field :nights %>
   </p>
   <p>
-    <%= f.label :persons %><br />
+    <%= f.label t :persons %><br />
     <%= f.text_field :persons %>
   </p>
   <p>
-    <%= f.label :with_animals %><br />
+    <%= f.label t :with_animals %><br />
     <%= f.check_box :with_animals %>
   </p>
   <p>
-    <%= f.label :notes %><br />
+    <%= f.label t :notes %><br />
     <%= f.text_area :notes %>
   </p>
   <p>
-    <%= f.label :phone %><br />
+    <%= f.label t :phone %><br />
     <%= f.text_field :phone %>
   </p>
   <p>
-    <%= f.label :mobile %><br />
+    <%= f.label t :mobile %><br />
     <%= f.text_field :mobile %>
   </p>
   <p>
-    <%= f.label :email %><br />
+    <%= f.label t :email %><br />
     <%= f.text_field :email %>
   </p>
   <p>
-    <%= f.label :firstname %><br />
+    <%= f.label t :firstname %><br />
     <%= f.text_field :firstname %>
   </p>
   <p>
-    <%= f.label :lastname %><br />
+    <%= f.label t :lastname %><br />
     <%= f.text_field :lastname %>
   </p>
   <p>
-    <%= f.label :company %><br />
+    <%= f.label t :company %><br />
     <%= f.text_field :company %>
   </p>
   <p>
-    <%= f.label :address %><br />
+    <%= f.label t :address %><br />
     <%= f.text_field :address %>
   </p>
   <p>
-    <%= f.label :city %><br />
+    <%= f.label t :city %><br />
     <%= f.text_field :city %>
   </p>
   <p>
-    <%= f.label :postcode %><br />
+    <%= f.label t :postcode %><br />
     <%= f.text_field :postcode %>
   </p>
   <p>
-    <%= f.label :country %><br />
+    <%= f.label t :country %><br />
     <%= f.text_field :country %>
   </p>
-  <p><%= f.submit "Submit" %></p>
+  <p><%= f.submit t "booking_submit" %></p>
 <% end %>

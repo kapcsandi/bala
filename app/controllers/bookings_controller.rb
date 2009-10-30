@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(params[:booking])
     cart = find_cart
     @houses = House.find(cart.items)
+    @booking.houses << @houses
     if @booking.save
       flash[:notice] = "Successfully created booking."
       redirect_to @booking
