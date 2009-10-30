@@ -10,11 +10,11 @@
 <br class="clear" />
   <p>
     <%= f.label :from %><br />
-    <%= f.calendar_date_select 'from' %>
+    <%= date_select f, :from %>
   </p>
   <p>
     <%= f.label :to %><br />
-    <%= f.calendar_date_select 'to' %>
+    <%= date_select f, :to %>
   </p>
   <p>
     <%= f.label :nights %><br />

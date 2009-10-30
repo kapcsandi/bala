@@ -86,7 +86,7 @@ body{font-family:'Trebuchet MS',Lucida,Verdana;}
 #search{background-color:#F5D24F;padding-bottom:10px;margin-bottom:10px;border:2px solid #F4C13F}
 #search img {margin-top:7px}
 #search fieldset {margin:0}
-#menu {background-color:#ACCBE0;border:2px solid #D3E0EA;border-left:none;border-right:none;margin:0 auto;overflow:hidden;clear:both}
+#menu {background:#ACCBE0 url(/images/bg.png) repeat-x;/*border:2px solid #D3E0EA;border-left:none;border-right:none;*/margin:0 auto;height:43px;padding-top:15px;overflow:hidden;clear:both}
 #menu .inner {width:950px;margin:0 auto;overflow:hidden;clear:both}
 .menu-item {border:2px solid #D3E0EA;}
 a .menu-item{ font-size:1.2em;font-weight:bold}
