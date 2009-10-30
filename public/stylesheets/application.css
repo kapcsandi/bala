@@ -67,7 +67,7 @@ option{}
 .categories .category.last {margin-right:0}
 .category .title {font-size:1.2em;font-weight:bold}
 .mini {line-height:2em;overflow:hidden;margin:5px 0;padding:5px;border:1px solid #cccccc}
-.inner {padding:5px 20px 5px 5px}
+/* .inner {padding:5px 20px 5px 5px} */
 .even {background-color:#f6f6f6}
 .odd {background-color:#efefef}
 .calendar_date_select {width:210px}

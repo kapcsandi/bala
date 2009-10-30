@@ -118,7 +118,9 @@ hu:
   pictures: Képek
   pers: fő
   meter: m
-  sqmeter: m&sup3;
+  sqmeter: m&sup2;
+  items: darab
+  euro: Euro (&euro;)
 #field sets
   house_basics: Ház alapinfók
   house_layout: Helyiségek elrendezése
@@ -179,6 +181,7 @@ hu:
   company: Cégnév
   address: Cím
   city: Város
+  postcode: Irányítószám
   country: Ország
   booking_submit: "Foglalás indítása"
 # top menu
