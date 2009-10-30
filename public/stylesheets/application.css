@@ -55,10 +55,7 @@
 
 
 /* th {float:left} */
-.main {
-height:auto !important;
-margin:0 auto -8.6em;
-min-height:100%;}
+#main {height:auto !important;margin:0 auto -8.6em;min-height:100%;}
 input,select{width:auto;font-size:100%}
 option{}
 .label{margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
@@ -97,7 +94,7 @@ a:hover .menu-item {border-color:#D75A20}
 #left {margin-right:30px}
 #left .menu{background-color:#2B5A88}
 #top{margin:0 auto}
-#top .inner {width:950px;margin:0 auto;padding:2px}
+#top .inner {padding:2px;margin:0 auto;float:none}
 #top .left{height:50px;background-color:#2B5A88 }
 a {color:#1B619B}
 a:hover {color:#D75A20}
