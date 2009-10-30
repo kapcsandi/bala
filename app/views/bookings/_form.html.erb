@@ -10,7 +10,7 @@
 <br class="clear" />
   <p>
     <%= f.label :from %><br />
-    <%= f.calendar_date_select 'from', :order => [:year, :month, :day], :format => "%Y-%m-%d" %>
+    <%= f.calendar_date_select 'from' %>
   </p>
   <p>
     <%= f.label :to %><br />
@@ -18,7 +18,7 @@
   </p>
   <p>
     <%= f.label :nights %><br />
-    <%= f.text_field :nights, :disabled => true %>
+    <%= f.text_field :nights %>
   </p>
   <p>
     <%= f.label :persons %><br />

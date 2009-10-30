@@ -10,6 +10,7 @@
     <%= yield(:head) %>
   </head>
   <body>
+    <div id="main">
       <div id="top" class=""><!-- img src="/images/bg.png"/ -->
 	<div class="inner">
 	<div id="logo" class="span-12">
@@ -42,7 +43,7 @@
 	<div id="menu" class=""><div class="inner">
 	  <% ['home', :booking, :cart, :special_offers, :contact, 'programs'].each do |item| %>
 	  <div class="menu span-4<%= if item == 'home' then ' psrepend-1' else '' end %><%= if item == 'programs' then ' last' end %>">
-	  <div class="menu-item <%= item.to_s %>"><%= link_to t(item), (item=='home' ? '/home' : item) %></div>
+	  <% link_to :action => (item=='home' ? '/home' : item) do %><div class="menu-item <%= item.to_s %>"><%= t(item) %></div><% end %>
 	  </div>
 	  <% end %>
 	</div></div>
@@ -50,7 +51,9 @@
     <div class="container" id="<%= controller_name %>_<%= action_name %>">
       <div id="left" class="span-4">
       <% [:infos_a_z, :map, :weather, :calendar, :sights, :offers, :terms, :impressum, :owners, :admin_login].each do |item| %>
-	<div class="menu-item span-4"><a href="#"><%= t item %></a></div>
+	<% link_to do %>
+	  <div class="menu-item span-4"><%= t item %></div>
+	<% end %>
       <% end %>
       </div>
   <div id="content" class="span-19 last">
@@ -73,8 +76,10 @@
   <%- end -%>
   <%= yield %>
   </div>
+</div>
   <div id="foot" class="span-24">
   </div>
+</div>
 </div>
 </body>
 </html>

@@ -16,6 +16,7 @@
 
 .fieldWithErrors {
   display: inline;
+  color:red;
 }
 
 #errorExplanation {
@@ -54,7 +55,10 @@
 
 
 /* th {float:left} */
-.menu {}
+.main {
+height:auto !important;
+margin:0 auto -8.6em;
+min-height:100%;}
 input,select{width:auto;font-size:100%}
 option{}
 .label{margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
@@ -87,8 +91,9 @@ body{font-family:'Trebuchet MS',Lucida,Verdana;}
 #search fieldset {margin:0}
 #menu {background-color:#ACCBE0;border:2px solid #D3E0EA;border-left:none;border-right:none;margin:0 auto;overflow:hidden;clear:both}
 #menu .inner {width:950px;margin:0 auto;overflow:hidden;clear:both}
-.menu-item{background-color:#1B619B;border:2px solid #D3E0EA;}
-.menu-item a {color:#F8F2E5;font-size:1.2em}
+.menu-item {border:2px solid #D3E0EA;}
+a .menu-item{ font-size:1.2em;font-weight:bold}
+a:hover .menu-item {border-color:#D75A20}
 #left {margin-right:30px}
 #left .menu{background-color:#2B5A88}
 #top{margin:0 auto}
