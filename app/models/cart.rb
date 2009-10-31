@@ -14,7 +14,7 @@ class Cart
   end
   
   def limit_exceed?
-    @items.count == 3
+    @items.size >= 3
   end
   
   def add_house(house)
