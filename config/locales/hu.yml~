@@ -135,8 +135,8 @@ hu:
   house_distances: Távolságok
   house_owner_infos: Háztulajdonos infók
   house_animals: Háziállat
-  house_price_day: Ár / fő / nap
-  house_price_week: Ár / fő / hét
+  house_price_day: Ár / fő / nap | Euro (&euro;)
+  house_price_week: Ár / fő / hét | Euro (&euro;)
   house_description: Leírások
   house_photos: Képek
 #links
