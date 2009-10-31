@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @booking.houses.build
     cart = find_cart
-    redirect_to_index(:select_houses) if cart.items.count < 1
+    redirect_to_index(:select_houses) if cart.items.size < 1
     @houses = House.find(cart.items)
   end
   
