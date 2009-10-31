@@ -2,7 +2,7 @@
 module ApplicationHelper
   def cart_items
     if session[:cart] and session[:cart].items
-      session[:cart].items.count
+      session[:cart].items.size
     else
       0
     end
