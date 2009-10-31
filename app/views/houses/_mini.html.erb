@@ -1,6 +1,5 @@
   <div class="span-18 last">
     <div class="span-16 location">
-    <span class="label"><%= t :city %>:</span>
     <span class="field"><%=h house.city %></span>
 &nbsp;
     <span class="label"><%= t :code %>:</span>
@@ -15,7 +14,7 @@
     <% end %>
   </div>
   <div class="span-6">
-    <div class="photos"><% link_to :action => 'show', :id => house, :anchor => 'photos' do %>
+    <div class="photos"><% link_to :action => 'show', :id => house, :anchor => 'details' do %>
     <div><% if house.picture_ids %><%= image_tag house.picture_urls[0] %><% else t('no_picture') end %></div>
     <% end %></div>
   </div>

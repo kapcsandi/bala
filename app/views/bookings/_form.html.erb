@@ -2,12 +2,13 @@
   <%= f.error_messages %>
   <div id="stamps">
   <% for house in @houses do %>
-    <div id="house_<%= house.id %>">
-    <%= render :partial => 'houses/stamp', :locals => { :house => house} %>
-    </div>
+    <%= render :partial => 'houses/stamp', :locals => { :house => house, :last => (@houses.last == house)} %>
   <% end %>
   </div>
+<hr class="clear" />
+<p><%= t :booking_hint %></p>
 <br class="clear" />
+<% field_set_tag t('booking_details'), :class => :half do %>
   <p>
     <%= f.label t :date_from %><br />
     <%= f.calendar_date_select :from %>
@@ -28,10 +29,12 @@
     <%= f.label t :with_animals %><br />
     <%= f.check_box :with_animals %>
   </p>
-  <p>
+  <div class="clear">
     <%= f.label t :notes %><br />
     <%= f.text_area :notes %>
-  </p>
+  </div>
+<% end %>
+<% field_set_tag t('contact_data') do %>
   <p>
     <%= f.label t :phone %><br />
     <%= f.text_field :phone %>
@@ -72,5 +75,7 @@
     <%= f.label t :country %><br />
     <%= f.text_field :country %>
   </p>
-  <p><%= f.submit t "booking_submit" %></p>
+<% end %>
+<div class="span-4"><%= f.submit t "booking_submit" %></div>
+<div class="span-4"><%= button_to t("cancel_booking"), :back %></div>
 <% end %>

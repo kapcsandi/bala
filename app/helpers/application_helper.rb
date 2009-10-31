@@ -1,10 +1,12 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   def cart_items
-    if session[:cart] and session[:cart].items
-      session[:cart].items.size
-    else
-      0
-    end
+    cart = find_cart
+    cart.items.size
   end
+  
+  def find_cart
+    session[:cart] ||= Cart.new
+  end
+  
 end

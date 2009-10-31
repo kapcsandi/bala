@@ -153,11 +153,11 @@ hu:
   rooms: Szobák száma
   all: mindegy
 #messages
-  house_added: Az apartman létrehozása sikeres volt
-  house_updated: Az apartman módosítása sikeres volt
-  house_destroyed: Az apartman törlése sikeres volt
-  house_added_to_cart: Az apartman hozzá lett adva a Bevásárlókosárhoz
-  house_removed_from_cart: Az apartman törölve lett a Bevásárlókosárból
+  house_added: Az {{house}} apartman létrehozása sikeres volt
+  house_updated: Az {{house}} apartman módosítása sikeres volt
+  house_destroyed: Az {{house}} apartman törlése sikeres volt
+  house_added_to_cart: Az {{house}} apartman hozzá lett adva a Bevásárlókosárhoz
+  house_removed_from_cart: Az {{house}} apartman törölve lett a Bevásárlókosárból
   house_not_in_any_group: " - (az apartman nem tartozik egyik csoporthoz sem)"
   Empty dictionary fields: Üres szótár(ak)
   add_taggables: Szótárak bővítése
@@ -169,7 +169,16 @@ hu:
   cart_is_empty: A Bevásárlókosara üres
   invalid_house: Ez az apartman nem létezik
   Are you sure?: Biztos benne?
+  select_houses: Kérjük válasszon apartmant! A 'Megjelölés' gombbal a <b>Bevásárlókosarába</b> helyezhet többet is.
+  created_booking: Köszönjük! Foglalását rögzítettük. Kollégánk hamarosan e-mailben értesíti Önt foglalása állapotáról.
+  updated_booking: Foglalás módosítva
+  destroyed_booking: Foglalás törölve
+  cart_limit: A kosár legfeljebb 3 apartmant tartalmazhat! Kérjük előbb töröljön a kosarából.
 #booking
+  New Booking: Foglalás
+  booking_hint: Kérjük pontosan töltse ki az alábbi adatokat.
+  booking_details: Foglalás részletei
+  contact_data: Személyes adatok
   nights: Éjszakák száma
   with_animals: Állatot is hozunk
   notes: Üzenet
@@ -185,6 +194,8 @@ hu:
   postcode: Irányítószám
   country: Ország
   booking_submit: "Foglalás indítása"
+  Bookings: Foglalások
+  Back to List: Vissza a Foglalásokhoz
 # top menu
   booking: Foglalás
   booking_title: Foglalás

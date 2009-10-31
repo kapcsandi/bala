@@ -53,7 +53,7 @@ class HousesController < ApplicationController
     @house = House.new(params[:house])
     @empties = empties_helper
     if @house.save
-      flash[:notice] = t "house_added"
+      flash[:notice] = t "house_added", :house => house.code
       redirect_to @house
     else
       render :action => 'new'
@@ -75,7 +75,7 @@ class HousesController < ApplicationController
     @house = House.find(params[:id])
     if @house.update_attributes(params[:house])
       @house.discount.destroy unless params[:discounted]
-      flash[:notice] = t "house_updated"
+      flash[:notice] = t "house_updated", :house => house.code
       redirect_to @house
     else
       render :action => 'edit'
@@ -85,7 +85,7 @@ class HousesController < ApplicationController
   def destroy
     @house = House.find(params[:id]) 
     @house.destroy
-    flash[:notice] = t "house_deleted"
+    flash[:notice] = t "house_deleted", :house => house.code
     redirect_to houses_url
   end
   
@@ -94,16 +94,20 @@ class HousesController < ApplicationController
     begin
       house = House.find(params[:id]) if params[:id]
     rescue ActiveRecord::RecordNotFound
-      logger.error("Attempt to access invalid house #p{params[:id]}")
+      logger.error("Attempt to access invalid house #{params[:id]}")
       redirect_to_index("invalid_house")
     else
       if params[:cart] == 'add'
-	@cart.add_house(house)
-	flash[:notice] = t "house_added_to_cart"
+	if @cart.limit_exceed?
+	  flash[:notice] = t :cart_limit
+	else
+	  @cart.add_house(house)
+	  flash[:notice] = t "house_added_to_cart", :house => house.code
+	end
       end
       if params[:cart] == 'del'
 	@cart.remove_house(house)
-	flash[:notice] = t "house_removed_from_cart"
+	flash[:notice] = t "house_removed_from_cart", :house => house.code
       end
       @selected = House.find_all_by_id(@cart.items)
       if params[:cart]
@@ -127,10 +131,6 @@ class HousesController < ApplicationController
   end
   
   private
-
-  def find_cart
-    session[:cart] ||= Cart.new
-  end
   
   def redirect_to_index(msg)
     flash[:notice] = t(msg)

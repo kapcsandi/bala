@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @booking.houses.build
     cart = find_cart
+    redirect_to_index(:select_houses) if cart.items.count < 1
     @houses = House.find(cart.items)
   end
   
@@ -20,7 +21,7 @@ class BookingsController < ApplicationController
     @houses = House.find(cart.items)
     @booking.houses << @houses
     if @booking.save
-      flash[:notice] = "Successfully created booking."
+      flash[:notice] = t "created_booking"
       redirect_to @booking
     else
       render :action => 'new'
@@ -35,7 +36,7 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     if @booking.update_attributes(params[:booking])
-      flash[:notice] = "Successfully updated booking."
+      flash[:notice] = t "updated_booking"
       redirect_to @booking
     else
       render :action => 'edit'
@@ -45,14 +46,14 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    flash[:notice] = "Successfully destroyed booking."
+    flash[:notice] = t "destroyed_booking"
     redirect_to bookings_url
   end
-
-private
-
-  def find_cart
-    session[:cart] ||= Cart.new
+  
+  private
+  
+  def redirect_to_index(msg)
+    flash[:notice] = t(msg)
+    redirect_to :controller => :houses, :advanced => 1
   end
-
 end

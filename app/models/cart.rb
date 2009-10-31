@@ -7,38 +7,32 @@ class Cart
     def initialize
       elem, position = nil, 0
     end
-    
-#    acts_as_list
   end
   
   def initialize
     @items = []
   end
   
+  def limit_exceed?
+    @items.count == 3
+  end
+  
   def add_house(house)
     begin
     current_item = @items.find {|item|item == house.id}
     rescue
-#      flash[:notice] ="Anyad!"
       return
     end
-    if current_item
-#      flash[:notice] = "Már a kosárban van."
-    else
-      @items << house.id
-    end
+    @items << house.id unless current_item
   end
   def remove_house(house)
     begin
     current_item = @items.find {|item|item == house.id}
     rescue
-#      flash[:notice] ="Anyad!"
       return
     end
     if current_item
       @items.delete(house.id)
-    else
-#      flash[:notice] = "Nincs a kosárban. Ejnye!"
     end
   end
 end

@@ -1,12 +1,11 @@
-<div class="span-6 stamp">
+<div id="house_<%= house.id %>" class="span-6 stamp mini house odd<%= ' last' if last %>">
   <div class="location">
-    <span class="label"><%= t :city %>:</span>
     <span class="field"><%=h house.city %></span>
     <span class="label"><%= t :code %>:</span>
     <span class="field"><%=h house.code %></span>
   </div>
   <div class="span-6">
-    <div class="photos"><% link_to :action => 'show', :id => house, :anchor => 'photos' do %>
+    <div class="photos"><% link_to :action => 'show', :id => house, :anchor => 'details' do %>
     <div><% if house.picture_ids %><%= image_tag house.picture_urls[0] %><% else t('no_picture') end %></div>
     <% end %></div>
   </div>
