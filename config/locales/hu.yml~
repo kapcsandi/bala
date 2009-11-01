@@ -195,9 +195,18 @@ hu:
   city: Város
   postcode: Irányítószám
   country: Ország
+  status: Állapot
   booking_submit: "Foglalás indítása"
   Bookings: Foglalások
   Back to List: Vissza a Foglalásokhoz
+  View All: Összes listája
+  Edit Booking: Foglalás szerkesztése
+# status
+  status_unknown: Ismeretlen
+  status_created: Rögzítve
+  status_approved: Elfogadva
+  status_deleted: Törölve
+
 # top menu
   booking: Foglalás
   booking_title: Foglalás
@@ -282,8 +291,10 @@ hu:
           attributes:
             persons:
               not_a_number: "nem szám"
+              blank: "nem lehet üres"
             nights:
               not_a_number: "nem szám"
+              blank: "nem lehet üres"
             from:
               blank: "nem lehet üres"
               invalid: "érvénytelen formátumú"

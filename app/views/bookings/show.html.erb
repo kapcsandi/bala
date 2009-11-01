@@ -1,72 +1,76 @@
-<% title "Booking" %>
+<% title t("Booking") %>
 
 <p>
-  <strong>From:</strong>
+  <strong><%= t(:status)%>:</strong>
+  <%=h @booking.status %>
+</p>
+<p>
+  <strong><%= t(:from) %>:</strong>
   <%=h @booking.from %>
 </p>
 <p>
-  <strong>To:</strong>
+  <strong><%= t(:to) %>:</strong>
   <%=h @booking.to %>
 </p>
 <p>
-  <strong>Nights:</strong>
+  <strong><%= t(:nights) %>:</strong>
   <%=h @booking.nights %>
 </p>
 <p>
-  <strong>Persons:</strong>
+  <strong><%= t(:persons) %>:</strong>
   <%=h @booking.persons %>
 </p>
 <p>
-  <strong>With Animals:</strong>
+  <strong><%= t(:with_animals) %>:</strong>
   <%=h @booking.with_animals %>
 </p>
 <p>
-  <strong>Notes:</strong>
+  <strong><%= t(:notes) %>:</strong>
   <%=h @booking.notes %>
 </p>
 <p>
-  <strong>Phone:</strong>
+  <strong><%= t(:phone) %>:</strong>
   <%=h @booking.phone %>
 </p>
 <p>
-  <strong>Mobile:</strong>
+  <strong><%= t(:mobile) %>:</strong>
   <%=h @booking.mobile %>
 </p>
 <p>
-  <strong>Email:</strong>
+  <strong><%= t(:email) %>:</strong>
   <%=h @booking.email %>
 </p>
 <p>
-  <strong>Firstname:</strong>
+  <strong><%= t(:firstname) %>:</strong>
   <%=h @booking.firstname %>
 </p>
 <p>
-  <strong>Lastname:</strong>
+  <strong><%= t(:lastname) %>:</strong>
   <%=h @booking.lastname %>
 </p>
 <p>
-  <strong>Company:</strong>
+  <strong><%= t(:company) %>:</strong>
   <%=h @booking.company %>
 </p>
 <p>
-  <strong>Address:</strong>
+  <strong><%= t(:address) %>:</strong>
   <%=h @booking.address %>
 </p>
 <p>
-  <strong>City:</strong>
+  <strong><%= t(:city) %>:</strong>
   <%=h @booking.city %>
 </p>
 <p>
-  <strong>Postcode:</strong>
+  <strong><%= t(:postcode) %>:</strong>
   <%=h @booking.postcode %>
 </p>
 <p>
-  <strong>Country:</strong>
+  <strong><%= t(:country) %>:</strong>
   <%=h @booking.country %>
 </p>
 
 <p>
-  <%= link_to "Edit", edit_booking_path(@booking) %> |
-  <%= link_to "Destroy", @booking, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", bookings_path %>
+  <%= link_to t("Edit"), edit_booking_path(@booking) %> |
+  <%= link_to t("Destroy"), @booking, :confirm => t('Are you sure?'), :method => :delete %> |
+  <%= link_to t("View All"), bookings_path %>
 </p>

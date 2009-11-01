@@ -1,14 +1,21 @@
 <% form_for @booking do |f| %>
   <%= f.error_messages %>
+
   <div id="stamps">
   <% for house in @houses do %>
     <%= render :partial => 'houses/stamp', :locals => { :house => house, :last => (@houses.last == house)} %>
   <% end %>
   </div>
 <hr class="clear" />
-<p><%= t :booking_hint %></p>
+<p><%= t(:booking_hint) %></p>
 <br class="clear" />
 <% field_set_tag t('booking_details') do %>
+  <% if action_name != 'new' %>
+  <div class="span-6">
+    <%= f.label t(:status) %><br />
+    <%= f.select :status, @booking.states %>
+  </div>
+  <% end %>
   <div class="span-6">
     <%= f.label t(:from) %><br />
     <%= f.calendar_date_select :from, :valid_date_check => "date >= new Date()", :size => 15 %>

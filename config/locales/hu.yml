@@ -169,7 +169,7 @@ hu:
   cart_is_empty: A Bevásárlókosara üres
   invalid_house: Ez az apartman nem létezik
   Are you sure?: Biztos benne?
-  select_houses: Kérjük válasszon apartmant! A 'Megjelölés' gombbal a <b>Bevásárlókosarába</b> helyezhet többet is.
+  select_houses: Kérjük, válasszon apartmant! A 'Megjelölés' gombbal a <b>Bevásárlókosarába</b> helyezhet többet is.
   created_booking: Köszönjük! Foglalását rögzítettük. Kollégánk hamarosan e-mailben értesíti Önt foglalása állapotáról.
   updated_booking: Foglalás módosítva
   destroyed_booking: Foglalás törölve
@@ -195,9 +195,18 @@ hu:
   city: Város
   postcode: Irányítószám
   country: Ország
+  status: Állapot
   booking_submit: "Foglalás indítása"
   Bookings: Foglalások
   Back to List: Vissza a Foglalásokhoz
+  View All: Összes listája
+  Edit Booking: Foglalás szerkesztése
+# status
+  status_unknown: Ismeretlen
+  status_created: Rögzítve
+  status_approved: Elfogadva
+  status_deleted: Törölve
+
 # top menu
   booking: Foglalás
   booking_title: Foglalás
