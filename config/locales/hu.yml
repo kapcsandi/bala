@@ -178,6 +178,8 @@ hu:
   New Booking: Foglalás
   booking_hint: Kérjük pontosan töltse ki az alábbi adatokat.
   booking_details: Foglalás részletei
+  from: Érkezés dátuma
+  to: Távozás dátuma
   contact_data: Személyes adatok
   nights: Éjszakák száma
   with_animals: Állatot is hozunk
@@ -228,28 +230,34 @@ hu:
       datetime: '%Y-%m-%d %H:%M:%S'
 
   errors:
-    blank: nem lehet üres
+    blank: "nem lehet üres"
 
   activerecord:
     models:
-      house: Ház
-      booking: Foglalás
+      house: "Ház"
+      booking: "Foglalás"
 
     attributes:
       house:
-        city_id: Település
-        code: Házkód
-        condition_id: Állapot
-        furnishing_id: Berendezés
-        house_type_id: Apartman típusa
+        city_id: "Település"
+        code: "Házkód"
+        condition_id: "Állapot"
+        furnishing_id: "Berendezés"
+        house_type_id: "Apartman típusa"
       booking:
-        persons: Személyek száma
-        from: Érkezés dátuma
-        to: Távozás dátuma
-        firstname: Keresztnév
-        lastname: Családnév
-        email: E-mail
-        phone: Telefon
+        persons: "Személyek száma"
+        nights: "Éjszakák száma"
+        from: "Érkezés dátuma"
+        to: "Távozás dátuma"
+        firstname: "Keresztnév"
+        lastname: "Családnév"
+        email: "E-mail"
+        phone: "Telefon"
+        company: "Cégnév"
+        city: "Település"
+        address: "Cím"
+        country: "Ország"
+        postcode: "Irányítószám"
 
     errors:
       template:
@@ -260,36 +268,41 @@ hu:
         house:
           attributes:
              furnishing_id:
-               blank: nem lehet üres
+               blank: "nem lehet üres"
              condition_id:
-               blank: nem lehet üres
+               blank: "nem lehet üres"
              house_type_id:
-               blank: nem lehet üres
+               blank: "nem lehet üres"
              city_id:
-               blank: nem lehet üres
+               blank: "nem lehet üres"
              code:
-               blank: nem lehet üres
+               blank: "nem lehet üres"
     
         booking:
           attributes:
             persons:
-              not_a_number: nem szám
+              not_a_number: "nem szám"
+              blank: "nem lehet üres"
+            nights:
+              not_a_number: "nem szám"
+              blank: "nem lehet üres"
             from:
-              blank: nem lehet üres
-              invalid: érvénytelen formátumú
-             
+              blank: "nem lehet üres"
+              invalid: "érvénytelen formátumú"
+              after: "nem lehet {{restriction}} utáni"
             to:
-              blank: nem lehet üres
-              invalid: érvénytelen formátumú
+              blank: "nem lehet üres"
+              invalid: "érvénytelen formátumú"
+              before: "nem lehet {{restriction}} előtti"
             firstname:
-              blank: nem lehet üres
+              blank: "nem lehet üres"
             lastname:
-              blank: nem lehet üres
+              blank: "nem lehet üres"
             phone:
-              blank: nem lehet üres
+              blank: "nem lehet üres"
             email:
-              blank: nem lehet üres
-              invalid: nem megfelő formátumú
+              blank: "nem lehet üres"
+              invalid: "nem megfelő formátumú"
 
 
 

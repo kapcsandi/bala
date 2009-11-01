@@ -19,6 +19,10 @@
   color:red;
 }
 
+.fieldWithErrors input {
+  background-color:pink;
+}
+
 #errorExplanation {
   width: 400px;
   border: 2px solid #CF0000;
@@ -74,9 +78,11 @@ option{}
 #houses_show fieldset p {width:33%;float:left}
 #houses_show fieldset.fullwidth p {width:100%;float:auto}
 #houses_show textarea {height:auto;width:90%}
-#bookings_new fieldset p, #bookings_create fieldset p {width:33%;float:left;display:block}
-#bookings_new textarea, #bookings_create textarea {height:auto;width:90%}
-#bookings_new fieldset.half p,#bookings_create fieldset.half p {width:45%}
+#new_booking fieldset div {width:33%;float:left;margin:0 0 5px}
+#new_booking fieldset div.fieldWithErrors {width:auto;float:auto;margin:0 auto}
+#new_booking textarea {height:auto;width:90%}
+#new_booking fieldset.half div {width:50%}
+#new_booking fieldset div.clear {width:90%}
 .photos div {text-align:center;background-color:#FCFCFC;width:200px;float:left;margin:5px 15px;padding:5px 0 0}
 .photos a img {border:1px solid #ffffff}
 .photos a:hover img {border:1px solid #D75A20}
