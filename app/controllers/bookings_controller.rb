@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+
   def index
     @bookings = Booking.all
   end
@@ -55,5 +56,10 @@ class BookingsController < ApplicationController
   def redirect_to_index(msg)
     flash[:notice] = t(msg)
     redirect_to :controller => :houses, :advanced => 1
+  end
+
+  def notification_mails(booking)
+    Notification.deliver_booking(booking)
+    Notification.deliver_booking_admin(booking)
   end
 end
