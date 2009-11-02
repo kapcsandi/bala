@@ -1,9 +1,9 @@
 class Notifications < ActionMailer::Base
-  def signup(user)
-    recipients user.email_address_with_name
+  def signup(member)
+    recipients member.email_address_with_name
     from       "istvan.kapcsandi+bala@gmail.com"
     subject    "New account information"
-    body       :user => user
+    body       :user => member
     sent_on    Time.now
   end
 
