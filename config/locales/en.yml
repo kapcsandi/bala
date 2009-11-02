@@ -3,3 +3,28 @@
 
 en:
   hello: "Hello world"
+  
+en:
+  activerecord:
+    errors:
+      messages:
+        # Default messages: complete sentences
+        inclusion: "{{attribute}}: is not included in the list"
+        exclusion: "{{attribute}}: is reserved"
+        invalid: "{{attribute}}: is invalid"
+        confirmation: "{{attribute}}: doesn't match confirmation"
+        accepted: "{{attribute}}: must be accepted"
+        empty: "{{attribute}}: can't be empty"
+        blank: "{{attribute}}: can't be blank"
+        too_long: "{{attribute}}: is too long (maximum is {{count}} characters)"
+        too_short: "{{attribute}} is too short (minimum is {{count}} characters)"
+        wrong_length: "{{attribute}}: is the wrong length (should be {{count}} characters)" 
+        taken: "{{attribute}}: has already been taken"
+        not_a_number: "{{attribute}}: is not a number"
+        greater_than: "{{attribute}}: must be greater than {{count}}"
+        greater_than_or_equal_to: "{{attribute}}: must be greater than or equal to {{count}}"
+        equal_to: "{{attribute}}: must be equal to {{count}}"
+        less_than: "{{attribute}}: must be less than {{count}}"
+        less_than_or_equal_to: "{{attribute}}: must be less than or equal to {{count}}"     
+        odd: "{{attribute}}: must be odd"
+        even: "{{attribute}}: must be even"
