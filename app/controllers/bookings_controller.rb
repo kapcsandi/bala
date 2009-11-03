@@ -23,7 +23,9 @@ class BookingsController < ApplicationController
     @booking.houses << @houses
     if @booking.save
       flash[:notice] = t "created_booking"
-      redirect_to @booking
+      mail = notification_mails(@booking)
+      render :text => '<pre>' + mail.encoded + '</pre>'
+#      redirect_to @booking
     else
       render :action => 'new'
     end
@@ -59,7 +61,7 @@ class BookingsController < ApplicationController
   end
 
   def notification_mails(booking)
-    Notification.deliver_booking(booking)
-    Notification.deliver_booking_admin(booking)
+    Notifications.create_booking(booking)
+#    Notifications.deliver_booking_admin(booking)
   end
 end

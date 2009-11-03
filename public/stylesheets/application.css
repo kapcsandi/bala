@@ -74,7 +74,7 @@ option{}
 .even {background-color:#f6f6f6}
 .odd {background-color:#efefef}
 .calendar_date_select {width:210px}
-.field img{display:block;float:right;}
+.field img {display:block;float:right;margin-left:5px}
 #houses_show fieldset p {width:33%;float:left}
 #houses_show fieldset.fullwidth p {width:100%;float:auto}
 #houses_show textarea {height:auto;width:90%}
@@ -83,12 +83,14 @@ option{}
 #new_booking textarea {height:auto;width:90%}
 #new_booking fieldset.half div {width:50%}
 #new_booking fieldset div.clear {width:90%}
+#new_booking img {padding-left:5px;margin:5px 0 0 3px}
+#new_booking .photos a img {margin:0;padding:0}
 .photos div {text-align:center;background-color:#FCFCFC;width:200px;float:left;margin:5px 15px;padding:5px 0 0}
 .photos a img {border:1px solid #ffffff}
 .photos a:hover img {border:1px solid #D75A20}
 body{font-family:'Trebuchet MS',Lucida,Verdana;}
 #search{background-color:#F5D24F;padding-bottom:10px;margin-bottom:10px;border:2px solid #F4C13F}
-#search img {margin-top:7px}
+#search img {margin-top:5px}
 #search fieldset {margin:0}
 #menu {background:#ACCBE0 url(/images/bg.png) repeat-x;margin:0 auto;height:43px;padding-top:15px;overflow:hidden;clear:both}
 #menu .inner {width:950px;margin:0 auto;overflow:hidden;clear:both}
