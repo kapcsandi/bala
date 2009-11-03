@@ -1,3 +1,6 @@
+<% content_for :head do %>
+<%= wym_editor_initialize %>
+<% end %>
 <% form_for @booking do |f| %>
   <%= f.error_messages %>
 
@@ -38,7 +41,7 @@
   </div>
   <div class="clear span-18">
     <%= f.label t(:notes) %><br />
-    <%= wym_editor :booking, :notes, :rows => 5, :cols => 60 %>
+    <%= f.text_area :notes, :rows => 5, :cols => 60, :class => 'wymeditor' %>
   </div>
 <% end %>
 <% field_set_tag t('contact_data') do %>
@@ -83,6 +86,6 @@
     <%= f.text_field :country %>
   </div>
 <% end %>
-<div class="span-4"><%= f.submit t("booking_submit") %></div>
+<div class="span-4"><%= f.submit t("booking_submit"), :class => 'wymupdate' %></div>
 <% end %>
 <div class="span-4"><%= button_to t("cancel_booking"), :houses, :method => 'get' %></div>
