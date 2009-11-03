@@ -57,13 +57,23 @@
       </div>
     <div class="container" id="<%= controller_name %>_<%= action_name %>">
       <div id="left" class="span-4">
-      <% [:infos_a_z, :map, :weather, :calendar, :sights, :offers, :terms, :impressum, :owners, :admin_login].each do |item| %>
+      <% [:infos_a_z, :map, :weather, :calendar, :sights, :offers, :terms, :impressum, :owners].each do |item| %>
 	<div class="menu span-4">
-	<% link_to do %>
+	<% link_to :controller => 'pages', :action => 'show', :page => item do %>
 	  <div class="menu-item"><%= t item %></div>
 	<% end %>
 	</div>
       <% end %>
+	<div class="menu span-4">
+	    <% if current_user %>
+	      <%= link_to "Edit Profile", edit_user_path(:current) %> |
+	      <%= link_to "Logout", logout_path %>
+	    <% else %>
+	      <% link_to login_path do %>
+	      <div class="menu-item"><%= t("admin_login") %></div>
+	      <% end %>
+	    <% end %>
+	</div>
       </div>
   <div id="content" class="span-20 last">
   <% if controller_name != 'setup' %>

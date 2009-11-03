@@ -122,7 +122,8 @@ hu:
   meter: m
   sqmeter: m&sup2;
   items: darab
-  euro: Euro (&euro;)
+  euro: Euro
+
 #field sets
   house_basics: Ház alapinfók
   house_layout: Helyiségek elrendezése
@@ -145,6 +146,8 @@ hu:
   back_to_list: Vissza a listához
   Back to houses: Vissza
   cancel_booking: Mégsem
+  Submit: Mehet
+
 #search
   date_from: Érkezés dátuma
   date_to: Távozás dátuma
@@ -231,13 +234,37 @@ hu:
   houses_found: "Találatok száma: <span class=\"count\">{{count}}</span>"
   prev_link: előző
   next_link: következő
-
+# pages
+  New Page: Új oldal
+  path: útvonal
 
   support:
     array:
       words_connector: ', '
       last_word_connector: ' és '
 
+  number:
+    format:
+      precision: 2
+      separator: ','
+      delimiter: '.'
+    currency:
+      format:
+        unit: '€'
+        format: '%n%u'
+        separator: 
+        delimiter: 
+        precision: 
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
 
   long_date_format: '%Y-%m-%d'
   validates_timeliness:

@@ -5,7 +5,15 @@ class PagesController < ApplicationController
   end
   
   def show
-    @page = Page.find(params[:id])
+    #  sights, :offers, :terms, :impressum, :owners, :admin_login]
+    page = params[:page]
+    id = params[:id]
+    if page
+      @page = Page.find_by_path(page.to_s)
+    elsif id
+      @page = Page.find(id)
+    end
+    redirect_to(new_page_path, :path => page)if @page.nil?
   end
   
   def new

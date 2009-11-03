@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091101101934) do
+ActiveRecord::Schema.define(:version => 20091103221556) do
 
   create_table "bookings", :force => true do |t|
     t.date     "from"
@@ -165,6 +165,7 @@ ActiveRecord::Schema.define(:version => 20091101101934) do
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "path"
   end
 
   create_table "reservations", :force => true do |t|

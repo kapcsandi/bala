@@ -207,7 +207,7 @@
     <div id="animal_charge"<%= "style='display:none'" unless @house.animals? and @house.animal_charge != 0 %>>
       <p>
 	<%= label_tag t :animal_charge %>:
-	<%=h @house.animal_charge %>
+	<%=h @house.animal_charge %> <%= t(:euro) %>
       </p>
     </div>
   <% end %>
@@ -225,7 +225,7 @@
       <%=h @house.price_main_season_per_day %> <%= t(:euro) %>
     </p>
   <% end %>
-  <% field_set_tag t('house_price_week') do %> <%= t(:euro) %>
+  <% field_set_tag t('house_price_week') do %>
     <p>
       <%= label_tag t :price_pre_season %>:
       <%= @house.price_pre_season_per_week %> <%= t(:euro) %>

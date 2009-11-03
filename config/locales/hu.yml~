@@ -7,6 +7,7 @@ hu:
 
   title: Cím
   Untitled: BALA demo
+  meta_description: szállás, apartman, balaton, nyaralás
   slogan: Die besten Ferien in Ungarn.
   published: Élesítve
   body: Törzs
@@ -121,7 +122,8 @@ hu:
   meter: m
   sqmeter: m&sup2;
   items: darab
-  euro: Euro (&euro;)
+  euro: Euro
+
 #field sets
   house_basics: Ház alapinfók
   house_layout: Helyiségek elrendezése
@@ -144,6 +146,8 @@ hu:
   back_to_list: Vissza a listához
   Back to houses: Vissza
   cancel_booking: Mégsem
+  Submit: Mehet
+
 #search
   date_from: Érkezés dátuma
   date_to: Távozás dátuma
@@ -169,7 +173,7 @@ hu:
   cart_is_empty: A Bevásárlókosara üres
   invalid_house: Ez az apartman nem létezik
   Are you sure?: Biztos benne?
-  select_houses: Kérjük válasszon apartmant! A 'Megjelölés' gombbal a <b>Bevásárlókosarába</b> helyezhet többet is.
+  select_houses: Kérjük, válasszon apartmant! A 'Megjelölés' gombbal a <b>Bevásárlókosarába</b> helyezhet többet is.
   created_booking: Köszönjük! Foglalását rögzítettük. Kollégánk hamarosan e-mailben értesíti Önt foglalása állapotáról.
   updated_booking: Foglalás módosítva
   destroyed_booking: Foglalás törölve
@@ -230,6 +234,36 @@ hu:
   houses_found: "Találatok száma: <span class=\"count\">{{count}}</span>"
   prev_link: előző
   next_link: következő
+# pages
+  New Page: Új oldal
+
+  support:
+    array:
+      words_connector: ', '
+      last_word_connector: ' és '
+
+  number:
+    format:
+      precision: 2
+      separator: ','
+      delimiter: '.'
+    currency:
+      format:
+        unit: '€'
+        format: '%n%u'
+        separator: 
+        delimiter: 
+        precision: 
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
 
   long_date_format: '%Y-%m-%d'
   validates_timeliness:
@@ -267,51 +301,59 @@ hu:
         address: "Cím"
         country: "Ország"
         postcode: "Irányítószám"
+      user:
+        username: "Felhasználó név"
+        password: "Jelszó"
 
     errors:
       template:
         header: "{{count}} hiba megakadályozta a {{model}} elmentését"
         body: "Problémák voltak a következő mezők kitöltésével"
-      
+
       models:
         house:
           attributes:
              furnishing_id:
-               blank: "nem lehet üres"
+               blank: "a Berendezés mező nem lehet üres"
              condition_id:
-               blank: "nem lehet üres"
+               blank: "az Állapot mező nem lehet üres"
              house_type_id:
-               blank: "nem lehet üres"
+               blank: "az Apartman típusa mező nem lehet üres"
              city_id:
-               blank: "nem lehet üres"
+               blank: "a Település mező nem lehet üres"
              code:
-               blank: "nem lehet üres"
-    
+               blank: "a Házkód mező nem lehet üres"
         booking:
           attributes:
             persons:
-              not_a_number: "nem szám"
-              blank: "nem lehet üres"
+              not_a_number: "a Személyek száma mezőbe csak számot írjon"
+              blank: "a Személyek száma mező nem lehet üres"
             nights:
-              not_a_number: "nem szám"
-              blank: "nem lehet üres"
+              not_a_number: "az Éjszakák száma mezőbe csak számot írjon"
+              blank: "az Éjszakák száma mező nem lehet üres"
             from:
-              blank: "nem lehet üres"
-              invalid: "érvénytelen formátumú"
-              after: "nem lehet {{restriction}} utáni"
+              blank: "az Érkezés dátuma mező nem lehet üres"
+              invalid: "az Érkezés dátuma érvénytelen formátumú"
+              after: "az Érkezés dátuma nem lehet {{restriction}} utáni"
             to:
-              blank: "nem lehet üres"
-              invalid: "érvénytelen formátumú"
-              before: "nem lehet {{restriction}} előtti"
+              blank: "a Távozás dátuma mező nem lehet üres"
+              invalid: "a Távozás dátuma érvénytelen formátumú"
+              before: "a Távozás dátuma nem lehet {{restriction}} előtti"
             firstname:
-              blank: "nem lehet üres"
+              blank: "a Keresztnév mező nem lehet üres"
             lastname:
-              blank: "nem lehet üres"
+              blank: "a Családnév nem lehet üres"
             phone:
-              blank: "nem lehet üres"
+              blank: "a Telefon mező nem lehet üres"
             email:
-              blank: "nem lehet üres"
-              invalid: "nem megfelő formátumú"
+              blank: "az e-mail cím mező nem lehet üres"
+              invalid: "az e-mail cím nem megfelő formátumú"
+        user:
+          attributes:
+            username:
+              blank: "a Felhasználónév nem lehet üres"
+            password:
+              blank: "a Jelszó nem lehet üres"
 
 
 
