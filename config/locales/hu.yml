@@ -7,6 +7,7 @@ hu:
 
   title: Cím
   Untitled: BALA demo
+  meta_description: szállás, apartman, balaton, nyaralás
   slogan: Die besten Ferien in Ungarn.
   published: Élesítve
   body: Törzs
@@ -230,6 +231,13 @@ hu:
   houses_found: "Találatok száma: <span class=\"count\">{{count}}</span>"
   prev_link: előző
   next_link: következő
+
+
+  support:
+    array:
+      words_connector: ', '
+      last_word_connector: ' és '
+
 
   long_date_format: '%Y-%m-%d'
   validates_timeliness:

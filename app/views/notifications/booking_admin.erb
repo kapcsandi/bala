@@ -1,3 +1,27 @@
-Notifications#booking
+Foglalási értesítő
 
-Find me in app/views/notifications/booking.erb
+Foglalás érkezett a következő adatokkal:
+
+  házkód(ok): <%= codes.to_sentence %>
+  érkezés: <%= booking.from %>
+  távozás: <%= booking.to %>
+
+<% unless booking.notes.blank? %>
+<%= booking.name %> <<%= booking.email %>> üzenete:
+<%= booking.notes %>
+-- üzenet vége
+<% end %>
+további adatok:
+Érkező személyek száma: <%= booking.persons %>
+<%= 'Háziállattal jövünk' if booking.with_animals %>
+Telefon: <%= details.phone %>
+Mobil: <%= details.mobile %>
+Város: <%= details.city %>
+ -----
+
+A foglalás adatai elérhetők ezen az oldalon:
+<%= booking_url booking %>
+
+--
+Üdvözlettel,
+  bala - adminisztrátor

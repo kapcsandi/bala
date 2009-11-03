@@ -2,7 +2,7 @@
   <%= f.error_messages %>
   <p>
     <%= f.label t :title %><br />
-    <%= f.text_field :title %>
+    <%= textile_editor :page, :title %>
   </p>
   <p>
     <%= f.label t :published %><br />
@@ -14,3 +14,4 @@
   </p>
   <p><%= f.submit "Submit" %></p>
 <% end %>
+<%= textile_editor_initialize %>

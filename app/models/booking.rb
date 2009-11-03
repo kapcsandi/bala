@@ -16,9 +16,14 @@ class Booking < ActiveRecord::Base
 
   def status
     states[self.status_id]
-  end  
-  
+  end
+
   def status=(status_string)
     self.status_id=states.index(status_string)
   end
+
+  def name
+    self.firstname + ' ' + self.lastname
+  end
+  
 end

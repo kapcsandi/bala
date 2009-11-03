@@ -1,20 +1,8 @@
-<% title "Page" %>
+<% title @page.title %>
+<%= RedCloth.new(t(@page.body)).to_html %>
 
 <p>
-  <strong><%= t :title %>:</strong>
-  <%=h @page.title %>
-</p>
-<p>
-  <strong><%= t :published %>:</strong>
-  <%=h @page.published %>
-</p>
-<p>
-  <strong><%= t :body %>:</strong>
-  <%=h @page.body %>
-</p>
-
-<p>
-  <%= link_to "Edit", edit_page_path(@page) %> |
-  <%= link_to "Destroy", @page, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", pages_path %>
+  <%= link_to t("Edit"), edit_page_path(@page) %> |
+  <%= link_to t("Destroy"), @page, :confirm => t('Are you sure?'), :method => :delete %> |
+  <%= link_to t("View All"), pages_path %>
 </p>

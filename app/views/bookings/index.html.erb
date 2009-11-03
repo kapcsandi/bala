@@ -1,4 +1,4 @@
-<% title t "Bookings" %>
+<% title t("Bookings") %>
 
 <table>
   <tr>
@@ -37,11 +37,11 @@
       <td><%=h booking.city %></td>
       <td><%=h booking.postcode %></td>
       <td><%=h booking.country %></td>
-      <td><%= link_to "Show", booking %></td>
-      <td><%= link_to "Edit", edit_booking_path(booking) %></td>
-      <td><%= link_to "Destroy", booking, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to t("Show"), booking %></td>
+      <td><%= link_to t("Edit"), edit_booking_path(booking) %></td>
+      <td><%= link_to t("Destroy"), booking, :confirm => t('Are you sure?'), :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Booking", new_booking_path %></p>
+<p><%= link_to t("New Booking"), new_booking_path %></p>
