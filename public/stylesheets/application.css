@@ -78,7 +78,7 @@ option{}
 #houses_show fieldset p {width:33%;float:left}
 #houses_show fieldset.fullwidth p {width:100%;float:auto}
 #houses_show textarea {height:auto;width:90%}
-#new_booking fieldset div {width:33%;float:left;margin:0 0 5px}
+/* #new_booking fieldset div {width:33%;float:left;margin:0 0 5px} */
 #new_booking fieldset div.fieldWithErrors {width:auto;float:auto;margin:0 auto}
 #new_booking textarea {height:auto;width:90%}
 #new_booking fieldset.half div {width:50%}
