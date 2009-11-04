@@ -46,17 +46,17 @@
     <% for field in %w(bedroom living_room living_dining_room kitchen dining_room kitchen_dining_room balcony) %>
       <% unless @house[field].nil? or @house[field]==0 %>
 	<p>
-	  <%= label_tag t field %>:
+	  <%= label_tag t(field) %>:
 	  <%=h @house[field] %> <%= t(:items) %>
 	</p>
       <% end %>
     <% end %>
     <p>
-      <%= label_tag t :terrace_id %>:
+      <%= label_tag t(:terrace_id) %>:
       <%=h @house.terrace %>
     </p>
     <p>
-      <%= label_tag t :garden %>:
+      <%= label_tag t(:garden) %>:
       <%= check_box_tag @house.garden, 1, @house.garden?, :disabled => true %>
     </p>
   <% end %>
@@ -64,7 +64,7 @@
     <% for field in %w(living_room_sq living_dining_room_sq kitchen_sq dining_room_sq kitchen_dining_room_sq terrace_sq balcony_sq yard_sq) %>
       <% unless @house[field].nil? or @house[field] == '0' %>
 	<p>
-	  <%= label_tag t field %>:
+	  <%= label_tag t(field) %>:
 	  <%=h @house[field] %> <%= t(:sqmeter) %>
 	</p>
       <% end %>
@@ -74,7 +74,7 @@
     <% for field in %w(double_bed single_bed extra_bed pull_out_bed) %>
       <% unless @house[field].nil? or @house[field] == 0 %>
 	<p>
-	  <%= label_tag t field %>:
+	  <%= label_tag t(field) %>:
 	  <%=h @house[field] %> <%= t(:items) %>
 	</p>
       <% end %>
@@ -82,103 +82,103 @@
   <% end %>
   <% field_set_tag t('house_bathrooms') do %>
     <p>
-      <%= label_tag t :bathrooms %>:
+      <%= label_tag t(:bathrooms) %>:
       <%=h @house.bathrooms %> <%= t(:items) %>
     </p>
     <% for field in %w(shower bathtub) %>
     <p>
-      <%= label_tag t field %>:
+      <%= label_tag t(field) %>:
       <%= check_box_tag @house[field], 1, @house[field]==1, :disabled => true %>
     </p>
     <% end %>
   <% end %>
   <% field_set_tag t('house_wc') do %>
     <p>
-      <%= label_tag t :wcs %>:
+      <%= label_tag t(:wcs) %>:
       <%=h @house.wcs %> <%= t(:items) %>
     </p>
     <p>
-      <%= label_tag t :wc_separated %>:
+      <%= label_tag t(:wc_separated) %>:
       <%= check_box_tag @house.wc_separated, 1, @house.wc_separated==1, :disabled => true %>
     </p>
   <% end %>
   <% field_set_tag t('house_kitchen') do %>
     <% for field in %w(fridge coffee_machine micro) %>
     <p>
-      <%= label_tag t field %>:
+      <%= label_tag t(field) %>:
       <%= check_box_tag @house[field], 1, @house[field]==1, :disabled => true %>
     </p>
     <% end %>
     <p>
-      <%= label_tag t :stove_id %>:
+      <%= label_tag t(:stove_id) %>:
       <%= @house.stove %>
     </p>
   <% end %>
   <% field_set_tag t('house_inters') do %>
     <% for field in %w(sat internet) %>
     <p>
-      <%= label_tag t field %>:
+      <%= label_tag t(field) %>:
       <%= check_box_tag @house[field], 1, @house[field]==1, :disabled => true %>
     </p>
     <% end %>
     <p>
-      <%= label_tag t :clima_id %>:
+      <%= label_tag t(:clima_id) %>:
       <%= @house.clima %>
     </p>
   <% end %>
   <% field_set_tag t('house_outers') do %>
     <p>
-      <%= label_tag t :pool %>:
+      <%= label_tag t(:pool) %>:
       <%= check_box_tag :pool, 1, @house.pool?, :disabled => true %>
     </p>
     <div id="pool_sq"<%= "style='display:none'" unless @house.pool? %>>
       <p>
-	<%= label_tag t :pool_sq %>:
+	<%= label_tag t(:pool_sq) %>:
 	<%=h @house.pool_sq %> <%= t(:sqmeter) %>
       </p>
     </div>
     <% for field in %w(garden_seats grill sunbath_seat playground) %>
     <p>
-      <%= label_tag t field %>:
+      <%= label_tag t(field) %>:
       <%= check_box_tag @house[field], 1, @house[field]==1, :disabled => true %>
     </p>
     <% end %>
     <p>
-      <%= label_tag t :parking_id %>:
+      <%= label_tag t(:parking_id) %>:
       <%= @house.parking %>
     </p>
   <% end %>
   <% field_set_tag t('house_distances') do %>
     <p>
-      <%= label_tag t :distance_center %>:
+      <%= label_tag t(:distance_center) %>:
       <%=h @house.distance_center %> m
     </p>
     <p>
-      <%= label_tag t :distance_beach %>:
+      <%= label_tag t(:distance_beach) %>:
       <%=h @house.distance_beach %> m
     </p>
     <p>
-      <%= label_tag t :distance_aquapark %>:
+      <%= label_tag t(:distance_aquapark) %>:
       <%=h @house.distance_aquapark %> m
     </p>
     <p>
-      <%= label_tag t :distance_shop %>:
+      <%= label_tag t(:distance_shop) %>:
       <%=h @house.distance_shop %> m
     </p>
     <p>
-      <%= label_tag t :distance_station %>:
+      <%= label_tag t(:distance_station) %>:
       <%=h @house.distance_station %> m
     </p>
     <p>
-      <%= label_tag t :distance_medical %>:
+      <%= label_tag t(:distance_medical) %>:
       <%=h @house.distance_medical %> m
     </p>
     <p>
-      <%= label_tag t :distance_mainroad %>:
+      <%= label_tag t(:distance_mainroad) %>:
       <%=h @house.distance_mainroad %> m
     </p>
     <p>
-      <%= label_tag t :distance_restaurant %>:
+      <%= label_tag t(:distance_restaurant) %>:
       <%=h @house.distance_restaurant %> m
     </p>
   <% end %>
@@ -195,54 +195,54 @@
     </p>
     <% end %>
     <p>
-      <%= label_tag t :owner_place_id %>:
+      <%= label_tag t(:owner_place_id) %>:
       <%= @house.owner_place %>
     </p>
   <% end %>
   <% field_set_tag t('house_animals') do %>
     <p>
-      <%= label_tag t :animals %>:
+      <%= label_tag t(:animals) %>:
       <%= check_box_tag :animals, 1, @house.animals?, :disabled => true %>
     </p>
     <div id="animal_charge"<%= "style='display:none'" unless @house.animals? and @house.animal_charge != 0 %>>
       <p>
-	<%= label_tag t :animal_charge %>:
+	<%= label_tag t(:animal_charge) %>:
 	<%=h @house.animal_charge %> <%= t(:euro) %>
       </p>
     </div>
   <% end %>
   <% field_set_tag t('house_price_day') do %>
     <p>
-      <%= label_tag t :price_pre_season %>:
+      <%= label_tag t(:price_pre_season) %>:
       <%=h @house.price_pre_season_per_day %> <%= t(:euro) %>
     </p>
     <p>
-      <%= label_tag t :price_mid_season %>:
+      <%= label_tag t(:price_mid_season) %>:
       <%=h @house.price_mid_season_per_day %> <%= t(:euro) %>
     </p>
     <p>
-      <%= label_tag t :price_main_season %>:
+      <%= label_tag t(:price_main_season) %>:
       <%=h @house.price_main_season_per_day %> <%= t(:euro) %>
     </p>
   <% end %>
   <% field_set_tag t('house_price_week') do %>
     <p>
-      <%= label_tag t :price_pre_season %>:
+      <%= label_tag t(:price_pre_season) %>:
       <%= @house.price_pre_season_per_week %> <%= t(:euro) %>
     </p>
     <p>
-      <%= label_tag t :price_mid_season %>:
+      <%= label_tag t(:price_mid_season) %>:
       <%=h @house.price_mid_season_per_week %> <%= t(:euro) %>
     </p>
     <p>
-      <%= label_tag t :price_main_season %>:
+      <%= label_tag t(:price_main_season) %>:
       <%=h @house.price_main_season_per_week %> <%= t(:euro) %>
     </p>
   <% end %>
   <% field_set_tag t('house_description'), :class => 'fullwidth' do %>
     <% if @house.discounted? %>
     <p>
-      <%= label_tag t :discounted %> :
+      <%= label_tag t(:discounted) %> :
       <%= check_box_tag :discounted, 1, @house.discounted?, :disabled => true %>
     </p><br />
     <p>
@@ -250,11 +250,11 @@
     </p>
     <% end %>
     <p>
-      <%= label_tag t :house_description %>:<br />
+      <%= label_tag t(:house_description) %>:<br />
       <%= text_area_tag :house_description, @house.house_description, :disabled => true  %>
     </p>
     <p>
-      <%= label_tag t :admin_description %>:<br />
+      <%= label_tag t(:admin_description) %>:<br />
       <%= text_area_tag :admin_description, @house.admin_description, :disabled => true  %>
     </p>
   <% end %>
@@ -268,8 +268,8 @@
   <% end %>
 
 <p>
-  <%= link_to "Edit", edit_house_path(@house) %> |
-  <%= link_to "Destroy", @house, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", houses_path %>
+  <%= link_to t("Edit"), edit_house_path(@house) %> |
+  <%= link_to t("Destroy"), @house, :confirm => t('Are you sure?'), :method => :delete %> |
+  <%= link_to t("View All Houses"), houses_path %>
 </p>
 </div>

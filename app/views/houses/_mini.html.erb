@@ -2,14 +2,14 @@
     <div class="span-16 location">
     <span class="field"><%=h house.city %></span>
 &nbsp;
-    <span class="label"><%= t :code %>:</span>
+    <span class="label"><%= t(:code) %>:</span>
     <span class="field"><%=h house.code %></span>
     </div>
     <div class="span-2 last">
     <%= check_box_tag "checked_#{house.id}", 1, @cart.items.include?(house.id), :disabled => true %>
     </div>
 <br /><% if house.discounted?  %>
-    <span class="label"><%= t :discount %>:</span>
+    <span class="label"><%= t(:discount) %>:</span>
     <span class="field"><%=h house.discount.description %></span>
     <% end %>
   </div>
@@ -19,34 +19,34 @@
     <% end %></div>
   </div>
   <div class="span-6">
-    <span class="label"><%= t :persons %>:</span>
+    <span class="label"><%= t(:persons) %>:</span>
     <span class="field"><%=h house.persons %> <%= t('pers') %></span>
   <br />
-    <span class="label"><%= t :house_type_id %>:</span>
+    <span class="label"><%= t(:house_type_id) %>:</span>
     <span class="field"><%=h house.house_type %></span>
   <br />
-    <span class="label"><%= t :condition_id %>:</span>
+    <span class="label"><%= t(:condition_id) %>:</span>
     <span class="field"><%=h house.condition %></span>
   <br />
-    <span class="label"><%= t :furnishing_id %>:</span>
+    <span class="label"><%= t(:furnishing_id) %>:</span>
     <span class="field"><%=h house.furnishing %></span>
   <br />
-    <span class="label"><%= t :floor_area %>:</span>
+    <span class="label"><%= t(:floor_area) %>:</span>
     <span class="field"><%=h house.floor_area %> <%= t('sqmeter') %></span>
   </div>
   <div class="span-6 last">
-    <span class="label"><%= t :animals %>:</span>
+    <span class="label"><%= t(:animals) %>:</span>
     <span class="field"><%= house.animals? ? t('yes_animal') : t('no_animal') %></span>
   <br />
-    <span class="label"><%= t :distance_center %>:</span>
+    <span class="label"><%= t(:distance_center) %>:</span>
     <span class="field"><%=h house.distance_center %> <%= t('meter') %></span>
   <br />
-    <span class="label"><%= t :distance_beach %>:</span>
+    <span class="label"><%= t(:distance_beach) %>:</span>
     <span class="field"><%=h house.distance_beach %> <%= t('meter') %></span>
   <br />
-    <span class="label"><%= t :distance_shop %>:</span>
+    <span class="label"><%= t(:distance_shop) %>:</span>
     <span class="field"><%=h house.distance_shop %> <%= t('meter') %></span>
   <br />
-    <span class="label"><%= t :distance_restaurant %>:</span>
+    <span class="label"><%= t(:distance_restaurant) %>:</span>
     <span class="field"><%=h house.distance_restaurant %> <%= t('meter') %></span>
   </div>

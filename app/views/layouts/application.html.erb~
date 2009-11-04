@@ -59,7 +59,7 @@
       <div id="left" class="span-4">
       <% [:infos_a_z, :map, :weather, :calendar, :sights, :offers, :terms, :impressum, :owners].each do |item| %>
 	<div class="menu span-4">
-	<% link_to :controller => 'pages', :action => 'show', :page => item do %>
+	<% link_to item do %>
 	  <div class="menu-item"><%= t item %></div>
 	<% end %>
 	</div>
@@ -69,7 +69,7 @@
 	      <%= link_to "Edit Profile", edit_user_path(:current) %> |
 	      <%= link_to "Logout", logout_path %>
 	    <% else %>
-	      <%= link_to login_path do %>
+	      <% link_to login_path do %>
 	      <div class="menu-item"><%= t("admin_login") %></div>
 	      <% end %>
 	    <% end %>

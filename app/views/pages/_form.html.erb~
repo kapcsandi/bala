@@ -1,6 +1,10 @@
 <% form_for @page do |f| %>
   <%= f.error_messages %>
   <p>
+    <%= f.label t :path %><br />
+    <%= f.text_field :path %>
+  </p>
+  <p>
     <%= f.label t :title %><br />
     <%= f.text_field :title %>
   </p>
