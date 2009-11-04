@@ -6,7 +6,7 @@ foglalása a következő adatokkal megérkezett kollégánkhoz.
   érkezés: <%= @booking.from %>
   távozás: <%= @booking.to %>
 
-<% unless booking.notes.blank? %>
+<% unless @booking.notes.blank? %>
 <%= @booking.name %> <<%= @booking.email %>> üzenete:
 <%= @booking.notes %>
 -- üzenet vége
