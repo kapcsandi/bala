@@ -24,7 +24,7 @@ end
     <span class="field"><%= button_to cart_button_label, :action => :cart, :id => house.id, :cart => cart_action %></span>
     </div>
     <div class="span-3 last">
-    <span class="field"><%= button_to t("Print"), house %></span>
+    <span class="field"><%= button_to t("Print"), house, :id => house.id, :method => 'get', :print => '' %></span>
     </div>
   <br />
     <span class="field"><%= link_to t("Edit"), edit_house_path(house) %></span>

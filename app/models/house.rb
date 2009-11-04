@@ -79,7 +79,7 @@ class House < ActiveRecord::Base
   end
   
   def picture_urls
-    pictures.split(',').map{|pid| 'http://bala.clix5.com/'+self.code+'/'+pid+'_thumb.jpg' if pid !~ /,/ }.compact if pictures
+    pictures.split(',').map{|pid| APP_CONFIG['asset_server']+self.code+'/'+pid+'_thumb.jpg' if pid !~ /,/ }.compact if pictures
   end
   
   def picture_ids
