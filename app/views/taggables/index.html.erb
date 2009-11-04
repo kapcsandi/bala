@@ -1,12 +1,12 @@
-<% title "Taggables" %>
+<% title t('admin.taggables') %>
 
 <table>
   <tr>
-    <th>Field</th>
-    <th>Name</th>
-    <th>Context</th>
-    <th>Multi</th>
-    <th>Position</th>
+    <th><%= t('admin.field') %></th>
+    <th><%= t('admin.name') %></th>
+    <th><%= t('admin.context') %></th>
+    <th><%= t('admin.multi') %></th>
+    <th><%= t('admin.position') %></th>
   </tr>
   <% for taggable in @taggables %>
     <tr>
@@ -15,11 +15,11 @@
       <td><%=h taggable.context %></td>
       <td><%=h taggable.multi %></td>
       <td><%=h taggable.position %></td>
-      <td><%= link_to "Show", taggable %></td>
-      <td><%= link_to "Edit", edit_taggable_path(taggable) %></td>
-      <td><%= link_to "Destroy", taggable, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to t('admin.show'), taggable %></td>
+      <td><%= link_to t('admin.edit'), edit_taggable_path(taggable) %></td>
+      <td><%= link_to t('admin.destroy'), taggable, :confirm => t('are_you_sure'), :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Taggable", new_taggable_path %></p>
+<p><%= link_to t('admin.new_taggable'), new_taggable_path %></p>

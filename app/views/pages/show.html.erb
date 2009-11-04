@@ -1,8 +1,9 @@
 <% title @page.title %>
 <%= RedCloth.new(@page.body).to_html %>
-
+<% if current_user %>
 <p>
-  <%= link_to t("Edit"), edit_page_path(@page) %> |
-  <%= link_to t("Destroy"), @page, :confirm => t('Are you sure?'), :method => :delete %> |
-  <%= link_to t("View All"), pages_path %>
+  <%= link_to t('admin.edit'), edit_page_path(@page) %> |
+  <%= link_to t('admin.destroy'), @page, :confirm => t('admin.are_you_sure'), :method => :delete %> |
+  <%= link_to t('admin.view_all'), pages_path %>
 </p>
+<% end %>

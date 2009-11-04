@@ -1,8 +1,8 @@
-<% title "Edit Discount" %>
+<% title t('admin.edit_discount') %>
 
 <%= render :partial => 'form' %>
 
 <p>
-  <%= link_to "Show", @discount %> |
-  <%= link_to "View All", discounts_path %>
+  <%= link_to t('admin.show'), @discount %> |
+  <%= link_to t('admin.view_all'), discounts_path %>
 </p>

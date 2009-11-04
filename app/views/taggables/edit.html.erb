@@ -1,8 +1,8 @@
-<% title "Edit Taggable" %>
+<% title t('admin.edit_taggable') %>
 
 <%= render :partial => 'form' %>
 
 <p>
-  <%= link_to "Show", @taggable %> |
-  <%= link_to "View All", taggables_path %>
+  <%= link_to t('admin.show'), @taggable %> |
+  <%= link_to t('admin.view_all'), taggables_path %>
 </p>

@@ -25,6 +25,21 @@ class ApplicationController < ActionController::Base
     @current_user = current_user_session && current_user_session.record
   end
   
+  def logged_in?
+    current_user
+  end
+  
+  def admin?
+    current_user
+  end
+  
+  def authorize
+    unless logged_in?
+      flash[:error] = t('unrestricted_access')
+      redirect_to :root
+    end
+  end
+  
   def set_locale 
     #if params[:locale] is nil then I18n.default_locale will be used  
     # I18n.locale = extract_locale_from_uri
@@ -55,6 +70,4 @@ class ApplicationController < ActionController::Base
   def find_cart
     session[:cart] ||= Cart.new
   end
-  
-
 end

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_filter :authorize, :except => [:new]
   def index
   end  
   
@@ -10,9 +10,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "Registration successful."
+      flash[:notice] = t('registration_successful')
       Notifications.deliver_signup(@user)
-      redirect_to root_url
+      redirect_to :root
     else
       render :action => 'new'
     end
@@ -25,8 +25,8 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
-      flash[:notice] = "Successfully updated profile."
-      redirect_to root_url
+      flash[:notice] = t('admin.successfully_updated_profile')
+      redirect_to :root
     else
       render :action => 'edit'
     end

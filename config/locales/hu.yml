@@ -177,7 +177,6 @@ hu:
   created_booking: Köszönjük! Foglalását rögzítettük. Kollégánk hamarosan e-mailben értesíti Önt foglalása állapotáról.
   updated_booking: Foglalás módosítva
   destroyed_booking: Foglalás törölve
-  cart_limit: A kosár legfeljebb 3 apartmant tartalmazhat! Kérjük előbb töröljön a kosarából.
 #booking
   New Booking: Foglalás
   booking_hint: Kérjük pontosan töltse ki az alábbi adatokat.
@@ -234,14 +233,12 @@ hu:
   houses_found: "Találatok száma: <span class=\"count\">{{count}}</span>"
   prev_link: előző
   next_link: következő
-# pages
-  New Page: Új oldal
-  path: útvonal
 
   support:
     array:
       words_connector: ', '
       last_word_connector: ' és '
+      two_words_connector: ' és '
 
   number:
     format:
@@ -357,5 +354,81 @@ hu:
               blank: "a Jelszó nem lehet üres"
 
 
+# flash üzenetek
+  unrestricted_access: Hozzáférés megtagadva.
+  successfully_logged_in: Sikeres belépés
+  successfully_logged_out: Sikeres kilépés
+  cart_limit: A kosár legfeljebb 3 apartmant tartalmazhat!<br /> Kérjük előbb töröljön a kosarából.
+  registration_successful: Sikeres regisztráció
+
+# login oldal
+  login:
+    title: Bejelentkezés
+    username: Azonosító
+    password: Jelszó
+    submit: Bejelentkezés
+  registration: Regisztráció
 
 
+
+# ---------------------------------------------------------
+# ezeket nem kell fordítani
+# ---------------------------------------------------------
+
+# admin felület
+  admin:
+# admin oldal címek
+    discounts: Akciók
+    pages: Oldalak
+    discount: Akció
+    tag: Címke
+    tags: Címkék
+    taggables: Címkecsoportok
+    taggable: Címkecsoport
+    new_discount: Új Akció
+    new_page: Új Oldal
+    new_tag: Új Címke
+    new_taggable: Új Címkecsoport
+    edit_discount: Akció szerkesztése
+    edit_page: Oldal szerkesztése
+    edit_tag: Címke szerkesztése
+    edit_taggable: Címkecsoport szerkesztése
+    edit_user: Profil szerkesztése
+# admin adat mezők
+    house: Apartman
+    house_id: Apartman id
+    description: Akció leírása
+    path: Útvonal
+    title: Cím
+    published: Élesítve
+    name: Név
+    username: Azonosító
+    email: E-mail
+    password: Jelszó
+    password_confirmation: Jelszó mégegyszer
+    locale: Nyelv
+    field: Szótár kód
+    context: Mező
+    multi: Többszörös választásos
+    position: Pozíció
+# admin linkek
+    submit: Mehet
+    show: Megnéz
+    edit: Szerkeszt
+    destroy: Töröl
+    view_all: Mind megtekintése
+    are_you_sure: Biztos benne?
+    remove: Töröl
+    add_tag: Hozzáad
+# admin flash üzenetek
+    successfully_created_page: Oldal sikeresen létrehozva
+    successfully_updated_page: Oldal sikeresen módosítva
+    successfully_destroyed_page: Oldal sikeresen törölve
+    successfully_created_discount: Akció sikeresen létrehozva
+    successfully_updated_discount: Akció sikeresen módosítva
+    successfully_destroyed_discount: Akció sikeresen törölve
+    successfully_created_tag: Címke sikeresen létrehozva
+    successfully_updated_tag: Címke sikeresen módosítva
+    successfully_created_taggable: Címkecsoport sikeresen létrehozva
+    successfully_updated_taggable: Címkecsoport sikeresen módosítva
+    successfully_updated_profile: Saját adatok módosítása sikeres volt.

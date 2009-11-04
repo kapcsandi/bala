@@ -1,8 +1,8 @@
-<% title "Edit Page" %>
+<% title t('admin.edit_page') %>
 
 <%= render :partial => 'form' %>
 
 <p>
-  <%= link_to "Show", @page %> |
-  <%= link_to "View All", pages_path %>
+  <%= link_to t('admin.show'), @page %> |
+  <%= link_to t('admin.view_all'), pages_path %>
 </p>

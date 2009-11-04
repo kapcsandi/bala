@@ -1,4 +1,6 @@
 class TagsController < ApplicationController
+  before_filter :authorize
+
   # GET /tags
   # GET /tags.xml
   def index
@@ -44,7 +46,7 @@ class TagsController < ApplicationController
 
     respond_to do |format|
       if @tag.save
-        flash[:notice] = 'Tag was successfully created.'
+        flash[:notice] = t('admin.tag_successfully_created')
         format.html { redirect_to(@tag) }
         format.xml  { render :xml => @tag, :status => :created, :location => @tag }
       else
@@ -61,7 +63,7 @@ class TagsController < ApplicationController
 
     respond_to do |format|
       if @tag.update_attributes(params[:tag])
-        flash[:notice] = 'Tag was successfully updated.'
+        flash[:notice] = t('admin.tag_successfully_updated')
         format.html { redirect_to(@tag) }
         format.xml  { head :ok }
       else

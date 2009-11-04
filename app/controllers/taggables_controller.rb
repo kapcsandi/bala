@@ -1,4 +1,6 @@
 class TaggablesController < ApplicationController
+  before_filter :authorize
+
   # GET /taggables
   # GET /taggables.xml
   def index
@@ -46,7 +48,7 @@ class TaggablesController < ApplicationController
 
     respond_to do |format|
       if @taggable.save
-        flash[:notice] = 'Taggable was successfully created.'
+        flash[:notice] = t('taggable_successfully_created')
         format.html { redirect_to(@taggable) }
         format.xml  { render :xml => @taggable, :status => :created, :location => @taggable }
       else
@@ -63,7 +65,7 @@ class TaggablesController < ApplicationController
 
     respond_to do |format|
       if @taggable.update_attributes(params[:taggable])
-        flash[:notice] = 'Taggable was successfully updated.'
+        flash[:notice] = t('taggable_successfully_updated')
         format.html { redirect_to(@taggable) }
         format.xml  { head :ok }
       else

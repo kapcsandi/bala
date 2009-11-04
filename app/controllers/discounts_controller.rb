@@ -1,4 +1,6 @@
 class DiscountsController < ApplicationController
+  before_filter :authorize
+
   def index
     @discounts = Discount.all
   end
@@ -14,7 +16,7 @@ class DiscountsController < ApplicationController
   def create
     @discount = Discount.new(params[:discount])
     if @discount.save
-      flash[:notice] = "Successfully created discount."
+      flash[:notice] = t('admin.successfully_created_discount')
       redirect_to @discount
     else
       render :action => 'new'
@@ -28,7 +30,7 @@ class DiscountsController < ApplicationController
   def update
     @discount = Discount.find(params[:id])
     if @discount.update_attributes(params[:discount])
-      flash[:notice] = "Successfully updated discount."
+      flash[:notice] = t('admin.successfully_updated_discount')
       redirect_to @discount
     else
       render :action => 'edit'
@@ -38,7 +40,7 @@ class DiscountsController < ApplicationController
   def destroy
     @discount = Discount.find(params[:id])
     @discount.destroy
-    flash[:notice] = "Successfully destroyed discount."
+    flash[:notice] = t'(admin.successfully_destroyed_discount')
     redirect_to discounts_url
   end
 end

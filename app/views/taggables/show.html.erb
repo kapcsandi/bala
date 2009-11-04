@@ -1,21 +1,21 @@
-<% title "Taggable" %>
+<% title t('admin.taggable') %>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= t('admin.name') %>:</strong>
   <%=h @taggable.name %>
 </p>
 <p>
-  <strong>Context:</strong>
+  <strong><%= t('admin.context') %>:</strong>
   <%=h @taggable.context %>
 </p>
 
 <p>
-  <strong>Tags:</strong>
-  <%=h @taggable.tags.map {|tag| tag.name }.join(', ') %>
+  <strong><%= t('admin.tags') %>:</strong>
+  <%=h @taggable.tags.map {|tag| tag.name }.to_sentence %>
 </p>
 
 <p>
-  <%= link_to "Edit", edit_taggable_path(@taggable) %> |
-  <%= link_to "Destroy", @taggable, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", taggables_path %>
+  <%= link_to t('admin.edit'), edit_taggable_path(@taggable) %> |
+  <%= link_to t('admin.destroy'), @taggable, :confirm => t('admin.are_you_sure'), :method => :delete %> |
+  <%= link_to t('admin.view_all'), taggables_path %>
 </p>

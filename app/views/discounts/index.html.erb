@@ -1,19 +1,17 @@
-<% title "Discounts" %>
+<% title t("admin.discounts") %>
 
 <table>
   <tr>
-    <th>House</th>
-    <th>Description</th>
+    <th><%= t('admin.house') %></th>
+    <th><%= t('admin.description') %></th>
   </tr>
   <% for discount in @discounts %>
     <tr>
       <td><%=h discount.house_id %></td>
-      <td><%=h discount.description %></td>
-      <td><%= link_to "Show", discount %></td>
-      <td><%= link_to "Edit", edit_discount_path(discount) %></td>
-      <td><%= link_to "Destroy", discount, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= RedCloth.new(discount.description).to_html %></td>
+      <td><%= link_to t("admin.show"), discount %></td>
+      <td><%= link_to t("admin.edit"), edit_discount_path(discount) %></td>
+      <td><%= link_to t("admin.destroy"), discount, :confirm => t('admin.are_you_sure'), :method => :delete %></td>
     </tr>
   <% end %>
 </table>
-
-<p><%= link_to "New Discount", new_discount_path %></p>

@@ -1,16 +1,16 @@
-<% title "Discount" %>
+<% title t("discount") %>
 
 <p>
-  <strong>House:</strong>
+  <strong><%= t('admin.house') %>:</strong>
   <%=h @discount.house_id %>
 </p>
 <p>
-  <strong>Description:</strong>
-  <%=h @discount.description %>
+  <strong><%= t('admin.description) %>:</strong>
+  <%= RedCloth.new(@discount.description).to_html %>
 </p>
 
 <p>
-  <%= link_to "Edit", edit_discount_path(@discount) %> |
-  <%= link_to "Destroy", @discount, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", discounts_path %>
+  <%= link_to t('admin.edit'), edit_discount_path(@discount) %> |
+  <%= link_to t('admin.destroy'), @discount, :confirm => t('admin.are_you_sure'), :method => :delete %> |
+  <%= link_to t('admin.view_all'), discounts_path %>
 </p>

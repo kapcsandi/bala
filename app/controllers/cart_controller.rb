@@ -8,7 +8,7 @@ class CartController < ApplicationController
     end
     if current_item then
     elsif @items.count == 3
-      flash[:notice] = t "limit_cart"      
+      flash[:notice] = t('cart_limit')
     else
       @items << house.id
     end

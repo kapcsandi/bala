@@ -1,12 +1,13 @@
 <% form_for @discount do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :house_id %><br />
+    <%= f.label t('admin.house_id') %><br />
     <%= f.text_field :house_id %>
   </p>
   <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.label t('admin.description') %><br />
+    <%= textile_editor :discount, :description %>
   </p>
-  <p><%= f.submit "Submit" %></p>
+  <p><%= f.submit t('admin.submit') %></p>
 <% end %>
+<%= textile_editor_initialize %>

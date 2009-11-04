@@ -1,4 +1,5 @@
 class SetupController < ApplicationController
+  before_filter :authorize
   require 'csv'
   
   def index
@@ -202,8 +203,8 @@ class SetupController < ApplicationController
           'Felújított'
         when 'hagyomanyos':
           'Hagyományos'
-	when 'uj epitesu':
-	  'Új építésű'
+        when 'uj epitesu':
+          'Új építésű'
         end
         house.condition_id = tags.select{|tag| tag.name == name}.first.id # E => condition_id, Állapot
         

@@ -1,11 +1,11 @@
 class PagesController < ApplicationController
+  before_filter :authorize, :except => [:show]
   
   def index
     @pages = Page.all
   end
   
   def show
-    #  sights, :offers, :terms, :impressum, :owners, :admin_login]
     page = params[:page]
     id = params[:id]
     if page
@@ -13,7 +13,13 @@ class PagesController < ApplicationController
     elsif id
       @page = Page.find(id)
     end
-    redirect_to(new_page_path, :path => page)if @page.nil?
+    if @page.nil?
+      if admin?
+        redirect_to(new_page_path, :path => page)
+      else
+        redirect_to root_url
+      end
+    end
   end
   
   def new
@@ -24,7 +30,7 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(params[:page])
     if @page.save
-      flash[:notice] = "Successfully created page."
+      flash[:notice] = t('admin.successfully_created_page')
       redirect_to @page
     else
       render :action => 'new'
@@ -38,7 +44,7 @@ class PagesController < ApplicationController
   def update
     @page = Page.find(params[:id])
     if @page.update_attributes(params[:page])
-      flash[:notice] = "Successfully updated page."
+      flash[:notice] = t('admin.successfully_updated_page')
       redirect_to @page
     else
       render :action => 'edit'
@@ -48,7 +54,7 @@ class PagesController < ApplicationController
   def destroy
     @page = Page.find(params[:id])
     @page.destroy
-    flash[:notice] = "Successfully destroyed page."
+    flash[:notice] = t('admin.successfully_destroyed_page')
     redirect_to pages_url
   end
 end

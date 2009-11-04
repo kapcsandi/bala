@@ -1,16 +1,16 @@
-<% title "Login" %>
+<% title t('login.title') %>
 
 <% form_for @user_session do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :username %><br />
+    <%= f.label t('login.username') %><br />
     <%= f.text_field :username %>
   </p>
   <p>
-    <%= f.label :password %><br />
+    <%= f.label t('login.password') %><br />
     <%= f.password_field :password %>
   </p>
-  <p><%= f.submit "Submit" %></p>
+  <p><%= f.submit t('login.submit') %></p>
 <% end %>
 
 

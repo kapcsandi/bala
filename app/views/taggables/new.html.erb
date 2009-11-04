@@ -1,8 +1,8 @@
-<% title "New Taggable" %>
+<% title t('admin.new_taggable') %>
 
-Empty disctionary fields:
+Üres szótárak:
 <%= House.column_names.select{|name| name.match(/_id/) }.select{|field| Taggable.find_by_field(field).nil? }.join(', ') %>
 
 <%= render :partial => 'form' %>
 
-<p><%= link_to "Back to List", taggables_path %></p>
+<p><%= link_to t('admin.show_all'), taggables_path %></p>

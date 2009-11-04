@@ -1,42 +1,42 @@
 <% form_for @taggable do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :field %><br />
+    <%= f.label t('admin.field') %><br />
     <%= f.text_field :field %>
   </p>
   <p>
-    <%= f.label :name %><br />
+    <%= f.label t('admin.name') %><br />
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :context %><br />
+    <%= f.label t('admin.context') %><br />
     <%= f.text_field :context %>
   </p>
   <p>
-    <%= f.label :multi %><br />
+    <%= f.label t('admin.multi') %><br />
     <%= f.check_box :multi %>
   </p>
   <p>
-    <%= f.label :position %><br />
+    <%= f.label t('admin.position') %><br />
     <%= f.text_field :position %>
   </p>
 
   <div id="tags">
-    <%= f.label :tags %><br />
+    <%= f.label t('admin.tags') %><br />
   <% f.fields_for :tags do |tag_form| %>
     <p>
-    <%= tag_form.label t :tag %>
+    <%= tag_form.label t('admin.tag') %>
     <%= tag_form.text_field :name %>
     </p>
     <% unless tag_form.object.new_record? %>
       <!-- For existing records we add a checkbox to be able to delete records. -->
-      <%= tag_form.label :_delete, "Remove:" %>
+      <%= tag_form.label :_delete, t('admin.remove') %>
       <%= tag_form.check_box :_delete %>
      <% end %>
   <% end %>
   </div>
   <p>
-    <%= add_tag_link "Add a tag", f %>
+    <%= add_tag_link t('admin.add_tag'), f %>
   </p>
-  <p><%= f.submit "Submit" %></p>
+  <p><%= f.submit t('admin.submit') %></p>
 <% end %>
