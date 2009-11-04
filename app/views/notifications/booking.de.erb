@@ -12,11 +12,11 @@ foglalása a következő adatokkal megérkezett kollégánkhoz.
 -- üzenet vége
 <% end %>
 további adatok:
-Érkező személyek száma: <%= @booking.persons %>
-<%= @'Háziállattal jövünk' if booking.with_animals %>
-Telefon: <%= @details.phone %>
-Mobil: <%= @details.mobile %>
-Város: <%= @details.city %>
+* Érkező személyek száma: <%= @booking.persons %>
+<%= '* Háziállattal jövünk' if @booking.with_animals %>
+* Telefon: <%= @details.phone %>
+* Mobil: <%= @details.mobile %>
+* Város: <%= @details.city %>
 
 --
 Üdvözlettel,

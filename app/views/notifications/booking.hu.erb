@@ -11,12 +11,12 @@ foglalása a következő adatokkal megérkezett kollégánkhoz.
 <%= @booking.notes %>
 -- üzenet vége
 <% end %>
-további adatok:
-Érkező személyek száma: <%= @booking.persons %>
-<%= @'Háziállattal jövünk' if booking.with_animals %>
-Telefon: <%= @details.phone %>
-Mobil: <%= @details.mobile %>
-Város: <%= @details.city %>
+További adatok:
+* Érkező személyek száma: <%= @booking.persons %>
+<%= '* Háziállattal jövünk' if @booking.with_animals %>
+* Telefon: <%= @details.phone %>
+* Mobil: <%= @details.mobile %>
+* Város: <%= @details.city %>
  -----
 
 A foglalás adatai elérhetők ezen az oldalon:
