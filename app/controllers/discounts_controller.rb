@@ -40,7 +40,7 @@ class DiscountsController < ApplicationController
   def destroy
     @discount = Discount.find(params[:id])
     @discount.destroy
-    flash[:notice] = t'(admin.successfully_destroyed_discount')
-    redirect_to discounts_url
+    flash[:notice] = t('admin.successfully_destroyed_discount')
+    redirect_to discounts_path
   end
 end

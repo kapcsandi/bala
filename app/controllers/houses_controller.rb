@@ -126,10 +126,6 @@ class HousesController < ApplicationController
     @selected = House.find_all_by_id(@cart.items)
   end
   
-  def special
-    redirect_to_index("no_implemented_yet")
-  end
-  
   private
   
   def redirect_to_index(msg)
