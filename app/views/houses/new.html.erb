@@ -1,7 +1,7 @@
-<% title t "New House" %>
+<% title t('admin.new_house') %>
 
 <% unless @empties.empty? %>
-  <%= t "Empty dictionary fields" %>:
+  <%= t("Üres szótár elemek") %>:
   <%= @empties %>
 <p><%= link_to t("add_taggables"), new_taggable_path %> <%= t :or %> <%= link_to t("Setup"), setup_path %></p>
 
