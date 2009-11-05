@@ -398,6 +398,7 @@ hu:
     description: Akció leírása
     path: Útvonal
     title: Cím
+    body: Szöveg
     published: Élesítve
     name: Név
     username: Azonosító
