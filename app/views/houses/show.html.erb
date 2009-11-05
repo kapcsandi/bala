@@ -266,10 +266,11 @@
     </div>
     <% end if @house.picture_ids.respond_to?('index') %>
   <% end %>
-
+<% if admin? %>
 <p>
-  <%= link_to t("Edit"), edit_house_path(@house) %> |
-  <%= link_to t("Destroy"), @house, :confirm => t('Are you sure?'), :method => :delete %> |
-  <%= link_to t("View All Houses"), houses_path %>
+  <%= link_to t('admin.edit'), edit_house_path(@house) %> |
+  <%= link_to t('admin.destroy'), @house, :confirm => t('admin.are_you_sure'), :method => :delete %> |
+  <%= link_to t('admin.view_all'), houses_path %>
 </p>
+<% end %>
 </div>

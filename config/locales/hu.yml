@@ -105,6 +105,9 @@ hu:
   Booking: Foglalás
   Photos: Képek
   Select: Megjelölés
+  cart:
+    select: Megjelölés
+    deselect: Törlés a kosárból
   Print:  Nyomtatás
   Edit: Szerkeszt
   Destroy: Töröl
@@ -367,7 +370,13 @@ hu:
     submit: Bejelentkezés
   registration: Regisztráció
 
-
+#kereső
+  search:
+    button: Keresés
+    fieldgroup:
+      basics: Ház alapinfók
+      equips: Felszereltség
+      others: Egyéb jellemzők
 
 # ---------------------------------------------------------
 # ezeket nem kell fordítani
@@ -387,11 +396,13 @@ hu:
     new_page: Új Oldal
     new_tag: Új Címke
     new_taggable: Új Címkecsoport
+    new_house: Ú Apartman
     edit_discount: Akció szerkesztése
     edit_page: Oldal szerkesztése
     edit_tag: Címke szerkesztése
     edit_taggable: Címkecsoport szerkesztése
     edit_user: Profil szerkesztése
+    edit_apartman: Apartman szerkesztése
 # admin adat mezők
     house: Apartman
     house_id: Apartman id

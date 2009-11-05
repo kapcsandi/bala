@@ -23,7 +23,7 @@
   <%= calendar_date_select 'q', 'to', :order => [:year, :month, :day], :size=> 16, :value => params[:q] ? params[:q][:to] : '' %>
   </div>
   <div class="prepend-2 span-3">
-  <%= submit_tag t(:search) %><br />
+  <%= submit_tag t('search.button') %><br />
   <%= link_to  t(:detailed_search), url_for(:controller => 'houses', :action => 'index', :advanced => '1'), :method => :get  %>
   </div>
  </div>

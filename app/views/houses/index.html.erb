@@ -1,4 +1,3 @@
-<!-- % title  t "Houses" %-->
 <%= t( :houses_found, :count => @houses_count ) %>
 <%= will_paginate @houses, :previous_label => t(:prev_link), :next_label => t(:next_link) %>
 <div class="">
@@ -10,4 +9,6 @@
   <% end %>
 </div>
 <%= will_paginate @houses, :previous_label => t(:prev_link), :next_label => t(:next_link) %>
-<p><%= link_to t("New House"), new_house_path %></p>
+<% if admin? %>
+<p><%= link_to t('admin.new_house'), new_house_path %></p>
+<% end %>

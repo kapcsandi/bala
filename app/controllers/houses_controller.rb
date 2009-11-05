@@ -1,5 +1,6 @@
 class HousesController < ApplicationController
-#  before_filter :discounted, :only => [:new, :create, :edit, :update]
+  before_filter :authorize, :except => [:index, :show, :cart, :empty_cart]
+
   def index
     tag = Taggable.find_by_field('category').tags.find_by_name(params[:category]) unless params[:category].blank?
     if tag
@@ -115,19 +116,14 @@ class HousesController < ApplicationController
       end
     end
   end
-  
+
   def empty_cart
     session[:cart] = nil
     redirect_to_index("cart_is_empty")
   end
-  
-  def booking
-    @cart = find_cart
-    @selected = House.find_all_by_id(@cart.items)
-  end
-  
+
   private
-  
+
   def redirect_to_index(msg)
     flash[:notice] = t(msg)
     redirect_to :action => :index

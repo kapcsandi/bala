@@ -3,6 +3,7 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
+  helper_method :logged_in?, :admin?
   protect_from_forgery
   
   # See ActionController::Base for details 

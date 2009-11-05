@@ -24,7 +24,7 @@
   </div>
  </div>
 
-  <%field_set_tag ' Ház alapinfók ' do %>
+  <% field_set_tag t('search.fieldgroup.basics') do %>
   <div class="span-3 label"><%= t :house_type_id %></div>
   <div class="span-3 last field">
   <%= f.select 'type', Taggable.find_by_field('house_type_id').tags.map{|tag| tag.name}, :selected => (params[:q] && params[:q][:type] ? params[:q][:type] : ''), :include_blank => true   %>
@@ -38,7 +38,7 @@
   <%= check_box_tag 'animals', 1, params[:animals] == '1' %>
   </div>
   <% end %>
-  <%field_set_tag ' Felszereltség ' do %>
+  <%field_set_tag t('search.fieldgroup.equips') do %>
     <div class="span-2 label"><%= t :sat %></div>
     <div class="span-1 field">
     <%= check_box_tag 'sat', 1, params[:sat] == '1' %>
@@ -60,7 +60,7 @@
     <%= check_box_tag 'grill', 1, params[:grill] == '1' %>
     </div>
   <% end %>
-  <%field_set_tag ' Egyéb jellemzők ' do %>
+  <%field_set_tag t('search.fieldgroup.others') do %>
     <div class="span-2 label"><%= t :parking_id %></div>
     <div class="span-3 last field">
     <%= f.select 'parking', Taggable.find_by_field('parking_id').tags.map{|tag| tag.name}, :selected => (params[:q] && params[:q][:parking] ? params[:q][:parking] : ''), :include_blank => true %>
@@ -80,7 +80,7 @@
   <% if params[:advanced] %>
   <input type="hidden" name="advanced" value="<%= params[:advanced] %>">
   <% end %>
-  <%= submit_tag t :search %><br />
+  <%= submit_tag t('search.button') %><br />
   <%= link_to  t(:simple_search), url_for(:controller => 'houses', :action => 'index', :advanced => '0'), :method => :get  %>
   </div>
 <% end %>
