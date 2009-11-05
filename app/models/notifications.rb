@@ -10,7 +10,7 @@ class Notifications < ActionMailer::Base
   def booking(house_codes, booking, sent_at = Time.now)
     recipients booking.email
     from       "istvan.kapcsandi+bala@gmail.com"
-    subject    t(:booking_notificaton_subject)
+    subject    t(:booking_notification_subject)
     body       :booking => booking, :codes => house_codes
     sent_on    sent_at
   end
@@ -18,7 +18,7 @@ class Notifications < ActionMailer::Base
   def booking_admin(house_codes, booking, sent_at = Time.now)
     recipients  User.first.email_address_with_name
     from       "istvan.kapcsandi+bala@gmail.com"
-    subject    "Foglalás értesítő"
+    subject    "bala admin - Foglalás értesítő"
     body       :booking => booking, :codes => house_codes
     sent_on    sent_at
   end
