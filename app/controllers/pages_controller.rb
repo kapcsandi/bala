@@ -15,7 +15,7 @@ class PagesController < ApplicationController
     end
     if @page.nil?
       if admin?
-        redirect_to(new_page_path, :path => page)
+        redirect_to new_page_path(:path => page)
       else
         redirect_to root_url
       end
@@ -24,6 +24,7 @@ class PagesController < ApplicationController
   
   def new
     @page = Page.new
+    @page.path = params[:path] if params[:path]
     @page.page_translations_attributes = [ { :locale => params[:locale] } ] 
   end
   
