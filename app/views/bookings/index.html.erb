@@ -1,5 +1,7 @@
 <% title t("Bookings") %>
 
+<%= calendar(:year => @year, :month => @month, :first_day_of_week => 1 ) %>
+
 <table>
   <tr>
     <th>From</th>

@@ -1,7 +1,16 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 hu:
+  date:
+    formats:
+      default: "%Y.%m.%d"
+      short: "%e. %b"
+      long: "%e. %B %Y"
+      only_day: "%e"
+
+    day_names: [Vasárnap, Hétfő, Kedd, Szerda, Csütörtök, Péntek, Szombat]
+    abbr_day_names: [Va, H, K, Sze, Cs, P, Szo]
+    month_names: [~, Január, Február, Március, Április, Május, Június, Július, Augusztus, Szeptember, Október, November, December]
+    abbr_month_names: [~, Jan, Feb, Már, Ápr, Máj, Jún, Júl, Aug, Szep, Okt, Nov, Dec]
+
   hello: "Szia világ!"
   home: Főoldal
 
@@ -124,6 +133,10 @@ hu:
   items: darab
   euro: Euro
 
+  select: Megjelölés
+  deselect: Törlés a kosárból
+
+
 #field sets
   house_basics: Ház alapinfók
   house_layout: Helyiségek elrendezése
@@ -177,7 +190,6 @@ hu:
   created_booking: Köszönjük! Foglalását rögzítettük. Kollégánk hamarosan e-mailben értesíti Önt foglalása állapotáról.
   updated_booking: Foglalás módosítva
   destroyed_booking: Foglalás törölve
-  cart_limit: A kosár legfeljebb 3 apartmant tartalmazhat! Kérjük előbb töröljön a kosarából.
 #booking
   New Booking: Foglalás
   booking_hint: Kérjük pontosan töltse ki az alábbi adatokat.
@@ -205,6 +217,7 @@ hu:
   Back to List: Vissza a Foglalásokhoz
   View All: Összes listája
   Edit Booking: Foglalás szerkesztése
+  booking_notification_subject: Foglalási értesítő
 # status
   status_unknown: Ismeretlen
   status_created: Rögzítve
@@ -234,13 +247,12 @@ hu:
   houses_found: "Találatok száma: <span class=\"count\">{{count}}</span>"
   prev_link: előző
   next_link: következő
-# pages
-  New Page: Új oldal
 
   support:
     array:
       words_connector: ', '
       last_word_connector: ' és '
+      two_words_connector: ' és '
 
   number:
     format:
@@ -309,6 +321,8 @@ hu:
       template:
         header: "{{count}} hiba megakadályozta a {{model}} elmentését"
         body: "Problémák voltak a következő mezők kitöltésével"
+        blank: "a Felhasználónév és Jelszó nem lehet üres"
+        invalid: "a Felhasználónév vagy Jelszó nem megfelő"
 
       models:
         house:
@@ -349,12 +363,95 @@ hu:
               blank: "az e-mail cím mező nem lehet üres"
               invalid: "az e-mail cím nem megfelő formátumú"
         user:
-          attributes:
-            username:
-              blank: "a Felhasználónév nem lehet üres"
-            password:
-              blank: "a Jelszó nem lehet üres"
+          password:
+            blank: "a Felhasználónév és Jelszó nem lehet üres"
+            invalid: "a Felhasználónév vagy Jelszó nem megfelő"
 
 
+# flash üzenetek
+  unrestricted_access: Hozzáférés megtagadva.
+  successfully_logged_in: Sikeres belépés
+  successfully_logged_out: Sikeres kilépés
+  cart_limit: A kosár legfeljebb 3 apartmant tartalmazhat!<br /> Kérjük előbb töröljön a kosarából.
+  registration_successful: Sikeres regisztráció
 
+# login oldal
+  login:
+    title: Bejelentkezés
+    username: Azonosító
+    password: Jelszó
+    submit: Bejelentkezés
+  registration: Regisztráció
 
+#kereső
+  search:
+    button: Keresés
+    fieldgroup:
+      basics: Ház alapinfók
+      equips: Felszereltség
+      others: Egyéb jellemzők
+
+# ---------------------------------------------------------
+# ezeket nem kell fordítani
+# ---------------------------------------------------------
+
+# admin felület
+  admin:
+# admin oldal címek
+    discounts: Akciók
+    pages: Oldalak
+    discount: Akció
+    tag: Címke
+    tags: Címkék
+    taggables: Címkecsoportok
+    taggable: Címkecsoport
+    new_discount: Új Akció
+    new_page: Új Oldal
+    new_tag: Új Címke
+    new_taggable: Új Címkecsoport
+    new_house: Ú Apartman
+    edit_discount: Akció szerkesztése
+    edit_page: Oldal szerkesztése
+    edit_tag: Címke szerkesztése
+    edit_taggable: Címkecsoport szerkesztése
+    edit_user: Profil szerkesztése
+    edit_apartman: Apartman szerkesztése
+# admin adat mezők
+    house: Apartman
+    house_id: Apartman id
+    description: Akció leírása
+    path: Útvonal
+    title: Cím
+    body: Szöveg
+    published: Élesítve
+    name: Név
+    username: Azonosító
+    email: E-mail
+    password: Jelszó
+    password_confirmation: Jelszó mégegyszer
+    locale: Nyelv
+    field: Szótár kód
+    context: Mező
+    multi: Többszörös választásos
+    position: Pozíció
+# admin linkek
+    submit: Mehet
+    show: Megnéz
+    edit: Szerkeszt
+    destroy: Töröl
+    view_all: Mind megtekintése
+    are_you_sure: Biztos benne?
+    remove: Töröl
+    add_tag: Hozzáad
+# admin flash üzenetek
+    successfully_created_page: Oldal sikeresen létrehozva
+    successfully_updated_page: Oldal sikeresen módosítva
+    successfully_destroyed_page: Oldal sikeresen törölve
+    successfully_created_discount: Akció sikeresen létrehozva
+    successfully_updated_discount: Akció sikeresen módosítva
+    successfully_destroyed_discount: Akció sikeresen törölve
+    successfully_created_tag: Címke sikeresen létrehozva
+    successfully_updated_tag: Címke sikeresen módosítva
+    successfully_created_taggable: Címkecsoport sikeresen létrehozva
+    successfully_updated_taggable: Címkecsoport sikeresen módosítva
+    successfully_updated_profile: Saját adatok módosítása sikeres volt.

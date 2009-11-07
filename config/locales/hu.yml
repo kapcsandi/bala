@@ -1,4 +1,16 @@
 hu:
+  date:
+    formats:
+      default: "%Y.%m.%d"
+      short: "%e. %b"
+      long: "%e. %B %Y"
+      only_day: "%e"
+
+    day_names: [Vasárnap, Hétfő, Kedd, Szerda, Csütörtök, Péntek, Szombat]
+    abbr_day_names: [Va, H, K, Sze, Cs, P, Szo]
+    month_names: [~, Január, Február, Március, Április, Május, Június, Július, Augusztus, Szeptember, Október, November, December]
+    abbr_month_names: [~, Jan, Feb, Már, Ápr, Máj, Jún, Júl, Aug, Szep, Okt, Nov, Dec]
+
   hello: "Szia világ!"
   home: Főoldal
 
@@ -309,6 +321,8 @@ hu:
       template:
         header: "{{count}} hiba megakadályozta a {{model}} elmentését"
         body: "Problémák voltak a következő mezők kitöltésével"
+        blank: "a Felhasználónév és Jelszó nem lehet üres"
+        invalid: "a Felhasználónév vagy Jelszó nem megfelő"
 
       models:
         house:
@@ -349,11 +363,9 @@ hu:
               blank: "az e-mail cím mező nem lehet üres"
               invalid: "az e-mail cím nem megfelő formátumú"
         user:
-          attributes:
-            username:
-              blank: "a Felhasználónév nem lehet üres"
-            password:
-              blank: "a Jelszó nem lehet üres"
+          password:
+            blank: "a Felhasználónév és Jelszó nem lehet üres"
+            invalid: "a Felhasználónév vagy Jelszó nem megfelő"
 
 
 # flash üzenetek
