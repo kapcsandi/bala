@@ -123,7 +123,7 @@ module CalendarHelper
       unless d[options[:abbrev]].eql? d
         cal << "<th scope='col'><abbr title='#{d}'>#{d.each_char.to_a[options[:abbrev]].join}</abbr></th>"
       else
-        cal << "<th scope='col'>#{d.each_char_to_a[options[:abbrev]].join}</th>"
+        cal << "<th scope='col'>#{d.each_char.to_a[options[:abbrev]].join}</th>"
       end
     end
     cal << "</tr></thead><tbody><tr>"
