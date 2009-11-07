@@ -69,7 +69,7 @@ module CalendarHelper
     raise(ArgumentError, "No year given")  unless options.has_key?(:year)
     raise(ArgumentError, "No month given") unless options.has_key?(:month)
 
-    block                        ||= Proc.new {|d| nil}
+    block ||= Proc.new {|d| nil}
 
     defaults = {
       :table_class => 'calendar',
