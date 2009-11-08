@@ -22,11 +22,17 @@ class BookingsController < ApplicationController
     @booking = Booking.new(params[:booking])
     cart = find_cart
     @houses = House.find(cart.items)
-    @booking.houses << @houses
+    if session[:order]
+      session[:order].each_with_index do |id, index|
+        logger.info "@houses_bookings values: #{id}"
+        @booking.houses_bookings.build(:house_id => id, :position => index)
+      end
+    else
+      @booking.houses << @houses
+    end
     if @booking.save
       flash[:notice] = t "created_booking"
       notification_mails(@booking)
-#      render :text => '<pre>' + mail.encoded + '</pre>'
       redirect_to @booking
     else
       render :action => 'new'
@@ -40,6 +46,14 @@ class BookingsController < ApplicationController
   
   def update
     @booking = Booking.find(params[:id])
+    if session[:order]
+      logger.info "session:order exists"
+      session[:order].each_with_index do |id, index|
+        @booking.houses_bookings.update_all(['position=?',index+1],['house_id=?',id])
+      end
+    else
+      logger.info "session:order NOT exists"
+    end
     if @booking.update_attributes(params[:booking])
       flash[:notice] = t "updated_booking"
       redirect_to @booking
@@ -53,6 +67,13 @@ class BookingsController < ApplicationController
     @booking.destroy
     flash[:notice] = t "destroyed_booking"
     redirect_to bookings_url
+  end
+     
+  def sort
+    @houses_bookings = {}
+    logger.info "@houses_bookings exists"
+    session[:order] = params[:houses_bookings]
+    render :nothing => true
   end
   
   private

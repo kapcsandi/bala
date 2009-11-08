@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :bookings
+  map.resources :bookings, :collection => { :sort => :post} 
 
   map.resources :taggables
 

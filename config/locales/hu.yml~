@@ -217,7 +217,7 @@ hu:
   Back to List: Vissza a Foglalásokhoz
   View All: Összes listája
   Edit Booking: Foglalás szerkesztése
-  booking_notification_subject: Foglalási értesítő
+  booking_notification_subject: "Foglalási értesítő"
 # status
   status_unknown: Ismeretlen
   status_created: Rögzítve

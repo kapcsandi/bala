@@ -3,16 +3,20 @@
 <% form_for @booking do |f| %>
   <%= f.error_messages %>
 
-  <div id="stamps">
+  <ul id="houses_bookings">
   <% for house in @houses do %>
+    <% content_tag_for :li, house do %>
+    <span class="handle">[drag]</span> 
     <%= render :partial => 'houses/stamp', :locals => { :house => house, :last => (@houses.last == house)} %>
+    <% end %>
   <% end %>
-  </div>
+  </ul>
+  <%= sortable_element('houses_bookings', :url => sort_bookings_path, :constraint => 'horizontal', :handle => 'handle') %>  
 <hr class="clear" />
 <p><%= t(:booking_hint) %></p>
 <br class="clear" />
 <% field_set_tag t('booking_details') do %>
-  <% if action_name != 'new' %>
+  <% if action_name != 'new' and admin? %>
   <div class="span-6">
     <%= f.label t(:status) %><br />
     <%= f.select :status, @booking.states %>
@@ -20,19 +24,25 @@
   <% end %>
   <div class="span-6">
     <%= f.label t(:from) %><br />
-    <%= f.calendar_date_select :from, :valid_date_check => "date >= new Date()", :size => 15 %>
+    <%= f.calendar_date_select :from, :valid_date_check => "date >= new Date()", :size => 25, :onChange => 
+'var ONE_DAY = 1000 * 60 * 60 * 24;
+from=new Date($("booking_from").value.gsub("-","/"));to=new Date($("booking_to").value.gsub("-","/"));
+$("booking_nights").value=(to-from)/ONE_DAY' %>
   </div>
   <div class="span-6">
     <%= f.label t(:to) %><br />
-    <%= f.calendar_date_select :to, :valid_date_check => "date > new Date()", :size => 15 %>
+    <%= f.calendar_date_select :to, :valid_date_check => "date > new Date()", :size => 25, :onChange => 
+'var ONE_DAY = 1000 * 60 * 60 * 24;
+from=new Date($("booking_from").value.gsub("-","/"));to=new Date($("booking_to").value.gsub("-","/"));
+$("booking_nights").value=(to-from)/ONE_DAY' %>
   </div>
   <div class="span-6">
     <%= f.label t(:nights) %><br />
-    <%= f.text_field :nights, :size => 15 %>
+    <%= f.text_field :nights, :size => 25, :value => (@booking.new_record? ? '0' : @booking.nights), :disabled => true %>
   </div>
   <div class="span-6">
     <%= f.label t(:persons) %><br />
-    <%= f.text_field :persons, :size => 15 %>
+    <%= f.text_field :persons, :size => 25 %>
   </div>
   <div class="span-6">
     <%= f.label t(:with_animals) %><br />

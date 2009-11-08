@@ -108,5 +108,7 @@ a:hover {color:#D75A20}
 .pagination {float:right;padding:0 15px}
 .count{font-size:1.1em;color:#D75A20;font-weight:bold}
 .mini .location {font-size:1.2em}
-#stamps .stamp {height:210px;margin:10px 10px 20px 10px}
-#stamps .stamp.last {margin-right:0}
+#houses_bookings .stamp {height:210px;margin:10px 10px 20px 0px}
+#houses_bookings .stamp.last {margin-right:0}
+#houses_bookings li {width:33%;float:left}
+#houses_bookings {overflow:hidden}
