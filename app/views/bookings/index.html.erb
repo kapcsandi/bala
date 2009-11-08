@@ -1,9 +1,10 @@
 <% title t("Bookings") %>
 
-<%= calendar({:year => @year, :month => @month, :first_day_of_week => 1 }) do |d|
+<%=
+ calendar(:year => @year, :month => @month) do |d|
   [d.mday, {:class => 'normalDay'}]
 end
-%>
+ %>
 
 <table>
   <tr>
