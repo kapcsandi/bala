@@ -83,16 +83,18 @@ module CalendarHelper
       :next_month_text     => nil
     }
     options = defaults.merge options
-    
-    options[:month_name_text] ||= Date::MONTHNAMES[options[:month]]
+
+    day_names = I18n.t "date.day_names" || Date::DAYNAMES.dup
+    month_names = I18n.t "date.month_names" || Date::MONTHNAMES.dup
+
+    options[:month_name_text] ||= month_names[options[:month]]
 
     first = Date.civil(options[:year], options[:month], 1)
     last = Date.civil(options[:year], options[:month], -1)
 
     first_weekday = first_day_of_week(options[:first_day_of_week])
     last_weekday = last_day_of_week(options[:first_day_of_week])
-    
-    day_names = Date::DAYNAMES.dup
+
     first_weekday.times do
       day_names.push(day_names.shift)
     end
@@ -121,7 +123,7 @@ module CalendarHelper
       cal << %(<td class="#{options[:other_month_class]})
       cal << " weekendDay" if weekend?(d)
       if options[:accessible]
-        cal << %(">#{d.day}<span class="hidden"> #{Date::MONTHNAMES[d.month]}</span></td>)
+        cal << %(">#{d.day}<span class="hidden"> #{month_names[d.month]}</span></td>)
       else
         cal << %(">#{d.day}</td>)
       end
@@ -140,7 +142,7 @@ module CalendarHelper
       cal << %(<td class="#{options[:other_month_class]})
       cal << " weekendDay" if weekend?(d)
       if options[:accessible]
-        cal << %(">#{d.day}<span class='hidden'> #{Date::MONTHNAMES[d.mon]}</span></td>)
+        cal << %(">#{d.day}<span class='hidden'> #{month_names[d.mon]}</span></td>)
       else
         cal << %(">#{d.day}</td>)        
       end
