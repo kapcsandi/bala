@@ -112,10 +112,11 @@ module CalendarHelper
     cal << %(<th colspan="2">#{options[:next_month_text]}</th>) if options[:next_month_text]
     cal << %(</tr><tr class="#{options[:day_name_class]}">)
     day_names.each do |d|
-      unless d[options[:abbrev]].eql? d
-        cal << "<th scope='col'><abbr title='#{d}'>#{d[options[:abbrev]]}</abbr></th>"
+      abbrev = d.each_char.to_a[options[:abbrev]].join
+      unless abbrev.eql? d
+        cal << "<th scope='col'><abbr title='#{d}'>#{abbrev}</abbr></th>"
       else
-        cal << "<th scope='col'>#{d[options[:abbrev]]}</th>"
+        cal << "<th scope='col'>#{abbrev}</th>"
       end
     end
     cal << "</tr></thead><tbody><tr>"
