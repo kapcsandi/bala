@@ -347,11 +347,11 @@ hu:
               blank: "az Éjszakák száma mező nem lehet üres"
             from:
               blank: "az Érkezés dátuma mező nem lehet üres"
-              invalid: "az Érkezés dátuma érvénytelen formátumú"
+              invalid_date: "az Érkezés dátuma érvénytelen formátumú"
               after: "az Érkezés dátuma nem lehet {{restriction}} utáni"
             to:
               blank: "a Távozás dátuma mező nem lehet üres"
-              invalid: "a Távozás dátuma érvénytelen formátumú"
+              invalid_date: "a Távozás dátuma érvénytelen formátumú"
               before: "a Távozás dátuma nem lehet {{restriction}} előtti"
             firstname:
               blank: "a Keresztnév mező nem lehet üres"
