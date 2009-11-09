@@ -44,10 +44,9 @@ class ApplicationController < ActionController::Base
   def set_locale 
     #if params[:locale] is nil then I18n.default_locale will be used  
     # I18n.locale = extract_locale_from_uri
-    
-    I18n.locale = params[:locale] if params[:locale]
-    #	params[:locale] 
-  end 
+
+    I18n.locale = params[:locale] || :de #if params[:locale]
+  end
     
   def extract_locale_from_uri 
     parsed_locale = request.host.split('.').last 
