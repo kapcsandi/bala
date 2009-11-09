@@ -2,8 +2,8 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all
-    @year = Date.today.year.to_i
-    @month = Date.today.month.to_i
+    @year = Date.today.year
+    @month = Date.today.month
   end
   
   def show

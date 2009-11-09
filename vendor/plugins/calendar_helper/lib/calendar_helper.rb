@@ -65,7 +65,7 @@ module CalendarHelper
   #
   # For consistency with the themes provided in the calendar_styles generator, use "specialDay" as the CSS class for marked days.
   # 
-  def calendar(options = {}, &block)
+  def calendar_table(options = {}, &block)
     raise(ArgumentError, "No year given")  unless options.has_key?(:year)
     raise(ArgumentError, "No month given") unless options.has_key?(:month)
 
@@ -154,7 +154,7 @@ module CalendarHelper
       if options[:accessible]
         cal << %(">#{d.day}<span class='hidden'> #{month_names[d.mon]}</span></td>)
       else
-        cal << %(">#{d.day}</td>)        
+        cal << %(">#{d.day}</td>)
       end
     end unless last.wday == last_weekday
     cal << "</tr></tbody></table>"
