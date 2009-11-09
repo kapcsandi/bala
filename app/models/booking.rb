@@ -1,13 +1,13 @@
 class Booking < ActiveRecord::Base
   attr_accessible :from, :to, :nights, :persons, :with_animals, :notes, :phone, :mobile, :email, :firstname, :lastname, :company, :address, :city, :postcode, :country, :status
   has_many :houses_bookings, :dependent => :destroy
-  has_many :houses, :through => :houses_bookings, :uniq => true, :order => '"houses_bookings"."position"', :finder_sql =>
+  has_many :houses, :finder_sql =>
   'SELECT DISTINCT "houses".*,"houses_bookings"."position" ' +
       'FROM "houses" ' +
       'INNER JOIN "houses_bookings"' +
       'ON "houses".id = "houses_bookings".house_id '+
       'WHERE (("houses_bookings".booking_id = #{id})) '+
-      'ORDER BY "houses_bookings"."position")'
+      'ORDER BY "houses_bookings"."position"'
   validates_numericality_of :persons, :greater_than => 0
   validates_numericality_of :nights, :greater_than => 0
   validates_presence_of :from, :to, :phone, :email, :firstname, :lastname, :nights
