@@ -76,7 +76,7 @@ class HousesController < ApplicationController
     @house = House.find(params[:id])
     if @house.update_attributes(params[:house])
       @house.discount.destroy unless params[:discounted]
-      flash[:notice] = t "house_updated", :house => house.code
+      flash[:notice] = t "house_updated", :house => @house.code
       redirect_to @house
     else
       render :action => 'edit'
