@@ -5,10 +5,12 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <title><%= h(yield(:title) || t("Untitled")) %></title>
     <%= tag(:meta, :name => 'description', :content => yield(:description) || t(:meta_description))  %>
+  <% bundle do %>
     <%= javascript_include_tag :defaults %>
     <%= calendar_date_select_includes "silver", :locale => I18n.locale %>
     <%= stylesheet_link_tag 'blueprint/screen', 'application', :cache => true %>
     <%= yield(:head) %>
+  <% end %>
   </head>
   <body>
     <div id="main">
@@ -59,7 +61,7 @@
       <div id="left" class="span-4">
       <% [:infos_a_z, :map, :weather, :calendar, :sights, :offers, :terms, :impressum, :owners].each do |item| %>
 	<div class="menu span-4">
-	<% link_to item do %>
+	<% link_to :controller => 'pages', :action => 'show', :page => item do %>
 	  <div class="menu-item"><%= t item %></div>
 	<% end %>
 	</div>
