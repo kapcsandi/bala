@@ -13,8 +13,11 @@ hu:
 
   hello: "Szia világ!"
   home: Főoldal
+  you_are_here: "Ön itt áll: "
 
   title: Cím
+  title:
+    houses_found: Keresési találatok
   Untitled: BALA demo
   meta_description: szállás, apartman, balaton, nyaralás
   slogan: Die besten Ferien in Ungarn.

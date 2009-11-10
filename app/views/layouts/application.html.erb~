@@ -38,14 +38,21 @@
 	  </div>
 	</div>
 	</div>
-	<div id="menu" class=""><div class="inner">
-	<%- ['home', 'booking', :cart, :special_offers, :contact, 'programs'].each do |item| -%>
-	  <div class="menu span-4<%= if item == 'programs' then ' last' end %>">
+	<div id="menu"><div class="inner">
+	<%- ['home', 'booking', :cart, :special_offers, :contact, 'programs'].each do |item|
+	  title( t(item) ) unless @content_for_title -%>
+	  <div class="menu span-4<%= if item == 'programs' then ' last' end %><%= 
+	  case item
+	  when 'home': if controller_name == 'root' and action_name == 'index' then ' selected' end
+	  when 'booking': if controller_name == 'bookings' then ' selected' end
+	  else if current_page?(item) then ' selected' end
+	  end
+	  %>">
 	  <% link_to (
 	  case item
-	  when 'home': home_path
+	  when 'home': '/'
 	  when 'booking': new_booking_path
-	  else item
+	  else item 
 	  end
 	  ) do -%><div class="menu-item <%= item.to_s %>"><%= t(item) %><%= if (item == :cart) and cart_items>0 then ' (' + cart_items.to_s + ')' end %></div><% end -%>
 	</div>
@@ -53,18 +60,25 @@
 	</div></div>
       </div>
     <div class="container" id="<%= controller_name %>_<%= action_name %>">
+      <div class="inner"><%= breadcrumb %></div>
+
       <div id="left" class="span-4">
-      <% [:infos_a_z, :map, :weather, :calendar, :sights, :offers, :terms, :impressum, :owners].each do |item| -%>
-	<div class="menu span-4">
-	<% link_to :controller => 'pages', :action => 'show', :page => item do %>
+      <% [:infos_a_z, :map, :weather, :calendar, :sights, :offers, :terms, :impressum, :owners].each do |item|
+	  title( t(item) ) unless @content_for_title -%>
+	<div class="menu span-4<%= 
+	  if current_page?(:id => item) then ' selected' end
+	  %>">
+	<% link_to :controller => 'pages', :action => 'show', :id => item do %>
 	  <div class="menu-item"><%= t item %></div>
 	<% end %>
 	</div>
       <% end -%>
-	<div class="menu span-4">
+	<div class="menu span-4<%= 
+	  if current_page?(login_path) then ' selected' end
+	%>">
 	    <% if current_user %>
-	      <%= link_to "Edit Profile", edit_user_path(:current) %> |
-	      <%= link_to "Logout", logout_path %>
+	      <div class="menu-item"><%= link_to "Edit Profile", edit_user_path(:current) %> |
+	      <%= link_to "Logout", logout_path %></div>
 	    <%- else -%>
 	      <% link_to login_path do %>
 	      <div class="menu-item"><%= t("admin_login") %></div>

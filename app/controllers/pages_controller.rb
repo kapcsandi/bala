@@ -6,8 +6,11 @@ class PagesController < ApplicationController
   end
   
   def show
-    page = params[:page]
-    id = params[:id]
+    if params[:id].to_s.to_i == 0
+      page = params[:id]
+    else
+      id = params[:id]
+    end
     if page
       @page = Page.find_by_path(page.to_s)
     elsif id
@@ -19,6 +22,8 @@ class PagesController < ApplicationController
       else
         redirect_to root_url
       end
+    elsif not @page.published?
+      redirect_to edit_page_path(@page)
     end
   end
   

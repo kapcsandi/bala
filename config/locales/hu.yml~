@@ -13,8 +13,11 @@ hu:
 
   hello: "Szia világ!"
   home: Főoldal
+  you_are_here: "Ön itt áll: "
 
   title: Cím
+	title:
+    houses_found: Keresési találatok
   Untitled: BALA demo
   meta_description: szállás, apartman, balaton, nyaralás
   slogan: Die besten Ferien in Ungarn.
@@ -170,9 +173,6 @@ hu:
   rooms: Szobák száma
   all: mindegy
 #messages
-  house_added: Az {{house}} apartman létrehozása sikeres volt
-  house_updated: Az {{house}} apartman módosítása sikeres volt
-  house_destroyed: Az {{house}} apartman törlése sikeres volt
   house_added_to_cart: Az {{house}} apartman hozzá lett adva a Bevásárlókosárhoz
   house_removed_from_cart: Az {{house}} apartman törölve lett a Bevásárlókosárból
   house_not_in_any_group: " - (az apartman nem tartozik egyik csoporthoz sem)"
@@ -219,10 +219,10 @@ hu:
   Edit Booking: Foglalás szerkesztése
   booking_notification_subject: "Foglalási értesítő"
 # status
-  status_unknown: Ismeretlen
-  status_created: Rögzítve
-  status_approved: Elfogadva
-  status_deleted: Törölve
+  status_unknown: "Ismeretlen"
+  status_created: "Rögzítve"
+  status_approved: "Elfogadva"
+  status_deleted: "Törölve"
 
 # top menu
   booking: Foglalás
@@ -347,11 +347,11 @@ hu:
               blank: "az Éjszakák száma mező nem lehet üres"
             from:
               blank: "az Érkezés dátuma mező nem lehet üres"
-              invalid: "az Érkezés dátuma érvénytelen formátumú"
+              invalid_date: "az Érkezés dátuma érvénytelen formátumú"
               after: "az Érkezés dátuma nem lehet {{restriction}} utáni"
             to:
               blank: "a Távozás dátuma mező nem lehet üres"
-              invalid: "a Távozás dátuma érvénytelen formátumú"
+              invalid_date: "a Távozás dátuma érvénytelen formátumú"
               before: "a Távozás dátuma nem lehet {{restriction}} előtti"
             firstname:
               blank: "a Keresztnév mező nem lehet üres"
@@ -455,3 +455,6 @@ hu:
     successfully_created_taggable: Címkecsoport sikeresen létrehozva
     successfully_updated_taggable: Címkecsoport sikeresen módosítva
     successfully_updated_profile: Saját adatok módosítása sikeres volt.
+    house_added: Az {{house}} apartman létrehozása sikeres volt
+    house_updated: Az {{house}} apartman módosítása sikeres volt
+    house_destroyed: Az {{house}} apartman törlése sikeres volt

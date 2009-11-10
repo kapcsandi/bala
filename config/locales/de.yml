@@ -123,7 +123,9 @@ de:
   home: Startseite
 
   title: Titel
-  Untitled: BALA demo -
+  title:
+    houses_found: Häuser gefunden
+  Untitled: BALA demo
   published: veröffentlicht
   body: TÃ¶rzs
   false: falsch
@@ -273,6 +275,6 @@ de:
   impressum: impressum
   owners: Tulajdonosoknak / Eigentümer
   admin_login: Admin-Login
-  houses_found: Häuser gefunden
+  houses_found: "Häuser gefunden <span class=\"count\">{{count}}</span>"
   prev_link: Rückwärts Link
   next_link: nächsten Link

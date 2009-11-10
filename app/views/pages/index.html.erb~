@@ -1,19 +1,21 @@
-<% title "Pages" %>
+<% title t('admin.pages') %>
 
 <table>
   <tr>
-    <th><%= t :title %></th>
-    <th><%= t :published %></th>
+    <th><%= t('admin.path') %></th>
+    <th><%= t('admin.title') %></th>
+    <th><%= t('admin.published') %></th>
   </tr>
   <% for page in @pages %>
     <tr>
+      <td><%=t page.path %></td>
       <td><%=h page.title %></td>
-      <td><%= t page.published %></td>
-      <td><%= link_to t(:show), page %></td>
-      <td><%= link_to t(:edit), edit_page_path(page) %></td>
-      <td><%= link_to t(:destroy), page, :confirm => t(:are_you_sure), :method => :delete %></td>
+      <td><%= check_box_tag 'published', 1, page.published? %></td>
+      <td><%= link_to t('admin.show'), page %></td>
+      <td><%= link_to t('admin.edit'), edit_page_path(page) %></td>
+      <td><%= link_to t('admin.destroy'), page, :confirm => t('admin.are_you_sure'), :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Page", new_page_path %></p>
+<p><%= link_to t('admin.new_page'), new_page_path %></p>

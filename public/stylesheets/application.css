@@ -113,3 +113,5 @@ a:hover {color:#D75A20}
 #houses_bookings li {width:33%;float:left}
 #houses_bookings {overflow:hidden}
 span.handle {cursor:w-resize}
+.selected .menu-item {border-color:#fafafa;background-color:#E4F1FB}
+.inner {margin:5px}

@@ -118,3 +118,162 @@ de:
         odd: "muss ungerade sein"
         even: "muss gerade sein"
       models:
+
+
+  home: Startseite
+
+  title: Titel
+    houses_found: Häuser gefunden
+  Untitled: BALA demo
+  published: veröffentlicht
+  body: TÃ¶rzs
+  false: falsch
+  show: besichtigen
+  edit: Redaktion
+  destroy: zerstören
+  are_you_sure: sind Sie sicher?
+
+  New House: Neu Haus
+  house: Haus
+  city_id: Ort
+  select_city: wählen Sie ein Ort
+  code: Haus Code
+  house_type_id: Haustyp
+  select_house_type: Haustyp wählen Sie
+  condition_id: Zustand
+  select_condition: wählen Sie Zustand
+  furnishing_id: Innenausstattung
+  select_furnishing: Wählen Ausstattung
+  discounted: Aktion, Angebot
+  description: Beschreibung
+  discount_description: Spezialangebote Beschreibung
+  persons: maximale Anzahl der Erwachsenen
+  children: maximale Anzahl von Kindern
+  floor_area: Grundfläche
+  bedroom: Schlafzimmer
+  living_room: Wohnzimmer
+  living_dining_kitchen: Wohnzimmer Esszimmer Küche
+  living_dining_room: Wohn-Esszimmer ‘
+  kitchen: Küche
+  dining_room: Esszimmer ‘
+  kitchen_dining_room: Küche Esszimmer
+  balcony_id: Balkon
+  terrace_id: Terrasse
+  select_terrace: Wählen Sie Terrasse
+  select_balcony: Balkon wählen Sie
+  living_room_sq: Wohnzimmer m²
+  living_dining_kitchen_sq: Wohnzimmer Esszimmer Küche m²
+  living_dining_room_sq: Wohn-Esszimmer m²
+  kitchen_sq: Küche m²
+  dining_room_sq: Esszimmer m²
+  kitchen_dining_room_sq: Küche Esszimmer m²
+  balcony_sq: Balkon m²
+  terrace_sq: Terrasse c
+  yard_sq: Garten m²
+  double_bed: Doppelbett
+  single_bed: Einzelbett
+  extra_bed: Zusatzbett
+  pull_out_bed: Ausziehbett
+  bathrooms: Anzahl der Badezimmer
+  shower: Dusche
+  bathtub: Badewanne
+  shower_bathtub: Dusche / Badewanne
+  wcs: Anzahl der Toiletten
+  wc_separated: WC getrennt
+  fridge: Kühlschrank
+  coffee_machine: Kaffeemaschine
+  micro: Mikro
+  stove_id: Herd
+  select_stove: Wählen Sie Ofen
+  sat: SAT
+  internet: Internet
+  clima_id: clima
+  select_clima: Wählen Sie clima
+  pool: Pool
+  pool_sq: Pool m²
+  garden_seats: Gartenmöbel
+  grill: Grill
+  sunbath_seat: Sonnenbad Sitz
+  playground: Spielplatz
+  parking_id: Parkplätze
+  select_parking: Wählen Parkplatz
+  animals: Haustiere
+  garden: Garten
+  distance_center: Entfernung von Zentrum
+  distance_beach: Entfernung Strand
+  distance_aquapark: Entfernung Freizeitbath
+  distance_shop: Entfernung Lebensmittel Geschäft
+  distance_station: Entfernung Bahnhof
+  distance_medical: Entfernung Arzt
+  distance_mainroad: Entfernung Bundesstraße
+  distance_restaurant: Entfernung Restaurant
+  owner_place_id: Eigentümer wohnt
+  select_owner_place: zu wählen, wo in Eigentum wohnt
+  animal_charge: Tier-Gebühr
+  price_pre_season: der Saison vor / Nach der Saison
+  price_mid_season: Mitte der Saison
+  price_main_season: Hochsaison
+  house_description: Hinweis 1 (Hausbeschreibung)
+  admin_description: Hinweis 2 (admin Hinweis)
+  picture_url: "KÃ©p Ãºtvonal {{position}}"
+  submit: BekÃ¼ldÃ©s
+  House: House
+  Houses: Häuser
+  Show: anzeigen
+  Details: Details
+  Booking: Reservierung
+  Photos: Fotos
+  Select: Marken
+  Print:  drucken
+  Edit: Edit
+  Destroy: speichern
+  city: Ort
+  discount: Rabatt
+  Are you sure: Sind Sie sicher?
+  yes_animal: Ja Tier
+  no_animal: kein Tier
+  nincs: nincs
+  pictures: Bilder
+  pers: Pers
+  meter: meter
+  sqmeter: Quadrat meter
+  back_to_list: Zurück zur Liste
+  Back to houses: Zurück zu den Häusern
+#search Suche
+  date_from: Anreisedatum
+  date_to: Abreisedatum
+  search: Suche
+  detailed_search: Erweiterte Suche
+  simple_search: einfache Suche
+  rooms: Anzahl der Zimmer
+  all: mindegy
+#messages Nachrichten
+  Empty dictionary fields: Leere Felder Wörterbuch
+  add_taggables: SzÃ³tÃ¡rak bÅ‘vÃ­tÃ©se
+  Setup: Installation
+  or: oder
+  Empty Cart: Leer Warenkorb
+  Go to Cart: Zum Warenkorb
+# top menu
+  booking: Reservierung
+  booking_title: Buchung Titel
+  cart: Warenkorb
+  cart_title: Warenkorb Titel
+  special_offers: Sonderangebote
+  contact: Kontakt
+  programs: Programme
+
+# left menu
+  infos_a_z: Infos A-Z
+  map: Karte
+  weather: Wetter
+  calendar: Balaton Kalender
+  sights: Balaton Sehenswürdigkeiten
+  offers: reduziert Restaurants
+  terms: Begriffe
+  impressum: impressum
+  owners: Tulajdonosoknak / Eigentümer
+  admin_login: Admin-Login
+  houses_found: "Häuser gefunden <span class=\"count\">{{count}}</span>"
+  prev_link: Rückwärts Link
+  next_link: nächsten Link
