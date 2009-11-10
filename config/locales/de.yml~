@@ -121,8 +121,10 @@ de:
 
 
   home: Startseite
+  you_are_here: "<b>Sie sind Hier: </b>"
 
   title: Titel
+  title:
     houses_found: Häuser gefunden
   Untitled: BALA demo
   published: veröffentlicht
@@ -274,6 +276,6 @@ de:
   impressum: impressum
   owners: Tulajdonosoknak / Eigentümer
   admin_login: Admin-Login
-  houses_found: "Häuser gefunden <span class=\"count\">{{count}}</span>"
+  houses_found: "Häuser gefunden: <span class=\"count\">{{count}}</span>"
   prev_link: Rückwärts Link
   next_link: nächsten Link

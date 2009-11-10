@@ -18,7 +18,7 @@ class HousesController < ApplicationController
       city = Taggable.find_by_field('city_id').tags.find_by_name(params[:q][:where])
       search.city_id = city.id if city
     end
-    if params[:advanced] == '1' and params[:q]
+    if params[:advanced] and params[:q]
       house_type = Taggable.find_by_field('house_type_id').tags.find_by_name(params[:q][:type]) unless params[:q][:type].blank?
       search.house_type_id = house_type.id if house_type
       search.sat = params[:sat] unless params[:sat].blank? or params[:sat] != '1'

@@ -121,6 +121,7 @@ de:
 
 
   home: Startseite
+  you_are_here: "<b>Sie sind Hier: </b>"
 
   title: Titel
   title:
@@ -275,6 +276,6 @@ de:
   impressum: impressum
   owners: Tulajdonosoknak / Eigentümer
   admin_login: Admin-Login
-  houses_found: "Häuser gefunden <span class=\"count\">{{count}}</span>"
-  prev_link: Rückwärts Link
-  next_link: nächsten Link
+  houses_found: "Häuser gefunden: <span class=\"count\">{{count}}</span>"
+  prev_link: rückwärts
+  next_link: nächsten
