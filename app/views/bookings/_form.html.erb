@@ -27,14 +27,14 @@
     <%= f.calendar_date_select :from, :valid_date_check => "date >= new Date()", :size => 25, :onChange => 
 'var ONE_DAY = 1000 * 60 * 60 * 24;
 from=new Date($("booking_from").value.gsub("-","/"));to=new Date($("booking_to").value.gsub("-","/"));
-$("booking_nights").value=(to-from)/ONE_DAY' %>
+$("booking_nights").value=parseInt(to-from)/ONE_DAY' %>
   </div>
   <div class="span-6">
     <%= f.label t(:to) %><br />
     <%= f.calendar_date_select :to, :valid_date_check => "date > new Date()", :size => 25, :onChange => 
 'var ONE_DAY = 1000 * 60 * 60 * 24;
 from=new Date($("booking_from").value.gsub("-","/"));to=new Date($("booking_to").value.gsub("-","/"));
-$("booking_nights").value=(to-from)/ONE_DAY' %>
+$("booking_nights").value=parseInt(to-from)/ONE_DAY' %>
   </div>
   <div class="span-6">
     <%= f.label t(:nights) %><br />

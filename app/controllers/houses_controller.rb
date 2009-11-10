@@ -54,7 +54,7 @@ class HousesController < ApplicationController
     @house = House.new(params[:house])
     @empties = empties_helper
     if @house.save
-      flash[:notice] = t "house_added", :house => house.code
+      flash[:notice] = t "admin.house_added", :house => @house.code
       redirect_to @house
     else
       render :action => 'new'
@@ -76,7 +76,7 @@ class HousesController < ApplicationController
     @house = House.find(params[:id])
     if @house.update_attributes(params[:house])
       @house.discount.destroy unless params[:discounted]
-      flash[:notice] = t "house_updated", :house => @house.code
+      flash[:notice] = t "admin.house_updated", :house => @house.code
       redirect_to @house
     else
       render :action => 'edit'
@@ -86,7 +86,7 @@ class HousesController < ApplicationController
   def destroy
     @house = House.find(params[:id]) 
     @house.destroy
-    flash[:notice] = t "house_deleted", :house => house.code
+    flash[:notice] = t "admin.house_deleted", :house => @house.code
     redirect_to houses_url
   end
   

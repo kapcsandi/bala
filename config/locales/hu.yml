@@ -170,9 +170,6 @@ hu:
   rooms: Szobák száma
   all: mindegy
 #messages
-  house_added: Az {{house}} apartman létrehozása sikeres volt
-  house_updated: Az {{house}} apartman módosítása sikeres volt
-  house_destroyed: Az {{house}} apartman törlése sikeres volt
   house_added_to_cart: Az {{house}} apartman hozzá lett adva a Bevásárlókosárhoz
   house_removed_from_cart: Az {{house}} apartman törölve lett a Bevásárlókosárból
   house_not_in_any_group: " - (az apartman nem tartozik egyik csoporthoz sem)"
@@ -455,3 +452,6 @@ hu:
     successfully_created_taggable: Címkecsoport sikeresen létrehozva
     successfully_updated_taggable: Címkecsoport sikeresen módosítva
     successfully_updated_profile: Saját adatok módosítása sikeres volt.
+    house_added: Az {{house}} apartman létrehozása sikeres volt
+    house_updated: Az {{house}} apartman módosítása sikeres volt
+    house_destroyed: Az {{house}} apartman törlése sikeres volt

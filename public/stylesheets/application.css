@@ -112,3 +112,4 @@ a:hover {color:#D75A20}
 #houses_bookings .stamp.last {margin-right:0}
 #houses_bookings li {width:33%;float:left}
 #houses_bookings {overflow:hidden}
+span.handle {cursor:w-resize}

@@ -5,6 +5,7 @@ class SetupController < ApplicationController
   def index
     @result = []
     empties = empties_helper
+    I18n.locale = :hu
 
     if params['do']
       empties.each do |field|
@@ -161,6 +162,7 @@ class SetupController < ApplicationController
   end
   
   def csv_import
+    I18n.locale = :hu
     if params[:dump].nil?
       redirect_to :action =>:upload
     else
