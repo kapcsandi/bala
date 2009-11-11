@@ -115,4 +115,5 @@ a:hover {color:#D75A20}
 span.handle {cursor:w-resize}
 .selected .menu-item {border-color:#fafafa;background-color:#E4F1FB}
 .inner {margin:5px}
+.breadcrumb a {padding: 0 5px;font-size:1.1em}
 input[type=submit] {padding:3px 10px}

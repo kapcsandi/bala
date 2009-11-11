@@ -28,19 +28,21 @@ module LayoutHelper
       if params[:advanced]
 				param.merge!({ :advanced => '' })
         html << link_to(t(:detailed_search), houses_path( param ))
-      elsif params[:commit]
+      end
+      if params[:commit]
         html << link_to(t(:search), houses_path) 
 			end
 			if params[:discount]
         html << link_to(t(:special_offers), special_offers_path(param))
-      elsif params[:category]
+      end
+      if params[:category]
         html << link_to(params[:category], houses_path(param.merge!(:category => params[:category])))
       end
-			where = (params[:commit].nil? or params[:q][:where].nil? or params[:q][:where].empty?) ? nil : params[:q][:where]
+			where = (params[:commit].nil? or params[:q].nil? or params[:q][:where].nil? or params[:q][:where].empty?) ? nil : params[:q][:where]
       if where
         html << link_to(where, houses_path(param.merge!( 'q[where]' => where)))
       end
-				house_type = (params[:commit].nil? or params[:q][:type].nil? or params[:q][:type].empty?) ? nil : params[:q][:type]
+				house_type = (params[:commit].nil? or params[:q].nil? or params[:q][:type].nil? or params[:q][:type].empty?) ? nil : params[:q][:type]
 				if house_type
         html << link_to(house_type, houses_path(param.merge!( 'q[type]' => house_type)))
 			end
@@ -52,7 +54,7 @@ module LayoutHelper
         html << link_to(house_type, houses_path(param.merge!( 'q[house_type]' => house_type)))
 			end
     end
-    html << @content_for_title #if show_title?
+    html << @content_for_title if show_title?
     t('you_are_here') + html.join(' > ')
   end
 end
