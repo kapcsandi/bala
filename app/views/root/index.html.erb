@@ -3,7 +3,7 @@
 <% @categories[0..6].each_with_index do |category, index| %>
  <div class="category<%= ' last' if (index%3==2) %>">
   <div class="span-6 last">
-  <div class="item title"><span class="title"><%= link_to category[:name], :controller => :houses, :action => :index, :q => '', :category => category[:name] %></span></div>
+  <div class="item title"><span class="title"><%= link_to category[:name], :controller => :houses, :action => :index, :commit => '', :category => category[:name] %></span></div>
 <% unless category[:house].nil? or category[:house].picture_ids.nil? %>
 <% link_to category[:house] do %>
   <%= image_tag category[:house].picture_urls[0], :size => '210x140', :alt => category[:name] %>

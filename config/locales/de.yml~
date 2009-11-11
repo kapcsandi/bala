@@ -277,5 +277,5 @@ de:
   owners: Tulajdonosoknak / Eigentümer
   admin_login: Admin-Login
   houses_found: "Häuser gefunden: <span class=\"count\">{{count}}</span>"
-  prev_link: Rückwärts Link
-  next_link: nächsten Link
+  prev_link: rückwärts
+  next_link: nächsten

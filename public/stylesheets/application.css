@@ -115,3 +115,4 @@ a:hover {color:#D75A20}
 span.handle {cursor:w-resize}
 .selected .menu-item {border-color:#fafafa;background-color:#E4F1FB}
 .inner {margin:5px}
+input[type=submit] {padding:3px 10px}

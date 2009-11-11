@@ -45,10 +45,10 @@ $("booking_nights").value=parseInt(to-from)/ONE_DAY' %>
     <%= f.text_field :persons, :size => 25 %>
   </div>
   <div class="span-6">
-    <%= f.label t(:with_animals) %><br />
+    <%= f.label t(:with_animals) %>
     <%= f.check_box :with_animals %>
   </div>
-  <div class="clear span-18">
+  <div class="clear span-18 prepend-top">
     <%= f.label t(:notes) %><br />
     <%= textile_editor :booking, :notes %>
   </div>
