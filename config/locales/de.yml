@@ -121,7 +121,7 @@ de:
 
 
   home: Startseite
-  you_are_here: "<b>Sie sind Hier: </b>"
+  you_are_here: "<b>Sie sind Hier: </b><span>&nbsp;</span>"
 
   title: Titel
   title:

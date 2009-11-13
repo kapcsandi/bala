@@ -405,6 +405,10 @@ hu:
     tags: Címkék
     taggables: Címkecsoportok
     taggable: Címkecsoport
+    booking: Foglalás
+    bookings: Foglalások
+    house: Apartman
+    houses: Apartmanok
     new_discount: Új Akció
     new_page: Új Oldal
     new_tag: Új Címke

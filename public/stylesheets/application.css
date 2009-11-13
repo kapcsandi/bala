@@ -67,7 +67,7 @@ option{}
 #menu .menu-item{margin:0 auto}
 #menu .menu {margin-right:10px}
 #menu .last {margin-right:0}
-.categories .category {height:210px;border:2px solid orange;padding:5px 10px;margin:0 14px 10px 0;float:left}
+.categories .category {height:210px;border:2px solid #F4C13F;padding:5px 10px;margin:0 14px 10px 0;float:left}
 .categories .category.last {margin-right:0}
 .category .title {font-size:1.2em;font-weight:bold}
 .mini {line-height:2em;overflow:hidden;margin:5px 0;padding:5px;border:1px solid #cccccc}
@@ -92,9 +92,10 @@ body{font-family:'Trebuchet MS',Lucida,Verdana;}
 #search{background-color:#F5D24F;padding-bottom:10px;margin-bottom:10px;border:2px solid #F4C13F}
 #search img {margin-top:5px}
 #search fieldset {margin:0}
-#menu {background:#ACCBE0 url(/images/bg.png) repeat-x;margin:0 auto;height:43px;padding-top:15px;overflow:hidden;clear:both}
+#menu {background:#8AC9D4 url(/images/bg.png) repeat-x;margin:0 auto;height:43px;padding-top:15px;overflow:hidden;clear:both}
+/* #menu {border-top:10px solid #9BBCD1;height:43px;padding-top:10px;overflow:hidden;clear:both} */
 #menu .inner {width:950px;margin:0 auto;overflow:hidden;clear:both}
-.menu-item {border:2px solid #D3E0EA;}
+.menu-item {border:2px solid #D3E0EA;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;}
 a .menu-item{ font-size:1.2em;font-weight:bold}
 a:hover .menu-item {border-color:#D75A20;background-color:#D3E0EA}
 #top {margin:0 auto}
@@ -115,5 +116,5 @@ a:hover {color:#D75A20}
 span.handle {cursor:w-resize}
 .selected .menu-item {border-color:#fafafa;background-color:#E4F1FB}
 .inner {margin:5px}
-.breadcrumb a {padding: 0 5px;font-size:1.1em}
+.breadcrumb span {padding: 0 5px;font-size:1.1em}
 input[type=submit] {padding:3px 10px}

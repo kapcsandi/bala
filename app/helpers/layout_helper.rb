@@ -28,8 +28,7 @@ module LayoutHelper
       if params[:advanced]
 				param.merge!({ :advanced => '' })
         html << link_to(t(:detailed_search), houses_path( param ))
-      end
-      if params[:commit]
+			else
         html << link_to(t(:search), houses_path) 
 			end
 			if params[:discount]
@@ -38,12 +37,20 @@ module LayoutHelper
       if params[:category]
         html << link_to(params[:category], houses_path(param.merge!(:category => params[:category])))
       end
-			where = (params[:commit].nil? or params[:q].nil? or params[:q][:where].nil? or params[:q][:where].empty?) ? nil : params[:q][:where]
+			begin
+				where = params[:q][:where]
+			rescue
+				where = nil
+			end
       if where
         html << link_to(where, houses_path(param.merge!( 'q[where]' => where)))
       end
-				house_type = (params[:commit].nil? or params[:q].nil? or params[:q][:type].nil? or params[:q][:type].empty?) ? nil : params[:q][:type]
-				if house_type
+			begin
+				house_type = params[:q][:type]
+			rescue
+				house_type = nil
+			end
+			if house_type
         html << link_to(house_type, houses_path(param.merge!( 'q[type]' => house_type)))
 			end
 			if action_name == 'show'
@@ -51,10 +58,10 @@ module LayoutHelper
 				where = @content_for_title.split(', ')[-1]
         html << link_to(where, houses_path(param.merge!( 'q[where]' => where)))
 				house_type = @content_for_title.split(', ')[0]
-        html << link_to(house_type, houses_path(param.merge!( 'q[house_type]' => house_type)))
+        html << link_to(house_type, houses_path(param.merge!( 'q[type]' => house_type)))
 			end
     end
-    html << @content_for_title if show_title?
-    t('you_are_here') + html.join(' > ')
+    html << @content_for_title
+    t('you_are_here') + html.join('<span> > </span>')
   end
 end
