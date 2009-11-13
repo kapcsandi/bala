@@ -1,2 +1,0 @@
-!<%= t( :hello ) %>!
-<% if current_user %>You are in.<% end %>
