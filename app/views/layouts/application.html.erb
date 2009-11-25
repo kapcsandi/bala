@@ -8,6 +8,9 @@
     <%= javascript_include_tag :defaults %>
     <%= calendar_date_select_includes "silver", :locale => I18n.locale %>
     <%= stylesheet_link_tag 'blueprint/screen', 'application', :cache => true %>
+    <% if admin? and controller_name == 'pages' and action_name == 'edit' %>
+    <%= javascript_include_tag :fckeditor %>
+    <% end %>
     <%= yield(:head) %>
   </head>
   <body>
@@ -16,7 +19,7 @@
 	<div class="inner span-24">
 	<div id="logo" class="span-12">
 	<% content_tag 'div', :class => 'inner' do %>
-	  <div id="site-name"><a href="/" title="<%= t :home %>"> bala </a>   
+	  <div id="site-name"><a href="/" title="<%= t :home %>"> 1xFerienhaus </a>
 	  <span id="slogan"><%= t :slogan %></span></div> 
 	<% end %>
 	</div>
@@ -98,7 +101,7 @@
   </div>
   <% end %>
 	<% if admin? %>
-<div class="menu span-19">
+<div class="menu" style="float:left;width:100%">
 <% [:pages, :houses, :bookings, :taggables].each do |menu| %>
 <div class="menu-item span-4">
 <% link_to menu do %>
@@ -116,6 +119,7 @@
   <%- end -%>
 <% end %>
   <%= yield %>
+  <a href="#">Lap tetejére</a>
   </div>
 </div>
   <div id="foot" class="span-24">

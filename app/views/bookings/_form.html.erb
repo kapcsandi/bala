@@ -24,25 +24,25 @@
   <% end %>
   <div class="span-6">
     <%= f.label t(:from) %><br />
-    <%= f.calendar_date_select :from, :valid_date_check => "date >= new Date()", :size => 25, :onChange => 
+    <%= f.calendar_date_select :from, :valid_date_check => "date >= new Date()", :size => 20, :onChange =>
 'var ONE_DAY = 1000 * 60 * 60 * 24;
 from=new Date($("booking_from").value.gsub("-","/"));to=new Date($("booking_to").value.gsub("-","/"));
 $("booking_nights").value=parseInt(to-from)/ONE_DAY' %>
   </div>
   <div class="span-6">
     <%= f.label t(:to) %><br />
-    <%= f.calendar_date_select :to, :valid_date_check => "date > new Date()", :size => 25, :onChange => 
+    <%= f.calendar_date_select :to, :valid_date_check => "date > new Date()", :size => 20, :onChange =>
 'var ONE_DAY = 1000 * 60 * 60 * 24;
 from=new Date($("booking_from").value.gsub("-","/"));to=new Date($("booking_to").value.gsub("-","/"));
 $("booking_nights").value=parseInt(to-from)/ONE_DAY' %>
   </div>
   <div class="span-6">
     <%= f.label t(:nights) %><br />
-    <%= f.text_field :nights, :size => 25, :value => (@booking.new_record? ? '0' : @booking.nights), :disabled => true %>
+    <%= f.text_field :nights, :size => 20, :value => (@booking.new_record? ? '0' : @booking.nights), :disabled => true %>
   </div>
   <div class="span-6">
     <%= f.label t(:persons) %><br />
-    <%= f.text_field :persons, :size => 25 %>
+    <%= f.text_field :persons, :size => 20 %>
   </div>
   <div class="span-6">
     <%= f.label t(:with_animals) %>
@@ -50,52 +50,52 @@ $("booking_nights").value=parseInt(to-from)/ONE_DAY' %>
   </div>
   <div class="clear span-18 prepend-top">
     <%= f.label t(:notes) %><br />
-    <%= textile_editor :booking, :notes %>
+    <%= f.text_area :notes, :rows => 8 %>
   </div>
 <% end %>
 <% field_set_tag t('contact_data') do %>
-  <div class="span-6">
+  <div class="span-5 append-1">
     <%= f.label t(:phone) %><br />
-    <%= f.text_field :phone %>
+    <%= f.text_field :phone, :size => 25 %>
   </div>
   <div class="span-6">
     <%= f.label t(:mobile) %><br />
-    <%= f.text_field :mobile %>
+    <%= f.text_field :mobile, :size => 25 %>
   </div>
   <div class="span-6">
     <%= f.label t(:email) %><br />
-    <%= f.text_field :email %>
+    <%= f.text_field :email, :size => 25 %>
   </div>
   <div class="span-6">
     <%= f.label t(:firstname) %><br />
-    <%= f.text_field :firstname %>
+    <%= f.text_field :firstname, :size => 25 %>
   </div>
   <div class="span-6">
     <%= f.label t(:lastname) %><br />
-    <%= f.text_field :lastname %>
+    <%= f.text_field :lastname, :size => 25 %>
   </div>
   <div class="span-6">
     <%= f.label t(:company) %><br />
-    <%= f.text_field :company %>
+    <%= f.text_field :company, :size => 25 %>
   </div>
   <div class="span-6">
     <%= f.label t(:address) %><br />
-    <%= f.text_field :address %>
+    <%= f.text_field :address, :size => 25 %>
   </div>
   <div class="span-6">
     <%= f.label t(:city) %><br />
-    <%= f.text_field :city %>
+    <%= f.text_field :city, :size => 25 %>
   </div>
   <div class="span-6">
     <%= f.label t(:postcode) %><br />
-    <%= f.text_field :postcode %>
+    <%= f.text_field :postcode, :size => 25 %>
   </div>
   <div class="span-6">
     <%= f.label t(:country) %><br />
-    <%= f.text_field :country %>
+    <%= f.text_field :country, :size => 25 %>
   </div>
 <% end %>
-<div class="span-4"><%= f.submit t("booking_submit"), :class => 'wymupdate' %></div>
+<div class="span-4"><%= f.submit t("booking_submit") %></div>
 <% end %>
 <div class="span-4"><%= button_to t("cancel_booking"), :houses, :method => 'get' %></div>
   <%= textile_editor_initialize %>

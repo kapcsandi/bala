@@ -10,7 +10,7 @@
     <tr>
       <td><%=t page.path %></td>
       <td><%=h page.title %></td>
-      <td><%= check_box_tag 'published', 1, page.published? %></td>
+      <td><%= check_box_tag 'published', 1, page.published?, :disabled => true %></td>
       <td><%= link_to t('admin.show'), page %></td>
       <td><%= link_to t('admin.edit'), edit_page_path(page) %></td>
       <td><%= link_to t('admin.destroy'), page, :confirm => t('admin.are_you_sure'), :method => :delete %></td>

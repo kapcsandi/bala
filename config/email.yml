@@ -1,17 +1,17 @@
 development:
-  :address: smtp.gmail.com
-  :port: 587
-  :domain: gmail.com
-  :authentication: plain
-  :user_name: istvan.kapcsandi
-  :password: vanekur
-  :tls: true
+  address: smtp.gmail.com
+  port: 587
+  domain: gmail.com
+  authentication: plain
+  user_name: istvan.kapcsandi
+  password: vanekur
+  tls: true
 
 production:
-  :address: smtp.gmail.com
-  :port: 587
-  :domain: gmail.com
-  :authentication: plain
-  :user_name: istvan.kapcsandi
-  :password: vanekur
-  :tls: true
+  address: smtp.gmail.com
+  port: 587
+  domain: gmail.com
+  authentication: plain
+  user_name: istvan.kapcsandi
+  password: vanekur
+  tls: true

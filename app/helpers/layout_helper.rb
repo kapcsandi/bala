@@ -29,7 +29,7 @@ module LayoutHelper
 				param.merge!({ :advanced => '' })
         html << link_to(t(:detailed_search), houses_path( param ))
 			else
-        html << link_to(t(:search), houses_path) 
+        html << link_to(t('search.button'), houses_path(param))
 			end
 			if params[:discount]
         html << link_to(t(:special_offers), special_offers_path(param))
@@ -54,7 +54,6 @@ module LayoutHelper
         html << link_to(house_type, houses_path(param.merge!( 'q[type]' => house_type)))
 			end
 			if action_name == 'show'
-				html << link_to(t(:search), houses_path(param))
 				where = @content_for_title.split(', ')[-1]
         html << link_to(where, houses_path(param.merge!( 'q[where]' => where)))
 				house_type = @content_for_title.split(', ')[0]

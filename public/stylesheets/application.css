@@ -2,6 +2,7 @@
   padding: 5px 8px;
   margin: 10px;
   clear:both;
+  font-size:1.5em;
 }
 
 #flash_notice {
@@ -61,8 +62,6 @@
 input,select{width:auto;font-size:100%}
 option{}
 .label{margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
-#search .label {margin:0.5em;float:left}
-#search .field {float:left}
 .menu-item{padding:5px 0;font-size:1.1em;margin:5px 0;text-align:center}
 #menu .menu-item{margin:0 auto}
 #menu .menu {margin-right:10px}
@@ -74,13 +73,12 @@ option{}
 .even {background-color:#f6f6f6}
 .odd {background-color:#efefef}
 .calendar_date_select {width:210px}
-.field img {display:block;float:right;margin-left:5px}
 #houses_show fieldset p {width:33%;float:left}
 #houses_show fieldset.fullwidth p {width:100%;float:auto}
 #houses_show textarea {height:auto;width:90%}
 /* #new_booking fieldset div {width:33%;float:left;margin:0 0 5px} */
 #new_booking fieldset div.fieldWithErrors {width:auto;float:auto;margin:0 auto}
-#new_booking textarea {height:auto;width:90%}
+#new_booking textarea {height:auto}
 #new_booking fieldset.half div {width:50%}
 #new_booking fieldset div.clear {width:90%}
 #new_booking img {padding-left:5px;margin:5px 0 0 3px}
@@ -88,16 +86,15 @@ option{}
 .photos div {text-align:center;background-color:#FCFCFC;width:200px;float:left;margin:5px 15px;padding:5px 0 0}
 .photos a img {border:1px solid #ffffff}
 .photos a:hover img {border:1px solid #D75A20}
-body{font-family:'Trebuchet MS',Lucida,Verdana;}
+body{font-family:'Trebuchet MS',Lucida,Verdana;font-size:90%}
 #search{background-color:#F5D24F;padding-bottom:10px;margin-bottom:10px;border:2px solid #F4C13F}
 #search img {margin-top:5px}
-#search fieldset {margin:0}
-#menu {background:#8AC9D4 url(/images/bg.png) repeat-x;margin:0 auto;height:43px;padding-top:15px;overflow:hidden;clear:both}
-/* #menu {border-top:10px solid #9BBCD1;height:43px;padding-top:10px;overflow:hidden;clear:both} */
+#search fieldset {margin:0;padding:0 15px 1.4em;width:94%}
+#menu {background:#8AC9D4 url(/images/bg.png) repeat-x;margin:0 auto;height:33px;padding-top:15px;overflow:hidden;clear:both;border-bottom:8px solid #E4F1FB}
 #menu .inner {width:950px;margin:0 auto;overflow:hidden;clear:both}
-.menu-item {border:2px solid #D3E0EA;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;}
-a .menu-item{ font-size:1.2em;font-weight:bold}
-a:hover .menu-item {border-color:#D75A20;background-color:#D3E0EA}
+.menu-item {border:2px solid #D3E0EA;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;padding:5px 10px}
+a .menu-item{ font-size:1.1em;font-weight:bold}
+/* a:hover .menu-item {border-color:#D75A20;background-color:#D3E0EA} */
 #top {margin:0 auto}
 #top .inner {padding:2px;margin:0 auto;float:none}
 #top .left{height:50px;background-color:#2B5A88 }

@@ -126,9 +126,9 @@ de:
   title: Titel
   title:
     houses_found: Häuser gefunden
-  Untitled: BALA demo
+  Untitled: 1x Ferienhaus (beta)
   published: veröffentlicht
-  body: TÃ¶rzs
+  body: Törzs
   false: falsch
   show: besichtigen
   edit: Redaktion
@@ -149,7 +149,7 @@ de:
   discounted: Aktion, Angebot
   description: Beschreibung
   discount_description: Spezialangebote Beschreibung
-  persons: maximale Anzahl der Erwachsenen
+  persons: Personen
   children: maximale Anzahl von Kindern
   floor_area: Grundfläche
   bedroom: Schlafzimmer
@@ -202,7 +202,7 @@ de:
   animals: Haustiere
   garden: Garten
   distance_center: Entfernung von Zentrum
-  distance_beach: Entfernung Strand
+  distance_beach: Strand
   distance_aquapark: Entfernung Freizeitbath
   distance_shop: Entfernung Lebensmittel Geschäft
   distance_station: Entfernung Bahnhof
@@ -245,20 +245,22 @@ de:
   date_from: Anreisedatum
   date_to: Abreisedatum
   search: Suche
+  search:
+    button: Suche
   detailed_search: Erweiterte Suche
   simple_search: einfache Suche
   rooms: Anzahl der Zimmer
-  all: mindegy
+  all: alles
 #messages Nachrichten
   Empty dictionary fields: Leere Felder Wörterbuch
-  add_taggables: SzÃ³tÃ¡rak bÅ‘vÃ­tÃ©se
+  add_taggables: Szótárak bővítése
   Setup: Installation
   or: oder
   Empty Cart: Leer Warenkorb
   Go to Cart: Zum Warenkorb
 # top menu
   booking: Reservierung
-  booking_title: Buchung
+  booking_title: Reservierung
   cart: Warenkorb
   cart_title: Warenkorb
   special_offers: Sonderangebote
@@ -271,9 +273,9 @@ de:
   weather: Wetter
   calendar: Balaton Kalender
   sights: Balaton Sehenswürdigkeiten
-  offers: reduziert Restaurants
+  offers: Reduziert Restaurants
   terms: Begriffe
-  impressum: impressum
+  impressum: Impressum
   owners: Tulajdonosoknak / Eigentümer
   admin_login: Admin-Login
   houses_found: "Häuser gefunden: <span class=\"count\">{{count}}</span>"

@@ -16,7 +16,16 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 5000
+  adapter: mysql
+  encoding: utf8
+  host: 127.0.0.1
+  database: bala
+  username: bala
+  password: 35nGma8kmZep1Dn3YUGjyxZMTc1FKbuY91DEMrcNEH
+
+#  adapter: sqlite3
+#  database: db/development.sqlite3
+#  pool: 5
+#  timeout: 5000
+
+

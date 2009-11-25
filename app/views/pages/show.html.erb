@@ -1,5 +1,5 @@
 <% title @page.title %>
-<%= RedCloth.new(@page.body).to_html %>
+<%= @page.body %>
 <% if admin? %>
 <p>
   <%= link_to t('admin.edit'), edit_page_path(@page) %> |

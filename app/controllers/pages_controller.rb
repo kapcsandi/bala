@@ -16,14 +16,12 @@ class PagesController < ApplicationController
     elsif id
       @page = Page.find(id)
     end
-    if @page.nil?
-      if admin?
+    if admin?
+      if @page.nil?
         redirect_to new_page_path(:path => page)
-      else
-        redirect_to root_url
       end
-    elsif not @page.published?
-      redirect_to edit_page_path(@page)
+    elsif @page.nil? or not @page.published?
+        redirect_to root_url
     end
   end
   

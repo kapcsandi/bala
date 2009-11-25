@@ -18,7 +18,7 @@ hu:
   title: Cím
   title:
     houses_found: Keresési találatok
-  Untitled: BALA demo
+  Untitled: 1x Ferienhaus (beta)
   meta_description: szállás, apartman, balaton, nyaralás
   slogan: Die besten Ferien in Ungarn.
   published: Élesítve
@@ -384,6 +384,7 @@ hu:
   registration: Regisztráció
 
 #kereső
+  search: Keresés
   search:
     button: Keresés
     fieldgroup:

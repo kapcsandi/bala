@@ -16,8 +16,25 @@ class House < ActiveRecord::Base
   validates_uniqueness_of :code
   
   named_scope :discounts, {:joins => :discount}
-#  named_scope :in_city, {:joins => { :taggables => :tags }}
+#   named_scope :inda_house, lambda {|house_codes|
+#      {:conditions => {:code => house_codes}}
+#   }
 
+#    named_scope :inda_house, {:conditions => {:code => (self.admin_description.scan(/\d+-\d+-\d+/)+[self.code]).uniq}}
+
+  
+  def same
+    begin
+    (self.admin_description.scan(/\d+-\d+-\d+/)+[self.code]).uniq
+    rescue
+      self.code
+    end
+  end
+
+   def persons_inda_house
+     House.sum(:persons, :conditions => {:code => self.same})
+   end
+  
   def discounted?
     if self.discount.nil? or self.discount.new_record? or self.discount == 0
       false

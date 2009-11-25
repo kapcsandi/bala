@@ -7,12 +7,13 @@ class HousesController < ApplicationController
       search = tag.houses.searchlogic
     else
       if params[:discount]
-	search = House.discounts.searchlogic
+        search = House.discounts.searchlogic
       else
         search = House.searchlogic
       end
     end
-    search.persons_gte = params[:q][:persons].to_i unless params[:q].nil? or params[:q][:persons].blank?
+#    search.persons_gte = params[:q][:persons].to_i unless params[:q].nil? or params[:q][:persons].blank?
+#    search.persons_inda_house_gte = params[:q][:persons].to_i unless params[:q].nil? or params[:q][:persons].blank?
     search.code_like = params[:q][:code] unless params[:q].nil? or params[:q][:code].blank?
     unless params[:q].nil? or params[:q][:where].blank? 
       city = Taggable.find_by_field('city_id').tags.find_by_name(params[:q][:where])
@@ -32,9 +33,16 @@ class HousesController < ApplicationController
       search.distance_center_lte = params[:q][:distance_center].to_i unless params[:q][:distance_center].blank?
       search.distance_beach_lte = params[:q][:distance_beach].to_i unless params[:q][:distance_beach].blank?
     end
-    
+
     @houses, @houses_count = search.all(:select => "houses.id,code, city_id, persons, animals, pictures, house_type_id, condition_id, furnishing_id, floor_area, distance_center, distance_beach, distance_restaurant, distance_shop, distance_mainroad, distance_station").paginate(:page => params[:page], :per_page => 10), search.count
     @cart = find_cart
+#     @houses = search.all(
+#       :select => "houses.id,code,city_id, persons, animals, pictures, house_type_id,
+#     condition_id, furnishing_id, floor_area, distance_center, distance_beach,
+#     distance_restaurant, distance_shop, distance_mainroad, distance_station"
+#     ).paginate(:page => params[:page])
+#     @houses_count = @houses.count
+#     @cart = find_cart
   end
   
   def show
@@ -100,7 +108,7 @@ class HousesController < ApplicationController
     else
       if params[:cart] == 'add'
 	if @cart.limit_exceed?
-	  flash[:notice] = t :cart_limit
+	  flash[:error] = t :cart_limit
 	else
 	  @cart.add_house(house)
 	  flash[:notice] = t "house_added_to_cart", :house => house.code

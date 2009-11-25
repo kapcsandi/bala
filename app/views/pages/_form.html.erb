@@ -14,7 +14,7 @@
   </p>
   <p>
     <%= f.label t('admin.body') %><br />
-    <%= textile_editor :page, :body %>
+    <%= fckeditor_textarea(:page, :body, :toolbarSet => 'Easy', :width => '100%', :height => '100%') %>
   </p>
   <p><%= f.submit t('admin.submit') %></p>
 <% end %>
