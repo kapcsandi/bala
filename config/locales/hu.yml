@@ -410,17 +410,21 @@ hu:
     bookings: Foglalások
     house: Apartman
     houses: Apartmanok
+    season: Szezon
+    seasons: Szezonok
     new_discount: Új Akció
     new_page: Új Oldal
     new_tag: Új Címke
     new_taggable: Új Címkecsoport
-    new_house: Ú Apartman
+    new_house: Új Apartman
+    new_season: Új Szezon
     edit_discount: Akció szerkesztése
     edit_page: Oldal szerkesztése
     edit_tag: Címke szerkesztése
     edit_taggable: Címkecsoport szerkesztése
     edit_user: Profil szerkesztése
     edit_apartman: Apartman szerkesztése
+    edit_season: Szezon szerkesztése
 # admin adat mezők
     house: Apartman
     house_id: Apartman id
@@ -439,6 +443,8 @@ hu:
     context: Mező
     multi: Többszörös választásos
     position: Pozíció
+    start: Kezdete
+    end: Vége
 # admin linkek
     submit: Mehet
     show: Megnéz

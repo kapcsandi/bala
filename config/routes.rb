@@ -1,15 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :seasons
   map.resources :bookings
   map.resources :bookings, :collection => { :sort => :post} 
-
   map.resources :taggables
-
   map.resources :tags
-
   map.resources :houses
-
   map.resources :pages
-
   map.resources :discounts
 
   map.home "home", :controller => "root", :action => "index"

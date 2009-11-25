@@ -1,0 +1,16 @@
+<% form_for @season do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label t('admin.name') %><br />
+    <%= f.select :name, %w{elo_uto_szezon kozep_szezon fo_szezon} %>
+  </p>
+  <p>
+    <%= f.label t('admin.start') %><br />
+    <%= f.date_select :start %>
+  </p>
+  <p>
+    <%= f.label t('admin.end') %><br />
+    <%= f.date_select :end %>
+  </p>
+  <p><%= f.submit t('admin.submit') %></p>
+<% end %>

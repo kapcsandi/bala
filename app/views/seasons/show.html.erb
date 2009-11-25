@@ -1,0 +1,20 @@
+<% title t('admin.season') %>
+
+<p>
+  <strong><%= t('admin.name') %>:</strong>
+  <%=h @season.name %>
+</p>
+<p>
+  <strong><%= t('admin.start') %>:</strong>
+  <%=h @season.start %>
+</p>
+<p>
+  <strong><%= t('admin.end') %>:</strong>
+  <%=h @season.end %>
+</p>
+
+<p>
+  <%= link_to t('admin.edit'), edit_season_path(@season) %> |
+  <%= link_to t('admin.destroy'), @season, :confirm => t('Are you sure?'), :method => :delete %> |
+  <%= link_to t('admin.view_all'), seasons_path %>
+</p>
