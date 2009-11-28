@@ -120,7 +120,7 @@ a:hover {color:#D75A20}
 #houses_bookings .stamp.last {margin-right:0}
 #houses_bookings li {width:33%;float:left;list-style-image:none;list-style-position:outside;list-style-type:none;}
 #houses_bookings {overflow:hidden}
-span.handle {cursor:w-resize;display:inline}
+.handle {cursor:pointer;display:inline}
 .selected .menu-item {border-color:#fafafa;background-color:#E4F1FB}
 .inner {margin:5px}
 .breadcrumb span {padding: 0 5px;font-size:1.1em}
@@ -128,3 +128,4 @@ input[type=submit] {padding:3px 10px}
 .right {float:right}
 #houses_print {width:800px}
 #houses_print .right {font-size:17px;position:fixed;top:0px;left:640px;background:white;padding:2px 5px}
+.haver {padding-left:10px}

@@ -160,11 +160,11 @@ class SetupController < ApplicationController
         @result << field
         end
       end
-      Season.find_or_create_by_name_and_start_and_end(:name => 'pre_saison', :start => '2010-01-01', :end => '2010-07-04')
-      Season.find_or_create_by_name_and_start_and_end(:name => 'mid_saison', :start => '2010-07-04', :end => '2010-07-11')
-      Season.find_or_create_by_name_and_start_and_end(:name => 'main_saison', :start => '2010-07-11', :end => '2010-08-22')
-      Season.find_or_create_by_name_and_start_and_end(:name => 'mid_saison', :start => '2010-08-22', :end => '2010-08-29')
-      Season.find_or_create_by_name_and_start_and_end(:name => 'post_saison', :start => '2010-08-29', :end => '2010-12-31')
+      Season.find_or_create_by_name_and_start_and_end(:name => 'pre_saison', :start => '2010-01-01', :end => '2010-07-03')
+      Season.find_or_create_by_name_and_start_and_end(:name => 'mid_saison', :start => '2010-07-03', :end => '2010-07-10')
+      Season.find_or_create_by_name_and_start_and_end(:name => 'main_saison', :start => '2010-07-10', :end => '2010-08-21')
+      Season.find_or_create_by_name_and_start_and_end(:name => 'mid_saison', :start => '2010-08-21', :end => '2010-08-28')
+      Season.find_or_create_by_name_and_start_and_end(:name => 'post_saison', :start => '2010-08-28', :end => '2010-12-31')
       @result = @result.join(', ') + ' done'
     else
       @result = empties.join(', ') + '<br />What should I do? <a href="?do=12">DO!</a>'

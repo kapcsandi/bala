@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
     end
     @codes = @houses.map{|house| house.code + ' ' + house.city}.to_sentence
     @booking_title = t('booking_title', :houses => @codes)
-    flash[:error] = t('booking_warning')
+    @flash_warning = t('booking_warning')
   end
   
   def create

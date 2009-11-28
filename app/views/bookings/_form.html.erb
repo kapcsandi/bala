@@ -1,21 +1,24 @@
+<div id="flash_error"><%= t(:booking_warning) %></div>
 <% form_for @booking do |f| %>
   <%= f.error_messages %>
-
   <ul id="houses_bookings">
   <% for house in @houses do %>
     <% content_tag_for :li, house do %>
     <%= render :partial => 'houses/stamp', :locals => { :house => house, :last => (@houses.last == house)} %>
-    <span class="handle">[drag]</span>
+    
     <% f.fields_for :houses_bookings, house do |hb_form| %>
-      <%= hb_form.label t(:code) %>
+      <div class="handle">[drag] <%= hb_form.label t(:code) %></div>
       <%= hb_form.text_field :code %>
       <% end %>
     <% end %>
   <% end %>
   </ul>
+  <% if @houses.size > 1 %>
   <%= sortable_element('houses_bookings', :url => sort_bookings_path, :constraint => 'horizontal', :handle => 'handle') %>
+  <% end %>
 <hr class="clear" />
 <div id="flash_notice"><%= t(:booking_hint) %></div>
+
 <br class="clear" />
 <% field_set_tag t('booking_details') do %>
   <% if action_name != 'new' and admin? %>
