@@ -34,7 +34,7 @@
       <%= f.label t('admin.furnishing_id') %><br />
       <%= f.collection_select :furnishing_id, Taggable.find_by_field('furnishing_id').tags, :id, :name, :prompt => t(:select_furnishing) %>
     </p>
-    <div class="half">
+    <div>
     <% field = Taggable.find_by_position(6) %>
     <p>
       <%= f.label field.name %><br />
@@ -51,7 +51,15 @@
 	  <%= f.label tag.name %><br />
 	<% end %>
     </p>
-    </div>
+    <% field = Taggable.find_by_position(-1) %>
+    <p>
+      <%= f.label field.name %><br />
+  <% for tag in field.tags %>
+    <%= check_box_tag 'house[tag_ids][]', tag.id, @house.tags.include?(tag) %>
+    <%= f.label tag.name %><br />
+  <% end %>
+    </p>
+  </div>
   <% end %>
   <% field_set_tag t('house_layout') do %>
     <% for field in Taggable.find_all_by_position([8, 9, 10, 11]) %>
@@ -268,7 +276,7 @@
     </p>
     <div id="discount_description"<%= "style='display:none'" unless @house.discounted? %>>
     <p>
-      <% f.fields_for t('admin.discounted') do |d| -%>
+      <% f.fields_for :discount do |d| -%>
 	<%= render :partial => 'discount_form', :locals => { :form => d } %>
       <% end %>
     </p>
