@@ -1,5 +1,5 @@
 class HousesController < ApplicationController
-  before_filter :authorize, :except => [:index, :show, :cart, :empty_cart]
+  before_filter :authorize, :except => [:index, :show, :print, :cart, :empty_cart]
 
   def index
     tag = Taggable.find_by_field('category').tags.find_by_name(params[:category]) unless params[:category].blank?
@@ -48,6 +48,12 @@ class HousesController < ApplicationController
   def show
     @house = House.find(params[:id])
     @cart = find_cart
+  end
+
+  def print
+    @house = House.find(params[:id])
+    @cart = find_cart
+    render "show", :layout => 'print'
   end
   
   def new

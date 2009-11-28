@@ -1,10 +1,14 @@
+<% if controller.action_name != 'print' %>
+<a name="details"></a>
+<% end %>
 <% title ([@house.house_type, @house.code, @house.city].join(', ') ), false %>
 <div class="inner">
 <div class="mini">
 <%= render :partial => 'mini', :locals => { :house => @house, :cycle_class => '' } %>
+<% unless controller.action_name == 'print' %>
 <%= render :partial => 'navigation' , :locals => { :house => @house }%>
+<% end %>
 </div>  
-<a name="details"></a>
 <% field_set_tag t('house_basics'), :class => 'fullwidth' do %>
     <% field = Taggable.find_by_position(6)
      tagnames = [] %>
@@ -275,7 +279,9 @@
   Zahlungsbedingungen: Anzahlung ...
   </p>
   <% end %>
+  <% if controller.action_name != 'print' %>
   <a name="photos">  </a>
+  <% end %>
   <% field_set_tag t('pictures'), :class => 'photos' do %>
     <% @house.picture_urls.each do |id| %>
     <div>

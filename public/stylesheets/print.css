@@ -1,0 +1,2 @@
+a:after { content:' [' attr(href) '] '}
+#houses_print .right {display:none}

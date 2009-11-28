@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%=I18n.locale %>" lang="<%=I18n.locale %>">
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <title><%= t("Untitled") %><%= ' | ' + h(yield(:title)) %></title>
+  <%= tag(:meta, :name => 'description', :content => yield(:description) || t(:meta_description))  %>
+  <%= stylesheet_link_tag 'blueprint/screen', 'application', :media => 'all', :cache => true %>
+  <%= stylesheet_link_tag('print', :media => :print) %>
+  <%= yield(:head) %>
+</head>
+<body>
+<div id="main">
+  <div class="container" id="<%= controller_name %>_<%= action_name %>">
+    <div class="inner"><%= breadcrumb %>
+      <div class="right">
+      <%= link_to_function(t("Print this Page"), "javascript:print()") %>
+      </div>
+    </div>
+    <div id="content" class="span-20 last">
+    <%= yield %>
+    </div>
+  </div>
+</div>
+<%= yield(:foot) -%>
+</body>
+</html>
