@@ -1,8 +1,8 @@
-<% title "Edit House" %>
+<% title t('admin.edit_house') %>
 
 <%= render :partial => 'form' %>
 
 <p>
-  <%= link_to "Show", @house %> |
-  <%= link_to "View All", houses_path %>
+  <%= link_to t('admin.show'), @house %> |
+  <%= link_to t('admin.view_all'), houses_path %>
 </p>

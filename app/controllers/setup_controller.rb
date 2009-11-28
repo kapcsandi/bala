@@ -147,6 +147,14 @@ class SetupController < ApplicationController
         ['Medencés házak', 'Közvetlen vízparti', 'TOP 10', 'FKK', 'Megvásárolható', 'Termál', 'Horvátország'].each do |language|
           taggable.tags << Tag.new( :name => language)
         end
+        when 'hidden_tags':
+        taggable.name = 'Rejtett címkék'
+        taggable.context = 'Egyéb'
+        taggable.multi = true
+        taggable.position = -1
+        ['Képek'].each do |language|
+          taggable.tags << Tag.new( :name => language)
+        end
         end
         if taggable.save
         @result << field
@@ -159,7 +167,7 @@ class SetupController < ApplicationController
       Season.find_or_create_by_name_and_start_and_end(:name => 'elo_uto_szezon', :start => '2010-08-29', :end => '2010-12-31')
       @result = @result.join(', ') + ' done'
     else
-      @result = empties.join(', ') + '<br />What shold I do? <a href="?do=12">DO!</a>'
+      @result = empties.join(', ') + '<br />What should I do? <a href="?do=12">DO!</a>'
     end
   end
 

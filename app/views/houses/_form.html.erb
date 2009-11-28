@@ -1,35 +1,40 @@
 <% form_for @house do |f| %>
   <%= f.error_messages %>
   <a name="details"></a>
-  <% field_set_tag t('house_basics') do %>
+  <% field_set_tag t('admin.house_basics') do %>
     <p>
-      <%= f.label t :city_id %><br />
-      <%= f.collection_select :city_id, Taggable.find_by_field('city_id').tags, :id, :name, :prompt => t(:select_city) %>
+      <%= f.label t('admin.city_id') %><br />
+      <%= f.collection_select :city_id, Taggable.find_by_field('city_id').tags, :id, :name %>
     </p>
     <p>
-      <%= f.label t :code %><br />
+      <%= f.label t('admin.code') %><br />
       <%= f.text_field :code %>
     </p>
     <p>
-      <%= f.label t :persons %><br />
+      <%= f.label t('admin.persons') %><br />
       <%= f.text_field :persons %>
     </p>
     <p>
-      <%= f.label t :children %><br />
+      <%= f.label t('admin.children') %><br />
       <%= f.text_field :children %>
     </p>
     <p>
-      <%= f.label t :house_type_id %><br />
+      <%= f.label t('admin.floor_area') %><br />
+      <%= f.text_field :floor_area %>
+    </p>
+    <p>
+      <%= f.label t('admin.house_type_id') %><br />
       <%= f.collection_select :house_type_id, Taggable.find_by_field('house_type_id').tags, :id, :name, :prompt => t(:select_house_type) %>
     </p>
     <p>
-      <%= f.label t :condition_id %><br />
+      <%= f.label t('admin.condition_id') %><br />
       <%= f.collection_select :condition_id, Taggable.find_by_field('condition_id').tags, :id, :name, :prompt => t(:select_condition) %>
     </p>
     <p>
-      <%= f.label t :furnishing_id %><br />
+      <%= f.label t('admin.furnishing_id') %><br />
       <%= f.collection_select :furnishing_id, Taggable.find_by_field('furnishing_id').tags, :id, :name, :prompt => t(:select_furnishing) %>
     </p>
+    <div class="half">
     <% field = Taggable.find_by_position(6) %>
     <p>
       <%= f.label field.name %><br />
@@ -37,10 +42,6 @@
 	  <%= check_box_tag 'house[tag_ids][]', tag.id, @house.tags.include?(tag) %>
 	  <%= f.label tag.name %><br />
 	<% end %>
-    </p>
-    <p>
-      <%= f.label t :floor_area %><br />
-      <%= f.text_field :floor_area %>
     </p>
     <% field = Taggable.find_by_position(80) %>
     <p>
@@ -50,6 +51,7 @@
 	  <%= f.label tag.name %><br />
 	<% end %>
     </p>
+    </div>
   <% end %>
   <% field_set_tag t('house_layout') do %>
     <% for field in Taggable.find_all_by_position([8, 9, 10, 11]) %>
@@ -65,27 +67,27 @@
   <% field_set_tag t('house_rooms') do %>
     <% for field in %w(living_dining_room bedroom living_room living_dining_kitchen kitchen dining_room kitchen_dining_room) %>
     <p>
-      <%= f.label t field %><br />
+      <%= f.label t("admin.#{field}") %><br />
       <%= f.text_field field %>
     </p>
     <% end %>
     <p>
-      <%= f.label t :terrace_id %><br />
+      <%= f.label t('admin.terrace_id') %><br />
       <%= f.collection_select :terrace_id, Taggable.find_by_field('terrace_id').tags, :id, :name, :prompt => t(:select_terrace) %>
     </p>
     <p>
-      <%= f.label t :balcony_id %><br />
+      <%= f.label t('admin.balcony_id') %><br />
       <%= f.collection_select :balcony_id, Taggable.find_by_field('balcony_id').tags, :id, :name, :prompt => t(:select_balcony) %>
     </p>
     <p>
       <%= f.check_box :garden %>
-      <%= f.label t :garden %><br />
+      <%= f.label t('admin.garden') %><br />
     </p>
   <% end %>
   <% field_set_tag t('house_rooms_sq') do %>
     <% for field in %w(living_room_sq living_dining_room_sq living_dining_kitchen_sq kitchen_sq dining_room_sq kitchen_dining_room_sq terrace_sq balcony_sq yard_sq) %>
     <p>
-      <%= f.label t field %><br />
+      <%= f.label t("admin.#{field}") %><br />
       <%= f.text_field field %>
     </p>
     <% end %>
@@ -93,42 +95,42 @@
   <% field_set_tag t('house_beds') do %>
     <% for field in %w(double_bed single_bed extra_bed pull_out_bed) %>
     <p>
-      <%= f.label t field %><br />
+      <%= f.label t("admin.#{field}") %><br />
       <%= f.text_field field %>
     </p>
     <% end %>
   <% end %>
   <% field_set_tag t('house_bathrooms') do %>
     <p>
-      <%= f.label t :bathrooms %><br />
+      <%= f.label t('admin.bathrooms') %><br />
       <%= f.text_field :bathrooms %>
     </p>
     <% for field in %w(shower bathtub) %>
     <p>
       <%= f.check_box field %>
-      <%= f.label t field %><br />
+      <%= f.label t("admin.#{field}") %><br />
     </p>
     <% end %>
   <% end %>
   <% field_set_tag t('house_wc') do %>
     <p>
-      <%= f.label t :wcs %><br />
+      <%= f.label t('admin.wcs') %><br />
       <%= f.text_field :wcs %>
     </p>
     <p>
       <%= f.check_box :wc_separated %>
-      <%= f.label t :wc_separated %><br />
+      <%= f.label t('admin.wc_separated') %><br />
     </p>
   <% end %>
   <% field_set_tag t('house_kitchen') do %>
     <% for field in %w(fridge coffee_machine micro) %>
     <p>
       <%= f.check_box field %>
-      <%= f.label t field %><br />
+      <%= f.label t("admin.#{field}") %><br />
     </p>
     <% end %>
     <p>
-      <%= f.label t :stove_id %><br />
+      <%= f.label t('admin.stove_id') %><br />
       <%= f.collection_select :stove_id, Taggable.find_by_field('stove_id').tags, :id, :name, :prompt => t(:select_stove) %>
     </p>
   <% end %>
@@ -136,22 +138,22 @@
     <% for field in %w(sat internet) %>
     <p>
       <%= f.check_box field %>
-      <%= f.label t field %><br />
+      <%= f.label t("admin.#{field}") %><br />
     </p>
     <% end %>
     <p>
-      <%= f.label t :clima_id %><br />
+      <%= f.label t('admin.clima_id') %><br />
       <%= f.collection_select :clima_id, Taggable.find_by_field('clima_id').tags, :id, :name, :prompt => t(:select_clima) %>
     </p>
   <% end %>
   <% field_set_tag t('house_outers') do %>
     <p>
       <%= check_box_tag :pool, 1, @house.pool?, :onchange => "$('pool_sq').toggle()" %>
-      <%= f.label t :pool %><br />
+      <%= f.label t('admin.pool') %><br />
     </p>
     <div id="pool_sq"<%= "style='display:none'" unless @house.pool? %>>
       <p>
-	<%= f.label t :pool_sq %><br />
+	<%= f.label t('admin.pool_sq') %><br />
 	<%= f.text_field :pool_sq %>
       </p>
     </div>
@@ -159,53 +161,53 @@
     <p>
       <% if field != 'sunbath_seat' %>
       <%= f.check_box field %>
-      <%= f.label t field %><br />
+      <%= f.label t("admin.#{field}") %><br />
       <% else %>
-      <%= f.label t field %><br />
+      <%= f.label t("admin.#{field}") %><br />
       <%= f.text_field field %>    
       <% end %>
     </p>
     <% end %>
     <p>
-      <%= f.label t :parking_id %><br />
+      <%= f.label t('admin.parking_id') %><br />
       <%= f.collection_select :parking_id, Taggable.find_by_field('parking_id').tags, :id, :name, :prompt => t(:select_parking) %>
     </p>
   <% end %>
   <% field_set_tag t('house_distances') do %>
     <p>
-      <%= f.label t :distance_center %><br />
+      <%= f.label t('admin.distance_center') %><br />
       <%= f.text_field :distance_center %>
     </p>
     <p>
-      <%= f.label t :distance_beach %><br />
+      <%= f.label t('admin.distance_beach') %><br />
       <%= f.text_field :distance_beach %>
     </p>
     <p>
-      <%= f.label t :distance_aquapark %><br />
+      <%= f.label t('admin.distance_aquapark') %><br />
       <%= f.text_field :distance_aquapark %>
     </p>
     <p>
-      <%= f.label t :distance_shop %><br />
+      <%= f.label t('admin.distance_shop') %><br />
       <%= f.text_field :distance_shop %>
     </p>
     <p>
-      <%= f.label t :distance_station %><br />
+      <%= f.label t('admin.distance_station') %><br />
       <%= f.text_field :distance_station %>
     </p>
     <p>
-      <%= f.label t :distance_medical %><br />
+      <%= f.label t('admin.distance_medical') %><br />
       <%= f.text_field :distance_medical %>
     </p>
     <p>
-      <%= f.label t :distance_mainroad %><br />
+      <%= f.label t('admin.distance_mainroad') %><br />
       <%= f.text_field :distance_mainroad %>
     </p>
     <p>
-      <%= f.label t :distance_restaurant %><br />
+      <%= f.label t('admin.distance_restaurant') %><br />
       <%= f.text_field :distance_restaurant %>
     </p>
   <% end %>
-  <% field_set_tag t('house_owner_infos') do %>
+  <% field_set_tag t('admin.house_owner_infos'), :class => 'half' do %>
     <% field = Taggable.find_by_position(61) %>
     <p>
       <%= f.label field.name %><br />
@@ -215,68 +217,68 @@
 	<% end %>
     </p>
     <p>
-      <%= f.label t :owner_place_id %><br />
+      <%= f.label t('admin.owner_place_id') %><br />
       <%= f.collection_select :owner_place_id, Taggable.find_by_field('owner_place_id').tags, :id, :name, :prompt => t(:select_owner_place) %>
     </p>
   <% end %>
-  <% field_set_tag t('house_animal') do %>
+  <% field_set_tag t('admin.house_animals') do %>
     <p>
       <%= check_box_tag :animals, 1, @house.animals?, :onchange => "$('animal_charge').toggle()" %>
-      <%= f.label t :animals %><br />
+      <%= f.label t('admin.animals') %><br />
     </p>
     <div id="animal_charge"<%= "style='display:none'" unless @house.animals? %>>
       <p>
-	<%= f.label t :animal_charge %><br />
+	<%= f.label t('admin.animal_charge') %><br />
 	<%= f.text_field :animal_charge %>
       </p>
     </div>
   <% end %>
-  <% field_set_tag t('house_price_day') do %>
+  <% field_set_tag t('admin.house_price_day') do %>
     <p>
-      <%= f.label t :price_pre_season %><br />
+      <%= f.label t('admin.price_pre_season') %><br />
       <%= f.text_field :price_pre_season_per_day %>
     </p>
     <p>
-      <%= f.label t :price_mid_season %><br />
+      <%= f.label t('admin.price_mid_season') %><br />
       <%= f.text_field :price_mid_season_per_day %>
     </p>
     <p>
-      <%= f.label t :price_main_season %><br />
+      <%= f.label t('admin.price_main_season') %><br />
       <%= f.text_field :price_main_season_per_day %>
     </p>
   <% end %>
-  <% field_set_tag t('house_price_week') do %>
+  <% field_set_tag t('admin.house_price_week') do %>
     <p>
-      <%= f.label t :price_pre_season %><br />
+      <%= f.label t('admin.price_pre_season') %><br />
       <%= f.text_field :price_pre_season_per_week %>
     </p>
     <p>
-      <%= f.label t :price_mid_season %><br />
+      <%= f.label t('admin.price_mid_season') %><br />
       <%= f.text_field :price_mid_season_per_week %>
     </p>
     <p>
-      <%= f.label t :price_main_season %><br />
+      <%= f.label t('admin.price_main_season') %><br />
       <%= f.text_field :price_main_season_per_week %>
     </p>
   <% end %>
-  <% field_set_tag t('house_description') do %>
+  <% field_set_tag t('admin.house_description'), :class => 'full' do %>
     <p>
       <%= check_box_tag :discounted, 1, @house.discounted?, :onchange => "$('discount_description').toggle()" %>
-      <%= f.label t :discounted %> <br />
+      <%= f.label t('admin.discounted') %> <br />
     </p>
     <div id="discount_description"<%= "style='display:none'" unless @house.discounted? %>>
     <p>
-      <% f.fields_for :discount do |d| -%>
+      <% f.fields_for t('admin.discounted') do |d| -%>
 	<%= render :partial => 'discount_form', :locals => { :form => d } %>
       <% end %>
     </p>
     </div>
     <p>
-      <%= f.label t :house_description %><br />
+      <%= f.label t('admin.house_description') %><br />
       <%= f.text_area :house_description, :rows => 5, :cols => 30  %>
     </p>
     <p>
-      <%= f.label t :admin_description %><br />
+      <%= f.label t('admin.admin_description') %><br />
       <%= f.text_area :admin_description, :rows => 5, :cols => 30  %>
     </p>
   <% end %>
@@ -285,7 +287,7 @@
     <%
       last = (@house.picture_ids && @house.picture_ids.count > 8 ? @house.picture_ids.count : 8)
       (0..last).each do |id| %>
-      <%= f.label t :picture_url, :position => id+1 %>
+      <%= f.label t('admin.picture_url', :position => id+1) %>
       <%= text_field_tag 'house[picture_ids][]', @house.picture_ids ? @house.picture_ids[id] : nil %><br />
     <% end %>
   <% end %>

@@ -445,6 +445,107 @@ hu:
     position: Pozíció
     start: Kezdete
     end: Vége
+    city_id: Település
+    select_city: Válassz települést
+    code: Ház kód
+    house_type_id: Ház típus
+    select_house_type: Válassz apartman típust
+    condition_id: Állapot
+    select_condition: Válassz apartman állapotot
+    furnishing_id: Berendezés
+    select_furnishing: Válassz berendezés állapotot
+    discounted: Akciós
+    description: Leírás
+    discount_description: Akció leírása
+    persons: Max. személyek száma (felnőtt)
+    children: Max. gyerekek száma
+    floor_area: Alapterület
+    bedroom: Hálószobák
+    living_room: Nappali
+    living_dining_kitchen: Nappali + étkező + konyha
+    living_dining_room: Nappali + étkező
+    kitchen: Konyha
+    dining_room: Étkező
+    kitchen_dining_room: Étkező + konyha
+    balcony_id: Erkély
+    terrace_id: Terasz
+    select_terrace: Válassz terasz típust
+    select_balcony: Válassz erkély típust
+    living_room_sq: Nappali
+    living_dining_kitchen_sq: Nappali + étkező + konyha
+    living_dining_room_sq: Nappali + étkező
+    kitchen_sq: Konyha
+    dining_room_sq: Étkező
+    kitchen_dining_room_sq: Étkező + konyha
+    balcony_sq: Erkély
+    terrace_sq: Terasz
+    yard_sq: Kert
+    double_bed: Dupla
+    single_bed: Egyszemélyes
+    extra_bed: Pótágy
+    pull_out_bed: Kihúzható
+    bathrooms: Fürdőszobák száma
+    shower: Tusoló
+    bathtub: Fürdőkád
+    shower_bathtub: Tusoló + fürdőkád
+    wcs: WC-k száma
+    wc_separated: külön
+    fridge: Hűtő
+    coffee_machine: Kávéfőző
+    micro: Mikro
+    stove_id: Tűzhely
+    select_stove: Válassz tűzhely típust
+    sat: SAT
+    internet: Internet
+    clima_id: Klíma
+    select_clima: Válassz klíma típust
+    pool: Medence
+    pool_sq: Medence nm
+    garden_seats: Kiülő
+    grill: Grill
+    sunbath_seat: Napozóágy
+    playground: Játszótér
+    parking_id: Parkoló
+    select_parking: Válassz parkoló típust
+    animals: Háziállat hozható?
+    garden: Kertkapcsolat
+    distance_center: Távolság centrumtól
+    distance_beach: Távolság szabadstrandtól
+    distance_aquapark: Távolság élményfürdőtől
+    distance_shop: Távolság élelmiszerbolttól
+    distance_station: Távolság pályaudvartól
+    distance_medical: Távolság orvosi ellátástól
+    distance_mainroad: Távolság főútttól
+    distance_restaurant: Távolság vendéglőtől
+    owner_place_id: Háztulajdonos lakik
+    select_owner_place: Válassz hol lakik a tulajdonos
+    animal_charge: Háziállat felár
+    price_pre_season: Előszezon / Utószezon
+    price_mid_season: Középszezon
+    price_main_season: Főszezon
+    house_description: Megjegyzés 1 (ház leírás)
+    admin_description: Megjegyzés 2 (admin megjegyzés)
+    picture_url: "{{position}}. kép neve"
+
+#field sets
+    house_basics: Ház alapinfók
+    house_layout: Helyiségek elrendezése
+    house_rooms: Helyiségek
+    house_rooms_sq: Helyiségek alapterülete
+    house_beds: Ágyak
+    house_bathrooms: Fürdőszoba
+    house_wc: WC
+    house_kitchen: Konyha
+    house_inters: Egyéb belső felszereltség
+    house_outers: Egyéb külső felszereltség
+    house_distances: Távolságok
+    house_owner_infos: Háztulajdonos infók
+    house_animals: Háziállat
+    house_price_day: Ár / fő / nap | Euro (&euro;)
+    house_price_week: Ár / fő / hét | Euro (&euro;)
+    house_description: Leírások
+    house_photos: Képek
+
 # admin linkek
     submit: Mehet
     show: Megnéz

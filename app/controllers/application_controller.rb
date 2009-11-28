@@ -63,7 +63,7 @@ class ApplicationController < ActionController::Base
     empties += ['accomodation', 'room_types_ground', 
 	      'room_types_1st_floor', 'room_types_2nd_floor', 
 	      'room_types_mansard', 'owner_speaks', 
-	      'category']
+	      'category', 'hidden_tags']
     empties.select{|field| Taggable.find_by_field(field).nil? }
   end
 

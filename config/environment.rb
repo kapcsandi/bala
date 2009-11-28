@@ -24,7 +24,7 @@ Rails::Initializer.run do |config|
   config.gem "searchlogic"
   config.gem "calendar_date_select"
   config.gem "validates_timeliness"
-  config.gem "RedCloth", :lib => 'redcloth'
+#   config.gem "RedCloth", :lib => 'redcloth'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -50,3 +50,4 @@ end
 ValidatesTimeliness::Formats.remove_us_formats
 ValidatesTimeliness.enable_datetime_select_extension!
 CalendarDateSelect.format = :iso_date
+ActionView::Helpers::InstanceTag::DEFAULT_FIELD_OPTIONS = { :size => 25 }

@@ -203,7 +203,7 @@ de:
   garden: Garten
   distance_center: Entfernung von Zentrum
   distance_beach: Strand
-  distance_aquapark: Entfernung Freizeitbath
+  distance_aquapark: Entfernung Erlaubnisbad
   distance_shop: Entfernung Lebensmittel Geschäft
   distance_station: Entfernung Bahnhof
   distance_medical: Entfernung Arzt
@@ -217,8 +217,6 @@ de:
   price_main_season: Hochsaison
   house_description: Hinweis 1 (Hausbeschreibung)
   admin_description: Hinweis 2 (admin Hinweis)
-  picture_url: "KÃ©p Ãºtvonal {{position}}"
-  submit: BekÃ¼ldÃ©s
   House: House
   Houses: Häuser
   Show: anzeigen
@@ -233,7 +231,7 @@ de:
   discount: Rabatt
   Are you sure: Sind Sie sicher?
   yes_animal: Ja Tier
-  no_animal: kein Tier
+  no_animal: nicht erlaubt
   nincs: nincs
   pictures: Bilder
   pers: Pers
