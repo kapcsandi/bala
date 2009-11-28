@@ -223,7 +223,8 @@ de:
   Details: Details
   Booking: Reservierung
   Photos: Fotos
-  Select: Marken
+  select: Marken
+  deselect: Unmarken
   Print:  Drucken
   Edit: Edit
   Destroy: speichern
@@ -269,8 +270,8 @@ de:
   house_description: Leírások
   house_photos: Képek
   
-  back_to_list: Zurück zur Liste
-  Back to houses: Zurück zu den Häusern
+  back_to_list: Zurück
+  Back to houses: Zurück
 #search Suche
   date_from: Anreisedatum
   date_to: Abreisedatum

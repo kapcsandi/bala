@@ -1,17 +1,19 @@
-<!-- % content_for :head do %-->
-<!--% end %-->
 <% form_for @booking do |f| %>
   <%= f.error_messages %>
 
   <ul id="houses_bookings">
   <% for house in @houses do %>
     <% content_tag_for :li, house do %>
-    <span class="handle">[drag]</span> 
     <%= render :partial => 'houses/stamp', :locals => { :house => house, :last => (@houses.last == house)} %>
+    <span class="handle">[drag]</span>
+    <% f.fields_for :houses_bookings, house do |hb_form| %>
+      <%= hb_form.label t(:code) %>
+      <%= hb_form.text_field :code %>
+      <% end %>
     <% end %>
   <% end %>
   </ul>
-  <%= sortable_element('houses_bookings', :url => sort_bookings_path, :constraint => 'horizontal', :handle => 'handle') %>  
+  <%= sortable_element('houses_bookings', :url => sort_bookings_path, :constraint => 'horizontal', :handle => 'handle') %>
 <hr class="clear" />
 <p><%= t(:booking_hint) %></p>
 <br class="clear" />
@@ -98,5 +100,3 @@ $("booking_nights").value=parseInt(to-from)/ONE_DAY' %>
 <div class="span-4"><%= f.submit t("booking_submit") %></div>
 <% end %>
 <div class="span-4"><%= button_to t("cancel_booking"), :houses, :method => 'get' %></div>
-  <%= textile_editor_initialize %>
-

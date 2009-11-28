@@ -16,7 +16,7 @@ class Booking < ActiveRecord::Base
   validates_date :to, :after => :from
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
   validates_associated :houses_bookings
-  accepts_nested_attributes_for :houses_bookings, :allow_destroy => true
+  accepts_nested_attributes_for :houses_bookings, :allow_destroy => true, :reject_if => :all_blank
   
   def states 
     [t('status_created'),t('status_approved'),t('status_deleted'),t('status_unknown')]

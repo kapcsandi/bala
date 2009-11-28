@@ -26,7 +26,7 @@
 </p>
 <p>
   <strong><%= t(:notes) %>:</strong>
-  <%= RedCloth.new(@booking.notes).to_html %>
+  <%= h @booking.notes %>
 </p>
 <p>
   <strong><%= t(:phone) %>:</strong>

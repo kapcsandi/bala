@@ -13,23 +13,28 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @booking.houses.build
-    cart = find_cart
-    redirect_to_index(:select_houses) if cart.items.size < 1
-    @houses = House.find(cart.items)
+    if params[:id]
+      @houses = House.find([ params[:id].to_i ])
+    else
+      cart = find_cart
+      redirect_to_index(:select_houses) if cart.items.size < 1
+      @houses = House.find(cart.items)
+    end
   end
   
   def create
     @booking = Booking.new(params[:booking])
-    cart = find_cart
-    @houses = House.find(cart.items)
+#     cart = find_cart
+#     @houses = House.find(cart.items)
+    
     if session[:order]
       session[:order].each_with_index do |id, index|
         logger.info "@houses_bookings values: #{id}"
         @booking.houses_bookings.build(:house_id => id, :position => index)
       end
-    else
-      @booking.houses << @houses
-    end
+#     else
+#       @booking.houses << @houses
+     end
     if @booking.save
       flash[:notice] = t "created_booking"
       notification_mails(@booking)
