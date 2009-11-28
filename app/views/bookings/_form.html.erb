@@ -15,7 +15,7 @@
   </ul>
   <%= sortable_element('houses_bookings', :url => sort_bookings_path, :constraint => 'horizontal', :handle => 'handle') %>
 <hr class="clear" />
-<p><%= t(:booking_hint) %></p>
+<div id="flash_notice"><%= t(:booking_hint) %></div>
 <br class="clear" />
 <% field_set_tag t('booking_details') do %>
   <% if action_name != 'new' and admin? %>

@@ -231,8 +231,8 @@ hu:
   status_deleted: "Törölve"
 
 # top menu
-  booking: Foglalás
-  booking_title: Foglalás
+  booking: "Foglalás"
+  booking_title: "{{houses}} apartman foglalása"
   cart: Bevásárlókosár
   cart_title: Bevásárlókosár tartalma
   special_offers: Akciók

@@ -88,6 +88,9 @@ de:
     array:
       sentence_connector: "und"
       skip_last_comma: true
+      words_connector: ", "
+      two_words_connector: " und "
+      last_word_connector: " und "
         
   activerecord:
     errors:
@@ -291,7 +294,9 @@ de:
   Go to Cart: Zum Warenkorb
 # top menu
   booking: Reservierung
-  booking_title: Reservierung
+  booking_title: "Buchung Ferienobjekt: {{houses}}"
+  booking_warning: 'Achtung! Dies ist eine Buchung und keine Anfrage! Für eine Anfrage shicken Sie bitte eine E-mail.'
+  booking_hint: 'Bitte vervollständigen Sie Ihre Daten. Die mit * gekennzeichneten formularfelder bitte unbedingt ausfüllen!'
   cart: Warenkorb
   cart_title: Warenkorb
   special_offers: Sonderangebote

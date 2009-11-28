@@ -20,6 +20,9 @@ class BookingsController < ApplicationController
       redirect_to_index(:select_houses) if cart.items.size < 1
       @houses = House.find(cart.items)
     end
+    @codes = @houses.map{|house| house.code + ' ' + house.city}.to_sentence
+    @booking_title = t('booking_title', :houses => @codes)
+    flash[:error] = t('booking_warning')
   end
   
   def create

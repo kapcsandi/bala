@@ -63,6 +63,7 @@ input,select{width:auto;font-size:100%}
 option{}
 p {margin:0 0 1em}
 fieldset {margin:0 auto;padding:1em}
+h1 {font-size:2.5em}
 .label{margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
 .menu-item{padding:5px 0;font-size:1.1em;margin:5px 0;text-align:center}
 #menu .menu-item{margin:0 auto}
@@ -90,7 +91,7 @@ textarea {height:auto;height:100%;width:90%}
 #new_booking textarea {height:auto}
 #new_booking fieldset.half div {width:50%}
 #new_booking fieldset div.clear {width:90%}
-#new_booking img {padding-left:5px;margin:5px 0 0 3px}
+#new_booking img {margin:5px 0 0 0}
 #new_booking .photos a img {margin:0;padding:0}
 .photos div {text-align:center;background-color:#FCFCFC;width:200px;float:left;margin:5px 15px;padding:5px 0 0}
 .photos a img {border:1px solid #ffffff}
@@ -117,9 +118,9 @@ a:hover {color:#D75A20}
 .mini .location {font-size:1.2em}
 #houses_bookings .stamp {height:210px;margin:10px 10px 20px 0px}
 #houses_bookings .stamp.last {margin-right:0}
-#houses_bookings li {width:33%;float:left}
+#houses_bookings li {width:33%;float:left;list-style-image:none;list-style-position:outside;list-style-type:none;}
 #houses_bookings {overflow:hidden}
-span.handle {cursor:w-resize}
+span.handle {cursor:w-resize;display:inline}
 .selected .menu-item {border-color:#fafafa;background-color:#E4F1FB}
 .inner {margin:5px}
 .breadcrumb span {padding: 0 5px;font-size:1.1em}
