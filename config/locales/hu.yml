@@ -135,6 +135,10 @@ hu:
   sqmeter: m&sup2;
   items: darab
   euro: Euro
+  pre_saison: Előszezon
+  mid_saison: Középszezon
+  main_saison: Főszezon
+  post_saison: Utószezon
 
   select: Megjelölés
   deselect: Törlés a kosárból
@@ -218,6 +222,7 @@ hu:
   View All: Összes listája
   Edit Booking: Foglalás szerkesztése
   booking_notification_subject: "Foglalási értesítő"
+  no_picture: Nincs kép
 # status
   status_unknown: "Ismeretlen"
   status_created: "Rögzítve"
@@ -541,6 +546,7 @@ hu:
     house_distances: Távolságok
     house_owner_infos: Háztulajdonos infók
     house_animals: Háziállat
+    house_price: Árak
     house_price_day: Ár / fő / nap | Euro (&euro;)
     house_price_week: Ár / fő / hét | Euro (&euro;)
     house_description: Leírások

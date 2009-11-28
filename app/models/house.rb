@@ -96,7 +96,7 @@ class House < ActiveRecord::Base
   end
   
   def picture_urls
-    pictures.split(',').map{|pid| APP_CONFIG['asset_server']+self.code+'/'+pid+'_thumb.jpg' if pid !~ /,/ }.compact if pictures
+    pictures.split(',').map{|pid| APP_CONFIG['asset_server']+self.code+'/'+pid+'_thumb.jpg' if pid !~ /\ / }.compact if pictures
   end
   
   def picture_ids
@@ -109,6 +109,17 @@ class House < ActiveRecord::Base
   
   def self.per_page
     10
+  end
+
+  def price(name)
+    case name
+    when /pre|post/
+    self.price_pre_season_per_week
+    when /mid/
+    self.price_mid_season_per_week
+    when /main/
+    self.price_main_season_per_week
+    end
   end
 end
 

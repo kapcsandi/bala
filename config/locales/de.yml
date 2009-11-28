@@ -134,8 +134,8 @@ de:
   edit: Redaktion
   destroy: zerstören
   are_you_sure: sind Sie sicher?
+  no_picture: Nincs kép
 
-  New House: Neu Haus
   house: Haus
   city_id: Ort
   select_city: wählen Sie ein Ort
@@ -155,9 +155,9 @@ de:
   bedroom: Schlafzimmer
   living_room: Wohnzimmer
   living_dining_kitchen: Wohnzimmer Esszimmer Küche
-  living_dining_room: Wohn-Esszimmer ‘
+  living_dining_room: Wohn-Esszimmer
   kitchen: Küche
-  dining_room: Esszimmer ‘
+  dining_room: Esszimmer
   kitchen_dining_room: Küche Esszimmer
   balcony_id: Balkon
   terrace_id: Terrasse
@@ -170,17 +170,17 @@ de:
   dining_room_sq: Esszimmer m²
   kitchen_dining_room_sq: Küche Esszimmer m²
   balcony_sq: Balkon m²
-  terrace_sq: Terrasse c
+  terrace_sq: Terrasse m²
   yard_sq: Garten m²
   double_bed: Doppelbett
   single_bed: Einzelbett
   extra_bed: Zusatzbett
   pull_out_bed: Ausziehbett
-  bathrooms: Anzahl der Badezimmer
+  bathrooms: Badezimmer
   shower: Dusche
   bathtub: Badewanne
   shower_bathtub: Dusche / Badewanne
-  wcs: Anzahl der Toiletten
+  wcs: Toiletten
   wc_separated: WC getrennt
   fridge: Kühlschrank
   coffee_machine: Kaffeemaschine
@@ -201,14 +201,14 @@ de:
   select_parking: Wählen Parkplatz
   animals: Haustiere
   garden: Garten
-  distance_center: Entfernung von Zentrum
+  distance_center: Zentrum
   distance_beach: Strand
-  distance_aquapark: Entfernung Erlaubnisbad
-  distance_shop: Entfernung Lebensmittel Geschäft
-  distance_station: Entfernung Bahnhof
-  distance_medical: Entfernung Arzt
-  distance_mainroad: Entfernung Bundesstraße
-  distance_restaurant: Entfernung Restaurant
+  distance_aquapark: Erlaubnisbad
+  distance_shop: Geschäfte
+  distance_station: Bahnhof
+  distance_medical: Arzt
+  distance_mainroad: Bundesstraße
+  distance_restaurant: Restaurant
   owner_place_id: Eigentümer wohnt
   select_owner_place: zu wählen, wo in Eigentum wohnt
   animal_charge: Tier-Gebühr
@@ -237,7 +237,33 @@ de:
   pers: Pers
   meter: meter
   sqmeter: Quadrat meter
+  items: stück
+  pre_saison: Forsaison
+  mid_saison: Mittelsaison
+  main_saison: Hauptsaison
+  post_saison: Nachsaison
+
+
+  
 # field groups
+  house_basics: Ház alapinfók
+  house_layout: Helyiségek elrendezése
+  house_rooms: Helyiségek
+  house_rooms_sq: Helyiségek alapterülete
+  house_beds: Ágyak
+  house_bathrooms: Fürdőszoba
+  house_wc: WC
+  house_kitchen: Konyha
+  house_inters: Egyéb belső felszereltség
+  house_outers: Egyéb külső felszereltség
+  house_distances: Távolságok
+  house_owner_infos: Háztulajdonos infók
+  house_animals: Háziállat
+  house_price: Preise
+  house_price_day: Ár / fő / nap | Euro (&euro;)
+  house_price_week: Ár / fő / hét | Euro (&euro;)
+  house_description: Leírások
+  house_photos: Képek
   
   back_to_list: Zurück zur Liste
   Back to houses: Zurück zu den Häusern

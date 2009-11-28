@@ -62,7 +62,7 @@
 input,select{width:auto;font-size:100%}
 option{}
 p {margin:0 0 1em}
-
+fieldset {margin:0 auto;padding:1em}
 .label{margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
 .menu-item{padding:5px 0;font-size:1.1em;margin:5px 0;text-align:center}
 #menu .menu-item{margin:0 auto}
@@ -75,7 +75,11 @@ p {margin:0 0 1em}
 .even {background-color:#f6f6f6}
 .odd {background-color:#efefef}
 .calendar_date_select {width:210px}
-#houses_show fieldset p {width:33%;float:left}
+.full {width:100%;float:auto}
+.half {width:45%;float:left;margin-right:10px}
+#houses_show fieldset p {width:auto;margin-left:1.5em;float:left}
+#houses_show fieldset p.full {width:100%;float:auto}
+#houses_show .third p {width:30%;float:left}
 #houses_new fieldset p, #houses_edit fieldset p {width:33%;float:left}
 #houses_new .half p, #houses_edit .half p {width:50%;float:auto}
 #houses_new .full p, #houses_edit .full p {width:100%;float:auto}
