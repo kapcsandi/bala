@@ -293,7 +293,7 @@
 <a name="photos"></a>
   <% field_set_tag t('house_photos') do %>
     <%
-      last = (@house.picture_ids && @house.picture_ids.count > 8 ? @house.picture_ids.count : 8)
+      last = (@house.picture_ids && @house.picture_ids.size > 8 ? @house.picture_ids.size : 8)
       (0..last).each do |id| %>
       <%= f.label t('admin.picture_url', :position => id+1) %>
       <%= text_field_tag 'house[picture_ids][]', @house.picture_ids ? @house.picture_ids[id] : nil %><br />
