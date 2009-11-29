@@ -42,9 +42,9 @@
 	</div>
 	</div>
 	<div id="menu"><div class="inner">
-	<%- ['home', 'booking', :cart, :special_offers, :contact, 'programs'].each do |item|
+	<%- ['home', 'booking', :cart, :special_offers, :contact, :programs].each do |item|
 	  title( t(item) ) unless @content_for_title -%>
-	  <div class="menu span-4<%= if item == 'programs' then ' last' end %><%= 
+	  <div class="menu span-4<%= if item == :programs then ' last' end %><%=
 	  case item
 	  when 'home': if controller_name == 'root' and action_name == 'index' then ' selected' end
 	  when 'booking': if controller_name == 'bookings' then ' selected' end
