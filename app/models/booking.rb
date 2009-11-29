@@ -1,7 +1,7 @@
 class Booking < ActiveRecord::Base
   attr_accessible :from, :to, :nights, :persons, :with_animals, :notes, :phone, :mobile, :email, :firstname, :lastname, :company, :address, :city, :postcode, :country, :status
   has_many :houses_bookings, :dependent => :destroy
-  has_many :houses, :through => :houses_bookings, :uniq => true, :order => '"houses_bookings"."position"', :select => '"houses".*,"houses_bookings"."position"'
+  has_many :houses, :through => :houses_bookings, :uniq => true, :order => 'houses_bookings.position', :select => 'houses.*,houses_bookings.position'
 #  has_many :houses, :finder_sql =>
 #  'SELECT DISTINCT "houses".*,"houses_bookings"."position" ' +
 #      'FROM "houses" ' +

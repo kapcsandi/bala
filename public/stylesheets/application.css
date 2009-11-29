@@ -129,3 +129,4 @@ input[type=submit] {padding:3px 10px}
 #houses_print {width:800px}
 #houses_print .right {font-size:17px;position:fixed;top:0px;left:640px;background:white;padding:2px 5px}
 .haver {padding-left:10px}
+.calendar_date_select td div.other {color:#FFF000;}

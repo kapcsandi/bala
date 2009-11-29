@@ -6,7 +6,7 @@
     <% content_tag_for :li, house do %>
     <%= render :partial => 'houses/stamp', :locals => { :house => house, :last => (@houses.last == house)} %>
     
-    <% f.fields_for :houses_bookings, house do |hb_form| %>
+    <% f.fields_for 'houses[]', house do |hb_form| %>
       <div class="handle">[drag] <%= hb_form.label t(:code) %></div>
       <%= hb_form.text_field :code %>
       <% end %>

@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
   
   def new
     @booking = Booking.new
+#    @booking.houses_bookings.build
     @booking.houses.build
     if params[:id]
       @houses = House.find([ params[:id].to_i ])
@@ -27,18 +28,18 @@ class BookingsController < ApplicationController
   
   def create
     @booking = Booking.new(params[:booking])
-#     cart = find_cart
-#     @houses = House.find(cart.items)
-    
-    if session[:order]
-      session[:order].each_with_index do |id, index|
-        logger.info "@houses_bookings values: #{id}"
-        @booking.houses_bookings.build(:house_id => id, :position => index)
-      end
-#     else
-#       @booking.houses << @houses
-     end
+    ids = params[:booking][:houses].keys
+    @booking.houses << House.find_all_by_id(ids)
     if @booking.save
+      if session[:order]
+        session[:order].each_with_index do |id, index|
+          logger.info "@houses_bookings values: #{id}"
+           hb = @booking.houses_bookings.find_by_house_id(id)
+           hb.position = index
+           hb.save
+        end
+      end
+      session[:order] = nil
       flash[:notice] = t "created_booking"
       notification_mails(@booking)
       redirect_to @booking
@@ -49,6 +50,8 @@ class BookingsController < ApplicationController
   
   def edit
     @booking = Booking.find(params[:id])
+#    @booking.houses_bookings.build
+#    @booking.houses.build
     @houses = @booking.houses
   end
   
