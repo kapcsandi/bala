@@ -34,9 +34,11 @@ class BookingsController < ApplicationController
       if session[:order]
         session[:order].each_with_index do |id, index|
           logger.info "@houses_bookings values: #{id}"
-           hb = @booking.houses_bookings.find_by_house_id(id)
-           hb.position = index
-           hb.save
+          hb = @booking.houses_bookings.find_by_house_id(id)
+          if hb
+            hb.position = index
+            hb.save
+          end
         end
       end
       session[:order] = nil

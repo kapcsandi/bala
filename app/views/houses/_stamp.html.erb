@@ -1,6 +1,6 @@
 <div id="house_<%= house.id %>" class="span-6 stamp mini house odd<%= ' last' if last %>">
   <div class="location">
-    <span class="field"><%=h house.city %></span>
+    <span class="field"><%=h house.city %></span><br />
     <span class="label"><%= t :code %>:</span>
     <span class="field"><%=h house.code %></span>
   </div>
@@ -11,6 +11,6 @@
   </div>
   <div class="span-6">
     <span class="label"><%= t :persons %>:</span>
-    <span class="field"><%=h house.persons %> <%= t('pers') %></span>
+    <span class="field">max.  <%=h house.persons %> <%= t('pers') %></span>
   </div>
 </div>
