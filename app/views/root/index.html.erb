@@ -2,7 +2,7 @@
 <% if admin? %>
 <% else %>
 <div class="categories">
-<% @categories[0..6].each_with_index do |category, index| %>
+<% @categories[0..5].each_with_index do |category, index| %>
  <div class="category<%= ' last' if (index%3==2) %>">
   <div class="span-6 last">
   <div class="item title"><span class="title"><%= link_to category[:name], :controller => :houses, :action => :index, :commit => '', :category => category[:name] %></span></div>
@@ -15,6 +15,16 @@
 <%= truncate( category[:house].house_description(80), :length => 40 ) if category[:house] %>
   </div>
  </div></div>
+<% end %>
+<div class="pictures">
+<% for house in @pictures do %>
+  <% link_to :controller => 'houses', :action => 'show', :id => house.id, :anchor => 'details' do %>
+  <%- if house.picture_urls[0] %>
+    <%= image_tag house.picture_urls[0], :height => 100 %>
+  <% else %>
+    <%= t('no_picture') %>
+  <% end %>
+  <% end %>
 <% end %>
 </div>
 <% end %>

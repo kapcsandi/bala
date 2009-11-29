@@ -16,6 +16,11 @@ class House < ActiveRecord::Base
   validates_uniqueness_of :code
   
   named_scope :discounts, {:joins => :discount}
+  named_scope :scroll_pictures, lambda { |tag|
+    {:joins => :houses_tags,
+    :conditions => { :houses_tags => {:tag_id => tag }},
+    :select => "houses.id,code,pictures"}
+                                       }
 #   named_scope :inda_house, lambda {|house_codes|
 #      {:conditions => {:code => house_codes}}
 #   }

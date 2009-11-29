@@ -215,7 +215,7 @@
       <%= f.text_field :distance_restaurant %>
     </p>
   <% end %>
-  <% field_set_tag t('admin.house_owner_infos'), :class => 'half' do %>
+  <% field_set_tag t('admin.house_owner_infos') do %>
     <% field = Taggable.find_by_position(61) %>
     <p>
       <%= f.label field.name %><br />
@@ -241,7 +241,7 @@
       </p>
     </div>
   <% end %>
-  <% field_set_tag t('admin.house_price_day') do %>
+  <% field_set_tag t('admin.house_price_day'), :class => 'half' do %>
     <p>
       <%= f.label t('admin.price_pre_season') %><br />
       <%= f.text_field :price_pre_season_per_day %>
@@ -269,7 +269,7 @@
       <%= f.text_field :price_main_season_per_week %>
     </p>
   <% end %>
-  <% field_set_tag t('admin.house_description'), :class => 'full' do %>
+  <% field_set_tag t('admin.house_description') do %>
     <p>
       <%= check_box_tag :discounted, 1, @house.discounted?, :onchange => "$('discount_description').toggle()" %>
       <%= f.label t('admin.discounted') %> <br />
