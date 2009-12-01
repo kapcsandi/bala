@@ -254,24 +254,23 @@ de:
 
   
 # field groups
-  house_basics: Ház alapinfók
-  house_layout: Helyiségek elrendezése
-  house_rooms: Helyiségek
-  house_rooms_sq: Helyiségek alapterülete
-  house_beds: Ágyak
-  house_bathrooms: Fürdőszoba
+  house_basics: Hausbeschreibung
+  house_layout: Hausanlage
+  house_rooms: Räumen
+  house_rooms_sq: Räumen (m²)
+  house_beds: Betten
+  house_bathrooms: Badezimmer
   house_wc: WC
-  house_kitchen: Konyha
-  house_inters: Egyéb belső felszereltség
-  house_outers: Egyéb külső felszereltség
-  house_distances: Távolságok
-  house_owner_infos: Háztulajdonos infók
-  house_animals: Háziállat
-  house_price: Preise
-  house_price_day: Ár / fő / nap | Euro (&euro;)
-  house_price_week: Ár / fő / hét | Euro (&euro;)
-  house_description: Leírások
-  house_photos: Képek
+  house_kitchen: Küche
+  house_inters: Sonstige innen Zubehör
+  house_outers: Sonstige außen Zubehör
+  house_distances: Hausbesitzer
+  house_owner_infos: Hausbesitzer Information
+  house_animals: Haustier
+  house_price_day: Preis / Person / Tag (EUR)
+  house_price_week: Preis / Person / Woche (EUR)
+  house_description: Beschreibungen
+  house_photos: Bilder
   
   back_to_list: Zurück
   Back to houses: Zurück

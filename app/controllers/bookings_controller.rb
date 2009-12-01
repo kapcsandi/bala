@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
 #    @booking.houses_bookings.build
     @booking.houses.build
+    @houses = []
     if params[:id]
       @houses = House.find([ params[:id].to_i ])
     else
@@ -30,6 +31,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(params[:booking])
     ids = params[:booking][:houses].keys
     @booking.houses << House.find_all_by_id(ids)
+    @houses = @booking.houses
     if @booking.save
       if session[:order]
         session[:order].each_with_index do |id, index|
@@ -52,8 +54,6 @@ class BookingsController < ApplicationController
   
   def edit
     @booking = Booking.find(params[:id])
-#    @booking.houses_bookings.build
-#    @booking.houses.build
     @houses = @booking.houses
   end
   

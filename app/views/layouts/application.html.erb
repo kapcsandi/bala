@@ -46,7 +46,7 @@
 	  title( t(item) ) unless @content_for_title -%>
 	  <div class="menu span-4<%= if item == :programs then ' last' end %><%=
 	  case item
-	  when 'home': if controller_name == 'root' and action_name == 'index' then ' selected' end
+	  when 'home': if controller_name !~ /bookings|pages/ then ' selected' end
 	  when 'booking': if controller_name == 'bookings' then ' selected' end
 	  else if current_page?(item) then ' selected' end
 	  end
