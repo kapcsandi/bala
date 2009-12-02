@@ -14,7 +14,7 @@
     <% end %>
   </div>
   <div class="span-6">
-    <div class="photos"><% link_to :action => 'show', :id => house, :anchor => 'details' do %>
+    <div class="photos"><% link_to :action => (current_page?('show_houses') ? '' : 'show'), :id => house, :anchor => 'details' do %>
     <div>
     <%- if house.picture_urls[0] %>
       <%= image_tag house.picture_urls[0] %>

@@ -14,6 +14,7 @@
     <%= yield(:head) %>
   </head>
   <body>
+  <a name="top"></a>
     <div id="main">
       <div id="top">
 	<div class="inner span-24">
@@ -46,7 +47,7 @@
 	  title( t(item) ) unless @content_for_title -%>
 	  <div class="menu span-4<%= if item == :programs then ' last' end %><%=
 	  case item
-	  when 'home': if controller_name !~ /bookings|pages/ then ' selected' end
+	  when 'home': if controller_name !~ /bookings|pages/ and action_name !~ /cart/ and not params[:discount] then ' selected' end
 	  when 'booking': if controller_name == 'bookings' then ' selected' end
 	  else if current_page?(item) then ' selected' end
 	  end
@@ -123,7 +124,7 @@
 </div>
   </div>
 <div class="right">
-  <a href="#">Lap tetejére</a>
+  <a href="#top">Lap tetejére</a>
 </div>
 </div>
   <div id="foot" class="span-24">

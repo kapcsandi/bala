@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091125193815) do
+ActiveRecord::Schema.define(:version => 20091202212010) do
 
   create_table "bookings", :force => true do |t|
     t.date     "from"
@@ -30,7 +30,12 @@ ActiveRecord::Schema.define(:version => 20091125193815) do
     t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "status_id",    :default => 0
+    t.integer  "status_id",                    :default => 0
+    t.integer  "children"
+    t.string   "children_years", :limit => 20
+    t.string   "animal_details", :limit => 50
+    t.string   "salut",          :limit => 20
+    t.string   "fax",            :limit => 20
   end
 
   create_table "cities", :force => true do |t|

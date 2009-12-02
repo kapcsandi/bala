@@ -72,15 +72,16 @@ h1 {font-size:1.5em}
 .categories .category {height:210px;border:2px solid #F4C13F;padding:5px 10px;margin:0 14px 10px 0;float:left}
 .categories .category.last {margin-right:0}
 .category .title {font-size:1.2em;font-weight:bold}
-.mini {line-height:2em;overflow:hidden;margin:5px 0;padding:5px;border:1px solid #cccccc}
+.mini {line-height:1.5em;overflow:hidden;margin:5px 0;padding:5px;border:1px solid #cccccc}
 .even {background-color:#f6f6f6}
 .odd {background-color:#efefef}
 .calendar_date_select {width:210px}
 .full {width:100%;float:auto}
 .half {width:45%;float:left;margin-right:10px}
+#houses_show fieldset {padding:0}
 #houses_show fieldset p, #houses_print fieldset p {width:auto;margin-left:1.5em;float:left}
 #houses_show fieldset p.full, #houses_print fieldset p.full {width:100%;float:auto}
-#houses_show .third p, #houses_print .third p {width:30%;float:left}
+#houses_show .third p, #houses_print .third p {width:29%;float:left}
 #houses_show fieldset.fullwidth p, #houses_print fieldset.fullwidth p {width:100%;float:auto}
 #houses_new fieldset p, #houses_edit fieldset p {width:33%;float:left}
 #houses_new .half p, #houses_edit .half p {width:50%;float:auto}
@@ -93,7 +94,7 @@ textarea {height:auto;height:100%;width:90%}
 #new_booking fieldset div.clear {width:90%}
 #new_booking img {margin:5px 0 0 0}
 #new_booking .photos a img {margin:0;padding:0}
-.photos div {text-align:center;background-color:#FCFCFC;width:200px;float:left;margin:5px 15px;padding:5px 0 0}
+.photos div {text-align:center;background-color:#FCFCFC;float:left;margin:5px 15px;padding:5px}
 .photos a img {border:1px solid #ffffff}
 #houses_bookings .photos a img {height:110px}
 .photos a:hover img {border:1px solid #D75A20}
@@ -118,10 +119,9 @@ a:hover {color:#D75A20}
 .pagination {float:right;padding:0 15px}
 .count{font-size:1.1em;color:#D75A20;font-weight:bold}
 .mini .location {font-size:1.2em}
-#houses_bookings .stamp {height:210px;margin:10px 10px 20px 0px}
 #houses_bookings .stamp.last {margin-right:0}
-#houses_bookings li {width:33%;float:left;list-style-image:none;list-style-position:outside;list-style-type:none;}
-#houses_bookings {overflow:hidden}
+#houses_bookings li {width:33%;float:left;list-style-image:none;list-style-position:outside;list-style-type:none}
+#houses_bookings {overflow:hidden;margin:0 auto}
 .handle {cursor:pointer;display:inline}
 .selected .menu-item {border-color:#fafafa;background-color:#E4F1FB}
 .inner {margin:5px}
@@ -132,4 +132,5 @@ input[type=submit] {padding:3px 10px}
 #houses_print .right {font-size:17px;position:fixed;top:0px;left:640px;background:white;padding:2px 5px}
 .haver {padding-left:10px}
 .calendar_date_select td div.other {color:#FFF000;}
-.fold {text-decoration:none;cursor:hand;cursor:pointer;}
+.fold {text-decoration:none;cursor:hand;cursor:pointer;display:block;padding:0 5px 5px;float:right}
+legend {padding:0 10px}

@@ -126,10 +126,12 @@ de:
   home: Startseite
   you_are_here: "<b>Sie sind Hier: </b><span>&nbsp;</span>"
 
-  title: Titel
   title:
     houses_found: Häuser gefunden
-  Untitled: 1x Ferienhaus (beta)
+  title: 1x Ferienhause
+  Untitled: 1x Ferienhause
+  meta_description: Unterkunft, Appartement, Balaton, FerienhĂ¤user
+  slogan: Ferien im Sonnenland Ungarn
   published: veröffentlicht
   body: Törzs
   false: falsch
@@ -251,6 +253,9 @@ de:
   main_saison: Hauptsaison
   post_saison: Nachsaison
 
+  selected_houses:
+    one: Gewünschtes Ferienhaus
+    other: Gewünschtes Ferienhausen
 
   
 # field groups
@@ -284,7 +289,44 @@ de:
   simple_search: einfache Suche
   rooms: Anzahl der Zimmer
   all: alles
-#messages Nachrichten
+
+#messages
+  house_added: Haus hinzugefügt
+  house_updated: Hause geändert
+  house_destroyed: Haus gelöscht
+  house_added_to_cart: Haus ist im Warenkorb hinzugefügt worden
+  house_removed_from_cart: Haus ist vom Warenkorb hinzugefügt worden
+  house_not_in_any_group: "Das Haus zu keine Gruppe gehört."
+
+#booking
+  New Booking: Neue Reservierung
+  booking_hint: Füllen Sie bitte die unten Daten genau.
+  booking_details: Details der Reservierung
+  from: Anreisedatum
+  to: Abreisedatum
+  contact_data: Personal Daten
+  nights: Übernacht(e)
+  with_animals: mit Tier(e)
+  notes: Nachricht
+  phone: Telefon
+  mobile: Handy
+  email: E-mail
+  email_repeat: E-mail widerholen
+  firstname: Vorname
+  lastname: Nachname
+  company: Firmenname
+  address: Adresse
+  city: Ort
+  postcode: PLZ
+  country: Land
+  status: Status
+  booking_submit: "Buchung absenden"
+  Bookings: Reservierungen
+  Back to List: Zurück zur Buchung
+  View All: Alle anzeigen
+  Edit Booking: Buchung bearbeiten
+  booking_notification_subject: Reservierung Nachrichten
+
   Empty dictionary fields: Leere Felder Wörterbuch
   add_taggables: Szótárak bővítése
   Setup: Installation
@@ -304,15 +346,106 @@ de:
 
 # left menu
   infos_a_z: Infos A-Z
-  map: Karte
+  map: Landkarte
   weather: Wetter
   calendar: Balaton Kalender
-  sights: Balaton Sehenswürdigkeiten
+  sights: Balaton Sehenswürdigkeit, Städte
   offers: Reduziert Restaurants
-  terms: Begriffe
-  impressum: Impressum
-  owners: Tulajdonosoknak / Eigentümer
-  admin_login: Admin-Login
-  houses_found: "Häuser gefunden: <span class=\"count\">{{count}}</span>"
-  prev_link: rückwärts
-  next_link: nächsten
+  terms: AGB
+  impressum: Impresum
+  owners: Tulajdonosoknak
+  admin_login: Admin belépés
+  houses_found: "Trefferzahl: <span class=\"count\">{{count}}</span>"
+  prev_link: zurück
+  next_link: nächst
+
+  errors:
+    blank: "darf nicht leer sein"
+
+  activerecord:
+    models:
+      house: "Haus"
+      booking: "Reservierung"
+
+    attributes:
+      house:
+        city_id: "Ort"
+        code: "Haus-Code"
+        condition_id: "Zustand"
+        furnishing_id: "Ausstattung"
+        house_type_id: "Haustyp"
+      booking:
+        persons: "Personenzahl"
+        nights: "Nachtzahl"
+        from: "Anreisedatum"
+        to: "Abreisedatum"
+        firstname: "Vorname"
+        lastname: "Nachname"
+        email: "E-mail"
+        phone: "Telefon"
+        company: "Firmenname"
+        city: "Ort"
+        address: "Adresse"
+        country: "Land"
+        postcode: "PZL"
+      user:
+        username: "Benutzername"
+        password: "Passwort"
+
+    errors:
+      template:
+        header: "{{count}} Fehler hat das {{model}} Speichern blockiert"
+        body: "Es gab ein Problem mit den in der folgenden Feld ausfüllen"
+
+      models:
+        house:
+          attributes:
+             furnishing_id:
+               blank: "Ausstattung`s Feld darf nicht leer sein"
+             condition_id:
+               blank: "Zustand`s Feld kann nicht leer sein"
+             house_type_id:
+               blank: "Haustyp`s Feld darf nicht leer sein"
+             city_id:
+               blank: "Ort`s Feld darf nicht leer sein"
+             code:
+               blank: "Haus-Code`s Feld darf nicht leer sein"
+        booking:
+          attributes:
+            persons:
+              not_a_number: "Personenzahl`s Feld füllen Sie nur Zahl"
+              blank: "Personenzahl`s Feld darf nicht leer sein"
+            nights:
+              not_a_number: "Nachtzahl`s Feld füllen Sie nur Zahl"
+              blank: "Nachtzahl`s Feld darf nicht leer sein"
+            from:
+              blank: "Anreisedatum`s Feld darf nich leer sein"
+              invalid: "Anreisedatum ist ungültiges Format"
+              after: "Anreisedatum kann nicht nach {{restriction}}"
+            to:
+              blank: "Abreisedatum`s darf nicht leer sein"
+              invalid: "Abreisedatum ist ungültiges Format"
+              before: "Abreisedatum darf nicht vor {{restriction}}"
+            firstname:
+              blank: "Vorname`s Feld darf nicht leer sein"
+            lastname:
+              blank: "Name`s Feld darf nicht leer sein"
+            phone:
+              blank: "Telefon`s Feld darf nicht leer sein"
+            email:
+              blank: "E-Mail`s Feld darf nicht leer sein"
+              invalid: "E-Mail`s Adresse ist ungültiges Format"
+        user:
+          attributes:
+            username:
+              blank: "Benutzer`s Feld darf nicht leer sein"
+            password:
+              blank: "Passwort`s Feld darf nicht leer sein"
+
+
+# flash üzenetek
+  unrestricted_access: Zugriff wird verweigert.
+  successfully_logged_in: Erfolgreicher anmeldet
+  successfully_logged_out: Erfolgreicher abmeldet
+  cart_limit: Der Warenkorb kann maximal 3 Häuser enthalten!<br /> Zuerst bitte löschen Sie Elemente aus Ihrem warekorb.
+  registration_successful: Erfolgreich Registration

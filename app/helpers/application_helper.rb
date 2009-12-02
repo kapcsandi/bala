@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def show_hide(id)
-    %^<a class="fold" id="show_#{id}" onclick="Effect.BlindDown('stamp_#{id}');$('show_#{id}').hide();$('hide_#{id}').show();return false;" style="display:none">[+]</a>
-    <a class="fold" id="hide_#{id}" onclick="$('show_#{id}').show();$('hide_#{id}').hide();Effect.BlindUp('stamp_#{id}');return false;" style="display:block">[-]</a>^
+    %Q^<a class="fold" id="show_#{id}" onclick="Effect.BlindDown('#{id}');$('show_#{id}').hide();$('hide_#{id}').show();return false;" style="display:none">[+]</a>
+    <a class="fold" id="hide_#{id}" onclick="$('show_#{id}').show();$('hide_#{id}').hide();Effect.BlindUp('#{id}');return false;" style="display:block">[-]</a>^
   end
 end

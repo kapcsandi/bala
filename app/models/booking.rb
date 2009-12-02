@@ -1,5 +1,5 @@
 class Booking < ActiveRecord::Base
-  attr_accessible :from, :to, :nights, :persons, :with_animals, :notes, :phone, :mobile, :email, :firstname, :lastname, :company, :address, :city, :postcode, :country, :status
+  attr_accessible :from, :to, :nights, :persons, :with_animals, :notes, :phone, :mobile, :email, :firstname, :lastname, :company, :address, :city, :postcode, :country, :status, :children, :children_years, :animal_details, :salut, :fax
   has_many :houses_bookings, :dependent => :destroy
   has_many :houses, :through => :houses_bookings, :uniq => true, :order => "houses_bookings.position", :select => "houses.*,houses_bookings.position"
 #  has_many :houses, :finder_sql =>
@@ -12,7 +12,7 @@ class Booking < ActiveRecord::Base
 
   validates_numericality_of :persons, :greater_than => 0
   validates_numericality_of :nights, :greater_than => 0
-  validates_presence_of :from, :to, :phone, :email, :firstname, :lastname, :nights
+  validates_presence_of :from, :to, :phone, :email, :firstname, :lastname, :nights, :with_animals, :city, :postcode, :address
   validates_date :from, :before => :to
   validates_date :to, :after => :from
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
@@ -42,5 +42,4 @@ class Booking < ActiveRecord::Base
   def name
     self.firstname + ' ' + self.lastname
   end
-  
 end

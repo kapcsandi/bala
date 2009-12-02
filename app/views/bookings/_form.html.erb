@@ -1,6 +1,8 @@
 <div id="flash_error"><%= t(:booking_warning) %></div>
 <% form_for @booking do |f| %>
   <%= f.error_messages %>
+<% field_set_tag t('booking_details') do %>
+  <%= t('selected_houses', :count => @houses.size) %>:
   <ul id="houses_bookings">
   <% for house in @houses do %>
     <% content_tag_for :li, house do %>
@@ -20,7 +22,6 @@
   <% end %>
 <div id="flash_notice"><%= t(:booking_hint) %></div>
 <br class="clear" />
-<% field_set_tag t('booking_details') do %>
   <% if action_name != 'new' and admin? %>
   <div class="span-6">
     <%= f.label t(:status) %><br />

@@ -1,4 +1,4 @@
-<%= show_hide(house.id) %>
+<%= show_hide("stamp_#{house.id}") %>
 <div id="stamp_<%= house.id %>" class="span-6 stamp mini house odd<%= ' last' if last %>">
   <div class="location">
     <span class="field"><%=h house.city %></span><br />
