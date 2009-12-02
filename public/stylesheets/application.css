@@ -132,5 +132,6 @@ input[type=submit] {padding:3px 10px}
 #houses_print .right {font-size:17px;position:fixed;top:0px;left:640px;background:white;padding:2px 5px}
 .haver {padding-left:10px}
 .calendar_date_select td div.other {color:#FFF000;}
-.fold {text-decoration:none;cursor:hand;cursor:pointer;display:block;padding:0 5px 5px;float:right}
+.fold {text-decoration:none;cursor:hand;cursor:pointer;display:block;margin:-15px -24px 0 0;float:right}
+#houses_bookings .fold {margin:2px 10px 10px 0}
 legend {padding:0 10px}

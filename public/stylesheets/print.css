@@ -1,2 +1,3 @@
 a:after { content:' [' attr(href) '] '}
 #houses_print .right {display:none}
+#houses_print .fold {margin:-15px -35px 0 0}
