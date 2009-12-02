@@ -14,7 +14,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new
 #    @booking.houses_bookings.build
     @booking.houses.build
-    @houses = []
     if params[:id]
       @houses = House.find([ params[:id].to_i ])
     else
