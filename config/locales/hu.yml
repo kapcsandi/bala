@@ -453,6 +453,7 @@ hu:
     end: Vége
     city_id: Település
     select_city: Válassz települést
+    select_country: Válassz országot
     code: Ház kód
     house_type_id: Ház típus
     select_house_type: Válassz apartman típust
@@ -465,6 +466,9 @@ hu:
     discount_description: Akció leírása
     persons: Max. személyek száma (felnőtt)
     children: Max. gyerekek száma
+    persons_count: Személyek száma
+    children_count: Gyerekek száma
+    children_years: Gyerekek életkora
     floor_area: Alapterület
     bedroom: Hálószobák
     living_room: Nappali
@@ -532,6 +536,9 @@ hu:
     house_description: Megjegyzés 1 (ház leírás)
     admin_description: Megjegyzés 2 (admin megjegyzés)
     picture_url: "{{position}}. kép neve"
+    answer_yes: Igen
+    answer_no: Nem
+    animal_details: Háziállat fajtája, súlya
 
 #field sets
     house_basics: Ház alapinfók

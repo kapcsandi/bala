@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
       @houses = House.find([ params[:id].to_i ])
     else
       cart = find_cart
-      redirect_to_index(:select_houses) if cart.items.size < 1
+#      redirect_to_index(:select_houses) if cart.items.size < 1
       @houses = House.find(cart.items)
     end
     @codes = @houses.map{|house| house.code + ' ' + house.city}.to_sentence
@@ -28,8 +28,20 @@ class BookingsController < ApplicationController
   
   def create
     @booking = Booking.new(params[:booking])
-    ids = params[:booking][:houses].keys
-    @booking.houses << House.find_all_by_id(ids)
+    booking_houses = params[:booking][:houses]
+    case booking_houses
+    when Hash
+      ids = params[:booking][:houses].keys
+      houses_found = House.find_all_by_id(ids)
+    when Array
+      code = params[:booking][:houses][0][:code]
+      houses_found = House.find_all_by_code(code)
+    end
+    if houses_found
+      @booking.houses << houses_found
+    else
+#      error
+    end
     @houses = @booking.houses
     if @booking.save
       if session[:order]

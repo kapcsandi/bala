@@ -144,6 +144,8 @@ de:
   house: Haus
   city_id: Ort
   select_city: wählen Sie ein Ort
+  select_country: wählen Sie Land
+  
   code: Haus Code
   house_type_id: Haustyp
   select_house_type: Haustyp wählen Sie
@@ -156,6 +158,9 @@ de:
   discount_description: Spezialangebote Beschreibung
   persons: Personen
   children: maximale Anzahl von Kindern
+  persons_count: Anzahl Personen
+  children_count: dafor Kinder
+  children_years: Alter der Kinder
   floor_area: Grundfläche
   bedroom: Schlafzimmer
   living_room: Wohnzimmer
@@ -302,11 +307,11 @@ de:
   New Booking: Neue Reservierung
   booking_hint: Füllen Sie bitte die unten Daten genau.
   booking_details: Details der Reservierung
-  from: Anreisedatum
-  to: Abreisedatum
+  from: Wunstermin von
+  to: Wunstermin bis
   contact_data: Personal Daten
-  nights: Übernacht(e)
-  with_animals: mit Tier(e)
+  nights: nacht
+  with_animals: Nehmen Sie Haustiere mit?
   notes: Nachricht
   phone: Telefon
   mobile: Handy
@@ -331,6 +336,9 @@ de:
   add_taggables: Szótárak bővítése
   Setup: Installation
   or: oder
+  answer_yes: Ja
+  answer_no: Nein
+  animal_details: Anzahl, Tierart, Rasse, kg
   Empty Cart: Leer Warenkorb
   Go to Cart: Zum Warenkorb
 # top menu
@@ -376,9 +384,9 @@ de:
         house_type_id: "Haustyp"
       booking:
         persons: "Personenzahl"
-        nights: "Nachtzahl"
-        from: "Anreisedatum"
-        to: "Abreisedatum"
+        nights: "Nachts"
+        from: "Wunsttermin von"
+        to: "Wunsttermin bis"
         firstname: "Vorname"
         lastname: "Nachname"
         email: "E-mail"

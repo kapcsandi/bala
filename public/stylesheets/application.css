@@ -71,7 +71,7 @@ h1 {font-size:1.5em}
 #menu .last {margin-right:0}
 .categories .category {height:210px;border:2px solid #F4C13F;padding:5px 10px;margin:0 14px 10px 0;float:left}
 .categories .category.last {margin-right:0}
-.category .title {font-size:1.2em;font-weight:bold}
+.category .title {font-size:1.2em}
 .mini {line-height:1.5em;overflow:hidden;margin:5px 0;padding:5px;border:1px solid #cccccc}
 .even {background-color:#f6f6f6}
 .odd {background-color:#efefef}
@@ -98,7 +98,7 @@ textarea {height:auto;height:100%;width:90%}
 .photos a img {border:1px solid #ffffff}
 #houses_bookings .photos a img {height:110px}
 .photos a:hover img {border:1px solid #D75A20}
-body{font-family:'Trebuchet MS',Lucida,Verdana;font-size:95%}
+body{font-family:'Trebuchet MS',Lucida,Verdana;font-size:90%}
 #search{background-color:#F5D24F;padding-bottom:10px;margin-bottom:10px;border:2px solid #F4C13F}
 #search img {margin-top:5px}
 #search fieldset {margin:0;padding:0 15px 1.4em;width:94%}
@@ -134,4 +134,4 @@ input[type=submit] {padding:3px 10px}
 .calendar_date_select td div.other {color:#FFF000;}
 .fold {text-decoration:none;cursor:hand;cursor:pointer;display:block;margin:-15px -24px 0 0;float:right}
 #houses_bookings .fold {margin:2px 10px 10px 0}
-legend {padding:0 10px}
+legend {padding:0 10px;margin-left:5px}

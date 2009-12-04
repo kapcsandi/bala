@@ -16,9 +16,8 @@ class Booking < ActiveRecord::Base
   validates_date :from, :before => :to
   validates_date :to, :after => :from
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
-  validates_associated :houses_bookings
+  validates_associated :houses_bookings, :houses
   accepts_nested_attributes_for :houses_bookings, :allow_destroy => true, :reject_if => :all_blank
-  
   def states 
     [t('status_created'),t('status_approved'),t('status_deleted'),t('status_unknown')]
   end
@@ -31,6 +30,10 @@ class Booking < ActiveRecord::Base
     (self.to - self.from).to_i if self.to and self.from
   end
 
+  def with_animals?
+    self.with_animals == 1
+  end
+  
   def nights=(day)
     (self.to - self.from).to_i
   end
@@ -41,5 +44,9 @@ class Booking < ActiveRecord::Base
 
   def name
     self.firstname + ' ' + self.lastname
+  end
+
+  private
+  def house_code
   end
 end

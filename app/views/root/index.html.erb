@@ -20,7 +20,7 @@
 <% for house in @pictures do %>
   <% link_to :controller => 'houses', :action => 'show', :id => house.id, :anchor => 'details' do %>
   <%- if house.picture_urls[0] %>
-    <%= image_tag house.picture_urls[0], :height => 100 %>
+    <%= image_tag house.picture_urls[0], :height => 80 %>
   <% else %>
     <%= t('no_picture') %>
   <% end %>

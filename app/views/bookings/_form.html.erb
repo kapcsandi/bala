@@ -1,8 +1,10 @@
 <div id="flash_error"><%= t(:booking_warning) %></div>
 <% form_for @booking do |f| %>
   <%= f.error_messages %>
+<div id="flash_notice"><%= t(:booking_hint) %></div>
 <% field_set_tag t('booking_details') do %>
-  <%= t('selected_houses', :count => @houses.size) %>:
+  <% if @houses.size > 0 %>
+  <%= label_tag t('selected_houses', :count => @houses.size) %>:
   <ul id="houses_bookings">
   <% for house in @houses do %>
     <% content_tag_for :li, house do %>
@@ -12,22 +14,53 @@
       <% if @houses.size > 1 %>
       <div class="handle">[drag] <%= hb_form.label t(:code) %></div>
       <% end %>
-      <%= hb_form.text_field :code %>
+      <%= hb_form.text_field :code, :size => 20 %>
       <% end %>
     <% end %>
   <% end %>
   </ul>
-  <% if @houses.size > 1 %>
   <%= sortable_element('houses_bookings', :url => sort_bookings_path, :constraint => 'horizontal', :handle => 'handle') %>
-  <% end %>
-<div id="flash_notice"><%= t(:booking_hint) %></div>
 <br class="clear" />
+  <% else %>
+    <% f.fields_for 'houses[]', House.new do |hb_form| %>
+  <div class="span-6 admin">
+      <%= label_tag t('selected_houses', :count => @houses.size) %>:
+      <%= hb_form.text_field :code, :size => 20 %>
+  </div>
+    <% end %>
+  <% end %>
   <% if action_name != 'new' and admin? %>
   <div class="span-6">
     <%= f.label t(:status) %><br />
     <%= f.select :status, @booking.states %>
   </div>
   <% end %>
+  <div class="span-6">
+    <%= f.label t(:persons_count) %><br />
+    <%= f.text_field :persons, :size => 20 %>
+  </div>
+  <div class="span-6">
+    <%= f.label t(:children_count) %><br />
+    <%= f.text_field :children, :size => 20 %>
+  </div>
+  <div class="span-6">
+    <%= f.label t(:children_years) %><br />
+    <%= f.text_field :children_years, :size => 20 %>
+  </div>
+  <div class="span-6">
+    <%= f.label t(:with_animals) %>
+    <div>
+    <%= t(:answer_yes) %><%= f.radio_button :with_animals, 1, :checked => (@booking and @booking.with_animals?) %>
+    <%= t(:answer_no) %><%= f.radio_button :with_animals, 0, :checked => (@booking.nil? or not @booking.with_animals?)  %>
+    </div>
+  </div>
+  <div class="span-6">
+    <%= f.label t(:animal_details) %><a class="info" name="animal_info" title="Anzahl und Tierart der mitfahrenden Haustiere. Bei Hunden bitte Rasse und ca. kg angeben."> i </a><br />
+    <%= f.text_field :animal_details, :size => 30 %>
+  </div>
+  <hr />
+<p>
+Ich reserviere obiges Fehrienhaus für folgenden Zeitraum:</p>
   <div class="span-6">
     <%= f.label t(:from) %><br />
     <%= f.calendar_date_select :from, :valid_date_check => "date >= new Date()", :size => 20, :onChange =>
@@ -45,14 +78,6 @@ $("booking_nights").value=parseInt(to-from)/ONE_DAY' %>
   <div class="span-6">
     <%= f.label t(:nights) %><br />
     <%= f.text_field :nights, :size => 20, :value => (@booking.new_record? ? '0' : @booking.nights), :disabled => true %>
-  </div>
-  <div class="span-6">
-    <%= f.label t(:persons) %><br />
-    <%= f.text_field :persons, :size => 20 %>
-  </div>
-  <div class="span-6">
-    <%= f.label t(:with_animals) %>
-    <%= f.check_box :with_animals %>
   </div>
   <div class="clear span-18 prepend-top">
     <%= f.label t(:notes) %><br />
@@ -98,7 +123,7 @@ $("booking_nights").value=parseInt(to-from)/ONE_DAY' %>
   </div>
   <div class="span-6">
     <%= f.label t(:country) %><br />
-    <%= f.text_field :country, :size => 25 %>
+    <%= localized_country_select(:booking, :country, [], :include_blank => t('select_country')) %>
   </div>
 <% end %>
 <div class="span-4"><%= f.submit t("booking_submit") %></div>
