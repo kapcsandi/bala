@@ -101,7 +101,7 @@ class BookingsController < ApplicationController
   end
 
   def calculate
-    house = House.find_by_code(params[:codes]) unless params[:codes].empty?
+    house = House.find_by_code(params[:codes].split(',')[0]) unless params[:codes].empty?
     persons = params[:persons] unless params[:persons].empty?
     from = Date.parse(params[:from]) unless params[:from].empty?
     to = Date.parse(params[:to]) unless params[:to].empty?
@@ -120,7 +120,7 @@ class BookingsController < ApplicationController
         @price += price + animal_charge
       end
     else
-      @price ="Hiba!"
+      @price = ""
     end
     respond_to do |format|
       format.js

@@ -140,3 +140,9 @@ input[type=submit] {padding:3px 10px}
 ##new_booking #houses_bookings .fold {margin:25px 50px 0 0;float:right}
 legend {padding:0 10px 0 30px;margin-left:5px}
 .photos  a.fold:hover img {border:#000}
+select#booking_country {width:215px}
+fieldset {
+  -moz-border-radius:5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px; //edit :D
+}

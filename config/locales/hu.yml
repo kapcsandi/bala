@@ -380,6 +380,8 @@ hu:
               blank: "a lakcím mező kitöltése kötelező"
             nights:
               greater_than: "az éjszakák száma nem lehet 1-nél kisebb"
+            price:
+              not_a_number: "az Árkalkulátor gombot nyomja meg"
             
         user:
           password:

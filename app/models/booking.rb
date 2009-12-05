@@ -12,6 +12,7 @@ class Booking < ActiveRecord::Base
 
   validates_numericality_of :persons, :greater_than => 0
   validates_numericality_of :nights, :greater_than => 0
+  validates_numericality_of :price, :greater_than => 0
   validates_presence_of :from, :to, :phone, :email, :firstname, :lastname, :nights, :with_animals, :city, :postcode, :address
 #  validates_date :from, :before => :to
 #  validates_date :to, :after => :from
