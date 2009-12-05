@@ -122,10 +122,9 @@ class BookingsController < ApplicationController
     else
       @price ="Hiba!"
     end
-    render :inline => @price
-#    respond_to do |format|
-#      format.js
-#    end    
+    respond_to do |format|
+      format.js
+    end
   end
   
   private
