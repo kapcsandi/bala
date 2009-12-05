@@ -224,6 +224,8 @@ hu:
   Edit Booking: Foglalás szerkesztése
   booking_notification_subject: "Foglalási értesítő"
   no_picture: Nincs kép
+  salut: Megszólítás
+  fax: Fax
 # status
   status_unknown: "Ismeretlen"
   status_created: "Rögzítve"
@@ -368,6 +370,17 @@ hu:
             email:
               blank: "az e-mail cím mező nem lehet üres"
               invalid: "az e-mail cím nem megfelő formátumú"
+            with_animals:
+              blank: "a hoz-e állatot? mező kitöltése kötelező"
+            city:
+              blank: "a város kitöltése kötelező"
+            postcode:
+              blank: "az irányítószám mező kitöltése kötelező"
+            address:
+              blank: "a lakcím mező kitöltése kötelező"
+            nights:
+              greater_than: "az éjszakák száma nem lehet 1-nél kisebb"
+            
         user:
           password:
             blank: "a Felhasználónév és Jelszó nem lehet üres"
@@ -539,6 +552,7 @@ hu:
     answer_yes: Igen
     answer_no: Nem
     animal_details: Háziállat fajtája, súlya
+    calculated_price: Ár
 
 #field sets
     house_basics: Ház alapinfók

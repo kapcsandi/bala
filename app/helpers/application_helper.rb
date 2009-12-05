@@ -9,9 +9,9 @@ module ApplicationHelper
     session[:cart] ||= Cart.new
   end
 
-  def show_hide(id)
-    %Q^<a class="fold" id="show_#{id}" onclick="Effect.BlindDown('#{id}');$('show_#{id}').hide();$('hide_#{id}').show();return false;" style="display:none">[+]</a>
-    <a class="fold" id="hide_#{id}" onclick="$('show_#{id}').show();$('hide_#{id}').hide();Effect.BlindUp('#{id}');return false;" style="display:block">[-]</a>^
+  def show_hide(id, open=true)
+    %Q^<a class="fold" id="show_#{id}" onclick="Effect.BlindDown('#{id}');$('show_#{id}').hide();$('hide_#{id}').show();return false;" style="display:#{open ? 'none' : 'block'}"><img alt="" src="/images/active_scaffold/default/arrow_down.gif"></a>
+    <a class="fold" id="hide_#{id}" onclick="$('show_#{id}').show();$('hide_#{id}').hide();Effect.BlindUp('#{id}');return false;" style="display:#{open ? 'block' : 'none'}"><img alt="" src="/images/active_scaffold/default/arrow_up.gif"></a>^
   end
 
   def url_for(options = {})

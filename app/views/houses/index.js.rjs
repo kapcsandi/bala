@@ -1,0 +1,1 @@
+page.replace_html 'house_stamp', :partial => 'stamp', :locals => { :house => @houses[0], :last => true, :open => false}

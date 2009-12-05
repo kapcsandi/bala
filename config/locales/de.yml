@@ -237,7 +237,7 @@ de:
   deselect: Unmarken
   Print:  Drucken
   Edit: Edit
-  Destroy: speichern
+  Destroy: Speichern
   Print this Page: Oldal kinyomtatása
 
 
@@ -312,6 +312,7 @@ de:
   contact_data: Personal Daten
   nights: nacht
   with_animals: Nehmen Sie Haustiere mit?
+  calculated_price: Mietpreis
   notes: Nachricht
   phone: Telefon
   mobile: Handy

@@ -126,6 +126,16 @@ class House < ActiveRecord::Base
     self.price_main_season_per_week
     end
   end
+  def daily_price(name)
+    case name
+    when /pre|post/
+    self.price_pre_season_per_day
+    when /mid/
+    self.price_mid_season_per_day
+    when /main/
+    self.price_main_season_per_day
+    end
+  end
 end
 
 # script/generate model reservation house_id:integer from:date to:date persons:integer user_id:integer status:integer comment:text

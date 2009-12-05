@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :seasons
   map.resources :bookings
   map.resources :bookings, :collection => { :sort => :post} 
+  map.calculate "calculate", :controller => "bookings", :action=> "calculate"
   map.resources :taggables
   map.resources :tags
   map.resources :houses

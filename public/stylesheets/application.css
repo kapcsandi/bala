@@ -60,7 +60,8 @@
 
 #main {height:auto !important;margin:0 auto -8.6em;min-height:100%;}
 input,select{width:auto;font-size:100%}
-option{}
+input[type="text"], input[type="password"], input.text, input.title, textarea, select {border:2px solid silver}
+select {border-top:1px solid silver}
 p {margin:0 0 1em}
 fieldset {margin:0 auto;padding:1em}
 h1 {font-size:1.5em}
@@ -86,7 +87,7 @@ h1 {font-size:1.5em}
 #houses_new fieldset p, #houses_edit fieldset p {width:33%;float:left}
 #houses_new .half p, #houses_edit .half p {width:50%;float:auto}
 #houses_new .full p, #houses_edit .full p {width:100%;float:auto}
-textarea {height:auto;height:100%;width:90%}
+textarea {height:auto;height:100%;width:100%}
 /* #new_booking fieldset div {width:33%;float:left;margin:0 0 5px} */
 #new_booking fieldset div.fieldWithErrors {width:auto;float:auto;margin:0 auto}
 #new_booking textarea {height:auto}
@@ -121,7 +122,8 @@ a:hover {color:#D75A20}
 .mini .location {font-size:1.2em}
 #houses_bookings .stamp.last {margin-right:0}
 #houses_bookings li {width:33%;float:left;list-style-image:none;list-style-position:outside;list-style-type:none}
-#houses_bookings {overflow:hidden;margin:0 auto}
+#houses_bookings .auto_complete li {width:100%}
+#houses_bookings {overflow:hidden;margin:0 auto;}
 .handle {cursor:pointer;display:inline}
 .selected .menu-item {border-color:#fafafa;background-color:#E4F1FB}
 .inner {margin:5px}
@@ -132,6 +134,9 @@ input[type=submit] {padding:3px 10px}
 #houses_print .right {font-size:17px;position:fixed;top:0px;left:640px;background:white;padding:2px 5px}
 .haver {padding-left:10px}
 .calendar_date_select td div.other {color:#FFF000;}
-.fold {text-decoration:none;cursor:hand;cursor:pointer;display:block;margin:-15px -24px 0 0;float:right}
+.fold {text-decoration:none;cursor:hand;cursor:pointer;display:block;margin:-20px 30px 0 15px;float:left}
 #houses_bookings .fold {margin:2px 10px 10px 0}
-legend {padding:0 10px;margin-left:5px}
+#new_booking .fold {margin: -30px 25px 0 0;float:right}
+##new_booking #houses_bookings .fold {margin:25px 50px 0 0;float:right}
+legend {padding:0 10px 0 30px;margin-left:5px}
+.photos  a.fold:hover img {border:#000}

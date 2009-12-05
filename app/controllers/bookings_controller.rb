@@ -99,6 +99,34 @@ class BookingsController < ApplicationController
     session[:order] = params[:houses_bookings]
     render :nothing => true
   end
+
+  def calculate
+    house = House.find_by_code(params[:codes]) unless params[:codes].empty?
+    persons = params[:persons] unless params[:persons].empty?
+    from = Date.parse(params[:from]) unless params[:from].empty?
+    to = Date.parse(params[:to]) unless params[:to].empty?
+    animals = params[:animals] unless params[:animals].empty?
+    if house and persons and from and to and to > from
+      days = to - from
+      @price, animal_charge = 0,  animals && animals == 'true' && house.animal_charge > 0 ? house.animal_charge : 0
+      week_counter = 0
+      season_counter = 0
+      (from..to-1).step do |day|
+        logger.info "#{Time.now} #{day}"
+        season = Season.which_season?(day)
+        logger.info "#{Time.now} #{season}"
+        price = house.daily_price(season)
+        logger.info "#{Time.now} #{price}"
+        @price += price + animal_charge
+      end
+    else
+      @price ="Hiba!"
+    end
+    render :inline => @price
+#    respond_to do |format|
+#      format.js
+#    end    
+  end
   
   private
   
