@@ -1,3 +1,4 @@
+  <a name="house_<%= house.id %>" title="<%=h house.city %>, <%=h house.code %>"></a>
   <div class="span-18 last">
     <div class="span-16 location">
     <span class="field"><%=h house.city %></span>
@@ -17,7 +18,7 @@
     <div class="photos"><% link_to :action => (current_page?('show_houses') ? '' : 'show'), :id => house, :anchor => 'details' do %>
     <div>
     <%- if house.picture_urls[0] %>
-      <%= image_tag house.picture_urls[0] %>
+      <%= image_tag house.picture_urls[0], :height => 90 %>
     <% else %>
     <%= t('no_picture') %>
     <% end %>

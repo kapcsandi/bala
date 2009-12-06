@@ -133,7 +133,7 @@ class HousesController < ApplicationController
       end
       @selected = House.find_all_by_id(@cart.items)
       if params[:cart]
-	redirect_to :back
+	redirect_to :back, :anchor => "house_#{params[:id]}"
       end
     end
   end

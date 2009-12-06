@@ -7,7 +7,7 @@
   <%= tag(:meta, :name => 'description', :content => yield(:description) || t(:meta_description))  %>
   <%= javascript_include_tag :defaults %>
   <%= calendar_date_select_includes "silver", :locale => I18n.locale %>
-  <%= stylesheet_link_tag 'blueprint/screen', 'application', :cache => true %>
+  <%= stylesheet_link_tag 'blueprint/screen', 'application', 'thickbox', :cache => true %>
   <% if admin? and controller_name == 'pages' and action_name == 'edit' %>
   <%= javascript_include_tag :fckeditor %>
   <% end %>
@@ -119,7 +119,7 @@
     </div>
   </div>
   <div class="right">
-    <a href="#top">Lap tetejére</a>
+    <a href="#top"><%= t('page_top') %></a>
   </div>
 </div>
 <div id="foot" class="span-24"></div>

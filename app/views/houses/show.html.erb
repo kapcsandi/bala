@@ -246,7 +246,7 @@
   <% field_set_tag t('house_prices'), :class => :full do %>
 <%= show_hide('house_prices') %>
 <% content_tag :div, :id => :house_prices do %>
-  <p>Mietpreis pro Haus und Woche in Euro</p>
+  <p style="width:100%">Mietpreis pro Haus und Woche in Euro</p>
   <br />
   <table class="full">
   <thead>
@@ -257,7 +257,7 @@
   <th> Mietpreis </th>
   </thead>
   <tbody>
-  <% for season in Season.last_year %>
+  <% for season in Season.next_year %>
     <tr>
     <td><%=h season.start %></td>
     <td><%=h season.end %></td>
@@ -306,7 +306,7 @@
 <% content_tag :div, :id => :pictures do %>
     <% @house.picture_urls.each do |id| %>
     <div>
-      <%= image_tag id %>
+      <%= thickbox_image_tag id, id.sub(/_thumb/,'') %>
     </div>
     <% end if @house.picture_ids.respond_to?('index') %>
 <% end %>
