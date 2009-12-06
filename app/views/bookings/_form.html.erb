@@ -75,7 +75,7 @@
     </div>
     <div class="span-6">
       <%= f.label t(:nights) %><br />
-      <%= f.text_field :nights, :size => 20, :readonly => "true", :value => (@booking.new_record? ? '0' : @booking.nights.to_i), :disabled => true %>
+      <%= f.text_field :nights, :size => 20, :readonly => "true", :value => @booking.nights %>
     </div>
     <div class="span-16">
       <%= f.label t(:calculated_price) %><br />

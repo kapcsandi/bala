@@ -243,7 +243,7 @@
     </div>
   <% end %>
   <% end %>
-  <% field_set_tag t('house_prices') do %>
+  <% field_set_tag t('house_prices'), :class => :full do %>
 <%= show_hide('house_prices') %>
 <% content_tag :div, :id => :house_prices do %>
   <p>Mietpreis pro Haus und Woche in Euro</p>
