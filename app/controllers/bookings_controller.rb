@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_filter :authorize, :except => [:new, :create, :sort, :calculate]
 
   def index
     @bookings = Booking.all
@@ -55,9 +56,9 @@ class BookingsController < ApplicationController
         end
       end
       session[:order] = nil
-      flash[:notice] = t "created_booking"
+      flash[:notice] = t("created_booking")
       notification_mails(@booking)
-      redirect_to @booking
+      redirect_to @houses
     else
       render :action => 'new'
     end

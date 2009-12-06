@@ -306,7 +306,7 @@
 <% content_tag :div, :id => :pictures do %>
     <% @house.picture_urls.each do |id| %>
     <div>
-      <%= thickbox_image_tag id, id.sub(/_thumb/,'') %>
+      <%= thickbox_image_tag id, id.sub(/_thumb/,''), {:rel => 'thickbox' }, :title => 'This is a test' %>
     </div>
     <% end if @house.picture_ids.respond_to?('index') %>
 <% end %>

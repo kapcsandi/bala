@@ -1,4 +1,11 @@
 <% title t("Bookings") %>
+<% form_for 'search' do |f| %>
+Válassz apartmant:
+<%= f.text_field_with_auto_complete :code, { :size => 20, :class => 'code' }, { :url => houses_path(:format => :js), :method => :get, :param_name => 'search[conditions][code_like]', :with => "value + '&autocomplete=1'", :indicator => :house_spinner } %>
+<img id="house_spinner" src="/images/active_scaffold/default/indicator.gif" style="display:none">
+          <div id="house_stamp"></div>  <div class="span-4"><%= f.submit t("admin.submit") %></div>
+<% end %>
+
 
 <%= calendar(:year => 2009, :month => 11) %>
 

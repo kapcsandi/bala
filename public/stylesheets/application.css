@@ -58,18 +58,35 @@
   list-style: disc;
 }
 
-#main {height:auto !important;margin:0 auto -8.6em;min-height:100%;}
+body{font-family:'Trebuchet MS',Lucida,Verdana;font-size:90%}
 input,select{width:auto;font-size:100%}
 input[type="text"], input[type="password"], input.text, input.title, textarea, select {border:1px solid silver}
 select {border-top:1px solid silver}
 p {margin:0 0 1em}
 fieldset {margin:0 auto;padding:1em}
+fieldset {-moz-border-radius:5px;border-radius: 5px;-webkit-border-radius: 5px;}
 h1 {font-size:1.5em}
+textarea {height:auto;height:100%;width:100%}
+input[type=submit] {padding:3px 10px}
+a {color:#1B619B}
+a:visited{color:#000;}
+a:hover {color:#D75A20}
+legend {padding:0 10px 0 30px;margin-left:5px}
+#main {height:auto !important;margin:0 auto -8.6em;min-height:100%;}
 .label{margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
 .menu-item{padding:5px 0;font-size:1.1em;margin:5px 0;text-align:center}
+#menu {background:#8AC9D4 url(/images/bg0.png) repeat-x;margin:0 auto;height:42px;padding-top:15px;overflow:hidden;clear:both;border-bottom:5px solid #E4F1FB}
 #menu .menu-item{margin:0 auto;border:0px none;height:30px}
 #menu .menu {margin-right:10px}
 #menu .last {margin-right:0}
+#menu .inner {width:950px;margin:0 auto;overflow:hidden;clear:both}
+.menu-item {border:2px solid #D3E0EA;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;padding:11px}
+#menu a {text-decoration:none}
+#menu .selected .menu-item {border:1px solid #fafafa;/*background:transparent url(/images/grad.png) repeat-x*/}
+a .menu-item{ font-size:1.1em;font-weight:bold}
+#top {margin:0 auto}
+#top .inner {padding:2px;margin:0 auto;float:none}
+#top .left{height:50px;background-color:#2B5A88 }
 .categories .category {height:210px;border:2px solid #F4C13F;padding:5px 10px;margin:0 14px 10px 0;float:left}
 .categories .category.last {margin-right:0}
 .category .title {font-size:1.2em}
@@ -84,11 +101,10 @@ h1 {font-size:1.5em}
 #houses_show fieldset p.full, #houses_print fieldset p.full {width:100%;float:auto}
 #houses_show .third p, #houses_print .third p {width:29%;float:left}
 #houses_show fieldset.fullwidth p, #houses_print fieldset.fullwidth p {width:90%;float:auto}
+#houses_show fieldset.full p {width:20%}
 #houses_new fieldset p, #houses_edit fieldset p {width:33%;float:left}
 #houses_new .half p, #houses_edit .half p {width:50%;float:auto}
 #houses_new .full p, #houses_edit .full p {width:100%;float:auto}
-#houses_show fieldset.full p {width:20%}
-textarea {height:auto;height:100%;width:100%}
 #new_booking fieldset div.fieldWithErrors {width:auto;float:auto;margin:0 auto}
 #new_booking textarea {height:auto}
 #new_booking fieldset.half div {width:50%}
@@ -98,40 +114,26 @@ textarea {height:auto;height:100%;width:100%}
 .photos div {text-align:center;background-color:#FCFCFC;float:left;margin:5px 15px;padding:5px}
 .photos a img {border:1px solid #ffffff}
 #houses_bookings .photos a img {height:110px}
+#houses_bookings .stamp.last {margin-right:0}
+#houses_bookings li {width:33%;float:left;list-style-image:none;list-style-position:outside;list-style-type:none}
+#houses_bookings .auto_complete li {width:100%}
+#houses_bookings {overflow:hidden;margin:0 auto;}
 .photos a:hover img {border:1px solid #D75A20}
-body{font-family:'Trebuchet MS',Lucida,Verdana;font-size:90%}
 #search{background-color:#F5D24F;padding-bottom:10px;margin-bottom:10px;border:1px solid #F4C13F}
 #search img {margin-top:5px}
 #search fieldset {margin:0;padding:0 15px 1.4em;width:94%}
-#menu {background:#8AC9D4 url(/images/bg0.png) repeat-x;margin:0 auto;height:42px;padding-top:15px;overflow:hidden;clear:both;border-bottom:5px solid #E4F1FB}
-#menu .inner {width:950px;margin:0 auto;overflow:hidden;clear:both}
-.menu-item {border:2px solid #D3E0EA;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;padding:11px}
-#menu a {text-decoration:none}
-a .menu-item{ font-size:1.1em;font-weight:bold}
 /* a:hover .menu-item {border-color:#D75A20;background-color:#D3E0EA} */
-#top {margin:0 auto}
-#top .inner {padding:2px;margin:0 auto;float:none}
-#top .left{height:50px;background-color:#2B5A88 }
-a {color:#1B619B}
-a:hover {color:#D75A20}
 .container{background-color:#ffffff}
 #content {margin:5px 0}
 #site-name a {font-size:30px;font-weight:bold;text-decoration:none;color:#D75A20;}
 .pagination {float:right;padding:0 15px}
 .count{font-size:1.1em;color:#D75A20;font-weight:bold}
 .mini .location {font-size:1.2em}
-#houses_bookings .stamp.last {margin-right:0}
-#houses_bookings li {width:33%;float:left;list-style-image:none;list-style-position:outside;list-style-type:none}
-#houses_bookings .auto_complete li {width:100%}
 .auto_complete {z-index:1;border:1px solid silver}
-#houses_bookings {overflow:hidden;margin:0 auto;}
 .handle {cursor:pointer;display:inline}
 .selected .menu-item {background-color:#E4F1FB;color:#D75A20;}
-#menu .selected .menu-item {border:1px solid #fafafa;/*background:transparent url(/images/grad.png) repeat-x*/}
-a:visted{color:#000;}
 .inner {margin:5px}
 .breadcrumb span {padding: 0 5px;font-size:1.1em}
-input[type=submit] {padding:3px 10px}
 .right {float:right}
 #houses_print {width:800px}
 #houses_print .right {font-size:17px;position:fixed;top:0px;left:640px;background:white;padding:2px 5px}
@@ -141,7 +143,5 @@ input[type=submit] {padding:3px 10px}
 #houses_bookings .fold {margin:2px 10px 10px 0}
 #new_booking .fold {margin: -30px 25px 0 0;float:right}
 ##new_booking #houses_bookings .fold {margin:25px 50px 0 0;float:right}
-legend {padding:0 10px 0 30px;margin-left:5px}
 .photos  a.fold:hover img {border:#000}
 select#booking_country {width:215px}
-fieldset {-moz-border-radius:5px;border-radius: 5px;-webkit-border-radius: 5px;}

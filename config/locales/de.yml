@@ -333,6 +333,7 @@ de:
   Back to List: Zurück zur Buchung
   View All: Alle anzeigen
   Edit Booking: Buchung bearbeiten
+  cancel_booking: Zurück
   booking_notification_subject: Reservierung Nachrichten
 
   Empty dictionary fields: Leere Felder Wörterbuch
@@ -460,3 +461,5 @@ de:
   successfully_logged_out: Erfolgreicher abmeldet
   cart_limit: Der Warenkorb kann maximal 3 Häuser enthalten!<br /> Zuerst bitte löschen Sie Elemente aus Ihrem warekorb.
   registration_successful: Erfolgreich Registration
+  created_booking: "<h3>Vielen Dank für Ihre Reservierung.</h3><p>Liebe Ungarnfreunde,</p><p>nach der Absendung Ihrer Bestellung bekommen Sie enine <b>Bestätigung</b> mit dem Gesamtpreis des Aufenthaltes, Höhe und Termin der erste Anzalhlung. Wir werden Ihre Reservierung schnellstens bearbeiten und Ihnen der Unterlagen zukommen lassen.</p>"
+
