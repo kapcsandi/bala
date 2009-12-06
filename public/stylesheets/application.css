@@ -78,15 +78,16 @@ h1 {font-size:1.5em}
 .odd {background-color:#efefef}
 .calendar_date_select {width:210px}
 .full {width:100%;float:auto}
-.half {width:45%;float:left;margin-right:10px}
+.half {width:48%;float:right;margin-right:10px}
 #houses_show fieldset {padding:0}
 #houses_show fieldset p, #houses_print fieldset p {width:auto;margin-left:1.5em;float:left}
 #houses_show fieldset p.full, #houses_print fieldset p.full {width:100%;float:auto}
 #houses_show .third p, #houses_print .third p {width:29%;float:left}
-#houses_show fieldset.fullwidth p, #houses_print fieldset.fullwidth p {width:100%;float:auto}
+#houses_show fieldset.fullwidth p, #houses_print fieldset.fullwidth p {width:90%;float:auto}
 #houses_new fieldset p, #houses_edit fieldset p {width:33%;float:left}
 #houses_new .half p, #houses_edit .half p {width:50%;float:auto}
 #houses_new .full p, #houses_edit .full p {width:100%;float:auto}
+#houses_show fieldset.full p {width:20%}
 textarea {height:auto;height:100%;width:100%}
 /* #new_booking fieldset div {width:33%;float:left;margin:0 0 5px} */
 #new_booking fieldset div.fieldWithErrors {width:auto;float:auto;margin:0 auto}
@@ -123,6 +124,7 @@ a:hover {color:#D75A20}
 #houses_bookings .stamp.last {margin-right:0}
 #houses_bookings li {width:33%;float:left;list-style-image:none;list-style-position:outside;list-style-type:none}
 #houses_bookings .auto_complete li {width:100%}
+.auto_complete {z-index:1;border:1px solid silver}
 #houses_bookings {overflow:hidden;margin:0 auto;}
 .handle {cursor:pointer;display:inline}
 .selected .menu-item {border-color:#fafafa;background-color:#E4F1FB}
@@ -141,8 +143,4 @@ input[type=submit] {padding:3px 10px}
 legend {padding:0 10px 0 30px;margin-left:5px}
 .photos  a.fold:hover img {border:#000}
 select#booking_country {width:215px}
-fieldset {
-  -moz-border-radius:5px;
-  border-radius: 5px;
-  -webkit-border-radius: 5px; //edit :D
-}
+fieldset {-moz-border-radius:5px;border-radius: 5px;-webkit-border-radius: 5px;}

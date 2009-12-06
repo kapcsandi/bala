@@ -117,7 +117,7 @@ class BookingsController < ApplicationController
         logger.info "#{Time.now} #{season}"
         price = house.daily_price(season)
         logger.info "#{Time.now} #{price}"
-        @price += price + animal_charge
+        @price += price
       end
     else
       @price = ""
