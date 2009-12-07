@@ -306,7 +306,7 @@
 <% content_tag :div, :id => :pictures do %>
     <% @house.picture_urls.each_with_index do |id,index| %>
     <div>
-      <% link_to_lightbox2 id.sub(/_thumb/,''), :group => house.code, :title => "#{house.code} #{index}" do %>
+      <% link_to_lightbox2 id.sub(/_thumb/,''), :group => @house.code, :title => "#{@house.code} ##{index}" do %>
         <%= image_tag id %>
       <% end %>
     </div>
