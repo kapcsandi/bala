@@ -1,1 +1,0 @@
-require 'thickbox_view_helper'
