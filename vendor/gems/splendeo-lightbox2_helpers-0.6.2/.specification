@@ -1,0 +1,70 @@
+--- !ruby/object:Gem::Specification 
+name: splendeo-lightbox2_helpers
+version: !ruby/object:Gem::Version 
+  version: 0.6.2
+platform: ruby
+authors: 
+- Enrique Garcia Cota (egarcia)
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2009-08-04 00:00:00 +02:00
+default_executable: 
+dependencies: []
+
+description: lightbox2_helpers helpers for using lightbox2 on rails
+email: egarcia@splendeo.es
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- README.rdoc
+files: 
+- init.rb
+- lib/lightbox2_helpers.rb
+- lib/lightbox2_helpers/lightbox2_helpers.rb
+- lib/lightbox2_helpers/form_helpers.rb
+- lib/lightbox2_helpers/includes_helper.rb
+- public/images/lightbox2_helpers/bullet.gif
+- public/images/lightbox2_helpers/close.gif
+- public/images/lightbox2_helpers/closelabel.gif
+- public/images/lightbox2_helpers/download-icon.gif
+- public/images/lightbox2_helpers/loading.gif
+- public/images/lightbox2_helpers/nextlabel.gif
+- public/images/lightbox2_helpers/prevlabel.gif
+- public/javascripts/lightbox2_helpers/builder.js
+- public/javascripts/lightbox2_helpers/lightbox.js
+- public/stylesheets/lightbox2_helpers/lightbox.css
+- README.rdoc
+has_rdoc: true
+homepage: http://github.com/splendeo/lightbox2_helpers
+licenses: []
+
+post_install_message: 
+rdoc_options: 
+- --charset=UTF-8
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: 
+rubygems_version: 1.3.5
+signing_key: 
+specification_version: 2
+summary: lightbox2_helpers helpers for using lightbox2 on rails
+test_files: []
+

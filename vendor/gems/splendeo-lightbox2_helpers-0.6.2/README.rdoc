@@ -1,0 +1,33 @@
+
+
+=lightbox2_helpers
+
+This package contains helpers that allows the usage of http://www.huddletogether.com/projects/lightbox2/ directly on your rails projects.
+
+Version of lightbox2 used: v2.04
+
+==Usage
+Copy these two lines inside the head section of your layout file / view
+    <%= javascript_include_tag :defaults %>
+    <%= lightbox2_helpers_includes %>
+
+You can use link_to_lightbox2 from then on.
+
+Easy example:
+    <% link_to_lightbox2 "See picture", @picture, :group => picture.gallery_id, :title => picture.title %>
+
+Example with a block
+    <% link_to_lightbox2 @picture.path, :group => gallery.name, :title => picture.caption do %>
+        <%=image_tag @picture.thumbnail_path %>
+    <% end %>
+
+==Installation
+
+===As a gem
+Copy this on config/environment.erb, inside the gems section
+    config.gem "splendeo-lightbox2_helpers", :lib => 'lightbox2_helpers', :source => "http://gems.github.com"
+Then execute
+    rake gems:install
+
+===As a plug-in
+I actually haven't tried this, sorry I don't know how to do it.
