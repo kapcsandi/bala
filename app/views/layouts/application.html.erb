@@ -9,8 +9,15 @@
   <%= calendar_date_select_includes "silver", :locale => I18n.locale %>
   <%= stylesheet_link_tag 'blueprint/screen', 'application', :cache => true %>
   <%= lightbox2_helpers_includes %>
+  <% tooltips_include_tag do %>
+    <%= yield(:tips) %>
+  <% end %>
+
   <% if admin? and controller_name == 'pages' and action_name == 'edit' %>
-  <%= javascript_include_tag :fckeditor %>
+    <%= javascript_include_tag :fckeditor %>
+  <% end %>
+  <% if admin? and controller_name == 'bookings' and action_name == 'index' %>
+    <%= stylesheet_link_tag "event_calendar" %>
   <% end %>
   <%= yield(:head) %>
 </head>

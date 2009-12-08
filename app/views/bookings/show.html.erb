@@ -1,76 +1,83 @@
 <% title t("Booking") %>
 
 <p>
-  <strong><%= t(:status)%>:</strong>
+  <strong><%= t('admin.houses')%>:</strong>
+  <% @booking.houses.each do |house| %>
+  <%= link_to house.code, house_path(house.id) %>,
+  <% end %>
+</p>
+
+<p>
+  <strong><%= t('admin.status')%>:</strong>
   <%= @booking.status %>
 </p>
 <p>
-  <strong><%= t(:from) %>:</strong>
-  <%=h @booking.from %>
+  <strong><%= t('admin.from') %>:</strong>
+  <%=h @booking.start_at %>
 </p>
 <p>
-  <strong><%= t(:to) %>:</strong>
-  <%=h @booking.to %>
+  <strong><%= t('admin.to') %>:</strong>
+  <%=h @booking.end_at %>
 </p>
 <p>
-  <strong><%= t(:nights) %>:</strong>
+  <strong><%= t('admin.nights') %>:</strong>
   <%=h @booking.nights %>
 </p>
 <p>
-  <strong><%= t(:persons) %>:</strong>
+  <strong><%= t('admin.persons') %>:</strong>
   <%=h @booking.persons %>
 </p>
 <p>
-  <strong><%= t(:with_animals) %>:</strong>
-  <%=h @booking.with_animals %>
+  <strong><%= t('admin.with_animals') %>:</strong>
+  <%=h @booking.with_animals ? 'igen' : 'nem' %>
 </p>
 <p>
-  <strong><%= t(:notes) %>:</strong>
+  <strong><%= t('admin.notes') %>:</strong>
   <%= h @booking.notes %>
 </p>
 <p>
-  <strong><%= t(:phone) %>:</strong>
+  <strong><%= t('admin.phone') %>:</strong>
   <%=h @booking.phone %>
 </p>
 <p>
-  <strong><%= t(:mobile) %>:</strong>
+  <strong><%= t('admin.mobile') %>:</strong>
   <%=h @booking.mobile %>
 </p>
 <p>
-  <strong><%= t(:email) %>:</strong>
+  <strong><%= t('admin.email') %>:</strong>
   <%=h @booking.email %>
 </p>
 <p>
-  <strong><%= t(:firstname) %>:</strong>
+  <strong><%= t('admin.firstname') %>:</strong>
   <%=h @booking.firstname %>
 </p>
 <p>
-  <strong><%= t(:lastname) %>:</strong>
+  <strong><%= t('admin.lastname') %>:</strong>
   <%=h @booking.lastname %>
 </p>
 <p>
-  <strong><%= t(:company) %>:</strong>
+  <strong><%= t('admin.company') %>:</strong>
   <%=h @booking.company %>
 </p>
 <p>
-  <strong><%= t(:address) %>:</strong>
+  <strong><%= t('admin.address') %>:</strong>
   <%=h @booking.address %>
 </p>
 <p>
-  <strong><%= t(:city) %>:</strong>
+  <strong><%= t('admin.city') %>:</strong>
   <%=h @booking.city %>
 </p>
 <p>
-  <strong><%= t(:postcode) %>:</strong>
+  <strong><%= t('admin.postcode') %>:</strong>
   <%=h @booking.postcode %>
 </p>
 <p>
-  <strong><%= t(:country) %>:</strong>
+  <strong><%= t('admin.country') %>:</strong>
   <%=h @booking.country %>
 </p>
 
 <p>
-  <%= link_to t("Edit"), edit_booking_path(@booking) %> |
-  <%= link_to t("Destroy"), @booking, :confirm => t('Are you sure?'), :method => :delete %> |
-  <%= link_to t("View All"), bookings_path %>
+  <%= link_to t("admin.edit"), edit_booking_path(@booking) %> |
+  <%= link_to t("admin.destroy"), @booking, :confirm => t('Are you sure?'), :method => :delete %> |
+  <%= link_to t("admin.view_all"), bookings_path %>
 </p>

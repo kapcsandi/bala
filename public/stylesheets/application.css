@@ -145,3 +145,4 @@ a .menu-item{ font-size:1.1em;font-weight:bold}
 ##new_booking #houses_bookings .fold {margin:25px 50px 0 0;float:right}
 .photos  a.fold:hover img {border:#000}
 select#booking_country {width:215px}
+#lightbox img {height:500px;width:500px}

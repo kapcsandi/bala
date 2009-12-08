@@ -2,9 +2,20 @@ class BookingsController < ApplicationController
   before_filter :authorize, :except => [:new, :create, :sort, :calculate]
 
   def index
-    @bookings = Booking.all
-    @year = Date.today.year
-    @month = Date.today.month
+    @search = House.searchlogic(params[:search])
+    @year = params[:year] || Date.today.year
+    @month = params[:month] || Date.today.month
+    @year, @month = @year.to_i, @month.to_i
+    @date = Date.parse("#{@year}-#{@month}-01")
+    house = @search.first
+    if house then
+      @bookings = house.bookings
+    else
+      @bookings = Booking.all
+    end
+
+    @shown_month = Date.civil(@year, @month)
+    @event_strips = @bookings.event_strips_for_month(@shown_month)
   end
   
   def show

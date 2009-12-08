@@ -1,13 +1,13 @@
 <% title t("Bookings") %>
-<% form_for 'search' do |f| %>
+<% form_for @search do |f| %>
 Válassz apartmant:
-<%= f.text_field_with_auto_complete :code, { :size => 20, :class => 'code' }, { :url => houses_path(:format => :js), :method => :get, :param_name => 'search[conditions][code_like]', :with => "value + '&autocomplete=1'", :indicator => :house_spinner } %>
-<img id="house_spinner" src="/images/active_scaffold/default/indicator.gif" style="display:none">
-          <div id="house_stamp"></div>  <div class="span-4"><%= f.submit t("admin.submit") %></div>
+  <%= text_field_with_auto_complete 'search', 'code', { :size => 20, :class => 'code' }, { :url => houses_path(:format => :js), :method => :get, :param_name => 'search[conditions][code_like]', :with => "value + '&autocomplete=1'", :indicator => :house_spinner } %>
+  <img id="house_spinner" src="/images/active_scaffold/default/indicator.gif" style="display:none">
+  <div id="house_stamp"></div>
+<div class="span-4"><%= f.submit t("admin.submit") %></div>
 <% end %>
-
-
-<%= calendar(:year => 2009, :month => 11) %>
+<hr />
+<%= event_calendar %>
 
 <table>
   <tr>
@@ -16,41 +16,30 @@ Válassz apartmant:
     <th>Nights</th>
     <th>Persons</th>
     <th>With Animals</th>
-    <th>Notes</th>
-    <th>Phone</th>
-    <th>Mobile</th>
-    <th>Email</th>
     <th>Firstname</th>
     <th>Lastname</th>
     <th>Company</th>
     <th>Address</th>
     <th>City</th>
-    <th>Postcode</th>
     <th>Country</th>
   </tr>
   <% for booking in @bookings %>
     <tr>
-      <td><%=h booking.from %></td>
-      <td><%=h booking.to %></td>
+      <td><%=h booking.start_at %></td>
+      <td><%=h booking.end_at %></td>
       <td><%=h booking.nights %></td>
       <td><%=h booking.persons %></td>
       <td><%=h booking.with_animals %></td>
-      <td><%=h booking.notes %></td>
-      <td><%=h booking.phone %></td>
-      <td><%=h booking.mobile %></td>
-      <td><%=h booking.email %></td>
       <td><%=h booking.firstname %></td>
       <td><%=h booking.lastname %></td>
       <td><%=h booking.company %></td>
-      <td><%=h booking.address %></td>
       <td><%=h booking.city %></td>
-      <td><%=h booking.postcode %></td>
       <td><%=h booking.country %></td>
-      <td><%= link_to t("Show"), booking %></td>
-      <td><%= link_to t("Edit"), edit_booking_path(booking) %></td>
-      <td><%= link_to t("Destroy"), booking, :confirm => t('Are you sure?'), :method => :delete %></td>
+      <td><%= link_to t("admin.show"), booking %></td>
+      <td><%= link_to t("admin.edit"), edit_booking_path(booking) %></td>
+      <td><%= link_to t("admin.destroy"), booking, :confirm => t('Are you sure?'), :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to t("New Booking"), new_booking_path %></p>
+<p><%= link_to t("admin.new_booking"), new_booking_path %></p>

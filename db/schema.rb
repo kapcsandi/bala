@@ -9,11 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091103221556) do
+ActiveRecord::Schema.define(:version => 20091207231504) do
 
   create_table "bookings", :force => true do |t|
-    t.date     "from"
-    t.date     "to"
+    t.date     "start_at"
+    t.date     "end_at"
     t.integer  "nights"
     t.integer  "persons"
     t.boolean  "with_animals"
@@ -253,6 +253,14 @@ ActiveRecord::Schema.define(:version => 20091103221556) do
   end
 
   create_table "room_types", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "seasons", :force => true do |t|
+    t.string   "name"
+    t.date     "start"
+    t.date     "end"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

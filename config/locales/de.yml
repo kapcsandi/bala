@@ -389,8 +389,8 @@ de:
       booking:
         persons: "Personenzahl"
         nights: "Nachts"
-        from: "Wunsttermin von"
-        to: "Wunsttermin bis"
+        start_at: "Wunsttermin von"
+        end_at: "Wunsttermin bis"
         firstname: "Vorname"
         lastname: "Nachname"
         email: "E-mail"

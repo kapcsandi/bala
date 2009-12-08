@@ -354,11 +354,11 @@ hu:
             nights:
               not_a_number: "az Éjszakák száma mezőbe csak számot írjon"
               blank: "az Éjszakák száma mező nem lehet üres"
-            from:
+            start_at:
               blank: "az Érkezés dátuma mező nem lehet üres"
               invalid_date: "az Érkezés dátuma érvénytelen formátumú"
               after: "az Érkezés dátuma nem lehet {{restriction}} utáni"
-            to:
+            end_at:
               blank: "a Távozás dátuma mező nem lehet üres"
               invalid_date: "a Távozás dátuma érvénytelen formátumú"
               before: "a Távozás dátuma nem lehet {{restriction}} előtti"
@@ -440,6 +440,7 @@ hu:
     new_taggable: Új Címkecsoport
     new_house: Új Apartman
     new_season: Új Szezon
+    new_booking: Új foglalás
     edit_discount: Akció szerkesztése
     edit_page: Oldal szerkesztése
     edit_tag: Címke szerkesztése
@@ -447,6 +448,7 @@ hu:
     edit_user: Profil szerkesztése
     edit_apartman: Apartman szerkesztése
     edit_season: Szezon szerkesztése
+    edit_booking: Foglalás szerkesztése
 # admin adat mezők
     house: Apartman
     house_id: Apartman id
@@ -556,6 +558,22 @@ hu:
     answer_no: Nem
     animal_details: Háziállat fajtája, súlya
     calculated_price: Ár
+    persons: "Személyek száma"
+    nights: "Éjszakák száma"
+    from: "Érkezés dátuma"
+    to: "Távozás dátuma"
+    firstname: "Keresztnév"
+    lastname: "Családnév"
+    email: "E-mail"
+    phone: "Telefon"
+    mobile: "Mobil"
+    company: "Cégnév"
+    city: "Település"
+    address: "Cím"
+    country: "Ország"
+    postcode: "Irányítószám"
+    with_animals: Állatot hoznak?
+    notes: Üzenet
 
 #field sets
     house_basics: Ház alapinfók

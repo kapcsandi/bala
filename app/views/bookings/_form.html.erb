@@ -61,16 +61,16 @@
     <p>Ich reserviere obiges Fehrienhaus für folgenden Zeitraum:</p>
     <div class="span-6">
       <%= f.label t(:from) %><br />
-      <%= f.calendar_date_select :from, :valid_date_check => "date >= new Date()", :size => 20, :onChange =>
+      <%= f.calendar_date_select :start_at, :valid_date_check => "date >= new Date()", :size => 20, :onChange =>
   'var ONE_DAY = 1000 * 60 * 60 * 24;
-  from=new Date($("booking_from").value.gsub("-","/"));to=new Date($("booking_to").value.gsub("-","/"));
-  $("booking_nights").value=parseInt(to-from)/ONE_DAY' %>
+  from=new Date($("booking_start_at").value.gsub("-","/"));to=new Date($("booking_end_at").value.gsub("-","/"));
+  $("booking_nights").value=parseInt(from-to)/ONE_DAY' %>
     </div>
     <div class="span-6">
       <%= f.label t(:to) %><br />
-      <%= f.calendar_date_select :to, :valid_date_check => "date > new Date()", :size => 20, :onChange =>
+      <%= f.calendar_date_select :end_at, :valid_date_check => "date > new Date()", :size => 20, :onChange =>
   'var ONE_DAY = 1000 * 60 * 60 * 24;
-  from=new Date($("booking_from").value.gsub("-","/"));to=new Date($("booking_to").value.gsub("-","/"));
+  from=new Date($("booking_start_at").value.gsub("-","/"));to=new Date($("booking_end_at").value.gsub("-","/"));
   $("booking_nights").value=parseInt(to-from)/ONE_DAY' %>
     </div>
     <div class="span-6">
@@ -80,7 +80,7 @@
     <div class="span-16">
       <%= f.label t(:calculated_price) %><br />
       <%= f.text_field :price, :size => 20, :readonly => "true" %> EURO<br />
-      <%= button_to_remote 'Calculate Price', :url => :calculate, :with => "'persons=' + $('booking_persons').value + '&from=' + $('booking_from').value + '&to=' + $('booking_to').value + '&codes=' + $('houses_bookings').select('input').pluck('value') + '&animals=' + $('booking_with_animals_1').checked" %>
+      <%= button_to_remote 'Calculate Price', :url => :calculate, :with => "'persons=' + $('booking_persons').value + '&from=' + $('booking_start_at').value + '&to=' + $('booking_end_at').value + '&codes=' + $('houses_bookings').select('input').pluck('value') + '&animals=' + $('booking_with_animals_1').checked" %>
     </div>
     <div class="span-18">
     Im Preis bereit enthalten: Bettwäsche, Endreinigung, Gas, Strom, Wasser<br />Nebenkosten: Zuschläge (zahlbar bei Buchung): Ortstaxe
