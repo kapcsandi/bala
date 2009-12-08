@@ -6,7 +6,7 @@ class Booking < ActiveRecord::Base
   validates_numericality_of :persons, :greater_than => 0
   validates_numericality_of :nights, :greater_than => 0
   validates_numericality_of :price, :greater_than => 0
-  validates_presence_of :start_at, :end_at, :phone, :email, :firstname, :lastname, :nights, :with_animals, :city, :postcode, :address
+  validates_presence_of :start_at, :end_at, :phone, :email, :firstname, :lastname, :nights, :city, :postcode, :address
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
   validates_associated :houses_bookings, :houses
   accepts_nested_attributes_for :houses_bookings, :allow_destroy => true, :reject_if => :all_blank

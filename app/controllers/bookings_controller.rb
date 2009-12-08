@@ -17,27 +17,26 @@ class BookingsController < ApplicationController
     @shown_month = Date.civil(@year, @month)
     @event_strips = @bookings.event_strips_for_month(@shown_month)
   end
-  
+
+
   def show
     @booking = Booking.find(params[:id])
   end
-  
+
   def new
     @booking = Booking.new
-#    @booking.houses_bookings.build
     @booking.houses.build
     if params[:id]
       @houses = House.find([ params[:id].to_i ])
     else
       cart = find_cart
-#      redirect_to_index(:select_houses) if cart.items.size < 1
       @houses = House.find(cart.items)
     end
     @codes = @houses.map{|house| house.code + ' ' + house.city}.to_sentence
     @booking_title = t('booking_title', :houses => @codes)
     @flash_warning = t('booking_warning')
   end
-  
+
   def create
     @booking = Booking.new(params[:booking])
     booking_houses = params[:booking][:houses]
@@ -74,14 +73,15 @@ class BookingsController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def edit
     @booking = Booking.find(params[:id])
     @houses = @booking.houses
   end
-  
+
   def update
     @booking = Booking.find(params[:id])
+    @houses = @booking.houses
     if session[:order]
       logger.info "session:order exists"
       session[:order].each_with_index do |id, index|
@@ -90,21 +90,24 @@ class BookingsController < ApplicationController
     else
       logger.info "session:order NOT exists"
     end
+    houses = params["booking"].delete("houses") {|house| house.keys}
+    params["booking"]["houses_bookings"] = houses.keys.map {|key| key.to_i}
+    debugger
     if @booking.update_attributes(params[:booking])
-      flash[:notice] = t "updated_booking"
+      flash[:notice] = t("updated_booking")
       redirect_to @booking
     else
       render :action => 'edit'
     end
   end
-  
+
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
     flash[:notice] = t "destroyed_booking"
     redirect_to bookings_url
   end
-     
+
   def sort
     @houses_bookings = {}
     logger.info "@houses_bookings exists"
@@ -124,11 +127,8 @@ class BookingsController < ApplicationController
       week_counter = 0
       season_counter = 0
       (from..to-1).step do |day|
-        logger.info "#{Time.now} #{day}"
         season = Season.which_season?(day)
-        logger.info "#{Time.now} #{season}"
         price = house.daily_price(season)
-        logger.info "#{Time.now} #{price}"
         @price += price
       end
     else
@@ -138,9 +138,9 @@ class BookingsController < ApplicationController
       format.js
     end
   end
-  
+
   private
-  
+
   def redirect_to_index(msg)
     flash[:notice] = t(msg)
     redirect_to :controller => :houses, :advanced => 1
