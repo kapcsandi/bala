@@ -1,6 +1,6 @@
 <% title t("Edit Booking") %>
 
-<%= render :partial => 'form' %>
+<%= render :partial => 'form', :locals {:booking => @booking, :houses => @houses} %>
 
 <p>
   <%= link_to t("admin.show"), @booking %> |

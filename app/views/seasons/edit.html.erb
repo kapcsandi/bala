@@ -1,6 +1,6 @@
 <% title t('admin.edit_season') %>
 
-<%= render :partial => 'form' %>
+<%= render :partial => 'form', :locals => {:season => @season} %>
 
 <p>
   <%= link_to t('admin.show'), @season %> |

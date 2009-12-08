@@ -1,6 +1,6 @@
 <% title t('admin.edit_tag') %>
 
-<%= render :partial => 'form' %>
+<%= render :partial => 'form', :locals => {:tag => @tag} %>
 
 <p>
   <%= link_to t('admin.show'), @tag %> |

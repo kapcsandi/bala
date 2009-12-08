@@ -1,5 +1,7 @@
 class HousesController < ApplicationController
   before_filter :authorize, :except => [:index, :show, :print, :cart, :empty_cart]
+  before_filter :search_house, :except => [:index, :new, :create, :cart, :empty_cart]
+  before_filter :get_cart, :only => [:index, :cart, :empty_cart, :print]
 
   def index
     if request.xhr? and params[:autocomplete]
@@ -47,19 +49,13 @@ class HousesController < ApplicationController
       end
 
       @houses, @houses_count = search.all(:select => "houses.id,code, city_id, persons, animals, pictures, house_type_id, condition_id, furnishing_id, floor_area, distance_center, distance_beach, distance_restaurant, distance_shop, distance_mainroad, distance_station").paginate(:page => params[:page], :per_page => 10), search.count
-      @cart = find_cart
-
     end
   end
-  
+
   def show
-    @house = House.find(params[:id])
-    @cart = find_cart
   end
 
   def print
-    @house = House.find(params[:id])
-    @cart = find_cart
     render "show", :layout => 'print'
   end
   
@@ -83,7 +79,6 @@ class HousesController < ApplicationController
   end
   
   def edit
-    @house = House.find(params[:id])
     @house.taggables.build
     @house.tags.build
     if @house.discounted?
@@ -94,7 +89,6 @@ class HousesController < ApplicationController
   end
   
   def update
-    @house = House.find(params[:id])
     if @house.update_attributes(params[:house])
       @house.discount.destroy unless params[:discounted]
       flash[:notice] = t "admin.house_updated", :house => @house.code
@@ -105,14 +99,12 @@ class HousesController < ApplicationController
   end
   
   def destroy
-    @house = House.find(params[:id]) 
     @house.destroy
     flash[:notice] = t "admin.house_deleted", :house => @house.code
     redirect_to houses_url
   end
   
   def cart
-    @cart = find_cart
     begin
       house = House.find(params[:id]) if params[:id]
     rescue ActiveRecord::RecordNotFound
@@ -144,6 +136,14 @@ class HousesController < ApplicationController
   end
 
   private
+
+  def search_house
+    @house = House.find(params[:id])
+  end
+
+  def get_cart
+    @cart = find_cart
+  end
 
   def redirect_to_index(msg)
     flash[:notice] = t(msg)

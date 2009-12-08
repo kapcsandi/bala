@@ -1,4 +1,4 @@
-<% form_for @discount do |f| %>
+<% form_for discount do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label t('admin.house_id') %><br />
@@ -10,4 +10,3 @@
   </p>
   <p><%= f.submit t('admin.submit') %></p>
 <% end %>
-<%= textile_editor_initialize %>

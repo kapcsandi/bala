@@ -1,5 +1,5 @@
 <% title t('admin.new_page') %>
 
-<%= render :partial => 'form' %>
+<%= render :partial => 'form', :locals => {:page => @page} %>
 
 <p><%= link_to t('admin.view_all'), pages_path %></p>

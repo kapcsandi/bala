@@ -31,12 +31,12 @@ ActiveRecord::Schema.define(:version => 20091207231504) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "status_id",                    :default => 0
-    t.string   "fax",            :limit => 20
     t.integer  "children"
     t.integer  "price"
     t.string   "children_years", :limit => 20
     t.string   "animal_details", :limit => 50
     t.string   "salut",          :limit => 20
+    t.string   "fax",            :limit => 20
   end
 
   create_table "cities", :force => true do |t|

@@ -1,7 +1,7 @@
 <% title t(:cart_title) %>
 
 <div class="">
-  <% for item in @selected %>
+  <% for item in selected %>
   <%= render :partial => 'mini', :locals => { :house => item } %>
   <% end %>
 </div>

@@ -3,6 +3,6 @@
 Üres szótárak:
 <%= House.column_names.select{|name| name.match(/_id/) }.select{|field| Taggable.find_by_field(field).nil? }.join(', ') %>
 
-<%= render :partial => 'form' %>
+<%= render :partial => 'form', :locals => {:taggable => @taggable} %>
 
 <p><%= link_to t('admin.show_all'), taggables_path %></p>

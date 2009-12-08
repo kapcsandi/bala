@@ -1,5 +1,5 @@
 <% title t('admin.new_discount') %>
 
-<%= render :partial => 'form' %>
+<%= render :partial => 'form', :locals => {:discount => @discount} %>
 
 <p><%= link_to t('admin.view_all'), discounts_path %></p>
