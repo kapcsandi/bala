@@ -7,7 +7,7 @@
     <span class="field"><%=h house.code %></span>
     </div>
     <div class="span-2 last">
-    <%= check_box_tag "checked_#{house.id}", 1, @cart.items.include?(house.id), :disabled => true %>
+    <%= check_box_tag "checked_#{house.id}", 1, cart.items.include?(house.id), :disabled => true %>
     </div>
 <br /><% if house.discounted?  %>
     <span class="label"><%= t(:discount) %>:</span>

@@ -4,7 +4,7 @@
 <% title ([@house.house_type, @house.code, @house.city].join(', ') ), false %>
 <div class="inner">
 <div class="mini">
-<%= render :partial => 'mini', :locals => { :house => @house, :cycle_class => '' } %>
+<%= render :partial => 'mini', :locals => { :house => @house, :cycle_class => '', :cart => @cart } %>
 <% unless controller.action_name == 'print' %>
 <%= render :partial => 'navigation' , :locals => { :house => @house }%>
 <% end %>
