@@ -2,9 +2,7 @@
 
 <p>
   <strong><%= t('admin.houses')%>:</strong>
-  <% @booking.houses.each do |house| %>
-  <%= link_to house.code, house_path(house.id) %>,
-  <% end %>
+  <%= houses_links(@booking.houses) %>
 </p>
 
 <p>

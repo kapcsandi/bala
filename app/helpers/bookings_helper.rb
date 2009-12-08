@@ -17,7 +17,13 @@ module BookingsHelper
 
   def event_calendar
     calendar event_calendar_opts do |event|
-      %(<a href="/bookings/#{event.id}" title="#{h(event.name)}">#{h(event.name)}</a>)
+      %(<a href="/bookings/#{event.id}" title="#{h(event.name)}">#{h(event.name)} #{event.status}</a>)
     end
+  end
+  
+  def houses_links(houses)
+    houses.map do |house|
+      link_to(house.code, house_path(house.id))
+    end.join(', ')
   end
 end

@@ -124,7 +124,7 @@ a .menu-item{ font-size:1.1em;font-weight:bold}
 #search fieldset {margin:0;padding:0 15px 1.4em;width:94%}
 /* a:hover .menu-item {border-color:#D75A20;background-color:#D3E0EA} */
 .container{background-color:#ffffff}
-#content {margin:5px 0}
+#content {margin:0 0 5px 0}
 #site-name a {font-size:30px;font-weight:bold;text-decoration:none;color:#D75A20;}
 .pagination {float:right;padding:0 15px}
 .count{font-size:1.1em;color:#D75A20;font-weight:bold}
