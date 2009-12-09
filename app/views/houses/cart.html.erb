@@ -3,7 +3,7 @@
 <div class="">
   <% for house in @selected %>
   <div id="house_<%= house.id %>" class="mini house <%= cycle('odd', 'even') %>">
-  <%= render :partial => 'mini', :locals => { :house => house } %>
+  <%= render :partial => 'mini', :locals => { :house => house, :cart => @cart } %>
   <%= render :partial => 'navigation' , :locals => { :house => house }%>
   </div>
   <% end %>

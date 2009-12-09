@@ -42,7 +42,7 @@ module LayoutHelper
 			rescue
 				where = nil
 			end
-      if where
+      unless where.nil? or where.empty?
         html << link_to(where, houses_path(param.merge!( 'q[where]' => where)))
       end
 			begin
@@ -50,7 +50,7 @@ module LayoutHelper
 			rescue
 				house_type = nil
 			end
-			if house_type
+			unless house_type.nil? or house_type.empty?
         html << link_to(house_type, houses_path(param.merge!( 'q[type]' => house_type)))
 			end
 			if action_name == 'show'

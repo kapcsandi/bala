@@ -126,9 +126,8 @@ de:
   home: Startseite
   you_are_here: "<b>Sie sind Hier: </b><span>&nbsp;</span>"
 
-  title:
-    houses_found: Häuser gefunden
-  title: 1x Ferienhause
+  title: "Cím"
+  title_houses_found: "Häuser gefunden"
   Untitled: 1x Ferienhause
   meta_description: Unterkunft, Appartement, Balaton, FerienhĂ¤user
   slogan: Ferien im Sonnenland Ungarn
@@ -146,7 +145,7 @@ de:
   select_city: wählen Sie ein Ort
   select_country: wählen Sie Land
   
-  code: Haus Code
+  code: Haus-Kode
   house_type_id: Haustyp
   select_house_type: Haustyp wählen Sie
   condition_id: Zustand
@@ -233,8 +232,8 @@ de:
   Details: Details
   Booking: Reservierung
   Photos: Fotos
-  select: Marken
-  deselect: Unmarken
+  select: Merken
+  deselect: Unmerken
   Print:  Drucken
   Edit: Edit
   Destroy: Speichern
@@ -245,15 +244,16 @@ de:
   city: Ort
   discount: Rabatt
   Are you sure: Sind Sie sicher?
-  yes_animal: Ja Tier
-  no_animal: nicht erlaubt
+  yes_animals: erlaubt
+  no_animals: nicht erlaubt
   nincs: nincs
   pictures: Bilder
+  no_picture: kein Bild
   pers: Pers
-  meter: meter
-  sqmeter: Quadrat meter
+  meter: m
+  sqmeter: m²
   items: stück
-  pre_saison: Forsaison
+  pre_saison: Vorsaison
   mid_saison: Mittelsaison
   main_saison: Hauptsaison
   post_saison: Nachsaison
@@ -275,7 +275,7 @@ de:
   house_kitchen: Küche
   house_inters: Sonstige innen Zubehör
   house_outers: Sonstige außen Zubehör
-  house_distances: Hausbesitzer
+  house_distances: Entfernungen
   house_owner_infos: Hausbesitzer Information
   house_animals: Haustier
   house_prices: Mietpreis
@@ -292,6 +292,10 @@ de:
   search: Suche
   search:
     button: Suche
+    fieldgroup:
+      basics: Hausbeschreibung
+      equips: Sonstige Zubehör
+      others: Sonstiges
   detailed_search: Erweiterte Suche
   simple_search: einfache Suche
   rooms: Anzahl der Zimmer
@@ -382,7 +386,7 @@ de:
     attributes:
       house:
         city_id: "Ort"
-        code: "Haus-Code"
+        code: "Haus-Kode"
         condition_id: "Zustand"
         furnishing_id: "Ausstattung"
         house_type_id: "Haustyp"
@@ -421,7 +425,7 @@ de:
              city_id:
                blank: "Ort`s Feld darf nicht leer sein"
              code:
-               blank: "Haus-Code`s Feld darf nicht leer sein"
+               blank: "Haus-Kode`s Feld darf nicht leer sein"
         booking:
           attributes:
             persons:

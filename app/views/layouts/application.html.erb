@@ -5,21 +5,22 @@
   <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
   <title><%= t("Untitled") %><%= ' | ' + h(yield(:title)) %></title>
   <%= tag(:meta, :name => 'description', :content => yield(:description) || t(:meta_description))  %>
-  <%= javascript_include_tag :defaults %>
-  <%= calendar_date_select_includes "silver", :locale => I18n.locale %>
-  <%= stylesheet_link_tag 'blueprint/screen', 'application', :cache => true %>
-  <% if controller_name == 'houses' and action_name == 'show'  %>
-    <%= lightbox2_helpers_includes %>
-  <% end %>
-  <% tooltips_include_tag do %>
-    <%= yield(:tips) %>
-  <% end %>
-
-  <% if admin? and controller_name == 'pages' and action_name == 'edit' %>
-    <%= javascript_include_tag :fckeditor %>
-  <% end %>
-  <% if admin? and controller_name == 'bookings' and action_name == 'index' %>
-    <%= stylesheet_link_tag "event_calendar" %>
+  <% bundle :name => "bundle_#{I18n.locale}#{(admin? ? '_admin' : '')}#{(galery? ? '_galery' :'')}" do %>
+    <%= javascript_include_tag :defaults %>
+    <%= calendar_date_select_includes "silver", :locale => I18n.locale %>
+    <%= stylesheet_link_tag 'blueprint/screen', 'application' %>
+    <% if galery? %>
+      <%= lightbox2_helpers_includes %>
+    <% end %>
+    <% tooltips_include_tag do %>
+      <%= yield(:tips) %>
+    <% end %>
+    <% if admin? and controller_name == 'pages' and action_name == 'edit' %>
+      <%= javascript_include_tag :fckeditor %>
+    <% end %>
+    <% if admin? and controller_name == 'bookings' and action_name == 'index' %>
+      <%= stylesheet_link_tag "event_calendar" %>
+    <% end %>
   <% end %>
   <%= yield(:head) %>
 </head>
@@ -53,8 +54,7 @@
     <div id="menu"><div class="inner">
       <%- ['home', 'booking', :cart, :special_offers, :contact, :programs].each do |item|
         title( t(item) ) unless @content_for_title -%>
-        <div class="menu span-4<%=
-          if item == :programs then ' last' end
+        <div class="menu span-4<%= if item == :programs then ' last' end %> <%=
           case item
           when 'home': if controller_name !~ /bookings|pages/ and action_name !~ /cart/ and not params[:discount] then ' selected' end
           when 'booking': if controller_name == 'bookings' then ' selected' end

@@ -24,22 +24,20 @@
     <% unless @house.house_description.empty? %>
     <p>
       <%= label_tag t(:house_description) %>:<br />
-      <%= text_area_tag :house_description, @house.house_description, :disabled => true  %>
+      <%= @house.house_description %>
     </p>
     <% end %>
+    <% if admin? %>
     <% field = Taggable.find_by_position(80)
      tagnames = [] %>
     <p>
       <%= label_tag field.name %>:
-	<% for tag in field.tags %>
-          <% tagnames << tag.name if @house.tags.include?(tag) %>
-	<% end %>
-      <%= unless tagnames.empty? 
-	tagnames.join(', ')
-      else
-	t('house_not_in_any_group')
-      end %>
+      <% for tag in field.tags %>
+        <% tagnames << tag.name if @house.tags.include?(tag) %>
+      <% end %>
+      <%= unless tagnames.empty? then tagnames.join(', ') else t('house_not_in_any_group') end %>
     </p>
+  <% end %>
   <% end %>
   <% end %>
   <% field_set_tag t('house_rooms') do %>
@@ -51,7 +49,7 @@
 	<% tagnames << tag.name if @house.tags.include?(tag) and tag.name != t('nincs') %>
       <% end %>
       <% unless tagnames.empty? %>
-	<p class="full">
+	<p>
 	  <%= label_tag field.name %>:
 	  <%= tagnames.join(', ') %>
 	</p>
@@ -85,7 +83,7 @@
   <% end %>
   <% end %>
   <% end %>
-  <% field_set_tag t('house_beds'), :class => :half do %>
+  <% field_set_tag t('house_beds'), :class => 'half last' do %>
     <% for field in %w(double_bed single_bed extra_bed pull_out_bed) %>
       <% unless @house[field].nil? or @house[field] == 0 %>
 	<p>
@@ -119,7 +117,7 @@
     </p>
     <% end %>
   <% end %>
-  <% field_set_tag t('house_kitchen'), :class => :half  do %>
+  <% field_set_tag t('house_kitchen'), :class => 'fullwidth' do %>
     <% for field in %w(fridge coffee_machine micro) %>
     <% if @house[field]==1 %>
     <p>
@@ -133,7 +131,7 @@
       <%= @house.stove %>
     </p>
   <% end %>
-  <% field_set_tag t('house_inters'), :class => :half  do %>
+  <% field_set_tag t('house_inters'), :class => :half do %>
     <% for field in %w(sat internet) %>
     <% if @house[field]==1 %>
     <p>
@@ -149,7 +147,7 @@
     </p>
   <% end %>
   <% end %>
-  <% field_set_tag t('house_outers'), :class => :half  do %>
+  <% field_set_tag t('house_outers'), :class => 'half last' do %>
     <% if @house.pool? %>
     <p>
       <%= label_tag t(:pool) %>:
@@ -175,44 +173,18 @@
       <%= @house.parking %>
     </p>
   <% end %>
-  <% field_set_tag t('house_distances'), :class => :full do %>
-<%= show_hide('house_distances') %>
-<% content_tag :div, :id => :house_distances do %>
+  <% field_set_tag t('house_distances'), :class => 'full' do %>
+  <%= show_hide('house_distances') %>
+  <% content_tag :div do %>
+    <% %w{center beach aquapark shop station medical mainroad restaurant}.each do |item| %>
     <p>
-      <%= label_tag t(:distance_center) %>:
-      <%=h @house.distance_center %> m
+      <span><%= label_tag t("distance_#{item}") %>:</span>
+      <span><%= t('meters', :d => @house.distance(item)) %></span>
     </p>
-    <p>
-      <%= label_tag t(:distance_beach) %>:
-      <%=h @house.distance_beach %> m
-    </p>
-    <p>
-      <%= label_tag t(:distance_aquapark) %>:
-      <%=h @house.distance_aquapark %> m
-    </p>
-    <p>
-      <%= label_tag t(:distance_shop) %>:
-      <%=h @house.distance_shop %> m
-    </p>
-    <p>
-      <%= label_tag t(:distance_station) %>:
-      <%=h @house.distance_station %> m
-    </p>
-    <p>
-      <%= label_tag t(:distance_medical) %>:
-      <%=h @house.distance_medical %> m
-    </p>
-    <p>
-      <%= label_tag t(:distance_mainroad) %>:
-      <%=h @house.distance_mainroad %> m
-    </p>
-    <p>
-      <%= label_tag t(:distance_restaurant) %>:
-      <%=h @house.distance_restaurant %> m
-    </p>
+    <%end %>
   <% end %>
   <% end %>
-  <% field_set_tag t('house_owner_infos'), :class => :half  do %>
+  <% field_set_tag t('house_owner_infos') do %>
     <% field = Taggable.find_by_position(61)
     tagnames = [] %>
     <% for tag in field.tags %>
@@ -229,21 +201,19 @@
       <%= @house.owner_place %>
     </p>
   <% end %>
-  <% if @house.animals? %>
-  <% field_set_tag t('animals'), :class => :half  do %>
+  <% field_set_tag t('animals') do %>
     <p>
       <%= label_tag t(:animals) %>:
-      <%= check_box_tag :animals, 1, @house.animals?, :disabled => true %>
+      <%= @house.animals? ? t('yes_animals') : t('no_animals') %>
     </p>
     <div id="animal_charge"<%= "style='display:none'" unless @house.animals? %>>
       <p>
-	<%= label_tag t(:animal_charge) %>:
-	<%= @house.animal_charge == 1 ? t('answer_yes') : t('answer_no') %>
+        <%= label_tag t(:animal_charge) %>:
+        <%= @house.animal_charge == 1 ? t('answer_yes') : t('answer_no') %>
       </p>
     </div>
   <% end %>
-  <% end %>
-  <% field_set_tag t('house_prices'), :class => :full do %>
+  <% field_set_tag t('house_prices') do %>
 <%= show_hide('house_prices') %>
 <% content_tag :div, :id => :house_prices do %>
   <p style="width:100%">Mietpreis pro Haus und Woche in Euro</p>
@@ -252,16 +222,16 @@
   <thead>
   <th> von </th>
   <th> bis </th>
-  <th> bei Belegung pro Personen</th>
+  <th> bei Belegung mit .. Personen</th>
   <th>bis zu </th>
   <th> Mietpreis </th>
   </thead>
   <tbody>
   <% for season in Season.next_year %>
     <tr>
-    <td><%=h season.start %></td>
-    <td><%=h season.end %></td>
-    <td></td>
+    <td><%=l(season.start) %></td>
+    <td><%=l(season.end) %></td>
+    <td><%= @house.persons %></td>
     <td><%= t(season.name) %></td>
     <td><%=h @house.price(season.name) %> EUR</td>
     </tr>
@@ -271,7 +241,7 @@
   <% end %>
   <% end %>
   <% if admin? or @house.discounted? %>
-  <% field_set_tag t('house_description'), :class => 'fullwidth' do %>
+  <% field_set_tag t('house_description') do %>
     <% if @house.discounted? %>
     <p>
       <%= label_tag t(:discounted) %> :

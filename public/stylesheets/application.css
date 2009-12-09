@@ -58,8 +58,8 @@
   list-style: disc;
 }
 
-body{font-family:'Trebuchet MS',Lucida,Verdana;font-size:90%}
-input,select{width:auto;font-size:100%}
+body{font-family:Verdana;font-size:90%}
+input,select{width:auto;font-size:95%}
 input[type="text"], input[type="password"], input.text, input.title, textarea, select {border:1px solid silver}
 select {border-top:1px solid silver}
 p {margin:0 0 1em}
@@ -73,17 +73,18 @@ a:visited{color:#000;}
 a:hover {color:#D75A20}
 legend {padding:0 10px 0 30px;margin-left:5px}
 #main {height:auto !important;margin:0 auto -8.6em;min-height:100%;}
-.label{margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
-.menu-item{padding:5px 0;font-size:1.1em;margin:5px 0;text-align:center}
+.label{font-weight:bold}
+#search .label {margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
+#search span {display:inline;float:none}
+.menu-item{padding:5px 0;margin:2px 0;text-align:center}
 #menu {background:#8AC9D4 url(/images/bg0.png) repeat-x;margin:0 auto;height:42px;padding-top:15px;overflow:hidden;clear:both;border-bottom:5px solid #E4F1FB}
-#menu .menu-item{margin:0 auto;border:0px none;height:30px}
+#menu .menu-item{margin:0 auto;border:0px none;font-family:'Trebuchet MS',Lucida,Verdana;font-size:1.2em}
 #menu .menu {margin-right:10px}
 #menu .last {margin-right:0}
 #menu .inner {width:950px;margin:0 auto;overflow:hidden;clear:both}
-.menu-item {border:2px solid #D3E0EA;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;padding:11px}
+.menu-item {border:2px solid #D3E0EA;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;padding:11px;font-weight:bold}
 #menu a {text-decoration:none}
 #menu .selected .menu-item {border:1px solid #fafafa;/*background:transparent url(/images/grad.png) repeat-x*/}
-a .menu-item{ font-size:1.1em;font-weight:bold}
 #top {margin:0 auto}
 #top .inner {padding:2px;margin:0 auto;float:none}
 #top .left{height:50px;background-color:#2B5A88 }
@@ -100,8 +101,8 @@ a .menu-item{ font-size:1.1em;font-weight:bold}
 #houses_show fieldset p, #houses_print fieldset p {width:auto;margin-left:1.5em;float:left}
 #houses_show fieldset p.full, #houses_print fieldset p.full {width:100%;float:auto}
 #houses_show .third p, #houses_print .third p {width:29%;float:left}
-#houses_show fieldset.fullwidth p, #houses_print fieldset.fullwidth p {width:90%;float:auto}
-#houses_show fieldset.full p {width:20%}
+#houses_show fieldset.fullwidth p, #houses_print fieldset.fullwidth p {width:auto;float:auto}
+#houses_show fieldset.full p {width:30%}
 #houses_new fieldset p, #houses_edit fieldset p {width:33%;float:left}
 #houses_new .half p, #houses_edit .half p {width:50%;float:auto}
 #houses_new .full p, #houses_edit .full p {width:100%;float:auto}
@@ -124,8 +125,8 @@ a .menu-item{ font-size:1.1em;font-weight:bold}
 #search fieldset {margin:0;padding:0 15px 1.4em;width:94%}
 /* a:hover .menu-item {border-color:#D75A20;background-color:#D3E0EA} */
 .container{background-color:#ffffff}
-#content {margin:0 0 5px 0}
-#site-name a {font-size:30px;font-weight:bold;text-decoration:none;color:#D75A20;}
+#content {margin:5px 0}
+#site-name a {font-size:30px;font-weight:bold;text-decoration:none;color:#D75A20;font-family:'Trebuchet MS',Lucida,Verdana;}
 .pagination {float:right;padding:0 15px}
 .count{font-size:1.1em;color:#D75A20;font-weight:bold}
 .mini .location {font-size:1.2em}
@@ -133,7 +134,7 @@ a .menu-item{ font-size:1.1em;font-weight:bold}
 .handle {cursor:pointer;display:inline}
 .selected .menu-item {background-color:#E4F1FB;color:#D75A20;}
 .inner {margin:5px}
-.breadcrumb span {padding: 0 5px;font-size:1.1em}
+.breadcrumb span {padding: 0 2px;font-size:0.7em}
 .right {float:right}
 #houses_print {width:800px}
 #houses_print .right {font-size:17px;position:fixed;top:0px;left:640px;background:white;padding:2px 5px}
@@ -146,3 +147,8 @@ a .menu-item{ font-size:1.1em;font-weight:bold}
 .photos  a.fold:hover img {border:#000}
 select#booking_country {width:215px}
 #lightbox img {height:500px;width:500px}
+fieldset span {width:50%;float:left;display:block}
+.mini .span-7 span {width:50%;float:left;display:block}
+.mini .span-7 span.label {width:150px;float:left;display:block}
+.mini .span-7 span.field {width:100px;float:left;display:block}
+.calendar_date_select thead th, .calendar_date_select td, .calendar_date_select caption {padding:0}

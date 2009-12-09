@@ -112,12 +112,12 @@ class HousesController < ApplicationController
       redirect_to_index("invalid_house")
     else
       if params[:cart] == 'add'
-	if @cart.limit_exceed?
-	  flash[:error] = t :cart_limit
-	else
-	  @cart.add_house(house)
-	  flash[:notice] = t "house_added_to_cart", :house => house.code
-	end
+    if @cart.limit_exceed?
+      flash[:error] = t :cart_limit
+    else
+      @cart.add_house(house)
+      flash[:notice] = t "house_added_to_cart", :house => house.code
+    end
       end
       if params[:cart] == 'del'
 	@cart.remove_house(house)

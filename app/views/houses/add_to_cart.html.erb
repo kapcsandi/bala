@@ -2,7 +2,7 @@
 
 <div class="">
   <% for item in selected %>
-  <%= render :partial => 'mini', :locals => { :house => item } %>
+  <%= render :partial => 'mini', :locals => { :house => item, :cart => @cart } %>
   <% end %>
 </div>
 

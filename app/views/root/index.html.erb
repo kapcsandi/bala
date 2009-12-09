@@ -12,7 +12,7 @@
 <% end %>
 <% end %>
   <div class="item details">
-<%= truncate( category[:house].house_description(80), :length => 40 ) if category[:house] %>
+<%= truncate( category[:house].discount.description, :length => 40 ) unless category[:house].nil? or category[:house].discount.nil? %>
   </div>
  </div></div>
 <% end %>

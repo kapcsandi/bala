@@ -35,4 +35,8 @@ module ApplicationHelper
 
     escape ? escape_once(url) : url
   end
+
+  def galery?
+    controller_name == 'houses' and action_name == 'show' 
+  end
 end
