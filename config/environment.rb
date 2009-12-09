@@ -49,5 +49,5 @@ end
 
 ValidatesTimeliness::Formats.remove_us_formats
 ValidatesTimeliness.enable_datetime_select_extension!
-# CalendarDateSelect.format = :iso_date
+CalendarDateSelect.format = :iso_date
 ActionView::Helpers::InstanceTag::DEFAULT_FIELD_OPTIONS = { :size => 25 }

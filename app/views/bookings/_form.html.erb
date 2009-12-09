@@ -100,7 +100,7 @@
     <% end %>
     <div class="span-6">
       <%= f.label t(:country) %><br />
-      <%= localized_country_select(:booking, :country, [], :include_blank => t('select_country'), :width => 25) %>
+      <%= localized_country_select(:booking, :country, [I18n.locale], :width => 25) %>
     </div>
     <% [ :phone, :mobile, :email, :fax ].each do |field| %>
       <div class="span-6">
