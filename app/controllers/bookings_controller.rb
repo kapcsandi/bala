@@ -1,7 +1,5 @@
 class BookingsController < ApplicationController
   before_filter :authorize, :except => [:new, :create, :sort, :calculate]
-  before_filter :find_booking, :only => [:show, :edit, :update, :destroy]
-  before_filter :find_houses, :only => [:edit, :update]
 
   def index
     @search = House.searchlogic(params[:search])
@@ -22,6 +20,7 @@ class BookingsController < ApplicationController
 
 
   def show
+    @booking = Booking.find(params[:id])
   end
 
   def new
@@ -54,7 +53,7 @@ class BookingsController < ApplicationController
     else
 #      error
     end
-    @houses = find_houses
+    @houses = @booking.houses
     if @booking.save
       if session[:order]
         session[:order].each_with_index do |id, index|
@@ -76,9 +75,13 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    @booking = Booking.find(params[:id])
+    @houses = @booking.houses
   end
 
   def update
+    @booking = Booking.find(params[:id])
+    @houses = @booking.houses
     if session[:order]
       logger.info "session:order exists"
       session[:order].each_with_index do |id, index|
@@ -99,6 +102,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking = Booking.find(params[:id])
     @booking.destroy
     flash[:notice] = t "destroyed_booking"
     redirect_to bookings_url
@@ -118,15 +122,43 @@ class BookingsController < ApplicationController
     to = Date.parse(params[:to]) unless params[:to].empty?
     animals = params[:animals] unless params[:animals].empty?
     if house and persons and from and to and to > from
-      days = to - from
-      @price, animal_charge = 0,  animals && animals == 'true' && house.animal_charge > 0 ? house.animal_charge : 0
-      week_counter = 0
-      season_counter = 0
-      (from..to-1).step do |day|
+      @price, season_price = 0, 0
+      days = 1
+      adds = []
+      prev_season = Season.which_season?(from)
+      (from+1..to).step do |day|
         season = Season.which_season?(day)
-        price = house.daily_price(season)
-        @price += price
+        logger.info "_start_ days: #{days}, date: #{day}, season: #{season}"
+        if season == prev_season
+          adds << house.daily_price(season)
+          logger.info "same season"
+          if days % 7 == 0
+            logger.info "7th day of season"
+            7.times { adds.pop }
+            adds << house.price(season)
+            days = 0
+          end
+        else
+          logger.info "new season"
+          if (days % 7) != 0
+            logger.info "prev season fragment week"
+            season_price += days * house.daily_price(prev_season) 
+            adds << house.daily_price(season)
+          else
+            logger.info "prev season full week"
+            season_price += house.price(prev_season)
+            7.times { adds.pop }
+            adds << house.price(prev_season)
+            adds << house.daily_price(season)
+          end
+          days, season_price = 0, 0
+          prev_season = season
+        end
+        logger.info "_end_ days: #{days}, date: #{day}, season: #{season}, adds: #{adds.inspect}"
+        days += 1
       end
+      adds.each {|elem| @price += elem }
+      logger.info  "_last_ day: #{days}, season: #{prev_season}, adds: #{adds.inspect}"
     else
       @price = ""
     end
@@ -137,14 +169,6 @@ class BookingsController < ApplicationController
 
   private
 
-  def find_houses
-    @houses = @booking.houses
-  end
-
-  def find_booking
-    @booking = Booking.find(params[:id])
-  end
-  
   def redirect_to_index(msg)
     flash[:notice] = t(msg)
     redirect_to :controller => :houses, :advanced => 1

@@ -26,7 +26,7 @@ class Booking < ActiveRecord::Base
   end
 
   def nights=(day)
-    (self.end_at - self.start_at).to_i
+    (self.end_at - self.start_at).to_i if self.end_at and self.start_at
   end
 
   def status=(status_string)

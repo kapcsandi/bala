@@ -26,7 +26,7 @@ class HousesController < ApplicationController
           search = House.searchlogic
         end
       end
-  #    search.persons_gte = params[:q][:persons].to_i unless params[:q].nil? or params[:q][:persons].blank?
+      search.persons_gte = params[:q][:persons].to_i unless params[:q].nil? or params[:q][:persons].blank?
   #    search.persons_inda_house_gte = params[:q][:persons].to_i unless params[:q].nil? or params[:q][:persons].blank?
       search.code_like = params[:q][:code] unless params[:q].nil? or params[:q][:code].blank?
       unless params[:q].nil? or params[:q][:where].blank?

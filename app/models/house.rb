@@ -21,6 +21,11 @@ class House < ActiveRecord::Base
     :conditions => { :houses_tags => {:tag_id => tag }},
     :select => "houses.id,code,pictures"}
                                        }
+#   named_scope :prices, lambda {|code| {:conditions => {:code => code}, :limit => 1,
+#                                :select => "price_pre_season_per_week,price_pre_season_per_day,
+#                               price_mid_season_per_week,price_mid_season_per_day,
+#                               price_main_season_per_week,price_main_season_per_day
+#                               "}}
   def discounted?
     if self.discount.nil? or self.discount.new_record? or self.discount == 0
       false

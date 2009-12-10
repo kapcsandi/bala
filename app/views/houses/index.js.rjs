@@ -1,1 +1,3 @@
+page.select('#houses_bookings input').first.value = @houses[0].code
+# page.select('form').elements
 page.replace_html 'house_stamp', :partial => 'stamp', :locals => { :house => @houses[0], :last => true, :open => false}

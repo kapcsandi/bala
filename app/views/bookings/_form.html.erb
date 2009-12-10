@@ -15,7 +15,7 @@
             <% else %>
               <div class=""><%= hb_form.label t(:code) %></div>
             <% end %>
-            <%= hb_form.text_field :code, :size => 20 %>
+            <%= hb_form.text_field :code, :size => 20, :readonly => true %>
           <% end %>
         <% end %>
       <% end %>
