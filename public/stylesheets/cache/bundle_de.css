@@ -534,7 +534,7 @@ legend {padding:0 10px 0 30px;margin-left:5px}
 .calendar_date_select td div.other {color:#FFF000;}
 .fold {text-decoration:none;cursor:hand;cursor:pointer;display:block;margin:-20px 30px 0 15px;float:left}
 #houses_bookings .fold {margin:2px 10px 10px 0}
-#new_booking .fold {margin: -30px 25px 0 0;float:right}
+#new_booking .fold {/*margin: -30px 25px 0 0;float:right*/}
 ##new_booking #houses_bookings .fold {margin:25px 50px 0 0;float:right}
 .photos  a.fold:hover img {border:#000}
 select#booking_country {width:215px}
