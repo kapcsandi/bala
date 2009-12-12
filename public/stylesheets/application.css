@@ -58,7 +58,7 @@
   list-style: disc;
 }
 
-body{font-family:Verdana;font-size:90%}
+body{font-family:Verdana;font-size:90%;}
 input,select{width:auto;font-size:95%}
 input[type="text"], input[type="password"], input.text, input.title, textarea, select {border:1px solid silver}
 select {border-top:1px solid silver}
@@ -87,7 +87,7 @@ legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
 #top {margin:0 auto}
 #top .inner {padding:2px;margin:0 auto;float:none}
 #top .left{height:50px;background-color:#2B5A88 }
-.categories .category {height:210px;border:2px solid #F4C13F;padding:5px 10px;margin:0 14px 10px 0;float:left}
+.categories .category {height:210px;border:2px solid #F8F883;padding:5px 10px;margin:0 14px 10px 0;float:left}
 .categories .category.last {margin-right:0}
 .category .title {font-size:1.1em}
 .mini {line-height:1.5em;overflow:hidden;margin:5px 0;padding:5px;border:1px solid #cccccc}
@@ -119,12 +119,15 @@ legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
 #houses_bookings .auto_complete li {width:100%}
 #houses_bookings {overflow:hidden;margin:0 auto;}
 .photos a:hover img {border:1px solid #D75A20}
-#search{background-color:#F5D24F;padding-bottom:10px;margin-bottom:10px;border:1px solid #F4C13F}
+#search{border:1px solid #F4C13F;
+background:transparent url(/images/search-bg.jpg) repeat-y scroll left top;
+border-left:1px solid #F8F883;
+padding-bottom:10px;margin-bottom:10px;}
 #search img {margin-top:5px}
 #search fieldset {margin:0;padding:0 15px 1.4em;width:94%}
-/* a:hover .menu-item {border-color:#D75A20;background-color:#D3E0EA} */
-.container{background-color:#ffffff}
-#content {margin:5px 0}
+#search .label {font-weight:normal}
+.container{background-color:#ffffff;}
+#content {margin:0;}
 #site-name a {font-size:30px;font-weight:bold;text-decoration:none;color:#D75A20;font-family:'Trebuchet MS',Lucida,Verdana;}
 .pagination {float:right;padding:0 15px}
 .count{font-size:1.1em;color:#D75A20;font-weight:bold}

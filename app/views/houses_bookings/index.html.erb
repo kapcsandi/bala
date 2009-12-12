@@ -1,0 +1,27 @@
+<% title t("admin.bookings") %>
+
+<table>
+  <tr>
+    <th>Házkód</th>
+    <th>Foglalás</th>
+    <th>Admin</th>
+    <th>Érkezés</th>
+    <th>Távozás</th>
+    <th>Állapot</th>
+  </tr>
+  <% for houses_booking in @houses_bookings %>
+    <tr>
+      <td><%=h houses_booking.house.code unless houses_booking.house_id.nil? %></td>
+      <td><%= link_to_if houses_booking.booking_id, "#{houses_booking.booking_id}", :controller => :bookings, :action => 'show', :id => houses_booking.booking_id %></td>
+      <td><%=h houses_booking.owner.name unless houses_booking.owner_id.nil? %></td>
+      <td><%=h houses_booking.start_at %></td>
+      <td><%=h houses_booking.end_at %></td>
+      <td><%=h houses_booking.status_id %></td>
+      <td><%= link_to "Show", houses_booking %></td>
+      <td><%= link_to "Edit", edit_houses_booking_path(houses_booking) %></td>
+      <td><%= link_to "Destroy", houses_booking, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to t('admin.new_booking'), new_houses_booking_path %></p>

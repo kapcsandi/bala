@@ -9,11 +9,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091208133603) do
+ActiveRecord::Schema.define(:version => 20091212163301) do
 
   create_table "bookings", :force => true do |t|
-    t.date     "start_at"
-    t.date     "end_at"
     t.integer  "nights"
     t.integer  "persons"
     t.boolean  "with_animals"
@@ -30,13 +28,31 @@ ActiveRecord::Schema.define(:version => 20091208133603) do
     t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "status_id",                    :default => 0
+    t.string   "fax",            :limit => 20
     t.integer  "children"
     t.integer  "price"
     t.string   "children_years", :limit => 20
     t.string   "animal_details", :limit => 50
     t.string   "salut",          :limit => 20
-    t.string   "fax",            :limit => 20
+  end
+
+  create_table "cities", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "condition_translations", :force => true do |t|
+    t.integer  "condition_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "conditions", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "discount_translations", :force => true do |t|
@@ -55,10 +71,36 @@ ActiveRecord::Schema.define(:version => 20091208133603) do
 
   add_index "discounts", ["house_id"], :name => "index_discounts_on_house_id"
 
+  create_table "furnishing_translations", :force => true do |t|
+    t.integer  "furnishing_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "furnishings", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "house_translations", :force => true do |t|
     t.integer  "house_id"
     t.string   "locale"
     t.string   "house_description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "house_type_translations", :force => true do |t|
+    t.integer  "house_type_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "house_types", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -138,10 +180,13 @@ ActiveRecord::Schema.define(:version => 20091208133603) do
     t.integer  "balcony_id"
   end
 
+  add_index "houses", ["animals"], :name => "index_houses_on_animals"
   add_index "houses", ["city_id"], :name => "index_houses_on_city_id"
+  add_index "houses", ["code"], :name => "index_houses_on_code"
   add_index "houses", ["condition_id"], :name => "index_houses_on_condition_id"
   add_index "houses", ["furnishing_id"], :name => "index_houses_on_furnishing_id"
   add_index "houses", ["house_type_id"], :name => "index_houses_on_house_type_id"
+  add_index "houses", ["persons"], :name => "index_houses_on_persons"
 
   create_table "houses_bookings", :force => true do |t|
     t.integer  "house_id"
@@ -149,6 +194,10 @@ ActiveRecord::Schema.define(:version => 20091208133603) do
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "owner_id"
+    t.date     "start_at"
+    t.date     "end_at"
+    t.integer  "status_id",  :default => 0
   end
 
   add_index "houses_bookings", ["booking_id"], :name => "index_houses_bookings_on_booking_id"
@@ -174,6 +223,19 @@ ActiveRecord::Schema.define(:version => 20091208133603) do
   add_index "houses_tags", ["house_id"], :name => "index_houses_tags_on_house_id"
   add_index "houses_tags", ["tag_id"], :name => "index_houses_tags_on_tag_id"
 
+  create_table "lay_translations", :force => true do |t|
+    t.integer  "lay_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lays", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "page_translations", :force => true do |t|
     t.integer  "page_id"
     t.string   "locale"
@@ -188,6 +250,31 @@ ActiveRecord::Schema.define(:version => 20091208133603) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "path"
+  end
+
+  create_table "reservations", :force => true do |t|
+    t.integer  "house_id"
+    t.date     "from"
+    t.date     "to"
+    t.integer  "persons"
+    t.integer  "user_id"
+    t.integer  "status"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "room_type_translations", :force => true do |t|
+    t.integer  "room_type_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "room_types", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "seasons", :force => true do |t|

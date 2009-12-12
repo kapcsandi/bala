@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :houses_bookings
   acts_as_authentic
   
   def locale

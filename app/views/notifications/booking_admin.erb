@@ -3,8 +3,10 @@ Foglalási értesítő
 Foglalás érkezett a következő adatokkal:
 
   házkód(ok): <%= @codes.to_sentence %>
-  érkezés: <%= @booking.from %>
-  távozás: <%= @booking.to %>
+  érkezés: <%= @houses_booking.start_at %>
+  távozás: <%= @houses_booking.end_at %>
+  éjszakák száma: <%= @booking.nights %>
+  ár: <%= @booking.price %> EUR
 
 <% unless @booking.notes.blank? %>
 <%= @booking.name %> <<%= @booking.email %>> üzenete:

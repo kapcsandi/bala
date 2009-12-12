@@ -15,31 +15,24 @@ Válassz apartmant:
     <th>To</th>
     <th>Nights</th>
     <th>Persons</th>
-    <th>With Animals</th>
     <th>Firstname</th>
     <th>Lastname</th>
-    <th>Company</th>
-    <th>Address</th>
     <th>City</th>
-    <th>Country</th>
   </tr>
-  <% for booking in @bookings %>
+  <% for hb in @bookings %>
     <tr>
-      <td><%=h booking.start_at %></td>
-      <td><%=h booking.end_at %></td>
-      <td><%=h booking.nights %></td>
-      <td><%=h booking.persons %></td>
-      <td><%=h booking.with_animals %></td>
-      <td><%=h booking.firstname %></td>
-      <td><%=h booking.lastname %></td>
-      <td><%=h booking.company %></td>
-      <td><%=h booking.city %></td>
-      <td><%=h booking.country %></td>
-      <td><%= link_to t("admin.show"), booking %></td>
-      <td><%= link_to t("admin.edit"), edit_booking_path(booking) %></td>
-      <td><%= link_to t("admin.destroy"), booking, :confirm => t('Are you sure?'), :method => :delete %></td>
+      <td><%=h hb.start_at %></td>
+      <td><%=h hb.end_at %></td>
+      <td><%=h hb.nights %></td>
+      <td><%=h hb.booking.persons %></td>
+      <td><%=h hb.booking.firstname %></td>
+      <td><%=h hb.booking.lastname %></td>
+      <td><%=h hb.booking.city %></td>
+      <td><%= link_to t("admin.show"), hb.booking %></td>
+      <td><%= link_to t("admin.edit"), edit_booking_path(hb.booking) %></td>
+      <td><%= link_to t("admin.destroy"), hb.booking, :confirm => t('Are you sure?'), :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to t("admin.new_booking"), new_booking_path %></p>
+<p><%= link_to t("admin.new_booking"), new_houses_booking_path %></p>

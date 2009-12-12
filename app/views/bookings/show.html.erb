@@ -7,15 +7,15 @@
 
 <p>
   <strong><%= t('admin.status')%>:</strong>
-  <%= @booking.status %>
+  <%= @booking.houses_bookings.first.status %>
 </p>
 <p>
   <strong><%= t('admin.from') %>:</strong>
-  <%=h @booking.start_at %>
+  <%=h @booking.houses_bookings.first.start_at %>
 </p>
 <p>
   <strong><%= t('admin.to') %>:</strong>
-  <%=h @booking.end_at %>
+  <%=h @booking.houses_bookings.first.end_at %>
 </p>
 <p>
   <strong><%= t('admin.nights') %>:</strong>

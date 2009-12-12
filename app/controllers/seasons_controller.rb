@@ -16,7 +16,7 @@ class SeasonsController < ApplicationController
   def create
     @season = Season.new(params[:season])
     if @season.save
-      flash[:notice] = "Successfully created season."
+      flash[:notice] = t('admin.successfully_created_season')
       redirect_to @season
     else
       render :action => 'new'
@@ -30,7 +30,7 @@ class SeasonsController < ApplicationController
   def update
     @season = Season.find(params[:id])
     if @season.update_attributes(params[:season])
-      flash[:notice] = "Successfully updated season."
+      flash[:notice] = t('admin.successfully_updated_season')
       redirect_to @season
     else
       render :action => 'edit'
@@ -40,7 +40,7 @@ class SeasonsController < ApplicationController
   def destroy
     @season = Season.find(params[:id])
     @season.destroy
-    flash[:notice] = "Successfully destroyed season."
+    flash[:notice] = t('admin.successfully_destroyed_season')
     redirect_to seasons_url
   end
 end

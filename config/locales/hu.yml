@@ -619,6 +619,9 @@ hu:
     successfully_created_taggable: Címkecsoport sikeresen létrehozva
     successfully_updated_taggable: Címkecsoport sikeresen módosítva
     successfully_updated_profile: Saját adatok módosítása sikeres volt.
+    successfully_created_season: Szezon sikeresen létrehozva
+    successfully_updated_season: Szezon sikeresen módosítva
+    successfully_destroyed_season: Szezon sikeresen törölve
     house_added: Az {{house}} apartman létrehozása sikeres volt
     house_updated: Az {{house}} apartman módosítása sikeres volt
     house_destroyed: Az {{house}} apartman törlése sikeres volt

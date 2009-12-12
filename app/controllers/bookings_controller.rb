@@ -9,9 +9,9 @@ class BookingsController < ApplicationController
     @date = Date.parse("#{@year}-#{@month}-01")
     house = @search.first
     if house then
-      @bookings = house.bookings
+      @bookings = house.houses_bookings(:include => :bookings)
     else
-      @bookings = Booking.all
+      @bookings = Houses_Booking.all(:include => :bookings)
     end
 
     @shown_month = Date.civil(@year, @month)
@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @booking.houses.build
+    @houses_bookings = @booking.houses_bookings.build
     if params[:id]
       @houses = House.find([ params[:id].to_i ])
     else
@@ -39,6 +39,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(params[:booking])
+    @houses_bookings = @booking.houses_bookings.build
     booking_houses = params[:booking][:houses]
     case booking_houses
     when Hash
@@ -50,26 +51,37 @@ class BookingsController < ApplicationController
     end
     if houses_found
       @booking.houses << houses_found
-    else
-#      error
-    end
-    @houses = @booking.houses
-    if @booking.save
-      if session[:order]
-        session[:order].each_with_index do |id, index|
-          logger.info "@houses_bookings values: #{id}"
-          hb = @booking.houses_bookings.find_by_house_id(id)
-          if hb
-            hb.position = index
-            hb.save
+      @houses = @booking.houses
+      if @booking.save
+        hbs = @booking.houses_bookings
+        logger.info "SAVE HB"
+        hbs.each do |hb|
+          hb.start_at = params[:booking][:houses_bookings].first[:start_at]
+          hb.end_at = params[:booking][:houses_bookings].first[:end_at]
+          hb.save
+          logger.info "SAVED HB"
+        end
+        if session[:order]
+          session[:order].each_with_index do |id, index|
+            logger.info "@houses_bookings values: #{id}"
+            hb = hbs.find_by_house_id(id)
+            if hb
+              hb.position = index
+              hb.save
+            end
           end
         end
+        session[:order] = nil
+        flash[:notice] = t("created_booking")
+        notification_mails(@booking)
+        redirect_to @houses
+      else
+#         @houses_bookings = @booking.houses_bookings.build if @houses_bookings.nil?
+        @houses_bookings = @booking.houses_bookings.first
+        render :action => 'new'
       end
-      session[:order] = nil
-      flash[:notice] = t("created_booking")
-      notification_mails(@booking)
-      redirect_to @houses
     else
+#      error
       render :action => 'new'
     end
   end
@@ -77,11 +89,13 @@ class BookingsController < ApplicationController
   def edit
     @booking = Booking.find(params[:id])
     @houses = @booking.houses
+    @houses_bookings = @booking.houses_bookings.first
   end
 
   def update
     @booking = Booking.find(params[:id])
     @houses = @booking.houses
+    @houses_bookings = @booking.houses_bookings
     if session[:order]
       logger.info "session:order exists"
       session[:order].each_with_index do |id, index|
@@ -128,10 +142,10 @@ class BookingsController < ApplicationController
       prev_season = Season.which_season?(from)
       (from+1..to).step do |day|
         season = Season.which_season?(day)
-        logger.info "_start_ days: #{days}, date: #{day}, season: #{season}"
+  #      logger.info "_start_ days: #{days}, date: #{day}, season: #{season}"
         if season == prev_season
           adds << house.daily_price(season)
-          logger.info "same season"
+  #        logger.info "same season"
           if days % 7 == 0
             logger.info "7th day of season"
             7.times { adds.pop }
@@ -139,13 +153,13 @@ class BookingsController < ApplicationController
             days = 0
           end
         else
-          logger.info "new season"
+ #         logger.info "new season"
           if (days % 7) != 0
-            logger.info "prev season fragment week"
+ #           logger.info "prev season fragment week"
             season_price += days * house.daily_price(prev_season) 
             adds << house.daily_price(season)
           else
-            logger.info "prev season full week"
+ #           logger.info "prev season full week"
             season_price += house.price(prev_season)
             7.times { adds.pop }
             adds << house.price(prev_season)
@@ -154,11 +168,11 @@ class BookingsController < ApplicationController
           days, season_price = 0, 0
           prev_season = season
         end
-        logger.info "_end_ days: #{days}, date: #{day}, season: #{season}, adds: #{adds.inspect}"
+#        logger.info "_end_ days: #{days}, date: #{day}, season: #{season}, adds: #{adds.inspect}"
         days += 1
       end
       adds.each {|elem| @price += elem }
-      logger.info  "_last_ day: #{days}, season: #{prev_season}, adds: #{adds.inspect}"
+#      logger.info  "_last_ day: #{days}, season: #{prev_season}, adds: #{adds.inspect}"
     else
       @price = ""
     end
@@ -176,7 +190,8 @@ class BookingsController < ApplicationController
 
   def notification_mails(booking)
     house_codes = booking.houses.map{|house| house.code}
-    Notifications.deliver_booking(house_codes,booking)
-    Notifications.deliver_booking_admin(house_codes,booking)
+    houses_booking = booking.houses_bookings.first
+    Notifications.deliver_booking(house_codes,booking, houses_booking)
+    Notifications.deliver_booking_admin(house_codes,booking, houses_booking)
   end
 end

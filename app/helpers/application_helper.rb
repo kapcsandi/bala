@@ -39,4 +39,9 @@ module ApplicationHelper
   def galery?
     controller_name == 'houses' and action_name == 'show' 
   end
+
+  def states
+    [t('status_created'),t('status_approved'),t('status_deleted'),t('status_unknown')]
+  end
+
 end

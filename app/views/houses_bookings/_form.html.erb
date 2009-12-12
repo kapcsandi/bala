@@ -1,0 +1,25 @@
+<% form_for @houses_booking do |f| %>
+  <%= f.error_messages %>
+  <% f.fields_for 'houses[]', house do |hb_form| %>
+  <div id="houses_bookings" class="">
+  <%= label_tag 'Házkód' %>:<br />
+  <%= hb_form.text_field_with_auto_complete :code, { :size => 20, :class => 'code' }, { :url => houses_path(:format => :js), :method => :get, :param_name => 'search[conditions][code_like]', :with => "value + '&autocomplete=1'", :indicator => :house_spinner } %>
+  <img id="house_spinner" src="/images/active_scaffold/default/indicator.gif" style="display:none">
+  <div id="house_stamp"></div>
+  </div>
+  <% end %>
+  <%= f.text_field :owner_id, :value => @current_user.id %>
+  <p>
+    <%= f.label 'Érkezés' %><br />
+    <%= f.date_select :start_at %>
+  </p>
+  <p>
+    <%= f.label 'Távozás' %><br />
+    <%= f.date_select :end_at %>
+  </p>
+  <p>
+    <%= f.label 'Állapot' %><br />
+    <%= f.select :status, HousesBooking.states %>
+  </p>
+  <p><%= f.submit t('admin.submit') %></p>
+<% end %>

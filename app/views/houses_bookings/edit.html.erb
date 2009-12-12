@@ -1,0 +1,8 @@
+<% title t('admin.edit_booking') %>
+
+<%= render :partial => 'form', :locals => {:house => @house} %>
+
+<p>
+  <%= link_to t('admin.show'), @houses_booking %> |
+  <%= link_to t('admin.view_all'), houses_bookings_path %>
+</p>

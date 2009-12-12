@@ -1,8 +1,7 @@
 class AddIndexes < ActiveRecord::Migration
   def self.up
-    add_index :houses, :persons
-    add_index :houses, :code
-    add_index :houses, :rooms
+#    add_index :houses, :persons
+#    add_index :houses, :code
     add_index :houses, :animals
     add_index :houses, :city_id
     add_index :houses, :house_type_id

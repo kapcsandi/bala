@@ -91,7 +91,7 @@ class House < ActiveRecord::Base
   end
 
   def thumb
-    id = pictures.split(',').select{|id| id =~ /[0-9-_]+/}[0]
+    id = pictures.split(',').select{|id| id =~ /[0-9\-_]+/}[0]
     APP_CONFIG['asset_server']+self.code+'/'+id+'_s.jpg' if id
   end
   
