@@ -9,4 +9,4 @@ production:
   perform_authentication: true
   username: admin
   password: secret
-  asset_server: http://bala.200u.com/bala_pics/
+  asset_server: /pic/
