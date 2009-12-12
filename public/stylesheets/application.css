@@ -75,7 +75,7 @@ legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
 .label{font-weight:bold}
 #search .label {margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
 #search span {display:inline;float:none}
-.menu-item{padding:5px 0;margin:2px 0;text-align:center}
+.menu-item{padding:5px 0;margin:2px 0;text-align:center;display:block}
 #menu {background:#8AC9D4 url(/images/bg0.png) repeat-x;margin:0 auto;height:42px;padding-top:15px;overflow:hidden;clear:both;border-bottom:5px solid #E4F1FB}
 #menu .menu-item{margin:0 auto;border:0px none;font-family:'Trebuchet MS',Lucida,Verdana;font-size:1.2em}
 #menu .menu {margin-right:10px}

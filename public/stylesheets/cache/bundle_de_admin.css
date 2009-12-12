@@ -394,7 +394,7 @@ hr.space {background:#fff;color:#fff;}
   padding: 5px 8px;
   margin: 10px;
   clear:both;
-  font-size:1.3em;
+  font-size:1.1em;
 }
 
 #flash_notice {
@@ -455,34 +455,33 @@ input,select{width:auto;font-size:95%}
 input[type="text"], input[type="password"], input.text, input.title, textarea, select {border:1px solid silver}
 select {border-top:1px solid silver}
 p {margin:0 0 1em}
-fieldset {margin:0 auto;padding:1em}
-fieldset {-moz-border-radius:5px;border-radius: 5px;-webkit-border-radius: 5px;}
+fieldset {margin:0 0 0.5em 0;padding:1em;-moz-border-radius:5px;border-radius: 5px;-webkit-border-radius: 5px;}
 h1 {font-size:1.5em}
 textarea {height:auto;height:100%;width:100%}
 input[type=submit] {padding:3px 10px}
 a {color:#1B619B}
 a:visited{color:#000;}
 a:hover {color:#D75A20}
-legend {padding:0 10px 0 30px;margin-left:5px}
+legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
 #main {height:auto !important;margin:0 auto -8.6em;min-height:100%;}
 .label{font-weight:bold}
 #search .label {margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
 #search span {display:inline;float:none}
-.menu-item{padding:5px 0;margin:2px 0;text-align:center}
+.menu-item{padding:5px 0;margin:2px 0;text-align:center;display:block}
 #menu {background:#8AC9D4 url(/images/bg0.png) repeat-x;margin:0 auto;height:42px;padding-top:15px;overflow:hidden;clear:both;border-bottom:5px solid #E4F1FB}
 #menu .menu-item{margin:0 auto;border:0px none;font-family:'Trebuchet MS',Lucida,Verdana;font-size:1.2em}
 #menu .menu {margin-right:10px}
 #menu .last {margin-right:0}
 #menu .inner {width:950px;margin:0 auto;overflow:hidden;clear:both}
-.menu-item {border:2px solid #D3E0EA;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;padding:11px;font-weight:bold}
+.menu-item {border:2px solid #D3E0EA;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;padding:11px}
 #menu a {text-decoration:none}
-#menu .selected .menu-item {border:1px solid #fafafa;/*background:transparent url(/images/grad.png) repeat-x*/}
+#menu .selected .menu-item {border:1px solid #fafafa;font-weight:bold}
 #top {margin:0 auto}
 #top .inner {padding:2px;margin:0 auto;float:none}
 #top .left{height:50px;background-color:#2B5A88 }
 .categories .category {height:210px;border:2px solid #F4C13F;padding:5px 10px;margin:0 14px 10px 0;float:left}
 .categories .category.last {margin-right:0}
-.category .title {font-size:1.2em}
+.category .title {font-size:1.1em}
 .mini {line-height:1.5em;overflow:hidden;margin:5px 0;padding:5px;border:1px solid #cccccc}
 .even {background-color:#f6f6f6}
 .odd {background-color:#efefef}
@@ -504,7 +503,7 @@ legend {padding:0 10px 0 30px;margin-left:5px}
 #new_booking fieldset div.clear {width:90%}
 #new_booking img {margin:5px 0 0 0}
 #new_booking .photos a img {margin:0;padding:0}
-.photos div {text-align:center;background-color:#FCFCFC;float:left;margin:5px 15px;padding:5px}
+.photos div {text-align:center;background-color:#FCFCFC;float:left;margin:5px 10px;padding:5px}
 .photos a img {border:1px solid #ffffff}
 #houses_bookings .photos a img {height:110px}
 #houses_bookings .stamp.last {margin-right:0}
@@ -533,9 +532,8 @@ legend {padding:0 10px 0 30px;margin-left:5px}
 .haver {padding-left:10px}
 .calendar_date_select td div.other {color:#FFF000;}
 .fold {text-decoration:none;cursor:hand;cursor:pointer;display:block;margin:-20px 30px 0 15px;float:left}
-#houses_bookings .fold {margin:2px 10px 10px 0}
-#new_booking .fold {margin: -30px 25px 0 0;float:right}
-##new_booking #houses_bookings .fold {margin:25px 50px 0 0;float:right}
+#houses_bookings .fold {margin:-23px 35px 10px 0;float:right}
+ul#houses_bookings .fold {margin:20px 50px 10px 0;float:right}
 .photos  a.fold:hover img {border:#000}
 select#booking_country {width:215px}
 #lightbox img {height:500px;width:500px}
