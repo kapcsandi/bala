@@ -108,8 +108,8 @@ hu:
   price_pre_season: Előszezon / Utószezon
   price_mid_season: Középszezon
   price_main_season: Főszezon
-  house_description: Megjegyzés 1 (ház leírás)
-  admin_description: Megjegyzés 2 (admin megjegyzés)
+  house_description: Megjegyzés
+  admin_description: Admin megjegyzés
   picture_url: "{{position}}. kép neve"
   submit: Beküldés
   House: Ház
@@ -595,7 +595,7 @@ hu:
     house_price: Árak
     house_price_day: Ár / fő / nap | Euro (&euro;)
     house_price_week: Ár / fő / hét | Euro (&euro;)
-    house_description: Leírások
+    house_description: Leírás
     house_photos: Képek
 
 # admin linkek

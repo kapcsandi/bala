@@ -241,7 +241,7 @@
       </p>
     </div>
   <% end %>
-  <% field_set_tag t('admin.house_price_day'), :class => 'half' do %>
+  <% field_set_tag t('admin.house_price_day') do %>
     <p>
       <%= f.label t('admin.price_pre_season') %><br />
       <%= f.text_field :price_pre_season_per_day %>
@@ -270,25 +270,23 @@
     </p>
   <% end %>
   <% field_set_tag t('admin.house_description') do %>
-    <p>
+    <div>
       <%= check_box_tag :discounted, 1, @house.discounted?, :onchange => "$('discount_description').toggle()" %>
       <%= f.label t('admin.discounted') %> <br />
-    </p>
-    <div id="discount_description"<%= "style='display:none'" unless @house.discounted? %>>
-    <p>
-      <% f.fields_for :discount do |d| -%>
-	<%= render :partial => 'discount_form', :locals => { :form => d } %>
-      <% end %>
-    </p>
     </div>
-    <p>
-      <%= f.label t('admin.house_description') %><br />
-      <%= f.text_area :house_description, :rows => 5, :cols => 30  %>
-    </p>
-    <p>
+    <div id="discount_description"<%= "style='display:none'" unless @house.discounted? %>>
+    <% f.fields_for :discount do |d| -%>
+    <%= render :partial => 'discount_form', :locals => { :form => d } %>
+    <% end %>
+    </div>
+    <div>
+      <%= f.label t('admin.description') %><br />
+      <%= f.text_area :house_description, :rows => 5  %>
+    </div>
+    <div>
       <%= f.label t('admin.admin_description') %><br />
-      <%= f.text_area :admin_description, :rows => 5, :cols => 30  %>
-    </p>
+      <%= f.text_area :admin_description, :rows => 5  %>
+    </div>
   <% end %>
 <a name="photos"></a>
   <% field_set_tag t('house_photos') do %>
