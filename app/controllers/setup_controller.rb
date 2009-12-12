@@ -451,7 +451,7 @@ class SetupController < ApplicationController
 	end
 	house.house_description = line[75].to_s
 	house.admin_description = line[76].to_s
-	house.picture_ids = line[77..96]
+	house.picture_ids = line[77..96].map{|id| id.sub(/-([0-9]+)$/,'_\1')}
         if house.save
 	  n+=1
           @lines << line[0]

@@ -227,6 +227,8 @@ hu:
   salut: Megszólítás
   fax: Fax
   page_top: Lap tetejére
+  calculate_price: Árkalkulátor
+    
 # status
   status_unknown: "Ismeretlen"
   status_created: "Rögzítve"

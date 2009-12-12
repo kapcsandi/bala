@@ -3,8 +3,8 @@
 <% end %>
 <% title ([@house.house_type, @house.code, @house.city].join(', ') ), false %>
 <div class="inner">
-<div class="mini">
-<%= render :partial => 'mini', :locals => { :house => @house, :cycle_class => '', :cart => @cart } %>
+<div class="mini odd">
+<%= render :partial => 'mini', :locals => { :house => @house, :cart => @cart } %>
 <% unless controller.action_name == 'print' %>
 <%= render :partial => 'navigation' , :locals => { :house => @house }%>
 <% end %>
@@ -40,7 +40,7 @@
   <% end %>
   <% end %>
   <% end %>
-  <% field_set_tag t('house_rooms') do %>
+  <% field_set_tag t('house_rooms'), :class => 'odd' do %>
 <%= show_hide('house_rooms') %>
 <% content_tag :div, :id => :house_rooms do %>
     <% for field in Taggable.find_all_by_position([8, 9, 10, 11])
@@ -117,7 +117,7 @@
     </p>
     <% end %>
   <% end %>
-  <% field_set_tag t('house_kitchen'), :class => 'fullwidth' do %>
+  <% field_set_tag t('house_kitchen'), :class => 'half' do %>
     <% for field in %w(fridge coffee_machine micro) %>
     <% if @house[field]==1 %>
     <p>
@@ -173,7 +173,7 @@
       <%= @house.parking %>
     </p>
   <% end %>
-  <% field_set_tag t('house_distances'), :class => 'full' do %>
+  <% field_set_tag t('house_distances'), :class => 'full odd' do %>
   <%= show_hide('house_distances') %>
   <% content_tag :div do %>
     <% %w{center beach aquapark shop station medical mainroad restaurant}.each do |item| %>
@@ -201,7 +201,7 @@
       <%= @house.owner_place %>
     </p>
   <% end %>
-  <% field_set_tag t('animals') do %>
+  <% field_set_tag t('animals'), :class => 'odd' do %>
     <p>
       <%= label_tag t(:animals) %>:
       <%= @house.animals? ? t('yes_animals') : t('no_animals') %>
@@ -259,7 +259,7 @@
   <% end %>
   <% end %>
   <% end %>
-  <% field_set_tag 'Mietbedienungen' do %>
+  <% field_set_tag 'Mietbedienungen', :class => 'odd' do %>
   <p>
   Im Preis bereits enthalten: Battwäsche, Endreinigung, Gas, Strom, Wasser.<br />
   Nebenkosten: Zuschläge (zalhbar bei Buchung): Ortstaxe<br />
@@ -274,9 +274,9 @@
   <% field_set_tag t('pictures'), :class => 'photos' do %>
 <%= show_hide('pictures') %>
 <% content_tag :div, :id => :pictures do %>
-    <% @house.picture_urls.each_with_index do |id,index| %>
+    <% @house.picture_urls('m').each_with_index do |id,index| %>
     <div>
-      <% link_to_lightbox2 id.sub(/_thumb/,''), :group => @house.code, :height => 600, :title => "#{@house.code} ##{index}" do %>
+      <% link_to_lightbox2 id.sub(/_m/,'_l'), :group => @house.code, :height => 600, :title => "#{@house.code} ##{index+1}" do %>
         <%= image_tag id %>
       <% end %>
     </div>

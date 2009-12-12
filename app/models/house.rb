@@ -86,12 +86,17 @@ class House < ActiveRecord::Base
     Tag.find(owner_place_id).name unless owner_place_id.nil?
   end
   
-  def picture_urls
-    pictures.split(',').map{|pid| APP_CONFIG['asset_server']+self.code+'/'+pid+'_thumb.jpg' if pid !~ /\ |$^/ }.compact if pictures
+  def picture_urls(size)
+    pictures.split(',').map{|id| id.sub(/-([0-9]+)$/,'_\1')}.map{|pid| APP_CONFIG['asset_server']+self.code+'/'+pid+"_#{size}.jpg" if pid !~ /\ |$^/ }.compact if pictures
+  end
+
+  def thumb
+    id = pictures.split(',').select{|id| id =~ /[0-9-_]+/}[0]
+    APP_CONFIG['asset_server']+self.code+'/'+id+'_s.jpg' if id
   end
   
   def picture_ids
-    pictures.split(',') if pictures
+    pictures.split(',').map{|id| id.sub(/-([0-9]+)$/,'_\1')} if pictures
   end
 
   def picture_ids=(ids)

@@ -14,8 +14,8 @@
   <div class="span-4">
     <div class="photos"><% link_to :action => (current_page?('show_houses') ? '' : 'show'), :id => house, :anchor => 'details' do %>
     <div>
-    <%- if house.picture_urls[0] %>
-      <%= image_tag house.picture_urls[0], :height => 90 %>
+    <%- if house.thumb %>
+      <%= image_tag house.thumb %>
     <% else %>
     <%= t('no_picture') %>
     <% end %>

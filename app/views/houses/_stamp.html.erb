@@ -7,7 +7,7 @@
   </div>
   <div class="span-6">
     <div class="photos"><% link_to :controller => 'houses', :action => 'show', :id => house, :anchor => 'details' do %>
-    <div><% if house.picture_urls[0] %><%= image_tag house.picture_urls[0] %><% else %> <%= t('no_picture') %> <% end %></div>
+    <div><% if house.thumb %><%= image_tag house.thumb %><% else %> <%= t('no_picture') %> <% end %></div>
     <% end %></div>
   </div>
   <div class="span-6">

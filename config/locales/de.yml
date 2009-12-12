@@ -122,6 +122,7 @@ de:
         even: "muss gerade sein"
       models:
 
+  Print this Page: Seite drucken
 
   home: Startseite
   you_are_here: "<b>Sie sind Hier: </b><span>&nbsp;</span>"
@@ -237,7 +238,7 @@ de:
   Print:  Drucken
   Edit: Edit
   Destroy: Speichern
-  Print this Page: Oldal kinyomtatása
+
 
 
   salut: Anrede
@@ -339,6 +340,7 @@ de:
   Edit Booking: Buchung bearbeiten
   cancel_booking: Zurück
   booking_notification_subject: Reservierung Nachrichten
+  calculate_price: Preis-Rechner
 
   Empty dictionary fields: Leere Felder Wörterbuch
   add_taggables: Szótárak bővítése
@@ -451,6 +453,29 @@ de:
             email:
               blank: "E-Mail`s Feld darf nicht leer sein"
               invalid: "E-Mail`s Adresse ist ungültiges Format"
+            nights:
+              not_a_number: " Übernachtungszahl’s Feld: füllen Sie nur Zahl "
+              blank: " Übernachtung`s Feld: darf nicht leer sein "
+              greater_than: "Übernachtungszahl: muss mindestens 1 sein"
+            start_at:
+              blank: " Anreisedatum`s Feld: darf nicht leer sein "
+              invalid_date: " Abreisedatum: ungültiges Format "
+              after: " Abreisedatum kann nicht nach {{restriction}} "
+            end_at:
+              blank: " Abreisedatum`s Feld: darf nich leer sein "
+              invalid_date: " Abreisedatum: ungültiges Format "
+              before: " Abreisedatum kann nicht vor {{restriction}} "
+            with_animals:
+              blank: " Pflichtfeld: Haustier mitnehmen"
+            city:
+              blank: " Pflichtfeld: Ort"
+            postcode:
+              blank: " Pflichtfeld: PLZ"
+            address:
+              blank: " Pflichtfeld: Adresse "
+            price:
+              not_a_number: "Drücken Sie die „Preis-Rechner“ Taste!"
+              
         user:
           attributes:
             username:
