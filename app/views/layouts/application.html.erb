@@ -106,7 +106,7 @@
     <% end %>
     <% if admin? %>
       <div class="menu" style="float:left;width:100%;clear:both">
-        <% [:pages, :houses, :bookings, :taggables, :seasons].each do |menu| %>
+        <% [:pages, :houses, :houses_bookings, :taggables, :seasons].each do |menu| %>
           <div class="menu-item span-3">
             <% link_to menu do %>
               <div><%= t("admin.#{menu}") %></div>

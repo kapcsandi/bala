@@ -1,10 +1,10 @@
 class HousesBooking < ActiveRecord::Base
-  attr_accessible :position, :start_at, :end_at, :status
+  attr_accessible :house_id, :position, :start_at, :end_at, :status
   belongs_to :house
   belongs_to :booking
   belongs_to :owner, :class_name => 'User'
   acts_as_list
-  validates_presence_of :owner_id, :house_id, :start_at, :end_at
+#  validates_presence_of :house_id, :start_at, :end_at
 
   has_event_calendar
 

@@ -4,10 +4,12 @@
   <strong>Házkód:</strong>
   <%=h @houses_booking.house.code %>
 </p>
+<% if @houses_booking.booking_id %>
 <p>
   <strong>Foglalás:</strong>
   <%=h @houses_booking.booking_id %>
 </p>
+<% end %>
 <p>
   <strong>Érkezés:</strong>
   <%=h @houses_booking.start_at %>

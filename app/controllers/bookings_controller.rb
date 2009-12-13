@@ -2,20 +2,6 @@ class BookingsController < ApplicationController
   before_filter :authorize, :except => [:new, :create, :sort, :calculate]
 
   def index
-    @search = House.searchlogic(params[:search])
-    @year = params[:year] || Date.today.year
-    @month = params[:month] || Date.today.month
-    @year, @month = @year.to_i, @month.to_i
-    @date = Date.parse("#{@year}-#{@month}-01")
-    house = @search.first
-    if house then
-      @bookings = house.houses_bookings(:include => :bookings)
-    else
-      @bookings = Houses_Booking.all(:include => :bookings)
-    end
-
-    @shown_month = Date.civil(@year, @month)
-    @event_strips = @bookings.event_strips_for_month(@shown_month)
   end
 
 
@@ -39,28 +25,35 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(params[:booking])
-    @houses_bookings = @booking.houses_bookings.build
-    booking_houses = params[:booking][:houses]
+    booking_houses = params[:booking].delete(:houses)
     case booking_houses
     when Hash
-      ids = params[:booking][:houses].keys
+      ids = booking_houses.keys
       houses_found = House.find_all_by_id(ids)
     when Array
-      code = params[:booking][:houses][0][:code]
+      code = booking_houses[0][:code]
       houses_found = House.find_all_by_code(code)
     end
     if houses_found
       @booking.houses << houses_found
       @houses = @booking.houses
+      @houses_booking = @booking.houses_bookings.build
+      @houses_booking.house_id = @houses.first.id
+      houses_booking = params[:booking].delete(:houses_bookings)
+      case houses_booking
+      when Hash
+        ids = houses_booking.keys
+        hb = houses_booking[ids.first]
+       when Array
+        hb = houses_booking.first
+      end
+      @houses_booking.start_at = hb[:start_at]
+      @houses_booking.end_at = hb[:end_at]
+#       debugger
+#       @houses_booking.save_with_dirty!
+    begin
       if @booking.save
-        hbs = @booking.houses_bookings
-        logger.info "SAVE HB"
-        hbs.each do |hb|
-          hb.start_at = params[:booking][:houses_bookings].first[:start_at]
-          hb.end_at = params[:booking][:houses_bookings].first[:end_at]
-          hb.save
-          logger.info "SAVED HB"
-        end
+        logger.info "SAVED HB"
         if session[:order]
           session[:order].each_with_index do |id, index|
             logger.info "@houses_bookings values: #{id}"
@@ -76,12 +69,15 @@ class BookingsController < ApplicationController
         notification_mails(@booking)
         redirect_to @houses
       else
-#         @houses_bookings = @booking.houses_bookings.build if @houses_bookings.nil?
         @houses_bookings = @booking.houses_bookings.first
         render :action => 'new'
       end
+  rescue ActiveRecord::RecordInvalid
+    logger.info($!.to_s)
+    render :action => 'new'
+  end
     else
-#      error
+      @houses_bookings = @booking.houses_bookings.first
       render :action => 'new'
     end
   end

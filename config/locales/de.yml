@@ -390,6 +390,9 @@ de:
         condition_id: "Zustand"
         furnishing_id: "Ausstattung"
         house_type_id: "Haustyp"
+      houses_booking:
+        start_at: "Wunsttermin von"
+        end_at: "Wunsttermin bis"
       booking:
         persons: "Personenzahl"
         nights: "Nachts"
@@ -409,6 +412,8 @@ de:
         password: "Passwort"
 
     errors:
+      messages:
+        record_invalid: 'record invalid'
       template:
         header: "{{count}} Fehler hat das {{model}} Speichern blockiert"
         body: "Es gab ein Problem mit den in der folgenden Feld ausfüllen"
@@ -426,6 +431,16 @@ de:
                blank: "Ort`s Feld darf nicht leer sein"
              code:
                blank: "Haus-Kode`s Feld darf nicht leer sein"
+        houses_booking:
+          attributes:
+            start_at:
+              blank: "Anreisedatum`s Feld darf nich leer sein"
+              invalid: "Anreisedatum ist ungültiges Format"
+              after: "Anreisedatum kann nicht nach {{restriction}}"
+            end_at:
+              blank: "Abreisedatum`s darf nicht leer sein"
+              invalid: "Abreisedatum ist ungültiges Format"
+              before: "Abreisedatum darf nicht vor {{restriction}}"
         booking:
           attributes:
             persons:
@@ -434,14 +449,6 @@ de:
             nights:
               not_a_number: "Nachtzahl`s Feld füllen Sie nur Zahl"
               blank: "Nachtzahl`s Feld darf nicht leer sein"
-            from:
-              blank: "Anreisedatum`s Feld darf nich leer sein"
-              invalid: "Anreisedatum ist ungültiges Format"
-              after: "Anreisedatum kann nicht nach {{restriction}}"
-            to:
-              blank: "Abreisedatum`s darf nicht leer sein"
-              invalid: "Abreisedatum ist ungültiges Format"
-              before: "Abreisedatum darf nicht vor {{restriction}}"
             firstname:
               blank: "Vorname`s Feld darf nicht leer sein"
             lastname:
@@ -455,14 +462,8 @@ de:
               not_a_number: " Übernachtungszahl’s Feld: füllen Sie nur Zahl "
               blank: " Übernachtung`s Feld: darf nicht leer sein "
               greater_than: "Übernachtungszahl: muss mindestens 1 sein"
-            start_at:
-              blank: " Anreisedatum`s Feld: darf nicht leer sein "
-              invalid_date: " Abreisedatum: ungültiges Format "
-              after: " Abreisedatum kann nicht nach {{restriction}} "
-            end_at:
-              blank: " Abreisedatum`s Feld: darf nich leer sein "
-              invalid_date: " Abreisedatum: ungültiges Format "
-              before: " Abreisedatum kann nicht vor {{restriction}} "
+            houses_bookings:
+              invalid: "Anreisedatum, Abreisedatum und Haus-Kode darf nicht leer sein"
             with_animals:
               blank: " Pflichtfeld: Haustier mitnehmen"
             city:

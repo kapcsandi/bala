@@ -1,10 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :houses_bookings
-
-  map.calendar '/calendar/:year/:month', :controller => 'calendar', :action => 'index', :year => Time.zone.now.year, :month => Time.zone.now.month
+#   map.calendar '/calendar/:year/:month', :controller => 'calendar', :action => 'index', :year => Time.zone.now.year, :month => Time.zone.now.month
   map.resources :seasons
   map.resources :bookings
-  map.resources :houses_booking
+  map.resources :houses_bookings
   map.resources :bookings, :collection => { :sort => :post} 
   map.calculate "calculate", :controller => "bookings", :action=> "calculate"
   map.resources :taggables

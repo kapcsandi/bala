@@ -1,29 +1,2 @@
 module BookingsHelper
-  def month_link(month_date)
-    link_to(month_date.strftime("%B"), {:month => month_date.month, :year => month_date.year}, :class => 'month_link')
-  end
-
-  # custom options for this calendar
-  def event_calendar_opts
-    {
-      :year => @year,
-      :month => @month,
-      :event_strips => @event_strips,
-      :month_name_text => @shown_month.strftime("%B %Y"),
-      :previous_month_text => "<< " + month_link(@shown_month.last_month),
-      :next_month_text => month_link(@shown_month.next_month) + " >>"
-    }
-  end
-
-  def event_calendar
-    calendar event_calendar_opts do |event|
-      %(<a href="/bookings/#{event.id}" title="#{h(event.name)}">#{h(event.name)} #{event.status}</a>)
-    end
-  end
-  
-  def houses_links(houses)
-    houses.map do |house|
-      link_to(house.code, house_path(house.id))
-    end.join(', ')
-  end
 end

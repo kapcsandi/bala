@@ -1,5 +1,15 @@
 <% title t("admin.bookings") %>
 
+<% form_for @search do |f| %>
+Válassz apartmant:
+  <%= text_field_with_auto_complete 'search', 'code', { :size => 20, :class => 'code' }, { :url => houses_path(:format => :js), :method => :get, :param_name => 'search[conditions][code_like]', :with => "value + '&autocomplete=1'", :indicator => :house_spinner } %>
+  <img id="house_spinner" src="/images/active_scaffold/default/indicator.gif" style="display:none">
+  <div id="house_stamp"></div>
+<div class="span-4"><%= f.submit t("admin.submit") %></div>
+<% end %>
+<hr />
+<%= event_calendar unless @event_strips.nil? %>
+
 <table>
   <tr>
     <th>Házkód</th>
@@ -9,17 +19,17 @@
     <th>Távozás</th>
     <th>Állapot</th>
   </tr>
-  <% for houses_booking in @houses_bookings %>
+  <% for houses_booking in @bookings %>
     <tr>
       <td><%=h houses_booking.house.code unless houses_booking.house_id.nil? %></td>
       <td><%= link_to_if houses_booking.booking_id, "#{houses_booking.booking_id}", :controller => :bookings, :action => 'show', :id => houses_booking.booking_id %></td>
-      <td><%=h houses_booking.owner.name unless houses_booking.owner_id.nil? %></td>
+      <td><%=h houses_booking.owner.username unless houses_booking.owner_id.nil? %></td>
       <td><%=h houses_booking.start_at %></td>
       <td><%=h houses_booking.end_at %></td>
-      <td><%=h houses_booking.status_id %></td>
-      <td><%= link_to "Show", houses_booking %></td>
-      <td><%= link_to "Edit", edit_houses_booking_path(houses_booking) %></td>
-      <td><%= link_to "Destroy", houses_booking, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%=h houses_booking.status %></td>
+      <td><%= link_to t('admin.show'), houses_booking %></td>
+      <td><%= link_to t('admin.edit'), edit_houses_booking_path(houses_booking) %></td>
+      <td><%= link_to t('admin.destroy'), houses_booking, :confirm => t('Are you sure?'), :method => :delete %></td>
     </tr>
   <% end %>
 </table>
