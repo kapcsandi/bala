@@ -463,6 +463,7 @@ a {color:#1B619B}
 a:visited{color:#000;}
 a:hover {color:#D75A20}
 legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
+#search legend {padding:0 5px;margin:0; font-size:0.95em}
 #main {height:auto !important;margin:0 auto -8.6em;min-height:100%;}
 .label{font-weight:bold}
 #search .label {margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}

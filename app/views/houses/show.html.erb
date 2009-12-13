@@ -231,11 +231,13 @@
   <br />
   <table class="full">
   <thead>
+  <tr>
   <th> von </th>
   <th> bis </th>
   <th> bei Belegung mit .. Personen</th>
   <th>bis zu </th>
   <th> Mietpreis </th>
+  </tr>
   </thead>
   <tbody>
   <% for season in Season.next_year %>
@@ -268,7 +270,7 @@
 <% content_tag :div, :id => :pictures do %>
     <% @house.picture_urls('m').each_with_index do |id,index| %>
     <div>
-      <% link_to_lightbox2 id.sub(/_m/,'_l'), :group => @house.code, :height => 600, :title => "#{@house.code} ##{index+1}" do %>
+      <% link_to_lightbox2 id.sub(/_m/,'_l'), :group => @house.code, :title => "#{@house.code} ##{index+1}" do %>
         <%= image_tag id %>
       <% end %>
     </div>

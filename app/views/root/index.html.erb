@@ -1,16 +1,16 @@
-<% title t(:home), false %>
-<% if admin? %>
-<% else %>
+<%- title t(:home), false -%>
+<%- if admin? -%>
+<%- else -%>
 <div class="categories">
-<% @categories[0..5].each_with_index do |category, index| %>
+<%- @categories[0..5].each_with_index do |category, index| %>
  <div class="category<%= ' last' if (index%3==2) %>">
   <div class="span-6 last">
   <div class="item title"><span class="title"><%= link_to category[:name], :controller => :houses, :action => :index, :commit => '', :category => category[:name] %></span></div>
-<% unless category[:house].nil? or category[:house].picture_ids.nil? %>
-<% link_to category[:house] do %>
-  <%= image_tag category[:house].picture_urls('m')[0], :alt => category[:name] %>
-<% end %>
-<% end %>
+<%- unless category[:house].nil? or category[:house].picture_ids.nil? -%>
+<%- link_to category[:house] do -%>
+  <%= image_tag category[:house].picture_urls('m')[0], :alt => category[:name] -%>
+<%- end -%>
+<%- end -%>
   <div class="item details">
 <%=
 unless category[:house].nil?
@@ -19,19 +19,20 @@ unless category[:house].nil?
   else
     truncate( category[:house].discount.description, :length => 40 )
   end
-end %>
+end -%>
   </div>
  </div></div>
-<% end %>
-<div class="pictures">
-<% for house in @pictures do %>
-  <% link_to :controller => 'houses', :action => 'show', :id => house.id, :anchor => 'details' do %>
-  <%- if house.thumb %>
-    <%= image_tag house.thumb %>
-  <% else %>
-    <%= t('no_picture') %>
-  <% end %>
-  <% end %>
-<% end %>
+<%- end -%>
 </div>
-<% end %>
+<div class="pictures">
+<%- for house in @pictures do -%>
+  <%- link_to :controller => 'houses', :action => 'show', :id => house.id, :anchor => 'details' do -%>
+  <%- if house.thumb -%>
+    <%= image_tag house.thumb -%>
+  <%- else -%>
+    <%= t('no_picture') -%>
+  <%- end -%>
+  <%- end -%>
+<%- end -%>
+</div>
+<%- end -%>
