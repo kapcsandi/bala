@@ -8,6 +8,16 @@
   <div id="house_stamp"></div>
   </div>
   <% end %>
+  <% if @houses_booking.booking_id %>
+  <p>
+    <%= f.label 'Foglalás' %><br />
+    <%= link_to @houses_booking.booking_id, booking_path(:id => @houses_booking.booking_id) %>
+  </p>
+  <% end %>  
+  <p>
+    <%= f.label 'Rögzítette' %><br />
+    <%= if @houses_booking.owner then @houses_booking.owner.username else '[bejövő előjegyzés]' end  %>
+  </p>
   <p>
     <%= f.label 'Érkezés' %><br />
     <%= f.date_select :start_at %>

@@ -53,6 +53,7 @@ class BookingsController < ApplicationController
 #       @houses_booking.save_with_dirty!
     begin
       if @booking.save
+        @booking.houses_bookings.last.destroy
         logger.info "SAVED HB"
         if session[:order]
           session[:order].each_with_index do |id, index|

@@ -4,7 +4,6 @@
   <strong><%= t('admin.houses')%>:</strong>
   <%= houses_links(@booking.houses) %>
 </p>
-
 <p>
   <strong><%= t('admin.status')%>:</strong>
   <%= @booking.houses_bookings.first.status %>
@@ -26,8 +25,20 @@
   <%=h @booking.persons %>
 </p>
 <p>
+  <strong>Gyerekek száma:</strong>
+  <%=h @booking.children %>
+</p>
+<p>
+  <strong>Gyerekek életkora:</strong>
+  <%=h @booking.children_years %>
+</p>
+<p>
   <strong><%= t('admin.with_animals') %>:</strong>
   <%=h @booking.with_animals ? 'igen' : 'nem' %>
+</p>
+<p>
+  <strong>Állatok fajtája, mérete:</strong>
+  <%=h @booking.animal_details %>
 </p>
 <p>
   <strong><%= t('admin.notes') %>:</strong>
@@ -44,6 +55,10 @@
 <p>
   <strong><%= t('admin.email') %>:</strong>
   <%=h @booking.email %>
+</p>
+<p>
+  <strong>Megszólítás:</strong>
+  <%=h @booking.salut %>
 </p>
 <p>
   <strong><%= t('admin.firstname') %>:</strong>

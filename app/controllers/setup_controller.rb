@@ -160,11 +160,15 @@ class SetupController < ApplicationController
         @result << field
         end
       end
+      Season.find_or_create_by_name_and_start_and_end(:name => 'pre_saison', :start => '2009-08-29', :end => '2009-12-31')
       Season.find_or_create_by_name_and_start_and_end(:name => 'pre_saison', :start => '2010-01-01', :end => '2010-07-03')
       Season.find_or_create_by_name_and_start_and_end(:name => 'mid_saison', :start => '2010-07-03', :end => '2010-07-10')
       Season.find_or_create_by_name_and_start_and_end(:name => 'main_saison', :start => '2010-07-10', :end => '2010-08-21')
       Season.find_or_create_by_name_and_start_and_end(:name => 'mid_saison', :start => '2010-08-21', :end => '2010-08-28')
       Season.find_or_create_by_name_and_start_and_end(:name => 'post_saison', :start => '2010-08-28', :end => '2010-12-31')
+      User.create(:username => 'admin1', :email => 'raingod@gmail.com', :password => 'admin1secret')
+      User.create(:username => 'admin2', :email => 'raingod@gmail.com', :password => 'admin1secret')
+      User.create(:username => 'admin3', :email => 'raingod@gmail.com', :password => 'admin2secret')
       @result = @result.join(', ') + ' done'
     else
       @result = empties.join(', ') + '<br />What should I do? <a href="?do=12">DO!</a>'

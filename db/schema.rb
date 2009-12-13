@@ -182,11 +182,9 @@ ActiveRecord::Schema.define(:version => 20091212163301) do
 
   add_index "houses", ["animals"], :name => "index_houses_on_animals"
   add_index "houses", ["city_id"], :name => "index_houses_on_city_id"
-  add_index "houses", ["code"], :name => "index_houses_on_code"
   add_index "houses", ["condition_id"], :name => "index_houses_on_condition_id"
   add_index "houses", ["furnishing_id"], :name => "index_houses_on_furnishing_id"
   add_index "houses", ["house_type_id"], :name => "index_houses_on_house_type_id"
-  add_index "houses", ["persons"], :name => "index_houses_on_persons"
 
   create_table "houses_bookings", :force => true do |t|
     t.integer  "house_id"

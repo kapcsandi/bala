@@ -129,8 +129,8 @@ de:
 
   title: "Cím"
   title_houses_found: "Häuser gefunden"
-  Untitled: 1x Ferienhause
-  meta_description: Unterkunft, Appartement, Balaton, FerienhĂ¤user
+  Untitled: 1x Ferienhaus
+  meta_description: Unterkunft, Appartement, Balaton, Ferienhäuser
   slogan: Ferien im Sonnenland Ungarn
   published: veröffentlicht
   body: Törzs
@@ -489,7 +489,7 @@ de:
   successfully_logged_out: Erfolgreicher abmeldet
   cart_limit: Der Warenkorb kann maximal 3 Häuser enthalten!<br /> Zuerst bitte löschen Sie Elemente aus Ihrem warekorb.
   registration_successful: Erfolgreich Registration
-  created_booking: "<h3>Vielen Dank für Ihre Reservierung.</h3><p>Liebe Ungarnfreunde,</p><p>nach der Absendung Ihrer Bestellung bekommen Sie enine <b>Bestätigung</b> mit dem Gesamtpreis des Aufenthaltes, Höhe und Termin der erste Anzalhlung. Wir werden Ihre Reservierung schnellstens bearbeiten und Ihnen der Unterlagen zukommen lassen.</p>"
+  created_booking: "<h3>Vielen Dank für Ihre Reservierung.</h3><p>Liebe Ungarnfreunde,</p><p>nach der Absendung Ihrer Bestellung bekommen Sie eine <b>Bestätigung</b> mit dem Gesamtpreis des Aufenthaltes, Höhe und Termin der erste Anzalhlung. Wir werden Ihre Reservierung schnellstens bearbeiten und Ihnen der Unterlagen zukommen lassen.</p>"
 
   admin:
     edit_house: Apartman szerkesztése

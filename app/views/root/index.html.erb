@@ -12,7 +12,14 @@
 <% end %>
 <% end %>
   <div class="item details">
-<%= truncate( category[:house].discount.description, :length => 40 ) unless category[:house].nil? or category[:house].discount.nil? %>
+<%=
+unless category[:house].nil?
+  if category[:house].discount.nil?
+    'Ab ' + category[:house].price(Season.which_season?(Date.today)).to_s + ' EURO / Woche / ' + category[:house].persons.to_s + ' Pers.'
+  else
+    truncate( category[:house].discount.description, :length => 40 )
+  end
+end %>
   </div>
  </div></div>
 <% end %>
