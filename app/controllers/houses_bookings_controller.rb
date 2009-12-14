@@ -23,7 +23,11 @@ class HousesBookingsController < ApplicationController
   end
   
   def show
-    @houses_booking = HousesBooking.find(params[:id])
+    begin
+      @houses_booking = HousesBooking.find(params[:id])
+    rescue
+      redirect_to root_path
+    end
   end
   
   def new
@@ -64,7 +68,7 @@ class HousesBookingsController < ApplicationController
   
   def destroy
     @houses_booking = HousesBooking.find(params[:id])
-    event_logger("#{current_user.username} foglaltságot törölt: #{@house.code}, #{@houses_booking.start_at} - #{@houses_booking.end_at}")
+    event_logger("#{current_user.username} foglaltságot törölt: #{@houses_booking.house.code}, #{@houses_booking.start_at} - #{@houses_booking.end_at}")
     @houses_booking.destroy
     flash[:notice] = t "destroyed_booking"
     redirect_to houses_bookings_url
