@@ -475,7 +475,7 @@ legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
 #menu .last {margin-right:0}
 #menu .inner {width:950px;margin:0 auto;overflow:hidden;clear:both}
 .menu-item {border:2px solid #D3E0EA;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;padding:11px}
-.menu a {text-decoration:none}
+#menu a {text-decoration:none}
 #menu .selected .menu-item {border:1px solid #fafafa;font-weight:bold}
 #top {margin:0 auto}
 #top .inner {padding:2px;margin:0 auto;float:none}

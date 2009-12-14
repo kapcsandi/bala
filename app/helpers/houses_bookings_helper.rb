@@ -1,15 +1,18 @@
 module HousesBookingsHelper
   def month_link(month_date)
-    link_to(month_date.strftime("%B"), {:month => month_date.month, :year => month_date.year}, :class => 'month_link')
+    params.merge!({:date => { :month => month_date.month, :year => month_date.year}})
+    link_to(l(month_date, :locale => :hu, :format => :wo_day),
+            params, :class => 'month_link')
   end
 
   # custom options for this calendar
   def event_calendar_opts
     {
+      :first_day_of_week => @first_day_of_week,
       :year => @year,
       :month => @month,
       :event_strips => @event_strips,
-      :month_name_text => @shown_month.strftime("%B %Y"),
+      :month_name_text => l(@shown_month, :format => :wo_day, :locale => :hu),
       :previous_month_text => "<< " + month_link(@shown_month.last_month),
       :next_month_text => month_link(@shown_month.next_month) + " >>"
     }

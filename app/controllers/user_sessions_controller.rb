@@ -7,14 +7,17 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = t('successfully_logged_in')
-      redirect_to root_url
+      event_logger("#{params[:user_session][:username]} belépett")
+      redirect_to event_logs_url
     else
+      event_logger("sikertelen belépés: #{params[:user_session][:username]}")
       render :action => 'new'
     end
   end
   
   def destroy
     @user_session = UserSession.find
+    event_logger("#{current_user.username} kilépett")
     @user_session.destroy
     flash[:notice] = t('successfully_logged_out')
     redirect_to root_url

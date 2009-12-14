@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   filter_parameter_logging :password
   
-  helper_method :current_user
+  helper_method :current_user, :event_logger
   before_filter :set_locale
   before_filter :current_user, :only => [:logged_in, :admin]
   
@@ -70,5 +70,9 @@ class ApplicationController < ActionController::Base
 
   def find_cart
     session[:cart] ||= Cart.new
+  end
+
+  def event_logger(action)
+    EventLog.new(:user_id => User.find(current_user).id, :action => action).save!
   end
 end

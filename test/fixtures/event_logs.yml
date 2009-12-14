@@ -1,0 +1,9 @@
+one:
+  user_id: 1
+  bouhouses_booking_id: 1
+  action: MyString
+
+two:
+  user_id: 1
+  bouhouses_booking_id: 1
+  action: MyString

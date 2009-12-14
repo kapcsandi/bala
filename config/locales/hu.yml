@@ -2,9 +2,10 @@ hu:
   date:
     formats:
       default: "%Y.%m.%d"
-      short: "%e. %b"
-      long: "%e. %B %Y"
+      short: "%b %e"
+      long: "%Y %B %e"
       only_day: "%e"
+      wo_day: "%Y %B"
 
     day_names: [Vasárnap, Hétfő, Kedd, Szerda, Csütörtök, Péntek, Szombat]
     abbr_day_names: [Va, H, K, Sze, Cs, P, Szo]
@@ -437,6 +438,7 @@ hu:
     houses: Apartmanok
     season: Szezon
     seasons: Szezonok
+    event_logs: Események
     new_discount: Új Akció
     new_page: Új Oldal
     new_tag: Új Címke

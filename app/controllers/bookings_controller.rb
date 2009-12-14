@@ -34,7 +34,7 @@ class BookingsController < ApplicationController
       code = booking_houses[0][:code]
       houses_found = House.find_all_by_code(code)
     end
-    if houses_found
+    unless houses_found.empty?
       @booking.houses << houses_found
       @houses = @booking.houses
       @houses_booking = @booking.houses_bookings.build
@@ -78,6 +78,7 @@ class BookingsController < ApplicationController
     render :action => 'new'
   end
     else
+      @houses ||= []
       @houses_bookings = @booking.houses_bookings.first
       render :action => 'new'
     end

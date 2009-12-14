@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091212163301) do
+ActiveRecord::Schema.define(:version => 20091213221744) do
 
   create_table "bookings", :force => true do |t|
     t.integer  "nights"
@@ -70,6 +70,13 @@ ActiveRecord::Schema.define(:version => 20091212163301) do
   end
 
   add_index "discounts", ["house_id"], :name => "index_discounts_on_house_id"
+
+  create_table "event_logs", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "action"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "furnishing_translations", :force => true do |t|
     t.integer  "furnishing_id"

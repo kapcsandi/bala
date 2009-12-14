@@ -5,6 +5,10 @@ Válassz apartmant:
   <%= text_field_with_auto_complete 'search', 'code', { :size => 20, :class => 'code' }, { :url => houses_path(:format => :js), :method => :get, :param_name => 'search[conditions][code_like]', :with => "value + '&autocomplete=1'", :indicator => :house_spinner } %>
   <img id="house_spinner" src="/images/active_scaffold/default/indicator.gif" style="display:none">
   <div id="house_stamp"></div>
+  <div">Válassz dátumot:
+  <%= select_year @year, :field_name => 'year' %>
+  <%= select_month @month, :field_name => 'month', :locale => :hu %>
+</div>
 <div class="span-4"><%= f.submit t("admin.submit") %></div>
 <% end %>
 <hr />
