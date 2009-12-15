@@ -1,5 +1,7 @@
 class BookingsController < ApplicationController
   before_filter :authorize, :except => [:new, :create, :sort, :calculate]
+  before_filter :find_booking, :only => [:edit, :update, :destroy]
+  before_filter :find_houses, :only => [:edit, :update]
 
   def index
   end
@@ -90,14 +92,10 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    @booking = Booking.find(params[:id])
-    @houses = @booking.houses
     @houses_bookings = @booking.houses_bookings.first
   end
 
   def update
-    @booking = Booking.find(params[:id])
-    @houses = @booking.houses
     @houses_bookings = @booking.houses_bookings
     if session[:order]
       logger.info "session:order exists"
@@ -119,7 +117,6 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
     @booking.destroy
     flash[:notice] = t "destroyed_booking"
     redirect_to bookings_url
@@ -185,6 +182,14 @@ class BookingsController < ApplicationController
   end
 
   private
+
+  def find_booking
+    @booking = Booking.find(params[:id])
+  end
+
+  def find_houses
+    @houses = @booking.houses
+  end
 
   def redirect_to_index(msg)
     flash[:notice] = t(msg)

@@ -36,11 +36,12 @@ class HousesBookingsController < ApplicationController
   end
   
   def create
-    @houses_booking = HousesBooking.new(params[:houses_booking])
+    @houses_booking = current_user.houses_bookings.build(params[:houses_booking])
     @house = House.find_by_code(params[:houses_booking][:houses].first[:code])
-    @houses_booking.house_id = @house.id if @house
-    @houses_booking.owner_id = @current_user.id
-    if @houses_booking.save
+    if @house
+      @house.houses_bookings << @houses_booking
+    end
+    if @house and @houses_booking.save
       flash[:notice] = t("created_booking")
       event_logger("#{current_user.username} foglaltságot rögzített: #{@house.code}, #{@houses_booking.start_at} - #{@houses_booking.end_at}")
       redirect_to @houses_booking

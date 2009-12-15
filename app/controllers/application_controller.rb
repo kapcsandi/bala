@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user, :event_logger
   before_filter :set_locale
-  before_filter :current_user, :only => [:logged_in, :admin]
+  before_filter :current_user, :only => [:logged_in?, :admin?]
   
   private
 

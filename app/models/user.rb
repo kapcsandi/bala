@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :houses_bookings
+  has_many :houses_bookings, :foreign_key => :owner_id
   acts_as_authentic
   
   def locale

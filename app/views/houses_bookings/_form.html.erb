@@ -1,4 +1,4 @@
-<% form_for @houses_booking do |f| %>
+<% form_for houses_booking do |f| %>
   <%= f.error_messages %>
   <% f.fields_for 'houses[]', house do |hb_form| %>
   <div id="houses_bookings" class="">
@@ -8,16 +8,16 @@
   <div id="house_stamp"></div>
   </div>
   <% end %>
-  <% if @houses_booking.booking_id %>
+  <% if houses_booking.booking_id %>
   <p>
     <%= f.label 'Foglalás' %><br />
-    <%= link_to @houses_booking.booking_id, booking_path(:id => @houses_booking.booking_id) %>
+    <%= link_to houses_booking.booking_id, booking_path(:id => houses_booking.booking_id) %>
   </p>
   <% end %>  
   <p>
     <%= f.label 'Rögzítette' %><br />
     <%=
-    if @houses_booking.owner then @houses_booking.owner.username elsif @houses_booking.new_record? then @current_user.username else '[bejövő előjegyzés]' end  %>
+    if houses_booking.owner then houses_booking.owner.username elsif houses_booking.new_record? then @current_user.username else '[bejövő előjegyzés]' end  %>
   </p>
   <p>
     <%= f.label 'Érkezés' %><br />
