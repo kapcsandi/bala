@@ -4,7 +4,6 @@ class HousesBookingsController < ApplicationController
   before_filter :find_house, :only => [:edit, :update]
 
   def index
-#     @houses_bookings = HousesBooking.all(:include => [:booking, :house])
     @search = House.searchlogic(params[:search])
     @year = params[:date] && params[:date][:year] || Date.today.year
     @month = params[:date] && params[:date][:month] || Date.today.month
@@ -13,12 +12,10 @@ class HousesBookingsController < ApplicationController
     @house = @search.first
     @shown_month = Date.civil(@year, @month)
     @first_day_of_week = 1
-    if @house and not params[:search][:code].empty? then
-#       logger.info "house: #{@house.code}"
+    if @house and params[:search] and not params[:search][:code].empty? then
       @bookings = @house.houses_bookings.on_month(@shown_month).with_assoc
       @event_strips = @bookings.event_strips_for_month(@shown_month,@first_day_of_week)
     else
-#       logger.info "ALL"
       @bookings = HousesBooking.on_month(@shown_month).with_assoc
       @event_strips = HousesBooking.event_strips_for_month(@shown_month,@first_day_of_week)
     end
