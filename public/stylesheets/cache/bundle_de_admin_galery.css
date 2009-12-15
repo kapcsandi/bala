@@ -450,7 +450,7 @@ hr.space {background:#fff;color:#fff;}
   list-style: disc;
 }
 
-body{font-family:Verdana;font-size:90%}
+body{font-family:Verdana;font-size:90%;}
 input,select{width:auto;font-size:95%}
 input[type="text"], input[type="password"], input.text, input.title, textarea, select {border:1px solid silver}
 select {border-top:1px solid silver}
@@ -463,6 +463,7 @@ a {color:#1B619B}
 a:visited{color:#000;}
 a:hover {color:#D75A20}
 legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
+#search legend {padding:0 5px;margin:0; font-size:0.95em}
 #main {height:auto !important;margin:0 auto -8.6em;min-height:100%;}
 .label{font-weight:bold}
 #search .label {margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
@@ -474,12 +475,12 @@ legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
 #menu .last {margin-right:0}
 #menu .inner {width:950px;margin:0 auto;overflow:hidden;clear:both}
 .menu-item {border:2px solid #D3E0EA;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;padding:11px}
-#menu a {text-decoration:none}
+.menu a {text-decoration:none}
 #menu .selected .menu-item {border:1px solid #fafafa;font-weight:bold}
 #top {margin:0 auto}
 #top .inner {padding:2px;margin:0 auto;float:none}
 #top .left{height:50px;background-color:#2B5A88 }
-.categories .category {height:210px;border:2px solid #F4C13F;padding:5px 10px;margin:0 14px 10px 0;float:left}
+.categories .category {height:210px;border:1px solid #F8F883;padding:5px 10px;margin:0 17px 10px 0;float:left}
 .categories .category.last {margin-right:0}
 .category .title {font-size:1.1em}
 .mini {line-height:1.5em;overflow:hidden;margin:5px 0;padding:5px;border:1px solid #cccccc}
@@ -494,6 +495,7 @@ legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
 #houses_show .third p, #houses_print .third p {width:29%;float:left}
 #houses_show fieldset.fullwidth p, #houses_print fieldset.fullwidth p {width:auto;float:auto}
 #houses_show fieldset.full p {width:30%}
+#houses_show fieldset div {overflow:hidden}
 #houses_new fieldset p, #houses_edit fieldset p {width:33%;float:left}
 #houses_new .half p, #houses_edit .half p {width:50%;float:auto}
 #houses_new .full p, #houses_edit .full p {width:100%;float:auto}
@@ -511,12 +513,12 @@ legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
 #houses_bookings .auto_complete li {width:100%}
 #houses_bookings {overflow:hidden;margin:0 auto;}
 .photos a:hover img {border:1px solid #D75A20}
-#search{background-color:#F5D24F;padding-bottom:10px;margin-bottom:10px;border:1px solid #F4C13F}
+#search{border:1px solid #F4C13F;background:transparent url(/images/search-bg.jpg) repeat-y scroll left top;border-left:1px solid #F8F883;padding-bottom:10px;margin-bottom:10px;overflow:hidden}
 #search img {margin-top:5px}
 #search fieldset {margin:0;padding:0 15px 1.4em;width:94%}
-/* a:hover .menu-item {border-color:#D75A20;background-color:#D3E0EA} */
-.container{background-color:#ffffff}
-#content {margin:5px 0}
+#search .label {font-weight:normal}
+.container{background-color:#ffffff;}
+#content {margin:0;}
 #site-name a {font-size:30px;font-weight:bold;text-decoration:none;color:#D75A20;font-family:'Trebuchet MS',Lucida,Verdana;}
 .pagination {float:right;padding:0 15px}
 .count{font-size:1.1em;color:#D75A20;font-weight:bold}
@@ -541,7 +543,8 @@ fieldset span {width:50%;float:left;display:block}
 .mini .span-7 span {width:50%;float:left;display:block}
 .mini .span-7 span.label {width:150px;float:left;display:block}
 .mini .span-7 span.field {width:100px;float:left;display:block}
-.calendar_date_select thead th, .calendar_date_select td, .calendar_date_select caption {padding:0}/* --------- /stylesheets/lightbox2_helpers/lightbox.css --------- */ 
+.calendar_date_select thead th, .calendar_date_select td, .calendar_date_select caption {padding:0}
+tags p {width:25%;float:left;}/* --------- /stylesheets/lightbox2_helpers/lightbox.css --------- */ 
 #lightbox{	position: absolute;	left: 0; width: 100%; z-index: 100; text-align: center; line-height: 0;}
 #lightbox img{ width: auto; height: auto;}
 #lightbox a img{ border: none; }

@@ -495,6 +495,7 @@ legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
 #houses_show .third p, #houses_print .third p {width:29%;float:left}
 #houses_show fieldset.fullwidth p, #houses_print fieldset.fullwidth p {width:auto;float:auto}
 #houses_show fieldset.full p {width:30%}
+#houses_show fieldset div {overflow:hidden}
 #houses_new fieldset p, #houses_edit fieldset p {width:33%;float:left}
 #houses_new .half p, #houses_edit .half p {width:50%;float:auto}
 #houses_new .full p, #houses_edit .full p {width:100%;float:auto}
@@ -512,8 +513,7 @@ legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
 #houses_bookings .auto_complete li {width:100%}
 #houses_bookings {overflow:hidden;margin:0 auto;}
 .photos a:hover img {border:1px solid #D75A20}
-#search{border:1px solid #F4C13F;background:transparent url(/images/search-bg.jpg) repeat-y scroll left top;
-border-left:1px solid #F8F883;padding-bottom:10px;margin-bottom:10px;}
+#search{border:1px solid #F4C13F;background:transparent url(/images/search-bg.jpg) repeat-y scroll left top;border-left:1px solid #F8F883;padding-bottom:10px;margin-bottom:10px;overflow:hidden}
 #search img {margin-top:5px}
 #search fieldset {margin:0;padding:0 15px 1.4em;width:94%}
 #search .label {font-weight:normal}

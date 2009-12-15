@@ -10,16 +10,15 @@
 <% end -%>
 </div>
 <% field_set_tag t('house_basics'), :class => 'fullwidth' do %>
-<%= show_hide('house_basics') %>
-<% content_tag :div, :id => :house_basics do %>
-  <%- field = Taggable.find_by_position(6)
+  <%= show_hide('house_basics') %>
+  <% content_tag :div, :id => :house_basics do %>
+    <%- field = Taggable.find_by_position(6)
      tagnames = [] -%>
-    <p>
-      <%= label :house, field.name %>:
-      <%- for tag in field.tags -%>
-        <%- tagnames << tag.name if @house.tags.include?(tag) -%>
-      <%- end -%>
-      <%= tagnames.join(', ') -%>
+    <p><%= label :house, field.name %>:
+      <%- for tag in field.tags do
+        tagnames << tag.name if @house.tags.include?(tag)
+       end -%>
+      <%= tagnames.to_sentence -%>
     </p>
     <%- if @house.discounted? %>
     <p>
@@ -27,55 +26,47 @@
     </p>
     <% end -%>
     <%- if admin? %>
-    <br /><br />
-    <p>
+    <hr />
       <%= label_tag t(:admin_description) %>:<br />
       <%= h @house.admin_description %>
-    </p>
-  <% end -%>
+    <hr />
+    <% end -%>
 
-  <%- unless @house.house_description.empty? -%>
+    <%- unless @house.house_description.empty? -%>
     <p>
       <%= label_tag t(:house_description) %>:<br />
       <%= @house.house_description %>
     </p>
     <%- end -%>
-    <%- if admin? %>
-    <%- field = Taggable.find_by_position(80)
-     tagnames = [] -%>
-    <p>
-      <%= label_tag field.name %>:
-      <%- for tag in field.tags -%>
-        <%- tagnames << tag.name if @house.tags.include?(tag) -%>
-      <%- end -%>
-      <%= unless tagnames.empty? then tagnames.join(', ') else t('house_not_in_any_group') end -%>
-    </p>
+    <%- if admin?
+      field = Taggable.find_by_position(80)
+       tagnames = []
+       for tag in field.tags do tagnames << tag.name if @house.tags.include?(tag) end -%>
+      <p><%= label_tag field.name %>:  <%= unless tagnames.empty? then tagnames.join(', ') else t('house_not_in_any_group') end -%></p>
+    <%- end -%>
   <%- end -%>
-  <%- end -%>
-  <%- end -%>
-  <%- field_set_tag t('house_rooms'), :class => 'odd' do %>
-<%= show_hide('house_rooms') %>
-<% content_tag :div, :id => :house_rooms do %>
+<%- end -%>
+<%- field_set_tag t('house_rooms'), :class => 'odd' do %>
+  <%= show_hide('house_rooms') %>
+  <% content_tag :div, :id => :house_rooms do %>
     <%- for field in Taggable.find_all_by_position([8, 9, 10, 11])
-      tagnames = [] -%>
-      <%- for tag in field.tags -%>
-	<%- tagnames << tag.name if @house.tags.include?(tag) and tag.name != t('nincs') -%>
-      <%- end -%>
+      tagnames = []
+      for tag in field.tags do tagnames << tag.name if @house.tags.include?(tag) and tag.name != t('nincs')  end -%>
       <%- unless tagnames.empty? -%>
-	<p>
-	  <%= label_tag field.name %>:
-	  <%= tagnames.to_sentence -%>
-	</p>
+        <p>
+        <%= label_tag field.name %>:
+        <%= tagnames.to_sentence -%>
+        </p>
       <%- end -%>
     <%- end -%>
     <%- for field in %w(living_room_sq living_dining_room_sq kitchen_sq dining_room_sq kitchen_dining_room_sq terrace_sq balcony_sq yard_sq) -%>
       <%- unless @house[field].nil? or @house[field] == '0' -%>
       <p>
         <%= label_tag t(field) %>:
-        <%=h @house[field] %> <%= t(:sqmeter) %>
+        <%=h @house[field] %> <%= t(:sqmeter) -%>
       </p>
       <%- end -%>
-    <% end %>
+    <%- end -%>
     <%- for field in %w(bedroom living_room living_dining_room kitchen dining_room kitchen_dining_room balcony) -%>
       <%- unless @house[field].nil? or @house[field]<2 -%>
       <p>
@@ -85,24 +76,19 @@
       <%- end -%>
     <%- end -%>
     <p>
-      <%= label_tag t(:terrace_id) %>:
-      <%=h @house.terrace %>
+      <%= label_tag t(:terrace_id) %>: <%=h @house.terrace -%>
     </p>
     <%- if @house.garden? -%>
     <p>
-      <%= label_tag t(:garden) %>:
-      <%= check_box_tag @house.garden, 1, @house.garden?, :disabled => true -%>
+      <%= label_tag t(:garden) %>: <%= check_box_tag @house.garden, 1, @house.garden?, :disabled => true -%>
     </p>
-  <% end -%>
-  <% end -%>
-  <% end -%>
-  <%- field_set_tag t('house_beds'), :class => 'half last' do -%>
-    <%- for field in %w(double_bed single_bed extra_bed pull_out_bed) -%>
-      <%- unless @house[field].nil? or @house[field] == 0 -%>
-	<p>
-	  <%= label_tag t(field) %>:
-	  <%=h @house[field] %> <%= t(:items) %>
-	</p>
+    <%- end -%>
+  <%- end -%>
+<%- end -%>
+<%- field_set_tag t('house_beds'), :class => 'half last' do -%>
+  <%- for field in %w(double_bed single_bed extra_bed pull_out_bed) -%>
+    <%- unless @house[field].nil? or @house[field] == 0 -%>
+     <p><%= label_tag t(field) %>: <%=h @house[field] %> <%= t(:items) %></p>
       <% end %>
     <% end %>
   <% end %>
@@ -188,7 +174,7 @@
   <% end %>
   <% field_set_tag t('house_distances'), :class => 'full odd' do %>
   <%= show_hide('house_distances') %>
-  <% content_tag :div do %>
+  <% content_tag :div, :id => 'house_distances' do %>
     <% %w{center beach aquapark shop station medical mainroad restaurant}.each do |item| %>
     <p>
       <span><%= label_tag t("distance_#{item}") %>:</span>
@@ -219,10 +205,10 @@
       <%= label_tag t(:animals) %>:
       <%= @house.animals? ? t('yes_animals') : t('no_animals') %>
     </p>
-    <p<%= " style='display:none'" unless @house.animals? %>>>
-        <%= label_tag t(:animal_charge) %>:
-        <%= @house.animal_charge == 1 ? t('answer_yes') : t('answer_no') %>
-      </p>
+    <p<%= " style='display:none'" unless @house.animals? %>>
+      <%= label_tag t(:animal_charge) %>:
+      <%= @house.animal_charge == 1 ? t('answer_yes') : t('answer_no') %>
+    </p>
   <% end %>
   <% field_set_tag t('house_prices') do %>
 <%= show_hide('house_prices') %>
