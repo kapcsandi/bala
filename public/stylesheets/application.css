@@ -152,3 +152,4 @@ fieldset span {width:50%;float:left;display:block}
 .mini .span-7 span.label {width:150px;float:left;display:block}
 .mini .span-7 span.field {width:100px;float:left;display:block}
 .calendar_date_select thead th, .calendar_date_select td, .calendar_date_select caption {padding:0}
+tags p {width:25%;float:left;}

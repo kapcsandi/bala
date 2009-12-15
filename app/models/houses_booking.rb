@@ -5,6 +5,7 @@ class HousesBooking < ActiveRecord::Base
   belongs_to :owner, :class_name => 'User'
   acts_as_list
 #  validates_presence_of :house_id, :start_at, :end_at
+  named_scope :with_assoc,  {:include => [:house, :booking]}
 
   has_event_calendar
 

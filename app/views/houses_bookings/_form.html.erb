@@ -17,7 +17,7 @@
   <p>
     <%= f.label 'Rögzítette' %><br />
     <%=
-    if houses_booking.owner then houses_booking.owner.username elsif houses_booking.new_record? then @current_user.username else '[bejövő előjegyzés]' end  %>
+    if houses_booking.owner then houses_booking.owner.username elsif houses_booking.new_record? or action_name == 'edit' then @current_user.username else '[bejövő előjegyzés]' end  %>
   </p>
   <p>
     <%= f.label 'Érkezés' %><br />

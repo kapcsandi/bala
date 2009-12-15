@@ -1,12 +1,12 @@
 class SeasonsController < ApplicationController
   before_filter :authorize
+  before_filter :find_season, :except => [:index, :new, :create]
   
   def index
     @seasons = Season.all
   end
   
   def show
-    @season = Season.find(params[:id])
   end
   
   def new
@@ -24,11 +24,9 @@ class SeasonsController < ApplicationController
   end
   
   def edit
-    @season = Season.find(params[:id])
   end
   
   def update
-    @season = Season.find(params[:id])
     if @season.update_attributes(params[:season])
       flash[:notice] = t('admin.successfully_updated_season')
       redirect_to @season
@@ -38,9 +36,13 @@ class SeasonsController < ApplicationController
   end
   
   def destroy
-    @season = Season.find(params[:id])
     @season.destroy
     flash[:notice] = t('admin.successfully_destroyed_season')
     redirect_to seasons_url
+  end
+  
+  private
+  def find_season
+    @season = Season.find(params[:id])
   end
 end

@@ -1,10 +1,11 @@
 class TaggablesController < ApplicationController
   before_filter :authorize
+  before_filter :find_taggable, :except => [:index, :new, :create]
 
   # GET /taggables
   # GET /taggables.xml
   def index
-    @taggables = Taggable.all(:order => :position)
+    @taggables = Taggable.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,8 +16,6 @@ class TaggablesController < ApplicationController
   # GET /taggables/1
   # GET /taggables/1.xml
   def show
-    @taggable = Taggable.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @taggable }
@@ -37,7 +36,6 @@ class TaggablesController < ApplicationController
 
   # GET /taggables/1/edit
   def edit
-    @taggable = Taggable.find(params[:id])
     @taggable.tags.build
   end
 
@@ -61,8 +59,6 @@ class TaggablesController < ApplicationController
   # PUT /taggables/1
   # PUT /taggables/1.xml
   def update
-    @taggable = Taggable.find(params[:id])
-
     respond_to do |format|
       if @taggable.update_attributes(params[:taggable])
         flash[:notice] = t('taggable_successfully_updated')
@@ -78,7 +74,6 @@ class TaggablesController < ApplicationController
   # DELETE /taggables/1
   # DELETE /taggables/1.xml
   def destroy
-    @taggable = Taggable.find(params[:id])
     @taggable.destroy
 
     respond_to do |format|
@@ -86,4 +81,10 @@ class TaggablesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+  def find_taggable
+    @taggable = Taggable.find(params[:id])
+  end
+
 end

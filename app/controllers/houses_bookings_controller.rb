@@ -1,6 +1,8 @@
 class HousesBookingsController < ApplicationController
   before_filter :authorize
-  
+  before_filter :find_houses_booking, :except => [:index, :new, :create]
+  before_filter :find_house, :only => [:edit, :update]
+
   def index
 #     @houses_bookings = HousesBooking.all(:include => [:booking, :house])
     @search = House.searchlogic(params[:search])
@@ -11,23 +13,18 @@ class HousesBookingsController < ApplicationController
     @house = @search.first
     if @house then
       logger.info "house: #{@house.code}"
-      @bookings = @house.houses_bookings(:include => [:booking, :house])
+      @bookings = @house.houses_bookings.with_assoc
     else
       logger.info "ALL"
-      @bookings = HousesBooking.all(:include => [:booking, :house])
+      @bookings = HousesBooking.all.with_assoc
     end
 
     @shown_month = Date.civil(@year, @month)
     @first_day_of_week = 1
-    @event_strips = @bookings.event_strips_for_month(@shown_month,@first_day_of_week) if @house   
+    @event_strips = @bookings.event_strips_for_month(@shown_month,@first_day_of_week) if @house
   end
   
   def show
-    begin
-      @houses_booking = HousesBooking.find(params[:id])
-    rescue
-      redirect_to root_path
-    end
   end
   
   def new
@@ -49,15 +46,12 @@ class HousesBookingsController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def edit
-    @houses_booking = HousesBooking.find(params[:id])
-    @house = @houses_booking.house
   end
-  
+
   def update
-    @houses_booking = HousesBooking.find(params[:id])
-    @house = @houses_booking.house
+    current_user.houses_bookings << @houses_booking unless @houses_booking.owner
     if @houses_booking.update_attributes(params[:houses_booking])
       flash[:notice] = t("updated_booking")
       event_logger("#{current_user.username} foglaltságot módosított: #{@house.code}, #{@houses_booking.start_at} - #{@houses_booking.end_at}")
@@ -66,12 +60,24 @@ class HousesBookingsController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
   def destroy
-    @houses_booking = HousesBooking.find(params[:id])
     event_logger("#{current_user.username} foglaltságot törölt: #{@houses_booking.house.code}, #{@houses_booking.start_at} - #{@houses_booking.end_at}")
     @houses_booking.destroy
     flash[:notice] = t "destroyed_booking"
     redirect_to houses_bookings_url
+  end
+
+  private
+  def find_houses_booking
+    begin
+      @houses_booking = HousesBooking.find(params[:id])
+    rescue
+      redirect_to root_path
+    end
+  end
+
+  def find_house
+    @house = @houses_booking.house
   end
 end

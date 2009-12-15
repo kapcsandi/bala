@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_filter :authorize, :except => [:show]
+  before_filter :find_page, :only => [:edit, :update, :destroy]
   
   def index
     @pages = Page.all
@@ -8,13 +9,9 @@ class PagesController < ApplicationController
   def show
     if params[:id].to_s.to_i == 0
       page = params[:id]
-    else
-      id = params[:id]
-    end
-    if page
       @page = Page.find_by_path(page.to_s)
-    elsif id
-      @page = Page.find(id)
+    else
+      find_page
     end
     if admin?
       if @page.nil?
@@ -42,11 +39,9 @@ class PagesController < ApplicationController
   end
   
   def edit
-    @page = Page.find(params[:id])
   end
   
   def update
-    @page = Page.find(params[:id])
     if @page.update_attributes(params[:page])
       flash[:notice] = t('admin.successfully_updated_page')
       redirect_to @page
@@ -56,9 +51,13 @@ class PagesController < ApplicationController
   end
   
   def destroy
-    @page = Page.find(params[:id])
     @page.destroy
     flash[:notice] = t('admin.successfully_destroyed_page')
     redirect_to pages_url
+  end
+  
+  private
+  def find_page
+    @page = Page.find(params[:id])
   end
 end

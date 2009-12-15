@@ -25,14 +25,15 @@
     <%= f.label t('admin.tags') %><br />
   <% f.fields_for :tags do |tag_form| %>
     <p>
+    <% if tag_form.object.new_record? %> Új <% end %>
     <%= tag_form.label t('admin.tag') %>
     <%= tag_form.text_field :name %>
-    </p>
     <% unless tag_form.object.new_record? %>
       <!-- For existing records we add a checkbox to be able to delete records. -->
       <%= tag_form.label :_delete, t('admin.remove') %>
       <%= tag_form.check_box :_delete %>
-     <% end %>
+    <% end %>
+    </p>
   <% end %>
   </div>
   <p>
