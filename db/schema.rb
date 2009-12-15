@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091213221744) do
+ActiveRecord::Schema.define(:version => 20091215152627) do
 
   create_table "bookings", :force => true do |t|
     t.integer  "nights"
@@ -63,6 +63,9 @@ ActiveRecord::Schema.define(:version => 20091213221744) do
     t.datetime "updated_at"
   end
 
+  add_index "discount_translations", ["discount_id"], :name => "index_discount_translations_on_discount_id"
+  add_index "discount_translations", ["locale"], :name => "index_discount_translations_on_locale"
+
   create_table "discounts", :force => true do |t|
     t.integer  "house_id"
     t.datetime "created_at"
@@ -77,6 +80,8 @@ ActiveRecord::Schema.define(:version => 20091213221744) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "event_logs", ["created_at"], :name => "index_event_logs_on_created_at"
 
   create_table "furnishing_translations", :force => true do |t|
     t.integer  "furnishing_id"
@@ -98,6 +103,10 @@ ActiveRecord::Schema.define(:version => 20091213221744) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "house_translations", ["house_id", "locale"], :name => "index_house_translations_on_house_id_and_locale"
+  add_index "house_translations", ["house_id"], :name => "index_house_translations_on_house_id"
+  add_index "house_translations", ["locale"], :name => "index_house_translations_on_locale"
 
   create_table "house_type_translations", :force => true do |t|
     t.integer  "house_type_id"
@@ -206,7 +215,9 @@ ActiveRecord::Schema.define(:version => 20091213221744) do
   end
 
   add_index "houses_bookings", ["booking_id"], :name => "index_houses_bookings_on_booking_id"
+  add_index "houses_bookings", ["end_at"], :name => "index_houses_bookings_on_end_at"
   add_index "houses_bookings", ["house_id"], :name => "index_houses_bookings_on_house_id"
+  add_index "houses_bookings", ["start_at"], :name => "index_houses_bookings_on_start_at"
 
   create_table "houses_taggables", :force => true do |t|
     t.integer  "house_id"
@@ -250,12 +261,20 @@ ActiveRecord::Schema.define(:version => 20091213221744) do
     t.datetime "updated_at"
   end
 
+  add_index "page_translations", ["locale"], :name => "index_page_translations_on_locale"
+  add_index "page_translations", ["page_id", "locale"], :name => "index_page_translations_on_page_id_and_locale"
+  add_index "page_translations", ["page_id"], :name => "index_page_translations_on_page_id"
+
   create_table "pages", :force => true do |t|
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "path"
   end
+
+  add_index "pages", ["path"], :name => "index_pages_on_path"
+  add_index "pages", ["published", "path"], :name => "index_pages_on_published_and_path"
+  add_index "pages", ["published"], :name => "index_pages_on_published"
 
   create_table "reservations", :force => true do |t|
     t.integer  "house_id"
@@ -290,6 +309,10 @@ ActiveRecord::Schema.define(:version => 20091213221744) do
     t.datetime "updated_at"
   end
 
+  add_index "seasons", ["name", "start"], :name => "index_seasons_on_name_and_start"
+  add_index "seasons", ["name"], :name => "index_seasons_on_name"
+  add_index "seasons", ["start"], :name => "index_seasons_on_start"
+
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
@@ -308,6 +331,10 @@ ActiveRecord::Schema.define(:version => 20091213221744) do
     t.datetime "updated_at"
   end
 
+  add_index "tag_translations", ["locale"], :name => "index_tag_translations_on_locale"
+  add_index "tag_translations", ["tag_id", "locale"], :name => "index_tag_translations_on_tag_id_and_locale"
+  add_index "tag_translations", ["tag_id"], :name => "index_tag_translations_on_tag_id"
+
   create_table "taggable_translations", :force => true do |t|
     t.integer  "taggable_id"
     t.string   "locale"
@@ -317,6 +344,10 @@ ActiveRecord::Schema.define(:version => 20091213221744) do
     t.datetime "updated_at"
   end
 
+  add_index "taggable_translations", ["locale"], :name => "index_taggable_translations_on_locale"
+  add_index "taggable_translations", ["taggable_id", "locale"], :name => "index_taggable_translations_on_taggable_id_and_locale"
+  add_index "taggable_translations", ["taggable_id"], :name => "index_taggable_translations_on_taggable_id"
+
   create_table "taggables", :force => true do |t|
     t.string   "field"
     t.integer  "multi"
@@ -324,6 +355,9 @@ ActiveRecord::Schema.define(:version => 20091213221744) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "taggables", ["field"], :name => "index_taggables_on_field"
+  add_index "taggables", ["position"], :name => "index_taggables_on_position"
 
   create_table "tags", :force => true do |t|
     t.integer  "taggable_id"
