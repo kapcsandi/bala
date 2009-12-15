@@ -11,17 +11,17 @@ class HousesBookingsController < ApplicationController
     @year, @month = @year.to_i, @month.to_i
     @date = Date.parse("#{@year}-#{@month}-01")
     @house = @search.first
-    if @house then
-      logger.info "house: #{@house.code}"
-      @bookings = @house.houses_bookings.with_assoc
-    else
-      logger.info "ALL"
-      @bookings = HousesBooking.all.with_assoc
-    end
-
     @shown_month = Date.civil(@year, @month)
     @first_day_of_week = 1
-    @event_strips = @bookings.event_strips_for_month(@shown_month,@first_day_of_week) if @house
+    if @house and not params[:search][:code].empty? then
+#       logger.info "house: #{@house.code}"
+      @bookings = @house.houses_bookings.on_month(@shown_month).with_assoc
+      @event_strips = @bookings.event_strips_for_month(@shown_month,@first_day_of_week)
+    else
+#       logger.info "ALL"
+      @bookings = HousesBooking.on_month(@shown_month).with_assoc
+      @event_strips = HousesBooking.event_strips_for_month(@shown_month,@first_day_of_week)
+    end
   end
   
   def show

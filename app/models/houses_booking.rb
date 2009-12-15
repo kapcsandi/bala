@@ -6,6 +6,7 @@ class HousesBooking < ActiveRecord::Base
   acts_as_list
 #  validates_presence_of :house_id, :start_at, :end_at
   named_scope :with_assoc,  {:include => [:house, :booking]}
+  named_scope :on_month, lambda{|date| { :conditions => ["start_at >= ? AND end_at <= ?", date.beginning_of_month, date.end_of_month]}}
 
   has_event_calendar
 

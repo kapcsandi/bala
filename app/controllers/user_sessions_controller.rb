@@ -7,7 +7,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = t('successfully_logged_in')
-      event_logger("#{params[:user_session][:username]} belépett")
+      event_logger("#{params[:user_session][:username]} belépett a(z) #{request.remote_ip} IP címről")
       redirect_to event_logs_url
     else
       event_logger("sikertelen belépés: #{params[:user_session][:username]}")
