@@ -147,7 +147,7 @@ class BookingsController < ApplicationController
           adds << house.daily_price(season)
   #        logger.info "same season"
           if days % 7 == 0
-            logger.info "7th day of season"
+#            logger.info "7th day of season"
             7.times { adds.pop }
             adds << house.price(season)
             days = 0

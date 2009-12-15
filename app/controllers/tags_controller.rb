@@ -1,5 +1,6 @@
 class TagsController < ApplicationController
   before_filter :authorize
+  before_filter :find_tag, :except => [:index, :new, :create]
 
   # GET /tags
   # GET /tags.xml
@@ -15,8 +16,6 @@ class TagsController < ApplicationController
   # GET /tags/1
   # GET /tags/1.xml
   def show
-    @tag = Tag.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @tag }
@@ -36,14 +35,11 @@ class TagsController < ApplicationController
 
   # GET /tags/1/edit
   def edit
-    @tag = Tag.find(params[:id])
   end
 
   # POST /tags
   # POST /tags.xml
   def create
-    @tag = Tag.new(params[:tag])
-
     respond_to do |format|
       if @tag.save
         flash[:notice] = t('admin.tag_successfully_created')
@@ -59,8 +55,6 @@ class TagsController < ApplicationController
   # PUT /tags/1
   # PUT /tags/1.xml
   def update
-    @tag = Tag.find(params[:id])
-
     respond_to do |format|
       if @tag.update_attributes(params[:tag])
         flash[:notice] = t('admin.tag_successfully_updated')
@@ -76,12 +70,16 @@ class TagsController < ApplicationController
   # DELETE /tags/1
   # DELETE /tags/1.xml
   def destroy
-    @tag = Tag.find(params[:id])
     @tag.destroy
 
     respond_to do |format|
       format.html { redirect_to(tags_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+  def find_tag
+    @tag = Tag.find(params[:id])
   end
 end
