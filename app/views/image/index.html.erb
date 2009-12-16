@@ -1,0 +1,21 @@
+<h1>Ház képek feltöltése</h1>
+<% form_for :image,
+  :url=>{:controller=>"image", :action=>"index"},
+  :html => { :multipart => true } do |f| -%>
+  <label for="image">Válassz egy kép fájlt (JPG):</label>
+  <%= f.file_field :file -%>
+  <%= submit_tag 'Mehet' -%>
+<% end -%>
+<% if @name %>
+Feltöltött kép neve: <%= @name %><br />
+<% end %>
+<% if @house %>
+Apartman kódja: <%= @house %><br />
+<% end %>
+<% if @path %>
+Helye: <%= @path %>
+<% end %>
+<% for error in @errors %>
+<%= error %><br />
+<% end %>
+

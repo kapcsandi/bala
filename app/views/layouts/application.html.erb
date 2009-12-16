@@ -100,7 +100,7 @@
     <% end %>
     <% if admin? %>
       <div class="menu" style="float:left;width:100%;clear:both">
-        <% [:pages, :houses, :houses_bookings, :taggables, :seasons, :event_logs].each do |menu| %>
+        <% [:pages, :houses, :houses_bookings, :taggables, :seasons, :event_logs, :image].each do |menu| %>
           <div<%=if current_page?(menu) then ' class="selected"' end %> style="float:left;padding-right:10px">
             <% link_to menu do %>
               <span class="menu-item"><%= t("admin.#{menu}") %></span>

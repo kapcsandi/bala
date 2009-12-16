@@ -25,6 +25,7 @@ ActionController::Routing::Routes.draw do |map|
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
 
   map.setup "setup", :controller => "setup", :action => "index" 
+  map.image "image", :controller => "image", :action => "index" 
   
   map.resources :user_sessions
 
