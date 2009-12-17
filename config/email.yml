@@ -1,17 +1,14 @@
 development:
-  address: smtp.gmail.com
+  address: localhost
   port: 587
-  domain: gmail.com
+  domain: 
   authentication: plain
-  user_name: istvan.kapcsandi
-  password: vanekur
-  tls: true
+  user_name: 
+  password: 
 
 production:
-  address: smtp.gmail.com
-  port: 587
-  domain: gmail.com
+  address: mail.ezit.hu
+  domain: 1xferienhaus.de
   authentication: plain
-  user_name: istvan.kapcsandi
-  password: vanekur
-  tls: true
+  user_name: buchung@1xferienhaus.de
+  password: 
