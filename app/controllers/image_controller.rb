@@ -10,29 +10,51 @@ class ImageController < ApplicationController
       File.open(path, "wb") { |f| f.write(params[:image][:file].read) }
 
       @house = @name.scan(/(^[0-9\-]+)_/)
-      directory = 'public/pic/' + @house[0][0]
-      if File.exists?(directory)
-        @errors << "A #{directory.inspect} könyvtár már létezik."
-      else
-        begin
-          Dir.mkdir(directory)
-        rescue
-          @errors << "A #{directory.inspect} könyvtár létrehozása nem sikerült."
-        end
+      begin
+        house = House.find_by_code(@house[0][0])
+      rescue
       end
-
-      [['s','x90'], ['m', 'x140'], ['l', 'x400']].each do |d|
-        image = MiniMagick::Image.from_file(path)
-        image.combine_options do |c|
-          c.resize d[1]
+      if house
+        @errors << "A #{house.code} apartman létezik."
+        directory = 'public/pic/' + @house[0][0]
+        if File.exists?(directory)
+          @errors << "A #{directory.inspect} könyvtár már létezik."
+        else
+          begin
+            Dir.mkdir(directory)
+          rescue
+            @errors << "A #{directory.inspect} könyvtár létrehozása nem sikerült."
+          end
         end
-        newpath = File.join(directory,@name.sub('.jpg',"_#{d[0]}.jpg"))
+        [['s','x90'], ['m', 'x140'], ['l', 'x400']].each do |d|
+          image = MiniMagick::Image.from_file(path)
+          image.combine_options do |c|
+            c.resize d[1]
+          end
+          newpath = File.join(directory,@name.sub('.jpg',"_#{d[0]}.jpg"))
+          begin
+            image.write(newpath)
+            @errors << "A #{newpath.inspect} fájl létrehozása sikerült."
+          rescue
+            @errors << "A #{newpath.inspect} fájl létrehozása nem sikerült."
+          end
+        end
+        ids = house.picture_ids
+        if params[:image][:first] == 1
+          ids.insert(0, @name)
+        else
+          ids << @name
+        end
+        house.picture_ids = ids
         begin
-          image.write(newpath)
-          @errors << "A #{newpath.inspect} fájl létrehozása sikerült."
+          house.save
         rescue
-          @errors << "A #{newpath.inspect} fájl létrehozása nem sikerült."
+          @errors << "A #{@name} kép hozzáadása az apartman képgalériájához nem sikerült."
         end
+        @errors << "A #{@name} kép hozzáadása az apartman képgalériájához sikerült."
+        @errors << "A #{@name} kép feltöltése sikerült."
+      else
+        @errors << "Az apartman nem létezik vagy nem megfelelő a fájl neve. Példa a helyes fájlnévre: 24-305-02_01.jpg"
       end
     end
   end
