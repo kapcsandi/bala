@@ -2,6 +2,6 @@ class EventLogsController < ApplicationController
   before_filter :authorize
   def index
     search = EventLog.searchlogic
-    @logs, @logs_count = search.all, search.count
+    @event_logs, @event_logs_count = search.all.paginate(:page => params[:page], :per_page => 25), search.count
   end
 end

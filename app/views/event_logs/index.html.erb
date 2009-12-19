@@ -1,16 +1,16 @@
 <% title "Események" %>
 
-<%#= will_paginate @logs, :previous_label => t(:prev_link), :next_label => t(:next_link) %>
+<%= will_paginate @event_logs, :previous_label => t(:prev_link, :locale => :hu), :next_label => t(:next_link, :locale => :hu) %>
 <table>
 <tr>
 <th>Dátum</th>
 <th>Művelet</th>
 </tr>
-  <% for log in @logs %>
+  <% for log in @event_logs %>
 <tr>
 <td><%= log.created_at %></td>
 <td><%= h log.action %></td>
 </tr>
   <%end %>
 </table>
-<%#= will_paginate @logs, :previous_label => t(:prev_link), :next_label => t(:next_link) %>
+<%= will_paginate @event_logs, :previous_label => t(:prev_link, :locale => :hu), :next_label => t(:next_link, :locale => :hu) %>

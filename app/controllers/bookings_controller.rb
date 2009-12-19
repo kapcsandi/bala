@@ -201,5 +201,7 @@ class BookingsController < ApplicationController
     houses_booking = booking.houses_bookings.first
     Notifications.deliver_booking(house_codes,booking, houses_booking)
     Notifications.deliver_booking_admin(house_codes,booking, houses_booking)
+  rescue
+    log_error($!)
   end
 end

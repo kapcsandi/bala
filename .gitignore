@@ -1,4 +1,6 @@
 *.log
+*.yml
 *~
-*.filelist
+public/javascripts/cache/*
+public/stylesheets/cache/*
 /public/uploads/*

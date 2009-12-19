@@ -12,10 +12,18 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password
   
   helper_method :current_user, :event_logger
+  before_filter :authenticate
   before_filter :set_locale
   before_filter :current_user, :only => [:logged_in?, :admin?]
   
   private
+
+  def authenticate
+    return true unless APP_CONFIG['perform_authentication']
+    authenticate_or_request_with_http_basic do |username, password|
+      username == APP_CONFIG['username'] && password == APP_CONFIG['password']
+    end
+  end
 
   def current_user_session
     return @current_user_session if defined?(@current_user_session)

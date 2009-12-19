@@ -24,14 +24,15 @@
   <%= yield(:head) %>
 </head>
 <body>
-<div id="main">
+<div id="main" class="<%= 'admin' if admin? %>">
   <div id="top">
     <div class="inner span-24">
       <div id="logo" class="span-12">
         <% content_tag 'div', :class => 'inner' do %>
-          <div id="site-name"><a href="/" title="<%= t :home %>"> 1xFerienhaus </a><span id="slogan"><%= t :slogan %></span></div>
+          <div id="site-name"><a href="/" title="<%= t :home %>"> 1x Ferienhaus </a><span id="slogan"><%= t :slogan %></span></div>
         <% end %>
       </div>
+      <%- if admin? -%>
       <div id="login" class="prepend-8 span-4 last">
         <div class="span-4"> 
           <%- content_tag 'div', :class => 'inner' do -%>
@@ -42,6 +43,7 @@
           <%- end -%>
         </div>
       </div>
+      <%- end -%>
     </div>
     <div id="menu"><div class="inner">
       <%- ['home', 'booking', :cart, :special_offers, :contact, :programs].each do |item|
@@ -61,8 +63,18 @@
           ) do -%><span class="menu-item <%= item.to_s %>"><%= t(item) %><%= if (item == :cart) and cart_items>0 then ' (' + cart_items.to_s + ')' end %></span><% end -%>
         </div>
       <% end -%>
-    </div></div>
-  </div>
+    <%- if admin? -%>
+    <div class="menu" style="float:left;width:100%;clear:both">
+      <% [:pages, :houses, :houses_bookings, :taggables, :seasons, :event_logs, :image].each do |menu| %>
+        <div<%=if current_page?(menu) then ' class="selected"' end %> style="float:left;padding-right:10px">
+          <% link_to menu do %>
+            <span class="menu-item"><%= t("admin.#{menu}") %></span>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <%- end -%>
+  </div></div></div>
   <div class="container" id="<%= controller_name %>_<%= action_name %>">
     <div class="inner breadcrumb"><%= breadcrumb %></div>
     <div id="left" class="span-4">
@@ -98,24 +110,12 @@
         <% end %>
       </div>
     <% end %>
-    <% if admin? %>
-      <div class="menu" style="float:left;width:100%;clear:both">
-        <% [:pages, :houses, :houses_bookings, :taggables, :seasons, :event_logs, :image].each do |menu| %>
-          <div<%=if current_page?(menu) then ' class="selected"' end %> style="float:left;padding-right:10px">
-            <% link_to menu do %>
-              <span class="menu-item"><%= t("admin.#{menu}") %></span>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    <% else %>
-      <%- flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, :id => "flash_#{name}", :class => "#{name} prepend-6" %>
-      <%- end -%>
-      <%- if show_title? -%>
-        <h1><%=h yield(:title) %></h1>
-      <%- end -%>
-    <% end %>
+    <%- flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, :id => "flash_#{name}", :class => "#{name} prepend-6" %>
+    <%- end -%>
+    <%- if show_title? -%>
+      <h1><%=h yield(:title) %></h1>
+    <%- end -%>
     <div class="span-20">
       <%= yield %>
     </div>
@@ -126,7 +126,6 @@
 </div>
 <div id="foot" class="span-24"></div>
 </div>
-
 <%= yield(:foot) -%>
 <!-- <%= "#{RAILS_ENV} runs with Ruby (v#{VERSION}) On Rails (v#{RAILS_GEM_VERSION})" %> -->
 </body>

@@ -1,7 +1,9 @@
 # Be sure to restart your server when you modify this file.
 
-def PGconn.quote_ident(name)
-  %("#{name}")
+if defined? PGconn
+  def PGconn.quote_ident(name)
+    %("#{name}")
+  end
 end
 
 # These settings change the behavior of Rails 2 apps and will be defaults

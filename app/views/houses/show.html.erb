@@ -85,93 +85,57 @@
     <%- end -%>
   <%- end -%>
 <%- end -%>
-<%- field_set_tag t('house_beds'), :class => 'half last' do -%>
+<% field_set_tag nil, :class => 'fullwidth' do %>
+  <span class="label"><%= t('house_beds') %>:</span>
   <%- for field in %w(double_bed single_bed extra_bed pull_out_bed) -%>
     <%- unless @house[field].nil? or @house[field] == 0 -%>
-     <p><%= label_tag t(field) %>: <%=h @house[field] %> <%= t(:items) %></p>
-      <% end %>
+      <p><%= label_tag t(field) %>: <%=h @house[field] %> <%= t(:items) %></p>
     <% end %>
   <% end %>
-  <% field_set_tag t('house_bathrooms'), :class => :half  do -%>
-    <p>
-      <%= label_tag t(:bathrooms) %>:
-      <%=h @house.bathrooms %> <%= t(:items) %>
-    </p>
-    <% for field in %w(shower bathtub) %>
-    <% if @house[field]==1 %>
-    <p>
-      <%= label_tag t(field) %>:
-      <%= check_box_tag @house[field], 1, @house[field]==1, :disabled => true %>
-    </p>
-    <% end %>
-    <% end %>
-    <p>
-      <%= label_tag t(:wcs) %>:
-      <%=h @house.wcs %> <%= t(:items) %>
-    </p>
-    <% if @house.wc_separated==1 %>
-    <p>
-      <%= label_tag t(:wc_separated) %>:
-      <%= check_box_tag @house.wc_separated, 1, @house.wc_separated==1, :disabled => true %>
-    </p>
-    <% end %>
+  <span class="label"><%= t('house_bathrooms') %>:</span>
+  <p><%= label_tag t(:bathrooms) %>: <%=h @house.bathrooms %> <%= t(:items) %></p>
+  <%- for field in %w(shower bathtub) -%>
+    <%- if @house[field]==1 -%>
+    <p><%= label_tag t(field) %>: <%= check_box_tag @house[field], 1, @house[field]==1, :disabled => true %></p>
+    <%- end -%>
+  <%- end -%>
+  <p><%= label_tag t(:wcs) %>: <%=h @house.wcs %> <%= t(:items) %></p>
+  <%- if @house.wc_separated==1 -%>
+    <p><%= label_tag t(:wc_separated) %>:  <%= check_box_tag @house.wc_separated, 1, @house.wc_separated==1, :disabled => true %></p>
+  <%- end -%>
+  <span class="label"><%= t('house_kitchen') -%>:</span>
+  <%-
+  fields = []
+  for field in %w(fridge coffee_machine micro) do
+     fields << t(field) if @house[field]==1
+  end -%>
+    <p><%= fields.to_sentence %></p>
+  <p><%= label_tag t(:stove_id) %>: <%= @house.stove %></p>
+  <span class="label"><%= t('house_inters') %>:</span>
+  <%-
+  fields = []
+  for field in %w(sat internet) do
+    fields << t(field) if @house[field]==1
+  end -%>
+  <p><%= fields.to_sentence %></p>
+  <%- if @house.clima != t('nincs') %>
+  <p><%= label_tag t(:clima_id) %>: <%= @house.clima %></p>
   <% end %>
-  <% field_set_tag t('house_kitchen'), :class => 'half' do %>
-    <% for field in %w(fridge coffee_machine micro) %>
-    <% if @house[field]==1 %>
-    <p>
-      <%= label_tag t(field) %>:
-      <%= check_box_tag @house[field], 1, @house[field]==1, :disabled => true %>
-    </p>
-    <% end %>
-    <% end %>
-    <p>
-      <%= label_tag t(:stove_id) %>:
-      <%= @house.stove %>
-    </p>
-  <% end %>
-  <% field_set_tag t('house_inters'), :class => :half do %>
-    <% for field in %w(sat internet) %>
-    <% if @house[field]==1 %>
-    <p>
-      <%= label_tag t(field) %>:
-      <%= check_box_tag @house[field], 1, @house[field]==1, :disabled => true %>
-    </p>
-    <% end %>
-    <% end %>
-    <% if @house.clima != t('nincs') %>
-    <p>
-      <%= label_tag t(:clima_id) %>:
-      <%= @house.clima %>
-    </p>
-  <% end %>
-  <% end %>
-  <% field_set_tag t('house_outers'), :class => 'half last' do %>
-    <% if @house.pool? %>
-    <p>
-      <%= label_tag t(:pool) %>:
-      <%= check_box_tag :pool, 1, @house.pool?, :disabled => true %>
-    </p>
-    <div id="pool_sq"<%= "style='display:none'" unless @house.pool? %>>
-      <p>
-	<%= label_tag t(:pool_sq) %>:
-	<%=h @house.pool_sq %> <%= t(:sqmeter) %>
-      </p>
-    </div>
-    <% end %>
-    <% for field in %w(garden_seats grill sunbath_seat playground) %>
-    <% if @house[field]==1 %>
-    <p>
-      <%= label_tag t(field) %>:
-      <%= check_box_tag @house[field], 1, @house[field]==1, :disabled => true %>
-    </p>
-    <% end %>
-    <% end %>
-    <p>
-      <%= label_tag t(:parking_id) %>:
-      <%= @house.parking %>
-    </p>
-  <% end %>
+  <span class="label"><%= t('house_outers') %>:</span>
+  <%- if @house.pool? -%>
+  <p><%= label_tag t(:pool) %>: <%= check_box_tag :pool, 1, @house.pool?, :disabled => true %></p>
+  <div id="pool_sq"<%= "style='display:none'" unless @house.pool? %>>
+    <p><%= label_tag t(:pool_sq) %>: <%=h @house.pool_sq %> <%= t(:sqmeter) %></p>
+  </div>
+  <%- end -%>
+  <%-
+  fields = []
+  for field in %w(garden_seats grill sunbath_seat playground) do
+    fields << t(field) if @house[field]==1
+  end -%>
+  <p><%= fields.to_sentence %></p>
+  <p><%= label_tag t(:parking_id) %>: <%= @house.parking %></p>
+<% end %>
   <% field_set_tag t('house_distances'), :class => 'full odd' do %>
   <%= show_hide('house_distances') %>
   <% content_tag :div, :id => 'house_distances' do %>
@@ -183,7 +147,7 @@
     <%end %>
   <% end %>
   <% end %>
-  <% field_set_tag t('house_owner_infos') do %>
+  <% field_set_tag t('house_owner_infos'), :class => 'fullwidth' do %>
     <% field = Taggable.find_by_position(61)
     tagnames = [] %>
     <% for tag in field.tags %>

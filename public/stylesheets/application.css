@@ -77,12 +77,14 @@ legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
 #search .label {margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
 #search span {display:inline;float:none}
 .menu-item{padding:5px 0;margin:2px 0;text-align:center;display:block}
-#menu {background:#8AC9D4 url(/images/bg0.png) repeat-x;margin:0 auto;height:42px;padding-top:15px;overflow:hidden;clear:both;border-bottom:5px solid #E4F1FB}
-#menu .menu-item{margin:0 auto;border:0px none;font-family:'Trebuchet MS',Lucida,Verdana;font-size:1.2em}
+#menu {background:#8AC9D4 url(/images/bg0.png) repeat-x;margin:0 auto;height:30px;padding-top:15px;overflow:hidden;clear:both;border-bottom:5px solid #E4F1FB}
+.admin #menu {height:65px}
+.admin #menu .menu-item {padding:5px 10px;-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;}
+#menu .menu-item{margin:0 auto;border:0px none;font-size:1.2em}
 #menu .menu {margin-right:10px}
 #menu .last {margin-right:0}
 #menu .inner {width:950px;margin:0 auto;overflow:hidden;clear:both}
-.menu-item {border:2px solid #D3E0EA;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;padding:11px}
+.menu-item {border:2px solid #D3E0EA;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;padding:5px 5px 10px 5px}
 .menu a {text-decoration:none}
 #menu .selected .menu-item {border:1px solid #fafafa;font-weight:bold}
 #top {margin:0 auto}
@@ -95,9 +97,12 @@ legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
 .even {background-color:#f6f6f6}
 .odd {background-color:#efefef}
 .calendar_date_select {width:210px}
-.full {width:100%;float:auto}
+.full {width:100%;float:left}
+.fullwidth span.label {float:left;padding-left:20px;clear:both;width:auto;font-size:1.1em}
+.fullwidth p {width:auto;float:left;padding-right:10px}
+.fullwidth p label {}
 .half {width:48%;float:right;margin-right:10px}
-#houses_show fieldset {padding:0}
+#houses_show fieldset {padding:0;float:left;width:100%}
 #houses_show fieldset p, #houses_print fieldset p {width:auto;margin-left:1.5em;float:left}
 #houses_show fieldset p.full, #houses_print fieldset p.full {width:100%;float:auto}
 #houses_show .third p, #houses_print .third p {width:29%;float:left}
@@ -141,7 +146,7 @@ legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
 #houses_print .right {font-size:17px;position:fixed;top:0px;left:640px;background:white;padding:2px 5px}
 .haver {padding-left:10px}
 .calendar_date_select td div.other {color:#FFF000;}
-.fold {text-decoration:none;cursor:hand;cursor:pointer;display:block;margin:-20px 30px 0 15px;float:left}
+.fold {text-decoration:none;cursor:hand;cursor:pointer;display:block;margin:-15px 30px 0 15px;float:left}
 #houses_bookings .fold {margin:-23px 35px 10px 0;float:right}
 ul#houses_bookings .fold {margin:20px 50px 10px 0;float:right}
 .photos  a.fold:hover img {border:#000}
