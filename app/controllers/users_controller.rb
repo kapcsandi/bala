@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authorize, :except => [:new]
+  before_filter :authorize
   before_filter :find_user, :only => [:edit, :update]
 
   def index

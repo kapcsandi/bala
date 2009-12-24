@@ -62,15 +62,16 @@ body{font-family:Verdana;font-size:90%;}
 input,select{width:auto;font-size:95%}
 input[type="text"], input[type="password"], input.text, input.title, textarea, select {border:1px solid silver}
 select {border-top:1px solid silver}
-p {margin:0 0 1em}
-fieldset {margin:0 0 0.5em 0;padding:1em;-moz-border-radius:5px;border-radius: 5px;-webkit-border-radius: 5px;}
+p {margin:0 0 0.5em}
+fieldset {margin:0 0 0.5em 0;padding:0 1em 1em;-moz-border-radius:5px;border-radius: 5px;-webkit-border-radius: 5px;}
 h1 {font-size:1.5em}
 textarea {height:auto;height:100%;width:100%}
 input[type=submit] {padding:3px 10px}
 a {color:#1B619B}
 a:visited{color:#000;}
 a:hover {color:#D75A20}
-legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
+.navi input[type=submit] {cursor:pointer}
+legend {padding:0 10px;margin-left:5px;font-size:1.1em;}
 #search legend {padding:0 5px;margin:0; font-size:0.95em}
 #main {height:auto !important;margin:0 auto -8.6em;min-height:100%;}
 .label{font-weight:bold}
@@ -80,8 +81,10 @@ legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
 #menu {background:#8AC9D4 url(/images/bg0.png) repeat-x;margin:0 auto;height:30px;padding-top:15px;overflow:hidden;clear:both;border-bottom:5px solid #E4F1FB}
 .admin #menu {height:65px}
 .admin #menu .menu-item {padding:5px 10px;-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;}
-#menu .menu-item{margin:0 auto;border:0px none;font-size:1.2em}
-#menu .menu {margin-right:10px}
+#menu .menu-item{margin:0 auto;border:0px none;font-size:1.2em;font-family:'Trebuchet MS',Lucida,Verdana;}
+#menu .menu {margin-right:10px;position:relative}
+#left .menu {position:relative}
+#left .menu-item {font-size:1.1em}
 #menu .last {margin-right:0}
 #menu .inner {width:950px;margin:0 auto;overflow:hidden;clear:both}
 .menu-item {border:2px solid #D3E0EA;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;padding:5px 5px 10px 5px}
@@ -97,18 +100,10 @@ legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
 .even {background-color:#f6f6f6}
 .odd {background-color:#efefef}
 .calendar_date_select {width:210px}
-.full {width:100%;float:left}
 .fullwidth span.label {float:left;padding-left:20px;clear:both;width:auto;font-size:1.1em}
-.fullwidth p {width:auto;float:left;padding-right:10px}
-.fullwidth p label {}
-.half {width:48%;float:right;margin-right:10px}
-#houses_show fieldset {padding:0;float:left;width:100%}
-#houses_show fieldset p, #houses_print fieldset p {width:auto;margin-left:1.5em;float:left}
-#houses_show fieldset p.full, #houses_print fieldset p.full {width:100%;float:auto}
-#houses_show .third p, #houses_print .third p {width:29%;float:left}
-#houses_show fieldset.fullwidth p, #houses_print fieldset.fullwidth p {width:auto;float:auto}
-#houses_show fieldset.full p {width:30%}
-#houses_show fieldset div {overflow:hidden}
+.fullwidth p {width:auto;float:left;padding-right:10px;white-space:nowrap}
+#house_rooms p {float:left;width:auto;margin-right:10px; white-space:nowrap}
+fieldset.full p {width:30%;float:left}
 #houses_new fieldset p, #houses_edit fieldset p {width:33%;float:left}
 #houses_new .half p, #houses_edit .half p {width:50%;float:auto}
 #houses_new .full p, #houses_edit .full p {width:100%;float:auto}
@@ -130,7 +125,7 @@ legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
 #search img {margin-top:5px}
 #search fieldset {margin:0;padding:0 15px 1.4em;width:94%}
 #search .label {font-weight:normal}
-.container{background-color:#ffffff;}
+.container{}
 #content {margin:0;}
 #site-name a {font-size:30px;font-weight:bold;text-decoration:none;color:#D75A20;font-family:'Trebuchet MS',Lucida,Verdana;}
 .pagination {float:right;padding:0 15px}
@@ -146,15 +141,20 @@ legend {padding:0 10px 0 30px;margin-left:5px;font-size:1.1em}
 #houses_print .right {font-size:17px;position:fixed;top:0px;left:640px;background:white;padding:2px 5px}
 .haver {padding-left:10px}
 .calendar_date_select td div.other {color:#FFF000;}
-.fold {text-decoration:none;cursor:hand;cursor:pointer;display:block;margin:-15px 30px 0 15px;float:left}
+.fold {text-decoration:none;cursor:hand;cursor:pointer;display:block;margin:-25px 0px 5px 15px}
 #houses_bookings .fold {margin:-23px 35px 10px 0;float:right}
 ul#houses_bookings .fold {margin:20px 50px 10px 0;float:right}
 .photos  a.fold:hover img {border:#000}
 select#booking_country {width:215px}
 #lightbox img {height:500px;width:500px}
-fieldset span {width:50%;float:left;display:block}
+fieldset span {width:49%;float:left;}
 .mini .span-7 span {width:50%;float:left;display:block}
 .mini .span-7 span.label {width:150px;float:left;display:block}
 .mini .span-7 span.field {width:100px;float:left;display:block}
+.navi .field {float:left;margin:5px 15px}
 .calendar_date_select thead th, .calendar_date_select td, .calendar_date_select caption {padding:0}
 tags p {width:25%;float:left;}
+#main #horizontal_carousel {height:170px;width:100%;margin-top:-20px}
+#main #horizontal_carousel .container {height:150px;width:710px;background:none;margin-top:20px}
+#main #horizontal_carousel .container ul {height:150px}
+#main #horizontal_carousel .container li {height:150px;width:120px}

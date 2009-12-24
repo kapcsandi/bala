@@ -6,7 +6,7 @@ class Notifications < ActionMailer::Base
     body       :user => user
     sent_on    Time.now
   end
-  
+
   def test
     recipients "istvan.kapcsandi@gmail.com"
     from       "buchung@1xferienhaus.de"
@@ -23,7 +23,7 @@ class Notifications < ActionMailer::Base
   end
 
   def booking_admin(house_codes, booking, houses_booking,  sent_at = Time.now)
-    recipients  User.first.email_address_with_name
+    recipients "renata.gerhat@1xferienhaus.de" # current_user.email_address_with_name
     from       "buchung@1xferienhaus.de"
     subject    "1xferienhaus.de admin - Foglalás értesítő"
     body       :booking => booking, :codes => house_codes, :houses_booking => houses_booking

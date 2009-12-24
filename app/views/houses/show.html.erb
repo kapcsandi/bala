@@ -9,8 +9,7 @@
 <%= render :partial => 'navigation' , :locals => { :house => @house }%>
 <% end -%>
 </div>
-<% field_set_tag t('house_basics'), :class => 'fullwidth' do %>
-  <%= show_hide('house_basics') %>
+<% field_set_tag t('house_basics') do %>
   <% content_tag :div, :id => :house_basics do %>
     <%- field = Taggable.find_by_position(6)
      tagnames = [] -%>
@@ -47,7 +46,6 @@
   <%- end -%>
 <%- end -%>
 <%- field_set_tag t('house_rooms'), :class => 'odd' do %>
-  <%= show_hide('house_rooms') %>
   <% content_tag :div, :id => :house_rooms do %>
     <%- for field in Taggable.find_all_by_position([8, 9, 10, 11])
       tagnames = []
@@ -86,42 +84,42 @@
   <%- end -%>
 <%- end -%>
 <% field_set_tag nil, :class => 'fullwidth' do %>
-  <span class="label"><%= t('house_beds') %>:</span>
-  <%- for field in %w(double_bed single_bed extra_bed pull_out_bed) -%>
-    <%- unless @house[field].nil? or @house[field] == 0 -%>
-      <p><%= label_tag t(field) %>: <%=h @house[field] %> <%= t(:items) %></p>
-    <% end %>
-  <% end %>
-  <span class="label"><%= t('house_bathrooms') %>:</span>
-  <p><%= label_tag t(:bathrooms) %>: <%=h @house.bathrooms %> <%= t(:items) %></p>
-  <%- for field in %w(shower bathtub) -%>
-    <%- if @house[field]==1 -%>
-    <p><%= label_tag t(field) %>: <%= check_box_tag @house[field], 1, @house[field]==1, :disabled => true %></p>
-    <%- end -%>
-  <%- end -%>
-  <p><%= label_tag t(:wcs) %>: <%=h @house.wcs %> <%= t(:items) %></p>
-  <%- if @house.wc_separated==1 -%>
-    <p><%= label_tag t(:wc_separated) %>:  <%= check_box_tag @house.wc_separated, 1, @house.wc_separated==1, :disabled => true %></p>
-  <%- end -%>
-  <span class="label"><%= t('house_kitchen') -%>:</span>
+  <div id="house_beds">
+  <p><label><%= t('house_beds') %>:</label>
+  <%- beds = [];for field in %w(double_bed single_bed extra_bed pull_out_bed)
+    unless @house[field].nil? or @house[field] == 0
+      beds << @house[field].to_s + ' ' + t(field)
+    end
+  end %><%= beds.to_sentence %></p>
+  <p><label><%= t('house_bathrooms') %>:</label>
+  <% baden = []; baden << @house.bathrooms.to_s + ' ' + t(:bathrooms)
+  for field in %w(shower bathtub)
+    if @house[field]==1
+      baden <<  t(field)
+    end
+  end
+  baden << @house.wcs.to_s + ' ' + t(:wcs)
+  if @house.wc_separated==1
+    baden << t(:wc_separated)
+  end %><%= baden.to_sentence %></p>
+  <p><label><%= t('house_kitchen') -%>:</label>
   <%-
   fields = []
   for field in %w(fridge coffee_machine micro) do
      fields << t(field) if @house[field]==1
-  end -%>
-    <p><%= fields.to_sentence %></p>
+  end %><%= fields.to_sentence %></p>
   <p><%= label_tag t(:stove_id) %>: <%= @house.stove %></p>
-  <span class="label"><%= t('house_inters') %>:</span>
+<br class="clear"/>
+  <p><label><%= t('house_inters') %>:</label>
   <%-
   fields = []
   for field in %w(sat internet) do
     fields << t(field) if @house[field]==1
-  end -%>
-  <p><%= fields.to_sentence %></p>
+  end -%><%= fields.to_sentence %></p>
   <%- if @house.clima != t('nincs') %>
   <p><%= label_tag t(:clima_id) %>: <%= @house.clima %></p>
   <% end %>
-  <span class="label"><%= t('house_outers') %>:</span>
+  <p><label><%= t('house_outers') %>:</label>
   <%- if @house.pool? -%>
   <p><%= label_tag t(:pool) %>: <%= check_box_tag :pool, 1, @house.pool?, :disabled => true %></p>
   <div id="pool_sq"<%= "style='display:none'" unless @house.pool? %>>
@@ -133,11 +131,10 @@
   for field in %w(garden_seats grill sunbath_seat playground) do
     fields << t(field) if @house[field]==1
   end -%>
-  <p><%= fields.to_sentence %></p>
+  <%= fields.to_sentence %></p>
   <p><%= label_tag t(:parking_id) %>: <%= @house.parking %></p>
 <% end %>
-  <% field_set_tag t('house_distances'), :class => 'full odd' do %>
-  <%= show_hide('house_distances') %>
+<% field_set_tag t('house_distances'), :class => 'full odd' do %>
   <% content_tag :div, :id => 'house_distances' do %>
     <% %w{center beach aquapark shop station medical mainroad restaurant}.each do |item| %>
     <p>
@@ -147,7 +144,7 @@
     <%end %>
   <% end %>
   <% end %>
-  <% field_set_tag t('house_owner_infos'), :class => 'fullwidth' do %>
+  <% field_set_tag t('house_owner_infos') do %>
     <% field = Taggable.find_by_position(61)
     tagnames = [] %>
     <% for tag in field.tags %>
@@ -174,8 +171,7 @@
       <%= @house.animal_charge == 1 ? t('answer_yes') : t('answer_no') %>
     </p>
   <% end %>
-  <% field_set_tag t('house_prices') do %>
-<%= show_hide('house_prices') %>
+<% field_set_tag t('house_prices') do %>
 <% content_tag :div, :id => :house_prices do %>
   <p style="width:100%">Mietpreis pro Haus und Woche in Euro</p>
   <br />
@@ -211,22 +207,22 @@
   Abreise sowie kürzere Afenthalte in der Nebensaison auf Anfrage möglich (teilweise
   Mietpreiszuschlag)
   </p>
-  <% end %>
-  <% if controller.action_name != 'print' %>
-  <a name="photos">  </a>
-  <% end %>
-  <% field_set_tag t('pictures'), :class => 'photos' do %>
-<%= show_hide('pictures') %>
-<% content_tag :div, :id => :pictures do %>
-    <% @house.picture_urls('m').each_with_index do |id,index| %>
-    <div>
-      <% link_to_lightbox2 id.sub(/_m/,'_l'), :group => @house.code, :title => "#{@house.code} ##{index+1}" do %>
-        <%= image_tag id %>
-      <% end %>
-    </div>
-    <% end if @house.picture_ids.respond_to?('index') %>
 <% end %>
+<% if controller.action_name != 'print' %>
+  <a name="photos"></a>
+<% end %>
+<% field_set_tag t('pictures'), :class => 'photos' do %>
+  <% content_tag :div, :id => :pictures do %>
+    <% if @house.picture_ids.respond_to?('index')
+      @house.picture_urls('m').each_with_index do |id,index| %>
+        <% link_to_lightbox2 id.sub(/_m/,'_l'), :group => @house.code, :title => "#{@house.code} ##{index+1}" do %>
+          <%= image_tag id %>
+        <% end %>
+      <% end %>
+    <% end %>
   <% end %>
+<% end %>
+  
 <% if admin? %>
 <p>
   <%= link_to t('admin.edit'), edit_house_path(@house) %> |

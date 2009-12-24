@@ -1,4 +1,7 @@
 <% title @page.title %>
+<% if @page.path =~ /weather/ %>
+  <iframe scrolling="auto" width="500" height="700" marginheight="0" marginwidth="0" noresize="" name="daten" src="http://www.wetteronline.de/cgi-bin/citybild?WMO=12935&amp;LANG=de&amp;BKM=Ungarn/Plattensee&amp;SID=129354afe1976bce4b60218b65ad6fbc0a2bfb"/>
+<% end %>
 <%= @page.body %>
 <% if admin? %>
 <p>

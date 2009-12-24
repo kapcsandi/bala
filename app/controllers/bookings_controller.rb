@@ -135,7 +135,7 @@ class BookingsController < ApplicationController
     from = Date.parse(params[:from]) unless params[:from].empty?
     to = Date.parse(params[:to]) unless params[:to].empty?
     animals = params[:animals] unless params[:animals].empty?
-    if house and persons and from and to and to > from
+    if house and from and to and to > from
       @price, season_price = 0, 0
       days = 1
       adds = []
