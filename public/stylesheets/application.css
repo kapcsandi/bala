@@ -118,7 +118,7 @@ fieldset.full p {width:30%;float:left}
 .fold img {margin:0}
 #new_booking .photos a img {margin:0;padding:0}
 a img,
-#flash_notice, #flash_error, .stamp {-webkit-box-shadow: 0 1px 10px rgba(0,0,0,.5);-moz-box-shadow: 0 1px 10px rgba(0,0,0,.5);box-shadow: 0 1px 10px rgba(0,0,0,.5);border-top:none}
+#flash_notice, #flash_error, .stamp {-webkit-box-shadow:4px 3px 10px rgba(0,0,0,.5);-moz-box-shadow:4px 3px 10px rgba(0,0,0,.5);box-shadow:4px 3px 10px rgba(0,0,0,.5);border-top:none}
 #houses_bookings a img,
 a.info img {-webkit-box-shadow:none;-moz-box-shadow: none;box-shadow: none;}
 a.info {cursor:help}
@@ -130,7 +130,8 @@ a.info {cursor:help}
 #houses_bookings li {width:33%;float:left;list-style-image:none;list-style-position:outside;list-style-type:none}
 #houses_bookings .auto_complete li {width:100%}
 #houses_bookings {overflow:hidden;margin:0 auto;}
-.photos a:hover img {border:1px solid #D75A20}
+.photos a:hover img,
+#horizontal_carousel ul li a:hover img {border:1px solid #D75A20}
 #search{border:1px solid #F4C13F;background:transparent url(/images/search-bg.jpg) repeat-y scroll left top;border-left:1px solid #F8F883;padding-bottom:10px;margin-bottom:10px;overflow:hidden}
 #search img {margin-top:5px}
 #search fieldset {margin:0;padding:0 15px 1.4em;width:94%}
@@ -167,7 +168,7 @@ fieldset span {width:50%;float:left;}
 tags p {width:25%;float:left;}
 #main #horizontal_carousel {height:150px;width:100%;margin-top:-20px}
 #main #horizontal_carousel .container {height:150px;width:700px;background:none;margin-top:0px}
-#main #horizontal_carousel .container ul {height:150px}
-#main #horizontal_carousel .container li {height:150px;width:120px}
+#main #horizontal_carousel .container ul {height:auto}
+#main #horizontal_carousel .container li {height:auto;width:120px}
 #main #horizontal_carousel .previous_button,
 #main #horizontal_carousel .next_button {display:none}
