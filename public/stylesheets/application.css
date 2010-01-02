@@ -120,7 +120,7 @@ fieldset.full p {width:30%;float:left}
 a img,
 #flash_notice, #flash_error, .stamp {-webkit-box-shadow:4px 3px 10px rgba(0,0,0,.5);-moz-box-shadow:4px 3px 10px rgba(0,0,0,.5);box-shadow:4px 3px 10px rgba(0,0,0,.5);border-top:none}
 #houses_bookings a img,
-a.info img {-webkit-box-shadow:none;-moz-box-shadow: none;box-shadow: none;}
+a.info img, a#bottomNavClose img {-webkit-box-shadow:none;-moz-box-shadow: none;box-shadow: none;}
 a.info {cursor:help}
 .photos div {text-align:center;float:left;margin:5px 10px}
 .photos a img {border:1px solid #a0a0a0}

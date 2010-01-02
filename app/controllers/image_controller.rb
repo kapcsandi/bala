@@ -10,14 +10,14 @@ class ImageController < ApplicationController
       File.open(path, "wb") { |f| f.write(params[:image][:file].read) }
       @name.sub!(/\..*$/,'')
 
-      @house = @name.scan(/(^[0-9\-]+)_/)
+      @house = @name.scan(/\d+/)[0..-1].join('-')
       begin
-        house = House.find_by_code(@house[0][0])
+        house = House.find_by_code(@house)
       rescue
       end
       if house
         @errors << "A #{house.code} apartman létezik."
-        directory = 'public/pic/' + @house[0][0]
+        directory = 'public/pic/' + house.stripped_code
         if File.exists?(directory)
           @errors << "A #{directory.inspect} könyvtár már létezik."
         else
