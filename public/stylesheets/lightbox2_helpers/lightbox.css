@@ -10,7 +10,7 @@
 #imageContainer>#hoverNav{ left: 0;}
 #hoverNav a{ outline: none;}
 
-#prevLink, #nextLink{ width: 49%; height: 100%; background-image: url(data:image/gif;base64,AAAA); /* Trick IE into showing hover */ display: block; }
+#prevLink, #nextLink{ width: 49%; height: 100%;/* Trick IE into showing hover */ display: block; }
 #prevLink { left: 0; float: left;}
 #nextLink { right: 0; float: right;}
 #prevLink:hover, #prevLink:visited:hover { background: url(/images/lightbox2_helpers/prevlabel.gif) left 15% no-repeat; }

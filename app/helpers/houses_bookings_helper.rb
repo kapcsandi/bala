@@ -14,13 +14,19 @@ module HousesBookingsHelper
       :event_strips => @event_strips,
       :month_name_text => l(@shown_month, :format => :wo_day, :locale => :hu),
       :previous_month_text => "<< " + month_link(@shown_month.last_month),
-      :next_month_text => month_link(@shown_month.next_month) + " >>"
+      :next_month_text => month_link(@shown_month.next_month) + " >>",
+      :use_all_day => true
     }
   end
 
   def event_calendar
-    calendar event_calendar_opts do |event|
-      %(<a href="/houses_bookings/#{event.id}" title="#{h(event.name)}">#{h(event.name)} #{event.status}</a>)
+    calendar event_calendar_opts do |args|
+      event, day = args[:event], args[:day]
+      html = %(<a href="/houses_bookings/#{event.id}" title="#{h(event.name)}">)
+      html << event.name + ' ' + event.status
+#      html << day.strftime('%Y.%m.%d')
+      html << %(</a>)
+      html
     end
   end
 

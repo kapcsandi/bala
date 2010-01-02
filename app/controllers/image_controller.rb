@@ -8,6 +8,7 @@ class ImageController < ApplicationController
       directory = "public/uploads/Image"
       path = File.join(directory, @name)
       File.open(path, "wb") { |f| f.write(params[:image][:file].read) }
+      @name.sub!(/\..*$/,'')
 
       @house = @name.scan(/(^[0-9\-]+)_/)
       begin
@@ -31,7 +32,7 @@ class ImageController < ApplicationController
           image.combine_options do |c|
             c.resize d[1]
           end
-          newpath = File.join(directory,@name.sub('.jpg',"_#{d[0]}.jpg"))
+          newpath = File.join(directory,@name + "_#{d[0]}.jpg")
           begin
             image.write(newpath)
             @errors << "A #{newpath.inspect} fájl létrehozása sikerült."

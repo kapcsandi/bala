@@ -77,25 +77,27 @@ legend {padding:0 10px;margin-left:5px;font-size:1.1em;}
 .label{font-weight:bold}
 #search .label {margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
 #search span {display:inline;float:none}
-.menu-item{padding:5px 0;margin:2px 0;text-align:center;display:block}
-#menu {background:#8AC9D4 url(/images/bg0.png) repeat-x;margin:0 auto;height:30px;padding-top:15px;overflow:hidden;clear:both;border-bottom:5px solid #E4F1FB}
+#menu .menu-item{padding:0;-moz-border-radius-bottomleft:0;-moz-border-radius-bottomright:0;-webkit-border-bottom-left-radius:0;
+-webkit-border-bottom-right-radius:0;border-radius-bottomleft:0;border-radius-bottomright:0;}
+#menu {background:#8AC9D4/* url(/images/bg0.png) repeat-x*/;margin:0 auto;height:24px;padding-top:5px;overflow:hidden;clear:both;border-bottom:5px solid #E4F1FB}
 .admin #menu {height:65px}
 .admin #menu .menu-item {padding:5px 10px;-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;}
-#menu .menu-item{margin:0 auto;border:0px none;font-size:1.2em;font-family:'Trebuchet MS',Lucida,Verdana;}
+#menu .menu-item{margin:0 auto;border:0px none;}
 #menu .menu {margin-right:10px;position:relative}
 #left .menu {position:relative}
-#left .menu-item {font-size:1.1em}
+#left .menu-item {font-size:1.1em;padding:2px}
 #menu .last {margin-right:0}
 #menu .inner {width:950px;margin:0 auto;overflow:hidden;clear:both}
-.menu-item {border:2px solid #D3E0EA;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;padding:5px 5px 10px 5px}
-.menu a {text-decoration:none}
+.menu-item {margin:2px 0;text-align:center;display:block;border:2px solid #E4F1FB;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;
+-webkit-box-shadow: 0 1px 5px rgba(0,0,0,.2);-moz-box-shadow: 0 1px 5px rgba(0,0,0,.2);box-shadow: 0 1px 5px rgba(0,0,0,.2);font-size:1.1em;font-family:'Trebuchet MS',Lucida,Verdana;}
+#top .menu a, #left .menu a {text-decoration:none;cursor:pointer;display:inline;font-size:1em}
 #menu .selected .menu-item {border:1px solid #fafafa;font-weight:bold}
 #top {margin:0 auto}
 #top .inner {padding:2px;margin:0 auto;float:none}
 #top .left{height:50px;background-color:#2B5A88 }
-.categories .category {height:210px;border:1px solid #F8F883;padding:5px 10px;margin:0 17px 10px 0;float:left}
+.categories .category {height:150px;width:168px;border:1px solid #F8F883;padding:5px 10px;margin:0 10px 10px 0;float:left;text-align:center}
 .categories .category.last {margin-right:0}
-.category .title {font-size:1.1em}
+.category .title {font-size:1em}
 .mini {line-height:1.5em;overflow:hidden;margin:5px 0;padding:5px;border:1px solid #cccccc}
 .even {background-color:#f6f6f6}
 .odd {background-color:#efefef}
@@ -103,6 +105,8 @@ legend {padding:0 10px;margin-left:5px;font-size:1.1em;}
 .fullwidth span.label {float:left;padding-left:20px;clear:both;width:auto;font-size:1.1em}
 .fullwidth p {width:auto;float:left;padding-right:10px;white-space:nowrap}
 #house_rooms p {float:left;width:auto;margin-right:10px; white-space:nowrap}
+#house_distances span {width:40%}
+#house_distances span.label {width:60%}
 fieldset.full p {width:30%;float:left}
 #houses_new fieldset p, #houses_edit fieldset p {width:33%;float:left}
 #houses_new .half p, #houses_edit .half p {width:50%;float:auto}
@@ -111,11 +115,17 @@ fieldset.full p {width:30%;float:left}
 #new_booking textarea {height:auto}
 #new_booking fieldset.half div {width:50%}
 #new_booking fieldset div.clear {width:90%}
-#new_booking img {margin:5px 0 0 0}
+.fold img {margin:0}
 #new_booking .photos a img {margin:0;padding:0}
-.photos div {text-align:center;background-color:#FCFCFC;float:left;margin:5px 10px;padding:5px}
-.photos a img {border:1px solid #ffffff}
-#houses_bookings .photos a img {height:110px}
+a img,
+#flash_notice, #flash_error, .stamp {-webkit-box-shadow: 0 1px 10px rgba(0,0,0,.5);-moz-box-shadow: 0 1px 10px rgba(0,0,0,.5);box-shadow: 0 1px 10px rgba(0,0,0,.5);border-top:none}
+#houses_bookings a img,
+a.info img {-webkit-box-shadow:none;-moz-box-shadow: none;box-shadow: none;}
+a.info {cursor:help}
+.photos div {text-align:center;float:left;margin:5px 10px}
+.photos a img {border:1px solid #a0a0a0}
+#pictures a img {margin:5px}
+#houses_bookings .photos a img {/*height:110px*/}
 #houses_bookings .stamp.last {margin-right:0}
 #houses_bookings li {width:33%;float:left;list-style-image:none;list-style-position:outside;list-style-type:none}
 #houses_bookings .auto_complete li {width:100%}
@@ -125,9 +135,10 @@ fieldset.full p {width:30%;float:left}
 #search img {margin-top:5px}
 #search fieldset {margin:0;padding:0 15px 1.4em;width:94%}
 #search .label {font-weight:normal}
+#search input[type="submit"] {background:transparent url(/images/icons/24x24/001_38.png) no-repeat scroll 100% 50%;width:100px;height:30px;cursor:pointer}
 .container{}
 #content {margin:0;}
-#site-name a {font-size:30px;font-weight:bold;text-decoration:none;color:#D75A20;font-family:'Trebuchet MS',Lucida,Verdana;}
+#site-name a {font-size:30px;font-weight:bold;text-decoration:none;color:#D75A20;font-family:'Trebuchet MS',Lucida,Verdana;text-shadow: 1px 1px 1px rgba(0,0,0,.4);}
 .pagination {float:right;padding:0 15px}
 .count{font-size:1.1em;color:#D75A20;font-weight:bold}
 .mini .location {font-size:1.2em}
@@ -147,14 +158,16 @@ ul#houses_bookings .fold {margin:20px 50px 10px 0;float:right}
 .photos  a.fold:hover img {border:#000}
 select#booking_country {width:215px}
 #lightbox img {height:500px;width:500px}
-fieldset span {width:49%;float:left;}
+fieldset span {width:50%;float:left;}
 .mini .span-7 span {width:50%;float:left;display:block}
 .mini .span-7 span.label {width:150px;float:left;display:block}
 .mini .span-7 span.field {width:100px;float:left;display:block}
 .navi .field {float:left;margin:5px 15px}
 .calendar_date_select thead th, .calendar_date_select td, .calendar_date_select caption {padding:0}
 tags p {width:25%;float:left;}
-#main #horizontal_carousel {height:170px;width:100%;margin-top:-20px}
-#main #horizontal_carousel .container {height:150px;width:710px;background:none;margin-top:20px}
+#main #horizontal_carousel {height:150px;width:100%;margin-top:-20px}
+#main #horizontal_carousel .container {height:150px;width:700px;background:none;margin-top:0px}
 #main #horizontal_carousel .container ul {height:150px}
 #main #horizontal_carousel .container li {height:150px;width:120px}
+#main #horizontal_carousel .previous_button,
+#main #horizontal_carousel .next_button {display:none}

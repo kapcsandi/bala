@@ -232,12 +232,12 @@
   <% field_set_tag t('admin.house_animals') do %>
     <p>
       <%= check_box_tag :animals, 1, @house.animals?, :onchange => "$('animal_charge').toggle()" %>
-      <%= f.label t('admin.animals') %><br />
+      <%= f.label t('admin.animals') %>
     </p>
     <div id="animal_charge"<%= "style='display:none'" unless @house.animals? %>>
       <p>
-	<%= f.label t('admin.animal_charge') %><br />
-	<%= f.text_field :animal_charge %>
+  <%= check_box_tag :animal_charge, 1, @house.animal_charge == 1 %>
+	<%= f.label t('admin.animal_charge') %>
       </p>
     </div>
   <% end %>
@@ -294,7 +294,9 @@
       last = (@house.picture_ids && @house.picture_ids.size > 8 ? @house.picture_ids.size : 8)
       (0..last).each do |id| %>
       <%= f.label t('admin.picture_url', :position => id+1) %>
-      <%= text_field_tag 'house[picture_ids][]', @house.picture_ids ? @house.picture_ids[id] : nil %><br />
+      <%= text_field_tag 'house[picture_ids][]', @house.picture_ids ? @house.picture_ids[id] : nil %>
+      <%= image_tag @house.picture_urls('s')[id] unless @house.picture_ids[id].nil? %>
+      <br />
     <% end %>
   <% end %>
   <p><%= f.submit t(:submit) %></p>

@@ -2,6 +2,7 @@ class HousesController < ApplicationController
   before_filter :authorize, :except => [:index, :show, :print, :cart, :empty_cart]
   before_filter :search_house, :except => [:index, :new, :create, :cart, :empty_cart]
   before_filter :get_cart, :only => [:index, :cart, :empty_cart, :print, :show]
+  after_filter :expire_caches, :only => [:create, :update]
 
   def index
     if request.xhr? and params[:autocomplete]
@@ -148,5 +149,10 @@ class HousesController < ApplicationController
   def redirect_to_index(msg)
     flash[:notice] = t(msg)
     redirect_to :action => :index
+  end
+
+  def expire_caches
+    expire_page :controller => :root, :action => :index
+    expire_fragment :controller => :root, :action => :index
   end
 end

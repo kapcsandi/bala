@@ -10,15 +10,12 @@
         <% content_tag_for :li, house do %>
           <%= render :partial => 'houses/stamp', :locals => { :house => house, :last => (houses.last == house), :open => false} %>
           <% f.fields_for 'houses[]', house do |hb_form| %>
-            <div class="handle"><% if houses.size > 1 %>[drag] <% end %><%= hb_form.label t(:code) %></div>
+            <div class="handle"><%= hb_form.label t(:code) %></div>
             <%= hb_form.text_field :code, :size => 20, :readonly => true %>
           <% end %>
         <% end %>
       <% end %>
       </ul>
-      <% if houses.size > 1 %>
-        <%= sortable_element('houses_bookings', :url => sort_bookings_path, :constraint => 'horizontal', :handle => 'handle') %>
-      <% end %>
       <br class="clear" />
     <% else %>
       <% f.fields_for 'houses[]', House.new do |hb_form| %>
@@ -45,7 +42,7 @@
       </div>
     </div>
     <div class="span-6">
-      <%= f.label t(:animal_details) %><a class="info" name="animal_info" title="Anzahl und Tierart der mitfahrenden Haustiere. Bei Hunden bitte Rasse und ca. kg angeben."> i </a><br />
+      <%= f.label t(:animal_details) %> <a class="info" name="animal_info" title="Anzahl und Tierart der mitfahrenden Haustiere. Bei Hunden bitte Rasse und ca. kg angeben."> <img src="/images/icons/sexy_flash/info.png" height="15" width="15" alt="info"/></a><br />
       <%= f.text_field :animal_details, :size => 30, :disabled => (booking.nil? or not booking.with_animals?) %>
     </div>
   <% end %>
@@ -54,13 +51,12 @@
     <% f.fields_for 'houses_bookings[]', houses_bookings || HousesBooking.new do |hb_form| %>
     <div class="span-6">
       <%= label 'booking', t(:from) %><br />
-      <%= hb_form.calendar_date_select :start_at, :valid_date_check => "date >= new Date()", :size => 20, :onChange =>
+      <%= hb_form.calendar_date_select :start_at, :popup => "force", :valid_date_check => "date > new Date()", :size => 20, :onChange =>
   'nights();' %>
     </div>
     <div class="span-6">
       <%= label 'booking', t(:to) %><br />
-      <%= hb_form.calendar_date_select :end_at, :valid_date_check => "date > new Date()", :size => 20, :onChange =>
-  'nights();' %>
+      <%= hb_form.calendar_date_select :end_at, :popup => "force", :size => 20, :onChange => 'nights();' %>
     </div>
   <% end %>
     <div class="span-6">
@@ -84,7 +80,7 @@
 
     <% [ :firstname, :lastname, :company, :address, :city, :postcode].each do |field| %>
       <div class="span-6">
-        <%= f.label t(field) %><br />
+        <%= f.label t(field == :city ? 'booking_city' : field ) %><br />
         <%= f.text_field field, :size => 25 %>
       </div>
     <% end %>

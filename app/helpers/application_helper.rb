@@ -10,8 +10,8 @@ module ApplicationHelper
   end
 
   def show_hide(id, open=true)
-    %Q!<a class="fold" id="show_#{id}" onclick="Effect.BlindDown('#{id}');$('show_#{id}').hide();$('hide_#{id}').show();return false;" style="display:#{open ? 'none' : 'block'}"><img alt="" src="/images/active_scaffold/default/arrow_down.gif" /></a>
-    <a class="fold" id="hide_#{id}" onclick="$('show_#{id}').show();$('hide_#{id}').hide();Effect.BlindUp('#{id}');return false;" style="display:#{open ? 'block' : 'none'}"><img alt="" src="/images/active_scaffold/default/arrow_up.gif" /></a>!
+    %Q!<a class="fold" id="show_#{id}" onclick="Effect.BlindDown('#{id}');$('show_#{id}').hide();$('hide_#{id}').show();return false;" style="display:#{open ? 'none' : 'block'}"><img alt="" src="/images/icons/24x24/001_27.png" /></a>
+    <a class="fold" id="hide_#{id}" onclick="$('show_#{id}').show();$('hide_#{id}').hide();Effect.BlindUp('#{id}');return false;" style="display:#{open ? 'block' : 'none'}"><img alt="" src="/images/icons/24x24/001_26.png" /></a>!
   end
 
   def url_for(options = {})

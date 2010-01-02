@@ -1,14 +1,12 @@
+<% cache do %>
 <%- title t(:home), false -%>
-<%- if admin? -%>
-<%- else -%>
 <div class="categories">
-<%- @categories[0..5].each_with_index do |category, index| %>
- <div class="category<%= ' last' if (index%3==2) %>">
-  <div class="span-6 last">
-  <div class="item title"><span class="title"><%= link_to category[:name], :controller => :houses, :action => :index, :commit => '', :category => category[:name] %></span></div>
+<%- @categories[0..6].each_with_index do |category, index| %>
+ <div class="category<%= ' last' if (index%4==3) %>">
+  <span class="title"><%= link_to category[:name], :controller => :houses, :action => :index, :commit => '', :category => category[:name] %></span>
 <%- unless category[:house].nil? or category[:house].picture_ids.nil? -%>
 <%- link_to category[:house] do -%>
-  <%= image_tag category[:house].picture_urls('m')[0], :alt => category[:name] -%>
+  <%= image_tag category[:house].picture_urls('s')[0], :alt => category[:name] -%>
 <%- end -%>
 <%- end -%>
   <div class="item details">
@@ -20,10 +18,10 @@ unless category[:house].nil?
     truncate( category[:house].discount.description, :length => 40 )
   end
 end -%>
-  </div>
  </div></div>
 <%- end -%>
 </div>
+<br class="clear" />
 <h3><%= t(:tagestip) %></h3>
 <div id="horizontal_carousel">
 <div class="previous_button"></div>
@@ -45,5 +43,4 @@ end -%>
 <script>
 root_init();
 </script>
-
-<%- end -%>
+<% end%>

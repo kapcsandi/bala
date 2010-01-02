@@ -26,7 +26,7 @@
     <div class="inner span-24">
       <div id="logo" class="span-12">
         <% content_tag 'div', :class => 'inner' do %>
-          <div id="site-name"><a href="/" title="<%= t :home %>"> 1x Ferienhaus </a><span id="slogan"><%= t :slogan %></span></div>
+          <div id="site-name"><a href="/" title="<%= t :home %>"> 1x ferienhaus </a><span id="slogan"><%= t :slogan %></span></div>
         <% end %>
       </div>
       <%- if admin? -%>
@@ -35,7 +35,7 @@
           <%- content_tag 'div', :class => 'inner' do -%>
             <%- [:de, :hu].each do |locale| 
               next if locale == :root or locale == :en -%>
-              <%= link_to_unless I18n.locale.to_s == locale.to_s, locale, "?locale="+locale.to_s -%> |
+              <%= link_to_unless I18n.locale.to_s == locale.to_s, locale, "?locale="+locale.to_s -%> <%= '|' if locale != :hu %>
             <%- end -%>
           <%- end -%>
         </div>

@@ -158,7 +158,7 @@ de:
   discount_description: Spezialangebote Beschreibung
   persons: Personen
   children: maximale Anzahl von Kindern
-  persons_count: Anzahl Personen
+  persons_count: Anzahl Personen *
   children_count: dafor Kinder
   children_years: Alter der Kinder
   floor_area: Grundfläche
@@ -312,23 +312,24 @@ de:
   New Booking: Neue Reservierung
   booking_hint: Füllen Sie bitte die unten Daten genau.
   booking_details: Details der Reservierung
-  from: Wunstermin von
-  to: Wunstermin bis
+  from: Wunstermin von *
+  to: Wunstermin bis *
   contact_data: Personal Daten
-  nights: nacht
+  nights: nacht *
   with_animals: Nehmen Sie Haustiere mit?
-  calculated_price: Mietpreis
+  calculated_price: Mietpreis *
   notes: Nachricht
-  phone: Telefon
+  phone: Telefon *
   mobile: Handy
-  email: E-mail
+  email: E-mail *
   email_repeat: E-mail widerholen
-  firstname: Vorname
-  lastname: Nachname
+  firstname: Vorname *
+  lastname: Nachname *
   company: Firmenname
-  address: Adresse
+  address: Adresse *
   city: Ort
-  postcode: PLZ
+  booking_city: Ort *
+  postcode: PLZ *
   country: Land
   status: Status
   booking_submit: "Buchung absenden"
@@ -366,10 +367,10 @@ de:
   map: Landkarte
   weather: Wetter
   calendar: Balaton Kalender
-  sights: Balaton Sehenswürdigkeit, Städte
+  sights: Balaton, Städte
   offers: Reduziert Restaurants
   terms: AGB
-  impressum: Impresum
+  impressum: Impressum
   owners: Tulajdonosoknak
   admin_login: Admin belépés
   houses_found: "Trefferzahl: <span class=\"count\">{{count}}</span>"
