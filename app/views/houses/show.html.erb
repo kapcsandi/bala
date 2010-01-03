@@ -25,12 +25,11 @@
     </p>
     <% end -%>
     <%- if admin? %>
-    <hr />
+    <div class="admin">
       <%= label_tag t(:admin_description) %>:<br />
       <%= h @house.admin_description %>
-    <hr />
+    </div>
     <% end -%>
-
     <%- unless @house.house_description.empty? -%>
     <p>
       <%= label_tag t(:house_description) %>:<br />
@@ -189,7 +188,7 @@
   </thead>
   <tbody>
   <% for season in Season.next_year %>
-    <tr>
+    <tr class=<%= cycle('odd', 'even') %>>
     <td><%=l(season.start) %></td>
     <td><%=l(season.end) %></td>
     <td><%= @house.persons %></td>

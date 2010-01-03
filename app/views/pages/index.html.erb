@@ -1,19 +1,22 @@
 <% title t('admin.pages') %>
-
-<table>
-  <tr>
-    <th><%= t('admin.path') %></th>
-    <th><%= t('admin.title') %></th>
-    <th><%= t('admin.published') %></th>
+<table class="full">
+<thead>
+<tr>
+  <th><%= t('admin.path') %></th>
+  <th><%= t('admin.title') %></th>
+  <th><%= t('admin.published') %></th>
+</tr>
+</thead>
+<tbody>
+<% for page in @pages %>
+  <tr class="<%= cycle('odd', 'even') %>">
+    <td><%=t page.path %></td>
+    <td><%=h page.title %></td>
+    <td><%= check_box_tag 'published', 1, page.published?, :disabled => true %></td>
+    <td><%= link_to t('admin.show'), page %></td>
+    <td><%= link_to t('admin.edit'), edit_page_path(page) %></td>
+    <td><%= link_to t('admin.destroy'), page, :confirm => t('admin.are_you_sure'), :method => :delete %></td>
   </tr>
-  <% for page in @pages %>
-    <tr>
-      <td><%=t page.path %></td>
-      <td><%=h page.title %></td>
-      <td><%= check_box_tag 'published', 1, page.published?, :disabled => true %></td>
-      <td><%= link_to t('admin.show'), page %></td>
-      <td><%= link_to t('admin.edit'), edit_page_path(page) %></td>
-      <td><%= link_to t('admin.destroy'), page, :confirm => t('admin.are_you_sure'), :method => :delete %></td>
-    </tr>
-  <% end %>
+<% end %>
+</tbody>
 </table>

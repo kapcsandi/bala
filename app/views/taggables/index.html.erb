@@ -1,25 +1,27 @@
 <% title t('admin.taggables') %>
-
-<table>
+<p><%= link_to t('admin.new_taggable'), new_taggable_path %></p>
+<table class="full">
+<thead>
   <tr>
     <th><%= t('admin.field') %></th>
     <th><%= t('admin.name') %></th>
     <th><%= t('admin.context') %></th>
     <th><%= t('admin.multi') %></th>
-    <th><%= t('admin.position') %></th>
+<!--     <th><%= t('admin.position') %></th> -->
   </tr>
+</thead>
+<tbody>
   <% for taggable in @taggables %>
-    <tr>
+    <tr class="<%= cycle('odd', 'even') %>">
       <td><%=h taggable.field %></td>
       <td><%=h taggable.name %></td>
       <td><%=h taggable.context %></td>
       <td><%= check_box_tag 'published', 1, taggable.multi == 1, :disabled => true %></td>
-      <td><%=h taggable.position %></td>
+<!--      <td><%=h taggable.position %></td>-->
       <td><%= link_to t('admin.show'), taggable %></td>
       <td><%= link_to t('admin.edit'), edit_taggable_path(taggable) %></td>
-      <td><%= link_to t('admin.destroy'), taggable, :confirm => t('are_you_sure'), :method => :delete %></td>
     </tr>
   <% end %>
-</table>
+</tbody></table>
 
 <p><%= link_to t('admin.new_taggable'), new_taggable_path %></p>

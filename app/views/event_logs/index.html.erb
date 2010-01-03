@@ -1,16 +1,20 @@
 <% title "Események" %>
 
 <%= will_paginate @event_logs, :previous_label => t(:prev_link, :locale => :hu), :next_label => t(:next_link, :locale => :hu) %>
-<table>
+<table class="full">
+<thead>
 <tr>
 <th>Dátum</th>
 <th>Művelet</th>
 </tr>
-  <% for log in @event_logs %>
-<tr>
+</thead>
+<tbody>
+<% for log in @event_logs %>
+<tr class="<%= cycle('odd', 'even') %>">
 <td><%= log.created_at %></td>
 <td><%= h log.action %></td>
 </tr>
-  <%end %>
+<%end %>
+</tbody>
 </table>
 <%= will_paginate @event_logs, :previous_label => t(:prev_link, :locale => :hu), :next_label => t(:next_link, :locale => :hu) %>

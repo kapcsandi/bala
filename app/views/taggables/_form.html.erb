@@ -2,7 +2,7 @@
   <%= f.error_messages %>
   <p>
     <%= f.label t('admin.field') %><br />
-    <%= f.text_field :field %>
+    <%= f.text_field :field, :readonly => true %>
   </p>
   <p>
     <%= f.label t('admin.name') %><br />
@@ -14,7 +14,7 @@
   </p>
   <p>
     <%= f.label t('admin.multi') %><br />
-    <%= f.check_box :multi %>
+    <%= f.check_box :multi, :readonly => true %>
   </p>
   <p>
     <%= f.label t('admin.position') %><br />

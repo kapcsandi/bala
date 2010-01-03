@@ -1,21 +1,23 @@
 <% title t('admin.seasons') %>
-
-<table>
+<p><%= link_to t('admin.new_season'), new_season_path %></p>
+<table class="full">
+<thead>
   <tr>
     <th><%= t('admin.name') %></th>
     <th><%= t('admin.start') %></th>
     <th><%= t('admin.end') %></th>
   </tr>
+</thead>
+<tbody>
   <% for season in @seasons %>
-    <tr>
+    <tr class="<%= cycle('odd', 'even') %>">
       <td><%=h season.name %></td>
       <td><%=h season.start %></td>
       <td><%=h season.end %></td>
       <td><%= link_to t('admin.show'), season %></td>
       <td><%= link_to t('admin.edit'), edit_season_path(season) %></td>
-      <td><%= link_to t('admin.destroy'), season, :confirm => t('Are you sure?'), :method => :delete %></td>
     </tr>
   <% end %>
-</table>
-
+</tbody></table>
 <p><%= link_to t('admin.new_season'), new_season_path %></p>
+

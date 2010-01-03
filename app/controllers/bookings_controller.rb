@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     begin
       @booking = Booking.find(params[:id])
     rescue
-      flash[:warning] = 'Nem létező foglalás'
+      flash[:error] = 'Nem létező foglalás'
       redirect_to root_path
     end
   end

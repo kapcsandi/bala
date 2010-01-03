@@ -1,8 +1,8 @@
-<h1>Ház képek feltöltése</h1>
+<% title('Ház képek feltöltése') %>
 <% form_for :image,
   :url=>{:controller=>"image", :action=>"index"},
   :html => { :multipart => true } do |f| -%>
-  <p>JPG formátumú, házkód_sorszám.jpg elnevezésű képek feltöltése.<br /> A házkód számokat és kötőjelet (-) tartalmazhat, a sorszám kétjegyű kell legyen. Pl: a 25-409/1 ház első képe: 25-409-1-01.jpg.<br /> Ahhoz, hogy a kiemelt kép legyen, be kell puccantani az 'Első kép legyen?' melleti pucukát.</p>
+  <p>JPG formátumú, házkód_sorszám.jpg elnevezésű képek feltöltése.<br /> A házkód számokat és kötőjelet (-) tartalmazhat, a sorszám kétjegyű kell legyen. Pl: a 25-409/1 ház első képe: 25-409-1_01.jpg.<br /> Ahhoz, hogy a kiemelt kép legyen, be kell puccantani az 'Első kép legyen?' melleti pucukát.</p>
   <label for="image">Válassz egy kép fájlt (jpg):</label>
   <%= f.file_field :file -%>
   <p>Első kép legyen? <%= f.check_box :first %></p>
