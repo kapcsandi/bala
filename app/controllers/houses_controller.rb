@@ -152,7 +152,7 @@ class HousesController < ApplicationController
   end
 
   def expire_caches
-    expire_page :controller => :root, :action => :index
+    expire_action :controller => :root, :action => :index
     expire_fragment :controller => :root, :action => :index
   end
 end

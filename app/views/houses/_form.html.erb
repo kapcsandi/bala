@@ -299,5 +299,13 @@
       <br />
     <% end %>
   <% end %>
+  <% hp = Dir.glob('public/pic/' + @house.stripped_code + '/*').map {|path| path.sub(/^public/,'')}.sort %>
+  Ezek a képek vannak a ház könyvtárában:<br />
+  <% for pic in hp %>
+  <div>
+  <%= image_tag pic %><br />
+  kép útvonal: <%= pic %>
+  </div>
+  <% end %>
   <p><%= f.submit t(:submit) %></p>
 <% end %>
