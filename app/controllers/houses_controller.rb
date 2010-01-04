@@ -49,7 +49,7 @@ class HousesController < ApplicationController
         search.distance_beach_lte = params[:q][:distance_beach].to_i unless params[:q][:distance_beach].blank?
       end
 
-      @houses, @houses_count = search.all(:select => "houses.id,code, city_id, persons, animals, pictures, house_type_id, condition_id, furnishing_id, floor_area, distance_center, distance_beach, distance_restaurant, distance_shop, distance_mainroad, distance_station").paginate(:page => params[:page], :per_page => 10), search.count
+      @houses, @houses_count = search.all(:select => "houses.id,code, city_id, persons, children, animals, pictures, house_type_id, condition_id, furnishing_id, floor_area, distance_center, distance_beach, distance_restaurant, distance_shop, distance_mainroad, distance_station").paginate(:page => params[:page], :per_page => 10), search.count
     end
   end
 

@@ -133,8 +133,8 @@
   <% field_set_tag t('house_kitchen') do %>
     <% for field in %w(fridge coffee_machine micro) %>
     <p>
-      <%= f.check_box field %>
       <%= f.label t("admin.#{field}") %><br />
+      <%= f.text_field field %>
     </p>
     <% end %>
     <p>
@@ -143,12 +143,14 @@
     </p>
   <% end %>
   <% field_set_tag t('house_inters') do %>
-    <% for field in %w(sat internet) %>
     <p>
-      <%= f.check_box field %>
-      <%= f.label t("admin.#{field}") %><br />
+      <%= f.label t("admin.sat") %><br />
+      <%= f.text_field :sat %>
     </p>
-    <% end %>
+    <p>
+      <%= f.check_box :internet %>
+      <%= f.label t("admin.internet") %><br />
+    </p>
     <p>
       <%= f.label t('admin.clima_id') %><br />
       <%= f.collection_select :clima_id, Taggable.find_by_field('clima_id').tags, :id, :name, :prompt => t(:select_clima) %>
@@ -156,7 +158,7 @@
   <% end %>
   <% field_set_tag t('house_outers') do %>
     <p>
-      <%= check_box_tag :pool, 1, @house.pool?, :onchange => "$('pool_sq').toggle()" %>
+      <%= f.check_box :pool, :onchange => "$('pool_sq').toggle()" %>
       <%= f.label t('admin.pool') %><br />
     </p>
     <div id="pool_sq"<%= "style='display:none'" unless @house.pool? %>>
@@ -231,12 +233,12 @@
   <% end %>
   <% field_set_tag t('admin.house_animals') do %>
     <p>
-      <%= check_box_tag :animals, 1, @house.animals?, :onchange => "$('animal_charge').toggle()" %>
+      <%= f.check_box :animals, :onchange => "$('animal_charge').toggle()" %>
       <%= f.label t('admin.animals') %>
     </p>
     <div id="animal_charge"<%= "style='display:none'" unless @house.animals? %>>
       <p>
-  <%= check_box_tag :animal_charge, 1, @house.animal_charge == 1 %>
+  <%= f.check_box :animal_charge %>
 	<%= f.label t('admin.animal_charge') %>
       </p>
     </div>

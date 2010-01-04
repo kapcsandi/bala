@@ -12,6 +12,6 @@
   </div>
   <div class="span-5">
     <span class="label"><%= t :persons %>:</span>
-    <span class="field">max.  <%=h house.persons %> <%= t('pers') %></span>
+    <span class="field">max. <%=h house.persons.to_s + (house.children > 0 ? '+' + house.children.to_s : '') %> <%= t('pers') %></span>
   </div>
 </div>

@@ -60,7 +60,7 @@
       <%- unless @house[field].nil? or @house[field] == '0' -%>
       <p>
         <%= label_tag t(field) %>:
-        <%=h @house[field] %> <%= t(:sqmeter) -%>
+        <%=h @house[field].split(';').to_sentence %> <%= t(:sqmeter) -%>
       </p>
       <%- end -%>
     <%- end -%>
@@ -106,17 +106,17 @@
   <%-
   fields = []
   for field in %w(fridge coffee_machine micro) do
-     fields << t(field) if @house[field]==1
+     fields << @house[field].to_s + ' ' + t(field) if @house[field]>0
   end %><%= fields.to_sentence %></p>
   <p><%= label_tag t(:stove_id) %>: <%= @house.stove %></p>
 <br class="clear"/>
   <p><label><%= t('house_inters') %>:</label>
   <%-
   fields = []
-  for field in %w(sat internet) do
-    fields << t(field) if @house[field]==1
-  end -%><%= fields.to_sentence %></p>
-  <%- if @house.clima != t('nincs') %>
+  fields << @house[:sat].to_s + ' ' + t(:sat) if @house[:sat] > 0
+  fields << t(:internet) if @house[:internet] == 1
+   -%><%= fields.to_sentence %></p>
+  <%- if @house.clima !~ /-|nincs/ %>
   <p><%= label_tag t(:clima_id) %>: <%= @house.clima %></p>
   <% end %>
   <p><label><%= t('house_outers') %>:</label>
@@ -129,7 +129,11 @@
   <%-
   fields = []
   for field in %w(garden_seats grill sunbath_seat playground) do
-    fields << t(field) if @house[field]==1
+    if field == "sunbath_seat"
+      fields << @house[field].to_s + ' ' + t(field) if @house[field]>1
+    else
+      fields << t(field) if @house[field]==1
+    end
   end -%>
   <%= fields.to_sentence %></p>
   <p><%= label_tag t(:parking_id) %>: <%= @house.parking %></p>
