@@ -36,10 +36,11 @@ class HousesBookingsController < ApplicationController
       @house.houses_bookings << @houses_booking
     end
     if @house and @houses_booking.save
-      flash[:notice] = t("created_booking")
+      flash[:notice] = t("admin.created_booking")
       event_logger("#{current_user.username} foglaltságot rögzített: #{@house.code}, #{@houses_booking.start_at} - #{@houses_booking.end_at}")
       redirect_to @houses_booking
     else
+      @house ||= House.new
       render :action => 'new'
     end
   end

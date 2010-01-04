@@ -98,7 +98,7 @@ legend {padding:0 10px;margin-left:5px;font-size:1.1em;}
 .categories .category {height:150px;width:168px;border:1px solid #F8F883;padding:5px 10px;margin:0 10px 10px 0;float:left;text-align:center}
 .categories .category.last {margin-right:0}
 .category .title {font-size:1em}
-.mini {line-height:1.5em;overflow:hidden;margin:5px 0;padding:5px;border:1px solid #cccccc}
+.mini {line-height:1.5em;overflow:hidden;margin:0 0 10px 0;padding:5px;border:1px solid #cccccc}
 .even {background-color:#f6f6f6}
 .odd {background-color:#efefef}
 tr.odd {background-color:#fff}
@@ -150,6 +150,7 @@ a.info {cursor:help}
 .inner {margin:5px}
 .breadcrumb span {padding: 0 2px;font-size:0.7em}
 .right {float:right}
+.full {width:auto}
 #houses_print {width:800px}
 #houses_print .right {font-size:17px;position:fixed;top:0px;left:640px;background:white;padding:2px 5px}
 .haver {padding-left:10px}
@@ -161,6 +162,9 @@ ul#houses_bookings .fold {margin:20px 50px 10px 0;float:right}
 select#booking_country {width:215px}
 #lightbox img {height:500px;width:500px}
 fieldset span {width:50%;float:left;}
+fieldset .stamp span, fieldset #houses_bookings span {float:none;}
+span.price {background:#fff;padding:0 10px;margin:0 10px 0 0;border:1px solid silver}
+br.zero {margin:0;padding:0;line-height:0.4em}
 .mini .span-7 span {width:50%;float:left;display:block}
 .mini .span-7 span.label {width:150px;float:left;display:block}
 .mini .span-7 span.field {width:100px;float:left;display:block}

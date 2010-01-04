@@ -1,7 +1,9 @@
-page['search_code'].value = @houses[0].code
+page['houses_bookings'].select('.code')[0].value = @houses[0].code
 if @houses.size == 1
   page.replace_html 'house_stamp', :partial => 'stamp', :locals => { :house => @houses[0], :last => true, :open => false}
   page['house_stamp'].show
+  page.alert('yipp!')
 else
   page['house_stamp'].hide
+  page.alert('yepp!')
 end

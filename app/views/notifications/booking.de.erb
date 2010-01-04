@@ -1,12 +1,13 @@
 Tisztelt <%= @booking.name %>,
 
-foglalása a következő adatokkal megérkezett kollégánkhoz.
+foglalása a következő adatokkal megérkezett kollégánkhoz:
 
-* házkód: <%= @codes.to_sentence %>
-* érkezés: <%= @houses_booking.start_at %>
-* távozás: <%= @houses_booking.end_at %>
+* érkezés: <%= @houses_bookings.first.start_at %>
+* távozás: <%= @houses_bookings.first.end_at %>
 * éjszakák száma: <%= @booking.nights %>
-* ár: <%= @booking.price %> EUR
+<% @codes.each_pair do |key,value| %>
+* házkód: <%= value %>
+* ár: <%= @houses_bookings[key] %> EUR
 
 <% unless @booking.notes.blank? %>
 <%= @booking.name %> <<%= @booking.email %>> üzenete:
@@ -22,4 +23,4 @@ további adatok:
 
 --
 Üdvözlettel,
-  1x Ferienhaus.de
+  1x ferienhaus.de

@@ -1,16 +1,16 @@
 <%= show_hide("stamp_#{house.id}", open) %>
-<div id="stamp_<%= house.id %>" class="span-6 stamp mini house odd<%= ' last' if last %>" style="display:<%= open ? 'block' : 'none' %>">
+<div id="stamp_<%= house.id %>" class="span-5 stamp mini house odd<%= ' last' if last %>" style="display:<%= open ? 'block' : 'none' %>">
   <div class="location">
     <span class="field"><%=h house.city %></span><br />
-    <span class="label"><%= t :code %>:</span>
-    <span class="field"><%=h house.code %></span>
+    <span class="label"><%= t :code %>: </span>
+    <span class="field"> <%=h house.code %></span>
   </div>
-  <div class="span-6">
+  <div class="span-5">
     <div class="photos"><% link_to :controller => 'houses', :action => 'show', :id => house, :anchor => 'details' do %>
     <div><% if house.thumb %><%= image_tag house.thumb %><% else %> <%= t('no_picture') %> <% end %></div>
     <% end %></div>
   </div>
-  <div class="span-6">
+  <div class="span-5">
     <span class="label"><%= t :persons %>:</span>
     <span class="field">max.  <%=h house.persons %> <%= t('pers') %></span>
   </div>

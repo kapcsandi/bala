@@ -2,11 +2,12 @@ Foglalási értesítő
 
 Foglalás érkezett a következő adatokkal:
 
-  házkód(ok): <%= @codes.to_sentence %>
-  érkezés: <%= @houses_booking.start_at %>
-  távozás: <%= @houses_booking.end_at %>
-  éjszakák száma: <%= @booking.nights %>
-  ár: <%= @booking.price %> EUR
+* érkezés: <%= @houses_bookings.first.start_at %>
+* távozás: <%= @houses_bookings.first.end_at %>
+* éjszakák száma: <%= @booking.nights %>
+<% @codes.each_pair do |key,value| %>
+* házkód: <%= value %>
+* ár: <%= @houses_bookings[key] %> EUR
 
 <% unless @booking.notes.blank? %>
 <%= @booking.name %> <<%= @booking.email %>> üzenete:
@@ -14,11 +15,12 @@ Foglalás érkezett a következő adatokkal:
 -- üzenet vége
 <% end %>
 további adatok:
-Érkező személyek száma: <%= @booking.persons %>
-<%= 'Háziállattal jövünk' if @booking.with_animals %>
-Telefon: <%= @booking.phone %>
-Mobil: <%= @booking.mobile %>
-Város: <%= @booking.city %>
+* Érkező személyek száma: <%= @booking.persons %>
+<%= '* Háziállattal jövünk' if @booking.with_animals %>
+* Telefon: <%= @booking.phone %>
+* Mobil: <%= @booking.mobile %>
+* Város: <%= @booking.city %>
+
  -----
 
 A foglalás adatai elérhetők ezen az oldalon:
@@ -26,4 +28,4 @@ A foglalás adatai elérhetők ezen az oldalon:
 
 --
 Üdvözlettel,
-  1x Ferienhaus.de
+  1x ferienhaus.de

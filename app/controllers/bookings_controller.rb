@@ -41,52 +41,34 @@ class BookingsController < ApplicationController
       code = booking_houses[0][:code]
       houses_found = House.find_all_by_code(code)
     end
+    @houses = houses_found
     unless houses_found.empty?
-      @booking.houses << houses_found
-      @houses = @booking.houses
-      @houses_booking = @booking.houses_bookings.build
-      @houses_booking.house_id = @houses.first.id
-      houses_booking = params[:booking].delete(:houses_bookings)
-      case houses_booking
-      when Hash
-        ids = houses_booking.keys
-        hb = houses_booking[ids.first]
-       when Array
-        hb = houses_booking.first
+#      @booking.houses << houses_found
+      hb = params[:booking].delete(:houses_booking)
+      price = 0
+      houses_found.each do |house|
+        @houses_booking = house.houses_bookings.build
+        @houses_booking.house_id = house.id
+        @houses_booking.start_at = hb[:start_at]
+        @houses_booking.end_at = hb[:end_at]
+        price = if params[:house_0_price] then params[:house_0_price] else params["house_#{house.id}_price"] end
+        @houses_booking.price = price
+        @booking.houses_bookings << @houses_booking
       end
-      @houses_booking.start_at = hb[:start_at]
-      @houses_booking.end_at = hb[:end_at]
-#       debugger
-#       @houses_booking.save_with_dirty!
-    begin
-      if @booking.save
-        @booking.houses_bookings.last.destroy
-        logger.info "SAVED HB"
-        if session[:order]
-          session[:order].each_with_index do |id, index|
-            logger.info "@houses_bookings values: #{id}"
-            hb = hbs.find_by_house_id(id)
-            if hb
-              hb.position = index
-              hb.save
-            end
-          end
+      @booking.price = price
+      begin
+        if @booking.save
+          flash[:notice] = t("created_booking") unless admin?
+          notification_mails(@booking)
+          redirect_to @houses
+        else
+          render :action => 'new'
         end
-        session[:order] = nil
-        flash[:notice] = t("created_booking")
-        notification_mails(@booking)
-        redirect_to @houses
-      else
-        @houses_bookings = @booking.houses_bookings.first
+      rescue ActiveRecord::RecordInvalid
+        logger.info($!.to_s)
         render :action => 'new'
       end
-  rescue ActiveRecord::RecordInvalid
-    logger.info($!.to_s)
-    render :action => 'new'
-  end
     else
-      @houses ||= []
-      @houses_bookings = @booking.houses_bookings.first
       render :action => 'new'
     end
   end
@@ -130,51 +112,53 @@ class BookingsController < ApplicationController
   end
 
   def calculate
-    house = House.find_by_code(params[:codes].split(',')[0]) unless params[:codes].empty?
+    houses = House.find_all_by_code(params[:codes].split(',').compact) unless params[:codes].empty?
     persons = params[:persons] unless params[:persons].empty?
     from = Date.parse(params[:from]) unless params[:from].empty?
     to = Date.parse(params[:to]) unless params[:to].empty?
     animals = params[:animals] unless params[:animals].empty?
-    if house and from and to and to > from
-      @price, season_price = 0, 0
-      days = 1
-      adds = []
-      prev_season = Season.which_season?(from)
-      (from+1..to).step do |day|
-        season = Season.which_season?(day)
-  #      logger.info "_start_ days: #{days}, date: #{day}, season: #{season}"
-        if season == prev_season
-          adds << house.daily_price(season)
-  #        logger.info "same season"
-          if days % 7 == 0
-#            logger.info "7th day of season"
-            7.times { adds.pop }
-            adds << house.price(season)
-            days = 0
-          end
-        else
- #         logger.info "new season"
-          if (days % 7) != 0
- #           logger.info "prev season fragment week"
-            season_price += days * house.daily_price(prev_season) 
+    @prices = []
+    if !houses.empty? and from and to and to > from
+      houses.each_with_index do |house,index|
+        @prices[index] = 0
+        season_price = 0
+        days = 1
+        adds = []
+        prev_season = Season.which_season?(from)
+        (from+1..to).step do |day|
+          season = Season.which_season?(day)
+    #      logger.info "_start_ days: #{days}, date: #{day}, season: #{season}"
+          if season == prev_season
             adds << house.daily_price(season)
+    #        logger.info "same season"
+            if days % 7 == 0
+  #            logger.info "7th day of season"
+              7.times { adds.pop }
+              adds << house.price(season)
+              days = 0
+            end
           else
- #           logger.info "prev season full week"
-            season_price += house.price(prev_season)
-            7.times { adds.pop }
-            adds << house.price(prev_season)
-            adds << house.daily_price(season)
+  #         logger.info "new season"
+            if (days % 7) != 0
+  #           logger.info "prev season fragment week"
+              season_price += days * house.daily_price(prev_season)
+              adds << house.daily_price(season)
+            else
+  #           logger.info "prev season full week"
+              season_price += house.price(prev_season)
+              7.times { adds.pop }
+              adds << house.price(prev_season)
+              adds << house.daily_price(season)
+            end
+            days, season_price = 0, 0
+            prev_season = season
           end
-          days, season_price = 0, 0
-          prev_season = season
+  #        logger.info "_end_ days: #{days}, date: #{day}, season: #{season}, adds: #{adds.inspect}"
+          days += 1
         end
-#        logger.info "_end_ days: #{days}, date: #{day}, season: #{season}, adds: #{adds.inspect}"
-        days += 1
+        adds.each {|elem| @prices[index] += elem }
       end
-      adds.each {|elem| @price += elem }
-#      logger.info  "_last_ day: #{days}, season: #{prev_season}, adds: #{adds.inspect}"
-    else
-      @price = ""
+  #      logger.info  "_last_ day: #{days}, season: #{prev_season}, adds: #{adds.inspect}"
     end
     respond_to do |format|
       format.js
@@ -197,10 +181,10 @@ class BookingsController < ApplicationController
   end
 
   def notification_mails(booking)
-    house_codes = booking.houses.map{|house| house.code}
-    houses_booking = booking.houses_bookings.first
-    Notifications.deliver_booking(house_codes,booking, houses_booking)
-    Notifications.deliver_booking_admin(house_codes,booking, houses_booking)
+    house_codes = booking.houses.map{|house| { house.id => house.code}}
+    houses_bookings = booking.houses_bookings.map {|hb| { hb.house_id => hb.price}}
+    Notifications.deliver_booking(house_codes,booking, houses_bookings)
+    Notifications.deliver_booking_admin(house_codes,booking, houses_bookings)
   rescue
     log_error($!)
   end

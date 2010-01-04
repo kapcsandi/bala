@@ -27,6 +27,12 @@
     <%= f.label 'Távozás' %><br />
     <%= f.date_select :end_at %>
   </p>
+  <% if houses_booking.owner.nil? and not houses_booking.new_record? %>
+  <p>
+    <%= f.label 'Ár (EUR)' %><br />
+    <%= f.text_field :position %>
+  </p>
+  <% end %>
   <p>
     <%= f.label 'Állapot' %><br />
     <%= f.select :status, HousesBooking.states %>

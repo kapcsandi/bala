@@ -1,2 +1,18 @@
-page.visual_effect :highlight, 'booking_price', :startcolor => '#ffff99', :endcolor => '#ffffff'
-page['booking_price'].value=@price
+if @prices.empty?
+  page.alert(t('fill_mandatory_fields_for_price'))
+else
+  page.assign 'prices', @prices
+  price = 0
+  page.select('#houses_bookings .price').each do |value,index|
+    page << 'var price = prices[index];'
+    page << 'alert(price);'
+    page << 'Element.update(value, price);'
+    page << 'var price_id = "house_"+index+"_price";'
+    page << 'if ($(price_id)) {'
+    page << 'Element.update(price_id,price);'
+    page << '} else {'
+    page << 'Element.insert("houses_bookings", {after: "<input type=\"hidden\" name=\""+price_id+"\" value=\""+price+"\" />"})'
+    page << '}'
+    page.visual_effect :highlight, id, :startcolor => '#ffff99', :endcolor => '#ffff00'
+  end
+end

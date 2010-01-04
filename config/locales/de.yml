@@ -492,6 +492,7 @@ de:
   cart_limit: Der Warenkorb kann maximal 3 Häuser enthalten!<br /> Zuerst bitte löschen Sie Elemente aus Ihrem warekorb.
 #  registration_successful: Erfolgreich Registration
   created_booking: "<h3>Vielen Dank für Ihre Reservierung.</h3><p>Liebe Ungarnfreunde,</p><p>nach der Absendung Ihrer Bestellung bekommen Sie eine <b>Bestätigung</b> mit dem Gesamtpreis des Aufenthaltes, Höhe und Termin der erste Anzalhlung. Wir werden Ihre Reservierung schnellstens bearbeiten und Ihnen der Unterlagen zukommen lassen.</p>"
+  fill_mandatory_fields_for_price: Kérjük töltse ki a kötelező mezőket!
 
   admin:
     edit_house: Apartman szerkesztése
