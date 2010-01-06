@@ -7,10 +7,10 @@ else
     page << 'var price = prices[index];'
     page << 'Element.update(value, price);'
     page << 'var price_id = "house_"+index+"_price";'
-    page << 'if ($(price_id)) {'
+    page << 'if ($(price_id)!=null) {'
     page << 'Element.update(price_id,price);'
     page << '} else {'
-    page << 'Element.insert("houses_bookings", {after: "<input type=\"hidden\" name=\""+price_id+"\" value=\""+price+"\" />"})'
+    page << 'Element.insert("houses_bookings", {after: "<input type=\"hidden\" id=\""+price_id+"\" name=\""+price_id+"\" value=\""+price+"\" />"})'
     page << '}'
     page.visual_effect :highlight, id, :startcolor => '#ffff99', :endcolor => '#ffff00'
   end
