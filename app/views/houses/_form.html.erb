@@ -296,18 +296,10 @@
       last = (@house.picture_ids && @house.picture_ids.size > 8 ? @house.picture_ids.size : 8)
       (0..last).each do |id| %>
       <%= f.label t('admin.picture_url', :position => id+1) %>
-      <%= text_field_tag 'house[picture_ids][]', @house.picture_ids ? @house.picture_ids[id] : nil %>
+      <%= text_field_tag 'house[picture_ids][]', @house.picture_ids ? @house.picture_ids[id] : '' %>
       <%= image_tag @house.picture_urls('s')[id] unless @house.picture_ids[id].nil? %>
       <br />
     <% end %>
-  <% end %>
-  <% hp = Dir.glob('public/pic/' + @house.stripped_code + '/*').map {|path| path.sub(/^public/,'')}.sort %>
-  Ezek a képek vannak a ház könyvtárában:<br />
-  <% for pic in hp %>
-  <div>
-  <%= image_tag pic %><br />
-  kép útvonal: <%= pic %>
-  </div>
   <% end %>
   <p><%= f.submit t(:submit) %></p>
 <% end %>

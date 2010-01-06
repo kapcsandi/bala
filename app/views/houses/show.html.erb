@@ -48,22 +48,22 @@
   <% content_tag :div, :id => :house_rooms do %>
     <%- for field in Taggable.find_all_by_position([8, 9, 10, 11])
       tagnames = []
-      for tag in field.tags do tagnames << tag.name if @house.tags.include?(tag) and tag.name != t('nincs')  end -%>
+      for tag in field.tags do tagnames << tag.name if @house.tags.include?(tag) and tag.name != t('nincs') and tag.name != '-'  end -%>
       <%- unless tagnames.empty? -%>
         <p>
         <%= label_tag field.name %>:
-        <%= tagnames.to_sentence -%>
+        <%= tagnames.map{|tag| '<span>'+tag+'</span>'}.to_sentence -%>
         </p>
       <%- end -%>
-    <%- end -%>
+    <%- end -%><br class="clear" />
     <%- for field in %w(living_room_sq living_dining_room_sq kitchen_sq dining_room_sq kitchen_dining_room_sq terrace_sq balcony_sq yard_sq) -%>
       <%- unless @house[field].nil? or @house[field] == '0' -%>
       <p>
         <%= label_tag t(field) %>:
-        <%=h @house[field].split(';').to_sentence %> <%= t(:sqmeter) -%>
+        <span><%=h @house[field].split(/;|,/).map{|f| f+' '+t(:sqmeter)}.to_sentence %></span>
       </p>
       <%- end -%>
-    <%- end -%>
+    <%- end -%><br class="clear" />
     <%- for field in %w(bedroom living_room living_dining_room kitchen dining_room kitchen_dining_room balcony) -%>
       <%- unless @house[field].nil? or @house[field]<2 -%>
       <p>
@@ -72,9 +72,11 @@
       </p>
       <%- end -%>
     <%- end -%>
+    <%- if @house.terrace != '-' or @house.terrace != t('nincs') -%>
     <p>
       <%= label_tag t(:terrace_id) %>: <%=h @house.terrace -%>
     </p>
+    <%- end -%>
     <%- if @house.garden? -%>
     <p>
       <%= label_tag t(:garden) %>: <%= check_box_tag @house.garden, 1, @house.garden?, :disabled => true -%>
@@ -180,7 +182,7 @@
 <% content_tag :div, :id => :house_prices do %>
   <p style="width:100%">Mietpreis pro Haus und Woche in Euro</p>
   <br />
-  <table class="full">
+  <table>
   <thead>
   <tr>
   <th> von </th>

@@ -105,7 +105,8 @@ tr.odd {background-color:#fff}
 .calendar_date_select {width:210px}
 .fullwidth span.label {float:left;padding-left:20px;clear:both;width:auto;font-size:1.1em}
 .fullwidth p {width:auto;float:left;padding-right:10px;white-space:nowrap}
-#house_rooms p {float:left;width:auto;margin-right:10px; white-space:nowrap}
+#house_rooms span {padding-right:3px;float:none;width:auto;white-space:nowrap}
+#house_rooms p {margin-right:10px;float:left}
 #house_distances span {width:40%}
 #house_distances span.label {width:60%}
 fieldset.full p {width:30%;float:left}
@@ -156,8 +157,8 @@ a.info {cursor:help}
 .haver {padding-left:10px}
 .calendar_date_select td div.other {color:#FFF000;}
 .fold {text-decoration:none;cursor:hand;cursor:pointer;display:block;margin:-25px 0px 5px 15px}
-#houses_bookings .fold {margin:-23px 35px 10px 0;float:right}
-ul#houses_bookings .fold {margin:20px 50px 10px 0;float:right}
+#houses_bookings .fold {margin:0;float:none;display:inline}
+ul#houses_bookings .fold {margin:0 50px 10px 0;float:right}
 .photos  a.fold:hover img {border:#000}
 select#booking_country {width:215px}
 #lightbox img {height:500px;width:500px}

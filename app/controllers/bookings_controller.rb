@@ -79,17 +79,8 @@ class BookingsController < ApplicationController
 
   def update
     @houses_bookings = @booking.houses_bookings
-    if session[:order]
-      logger.info "session:order exists"
-      session[:order].each_with_index do |id, index|
-        @booking.houses_bookings.update_all(['position=?',index+1],['house_id=?',id])
-      end
-    else
-      logger.info "session:order NOT exists"
-    end
     houses = params["booking"].delete("houses") {|house| house.keys}
     params["booking"]["houses_bookings"] = houses.keys.map {|key| key.to_i}
-    debugger
     if @booking.update_attributes(params[:booking])
       flash[:notice] = t("updated_booking")
       redirect_to @booking
@@ -181,10 +172,11 @@ class BookingsController < ApplicationController
   end
 
   def notification_mails(booking)
-    house_codes = booking.houses.map{|house| { house.id => house.code}}
-    houses_bookings = booking.houses_bookings.map {|hb| { hb.house_id => hb.price}}
-    Notifications.deliver_booking(house_codes,booking, houses_bookings)
-    Notifications.deliver_booking_admin(house_codes,booking, houses_bookings)
+    codes = {}
+    booking.houses.each{|house| codes[house.id] = house.code}
+    houses_bookings = booking.houses_bookings
+    Notifications.deliver_booking(codes,booking, houses_bookings)
+    Notifications.deliver_booking_admin(codes,booking, houses_bookings)
   rescue
     log_error($!)
   end

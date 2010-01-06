@@ -10,7 +10,7 @@ class ImageController < ApplicationController
       File.open(path, "wb") { |f| f.write(params[:image][:file].read) }
       @name.sub!(/\..*$/,'')
 
-      @house = @name.scan(/\d+/)[0..-1].join('-')
+      @house = @name.scan(/\d+/)[0..-2].join('-')
       begin
         house = House.find_by_code(@house)
       rescue

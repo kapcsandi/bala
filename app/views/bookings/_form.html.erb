@@ -7,16 +7,15 @@
       <%= label_tag t('selected_houses', :count => houses.size) %>:
       <ul id="houses_bookings">
       <% for house in houses do %>
-        <% content_tag_for :li, house do %>
-          <%= render :partial => 'houses/stamp', :locals => { :house => house, :last => (houses.last == house), :open => false} %>
+        <% content_tag_for :li, house, :class => 'span-5' do %>
           <% f.fields_for 'houses[]', house do |hb_form| %>
             <div><%= hb_form.label t(:code) %></div>
-            <%= hb_form.text_field :code, :size => 20, :class=> 'code', :readonly => true %>
-            <div>
+            <div><%= hb_form.text_field :code, :size => 20, :class=> 'code', :readonly => true %>
+            <%= render :partial => 'houses/stamp', :locals => { :house => house, :last => (houses.last == house), :open => false} %>
+            </div>
             <br class="zero" />
             <%= f.label t(:calculated_price) %><br />
             <span id="house_<%= house.id %>_price" class="price"></span> EURO
-            </div>
           <% end %>
         <% end %>
       <% end %>
@@ -37,11 +36,7 @@
         </div>
       <% end %>
     <% end %>
-    <div class="span-19">
-      <%= button_to_remote t('calculate_price'), :url => :calculate, :with => "'persons=' + $('booking_persons').value + '&from=' + $('booking_houses_booking_start_at').value + '&to=' + $('booking_houses_booking_end_at').value + '&codes=' + $('houses_bookings').select('input.code').pluck('value') + '&animals=' + $('booking_with_animals_1').checked" %>
-    <span class="right full">Im Preis bereit enthalten: Bettwäsche, Endreinigung, Gas, Strom, Wasser<br />Nebenkosten: Zuschläge (zahlbar bei Buchung): Ortstaxe</span>
-    </div>
-    <hr /><p>Ich reserviere obiges Fehrienhaus für folgenden Zeitraum:</p>
+    <p>Ich reserviere obiges Fehrienhaus für folgenden Zeitraum:</p>
     <% f.fields_for 'houses_booking', houses_bookings || HousesBooking.new do |hb_form| %>
     <div class="span-6">
       <%= label 'booking', t(:from) %><br />
@@ -56,6 +51,10 @@
     <div class="span-6">
       <%= f.label t(:nights) %><br />
       <%= f.text_field :nights, :size => 20, :readonly => "true", :value => booking.nights %>
+    </div>
+    <div class="span-19">
+      <%= button_to_remote t('calculate_price'), :url => :calculate, :with => "'persons=' + $('booking_persons').value + '&from=' + $('booking_houses_booking_start_at').value + '&to=' + $('booking_houses_booking_end_at').value + '&codes=' + $('houses_bookings').select('input.code').pluck('value') + '&animals=' + $('booking_with_animals_1').checked" %>
+    <span class="right full">Im Preis bereit enthalten: Bettwäsche, Endreinigung, Gas, Strom, Wasser<br />Nebenkosten: Zuschläge (zahlbar bei Buchung): Ortstaxe</span>
     </div>
   <% end %>
   <% field_set_tag t('booking_details') do %>
@@ -107,6 +106,6 @@
 <br />
 <p>Die <a href="/terms">Allgemeinen Geschäftsbedingungen (AGB)</a> habe ich gelesen und bin einverstanden.</p>
 <br />
-  <div class="span-4"><%= f.submit t("booking_submit") %></div>
+  <div class="span-6"><%= f.submit t("booking_submit") %></div>
 <% end %>
 <div class="span-4"><%= button_to t("cancel_booking"), :houses, :method => 'get' %></div>

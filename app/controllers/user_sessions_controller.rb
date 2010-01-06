@@ -23,7 +23,11 @@ class UserSessionsController < ApplicationController
   def destroy
     @user_session = UserSession.find
     event_logger("#{current_user.username} kilépett")
-    @user_session.destroy
+    begin
+      @user_session.destroy
+    rescue
+      logger.info "#{Time.now} hiba a kilépés során: #{$!.to_s}"
+    end
     flash[:notice] = t('successfully_logged_out')
     redirect_to root_url
   end

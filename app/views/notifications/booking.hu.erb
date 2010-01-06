@@ -5,9 +5,10 @@ foglalása a következő adatokkal megérkezett kollégánkhoz:
 * érkezés: <%= @houses_bookings.first.start_at %>
 * távozás: <%= @houses_bookings.first.end_at %>
 * éjszakák száma: <%= @booking.nights %>
-<% @codes.each_pair do |key,value| %>
-* házkód: <%= value %>
-* ár: <%= @houses_bookings[key] %> EUR
+<% @houses_bookings.each do |hb| %>
+* házkód: <%= @codes[hb.house_id] %>
+* ár: <%= hb.price %> EUR
+<% end -%>
 
 <% unless @booking.notes.blank? %>
 <%= @booking.name %> <<%= @booking.email %>> üzenete:

@@ -34,4 +34,5 @@ form.inline label {position:relative;top:-0.25em;}
 form.inline input.checkbox, form.inline input.radio, form.inline input.button, form.inline button {margin:0.5em 0;}
 button, input.button {position:relative;top:0.25em;}
 #house_basics p {clear:both;width:100%;float:left}
-.fold {text-decoration:none;cursor:hand;cursor:pointer/*;display:block*/;margin:-15px 0px 5px 15px}
+/* .fold {text-decoration:none;cursor:hand;cursor:pointer/*;display:block;margin:-15px 0px 5px 15px} */
+ul#houses_bookings .fold {margin:-30px 50px 10px 0;float:right}
