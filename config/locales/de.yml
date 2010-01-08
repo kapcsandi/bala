@@ -14,7 +14,15 @@ de:
     month_names: [~, Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
     abbr_month_names: [~, Jan, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez]
     order: [ :day, :month, :year ]
-  
+
+  support:
+    array:
+      sentence_connector: "und"
+      skip_last_comma: true
+      words_connector: ", "
+      two_words_connector: " und "
+      last_word_connector: " und "
+
   time:
     formats:
       default: "%A, %e. %B %Y, %H:%M Uhr"
@@ -24,7 +32,7 @@ de:
 
     am: "vormittags"
     pm: "nachmittags"
-      
+
   datetime:
     distance_in_words:
       half_a_minute: 'eine halbe Minute'
@@ -60,7 +68,7 @@ de:
       over_x_years:
         one: 'mehr als 1 Jahr'
         other: 'mehr als {{count}} Jahre'
-      
+
   number:
     format:
       precision: 2
@@ -84,21 +92,112 @@ de:
         delimiter: ""
         precision: 1
 
-  support:
-    array:
-      sentence_connector: "und"
-      skip_last_comma: true
-      words_connector: ", "
-      two_words_connector: " und "
-      last_word_connector: " und "
-        
+  errors:
+    blank: "darf nicht leer sein"
+
   activerecord:
     errors:
+      messages:
+        record_invalid: 'record invalid'
       template:
-        header:
-          one:    "Konnte dieses {{model}} Objekt nicht speichern: 1 Fehler."
-          other:  "Konnte dieses {{model}} Objekt nicht speichern: {{count}} Fehler."
+        header: "{{count}} Fehler hat das {{model}} Speichern blockiert"
         body: "Bitte überprüfen Sie die folgenden Felder:"
+
+    models:
+      house: "Haus"
+      booking: "Reservierung"
+
+    attributes:
+      house:
+        city_id: "Ort"
+        code: "Haus-Kode"
+        condition_id: "Zustand"
+        furnishing_id: "Ausstattung"
+        house_type_id: "Haustyp"
+      houses_booking:
+        start_at: "Wunsttermin von"
+        end_at: "Wunsttermin bis"
+      booking:
+        persons: "Personenzahl"
+        nights: "Nachts"
+        start_at: "Wunsttermin von"
+        end_at: "Wunsttermin bis"
+        firstname: "Vorname"
+        lastname: "Nachname"
+        email: "E-mail"
+        phone: "Telefon"
+        company: "Firmenname"
+        city: "Ort"
+        address: "Adresse"
+        country: "Land"
+        postcode: "PZL"
+#      user:
+#        username: "Benutzername"
+#        password: "Passwort"
+
+      models:
+        house:
+          attributes:
+             furnishing_id:
+               blank: "Ausstattung`s Feld darf nicht leer sein"
+             condition_id:
+               blank: "Zustand`s Feld kann nicht leer sein"
+             house_type_id:
+               blank: "Haustyp`s Feld darf nicht leer sein"
+             city_id:
+               blank: "Ort`s Feld darf nicht leer sein"
+             code:
+               blank: "Haus-Kode`s Feld darf nicht leer sein"
+        houses_booking:
+          attributes:
+            start_at:
+              blank: "Anreisedatum`s Feld darf nich leer sein"
+              invalid: "Anreisedatum ist ungültiges Format"
+              after: "Anreisedatum kann nicht nach {{restriction}}"
+            end_at:
+              blank: "Abreisedatum`s darf nicht leer sein"
+              invalid: "Abreisedatum ist ungültiges Format"
+              before: "Abreisedatum darf nicht vor {{restriction}}"
+        booking:
+          attributes:
+            persons:
+              not_a_number: "Personenzahl`s Feld füllen Sie nur Zahl"
+              blank: "Personenzahl`s Feld darf nicht leer sein"
+            nights:
+#              not_a_number: "Nachtzahl`s Feld füllen Sie nur Zahl"
+#              blank: "Nachtzahl`s Feld darf nicht leer sein"
+#            nights:
+              not_a_number: " Übernachtungszahl’s Feld: füllen Sie nur Zahl "
+              blank: " Übernachtung`s Feld: darf nicht leer sein "
+              greater_than: "Übernachtungszahl: muss mindestens 1 sein"
+            firstname:
+              blank: "Vorname`s Feld darf nicht leer sein"
+            lastname:
+              blank: "Name`s Feld darf nicht leer sein"
+            phone:
+              blank: "Telefon`s Feld darf nicht leer sein"
+            email:
+              blank: "E-Mail`s Feld darf nicht leer sein"
+              invalid: "E-Mail`s Adresse ist ungültiges Format"
+            houses_bookings:
+              invalid: "Anreisedatum, Abreisedatum und Haus-Kode darf nicht leer sein"
+            with_animals:
+              blank: " Pflichtfeld: Haustier mitnehmen"
+            city:
+              blank: " Pflichtfeld: Ort"
+            postcode:
+              blank: " Pflichtfeld: PLZ"
+            address:
+              blank: " Pflichtfeld: Adresse "
+            price:
+              not_a_number: "Drücken Sie die „Preis-Rechner“ Taste!"
+
+        user:
+          attributes:
+            username:
+              blank: "Benutzer`s Feld darf nicht leer sein"
+            password:
+              blank: "Passwort`s Feld darf nicht leer sein"
 
       messages:
         inclusion: "ist kein gültiger Wert"
@@ -120,32 +219,45 @@ de:
         less_than_or_equal_to: "muss kleiner oder gleich {{count}} sein"
         odd: "muss ungerade sein"
         even: "muss gerade sein"
-      models:
 
-  Print this Page: Seite drucken
 
   home: Startseite
   you_are_here: "<b>Sie sind Hier: </b><span>&nbsp;</span>"
 
+# top menu
+  booking: Reservierung
+  cart: Warenkorb
+  cart_title: Warenkorb
+  special_offers: Sonderangebote
+  contact: Kontakt
+  programs: Programme
+
+# left menu
+  infos_a_z: Infos A-Z
+  map: Landkarte
+  weather: Wetter
+  calendar: Balaton Kalender
+  sights: Balaton, Städte
+  offers: Reduziert Restaurants
+  terms: AGB
+  impressum: Impressum
+  owners: Tulajdonosoknak
+  admin_login: Admin belépés
+
+#pages
   title: "Cím"
-  title_houses_found: "Häuser gefunden"
-  Untitled: 1x Ferienhaus
-  meta_description: Unterkunft, Appartement, Balaton, Ferienhäuser
-  slogan: Ferien im Sonnenland Ungarn
   published: veröffentlicht
   body: Törzs
   false: falsch
   show: besichtigen
   edit: Redaktion
   destroy: zerstören
-  are_you_sure: sind Sie sicher?
-  no_picture: Nincs kép
+  are_you_sure: Sind Sie sicher?
 
+#house
   house: Haus
   city_id: Ort
   select_city: wählen Sie ein Ort
-  select_country: wählen Sie Land
-  
   code: Haus-Kode
   house_type_id: Haustyp
   select_house_type: Haustyp wählen Sie
@@ -158,9 +270,6 @@ de:
   discount_description: Spezialangebote Beschreibung
   persons: Personen
   children: maximale Anzahl von Kindern
-  persons_count: Anzahl Personen *
-  children_count: davon Kinder
-  children_years: Alter der Kinder
   floor_area: Grundfläche
   bedroom: Schlafzimmer
   living_room: Wohnzimmer
@@ -225,44 +334,11 @@ de:
   price_pre_season: der Saison vor / Nach der Saison
   price_mid_season: Mitte der Saison
   price_main_season: Hochsaison
-  House: House
-  Houses: Häuser
-  Show: anzeigen
-  Details: Details
-  Booking: Reservierung
-  Photos: Fotos
-  select: Merken
-  deselect: Unmerken
-  Print:  Drucken
-  Edit: Edit
-  Destroy: Speichern
-
-
-
-  salut: Anrede
-  city: Ort
-  discount: Rabatt
-  Are you sure: Sind Sie sicher?
-  yes_animals: erlaubt
-  no_animals: nicht erlaubt
-  nincs: -
-  pictures: Bilder
-  no_picture: kein Bild
-  pers: Pers
-  meter: m
-  sqmeter: m²
-  items: stück
   pre_saison: Vorsaison
   mid_saison: Mittelsaison
   main_saison: Hauptsaison
   post_saison: Nachsaison
-  page_top: Seitenanfang
 
-  selected_houses:
-    one: Gewünschtes Ferienhaus
-    other: Gewünschtes Ferienhausen
-
-  
 # field groups
   house_basics: Hausbeschreibung
   house_layout: Hausanlage
@@ -282,10 +358,8 @@ de:
   house_price_week: Preis / Person / Woche (EUR)
   house_description: Beschreibungen
   house_photos: Bilder
-  
-  back_to_list: Zurück
-  Back to houses: Zurück
-#search Suche
+
+#search
   date_from: Anreisedatum
   date_to: Abreisedatum
   search: Suche
@@ -300,7 +374,103 @@ de:
   rooms: Anzahl der Zimmer
   all: alles
 
+
+#booking
+  New Booking: Neue Reservierung
+  booking_hint: Füllen Sie bitte die unten Daten genau.
+  booking_details: Details der Reservierung
+  selected_houses:
+    one: Gewünschtes Ferienhaus
+    other: Gewünschtes Ferienhausen
+  from: Wunstermin von <span class="red">*</span>
+  to: Wunstermin bis <span class="red">*</span>
+  contact_data: Personal Daten
+  nights: nacht <span class="red">*</span>
+  with_animals: Nehmen Sie Haustiere mit?
+  animal_details: Anzahl, Tierart, Rasse, kg
+  calculated_price: Mietpreis <span class="red">*</span>
+  persons_count: Anzahl Personen <span class="red">*</span>
+  children_count: davon Kinder
+  children_years: Alter der Kinder
+  notes: Nachricht
+  phone: Telefon <span class="red">*</span>
+  fax: Fax
+  mobile: Handy
+  email: E-mail <span class="red">*</span>
+  email_repeat: E-mail widerholen
+  salut: Anrede
+  firstname: Vorname <span class="red">*</span>
+  lastname: Nachname <span class="red">*</span>
+  company: Firmenname
+  address: Adresse <span class="red">*</span>
+  booking_city: Ort <span class="red">*</span>
+  postcode: PLZ <span class="red">*</span>
+  country: Land
+  select_country: wählen Sie Land
+  status: Status
+  calculate_price: Preis-Rechner
+
+# email
+  booking_notification_subject: Reservierung Nachrichten
+
+# titles
+  booking_title: "Buchung Ferienobjekt: {{houses}}"
+  title_houses_found: "Häuser gefunden"
+
+# links & buttons
+  booking_submit: "Buchung absenden"
+  Bookings: Reservierungen
+#  Back to List: Zurück zur Buchung
+  View All: Alle anzeigen
+  Edit Booking: Buchung bearbeiten
+  cancel_booking: Zurück
+#  submit: Beküldés
+  House: House
+  Houses: Häuser
+  Show: anzeigen
+  Details: Details
+  Booking: Reservierung
+  Photos: Fotos
+  select: Merken
+  deselect: Unmerken
+  Print:  Drucken
+  Edit: Edit
+  Destroy: Speichern
+  Print this Page: Seite drucken
+  back_to_list: Zurück
+  Back to houses: Zurück
+  prev_link: zurück
+  next_link: nächst
+  Empty Cart: Leer Warenkorb
+  Go to Cart: Zum Warenkorb
+
+# other
+  city: Ort
+  discount: Rabatt
+  Are you sure: Sind Sie sicher?
+  yes_animals: erlaubt
+  no_animals: nicht erlaubt
+  nincs: -
+  pictures: Bilder
+  no_picture: kein Bild
+  pers: Pers
+  meter: m
+  sqmeter: m²
+  items: stück
+  euro: Euro
+  page_top: Seitenanfang
+  houses_found: "Trefferzahl: <span class=\"count\">{{count}}</span>"
+  tagestip: Tagestipp
+  Untitled: 1xferienhaus
+  meta_description: Unterkunft, Appartement, Balaton, Ferienhäuser
+  slogan: Ferien im Sonnenland Ungarn
+  or: oder
+  answer_yes: Ja
+  answer_no: Nein
+
 #messages
+  booking_warning: 'Achtung! Dies ist eine Buchung und keine Anfrage! Für eine Anfrage shicken Sie bitte eine E-mail.'
+  booking_hint: 'Bitte vervollständigen Sie Ihre Daten. Die mit * gekennzeichneten formularfelder bitte unbedingt ausfüllen!'
   house_added: Haus hinzugefügt
   house_updated: Hause geändert
   house_destroyed: Haus gelöscht
@@ -308,182 +478,9 @@ de:
   house_removed_from_cart: Haus ist vom Warenkorb hinzugefügt worden
   house_not_in_any_group: "Das Haus zu keine Gruppe gehört."
 
-#booking
-  New Booking: Neue Reservierung
-  booking_hint: Füllen Sie bitte die unten Daten genau.
-  booking_details: Details der Reservierung
-  from: Wunstermin von *
-  to: Wunstermin bis *
-  contact_data: Personal Daten
-  nights: nacht *
-  with_animals: Nehmen Sie Haustiere mit?
-  calculated_price: Mietpreis *
-  notes: Nachricht
-  phone: Telefon *
-  mobile: Handy
-  email: E-mail *
-  email_repeat: E-mail widerholen
-  firstname: Vorname *
-  lastname: Nachname *
-  company: Firmenname
-  address: Adresse *
-  city: Ort
-  booking_city: Ort *
-  postcode: PLZ *
-  country: Land
-  status: Status
-  booking_submit: "Buchung absenden"
-  Bookings: Reservierungen
-  Back to List: Zurück zur Buchung
-  View All: Alle anzeigen
-  Edit Booking: Buchung bearbeiten
-  cancel_booking: Zurück
-  booking_notification_subject: Reservierung Nachrichten
-  calculate_price: Preis-Rechner
-  tagestip: Tagestip
-
-  Empty dictionary fields: Leere Felder Wörterbuch
-  add_taggables: Szótárak bővítése
+#  Empty dictionary fields: Leere Felder Wörterbuch
+#  add_taggables: Szótárak bővítése
   Setup: Installation
-  or: oder
-  answer_yes: Ja
-  answer_no: Nein
-  animal_details: Anzahl, Tierart, Rasse, kg
-  Empty Cart: Leer Warenkorb
-  Go to Cart: Zum Warenkorb
-# top menu
-  booking: Reservierung
-  booking_title: "Buchung Ferienobjekt: {{houses}}"
-  booking_warning: 'Achtung! Dies ist eine Buchung und keine Anfrage! Für eine Anfrage shicken Sie bitte eine E-mail.'
-  booking_hint: 'Bitte vervollständigen Sie Ihre Daten. Die mit * gekennzeichneten formularfelder bitte unbedingt ausfüllen!'
-  cart: Warenkorb
-  cart_title: Warenkorb
-  special_offers: Sonderangebote
-  contact: Kontakt
-  programs: Programme
-
-# left menu
-  infos_a_z: Infos A-Z
-  map: Landkarte
-  weather: Wetter
-  calendar: Balaton Kalender
-  sights: Balaton, Städte
-  offers: Reduziert Restaurants
-  terms: AGB
-  impressum: Impressum
-  owners: Tulajdonosoknak
-  admin_login: Admin belépés
-  houses_found: "Trefferzahl: <span class=\"count\">{{count}}</span>"
-  prev_link: zurück
-  next_link: nächst
-
-  errors:
-    blank: "darf nicht leer sein"
-
-  activerecord:
-    models:
-      house: "Haus"
-      booking: "Reservierung"
-
-    attributes:
-      house:
-        city_id: "Ort"
-        code: "Haus-Kode"
-        condition_id: "Zustand"
-        furnishing_id: "Ausstattung"
-        house_type_id: "Haustyp"
-      houses_booking:
-        start_at: "Wunsttermin von"
-        end_at: "Wunsttermin bis"
-      booking:
-        persons: "Personenzahl"
-        nights: "Nachts"
-        start_at: "Wunsttermin von"
-        end_at: "Wunsttermin bis"
-        firstname: "Vorname"
-        lastname: "Nachname"
-        email: "E-mail"
-        phone: "Telefon"
-        company: "Firmenname"
-        city: "Ort"
-        address: "Adresse"
-        country: "Land"
-        postcode: "PZL"
-      user:
-        username: "Benutzername"
-        password: "Passwort"
-
-    errors:
-      messages:
-        record_invalid: 'record invalid'
-      template:
-        header: "{{count}} Fehler hat das {{model}} Speichern blockiert"
-        body: "Es gab ein Problem mit den in der folgenden Feld ausfüllen"
-
-      models:
-        house:
-          attributes:
-             furnishing_id:
-               blank: "Ausstattung`s Feld darf nicht leer sein"
-             condition_id:
-               blank: "Zustand`s Feld kann nicht leer sein"
-             house_type_id:
-               blank: "Haustyp`s Feld darf nicht leer sein"
-             city_id:
-               blank: "Ort`s Feld darf nicht leer sein"
-             code:
-               blank: "Haus-Kode`s Feld darf nicht leer sein"
-        houses_booking:
-          attributes:
-            start_at:
-              blank: "Anreisedatum`s Feld darf nich leer sein"
-              invalid: "Anreisedatum ist ungültiges Format"
-              after: "Anreisedatum kann nicht nach {{restriction}}"
-            end_at:
-              blank: "Abreisedatum`s darf nicht leer sein"
-              invalid: "Abreisedatum ist ungültiges Format"
-              before: "Abreisedatum darf nicht vor {{restriction}}"
-        booking:
-          attributes:
-            persons:
-              not_a_number: "Personenzahl`s Feld füllen Sie nur Zahl"
-              blank: "Personenzahl`s Feld darf nicht leer sein"
-            nights:
-              not_a_number: "Nachtzahl`s Feld füllen Sie nur Zahl"
-              blank: "Nachtzahl`s Feld darf nicht leer sein"
-            firstname:
-              blank: "Vorname`s Feld darf nicht leer sein"
-            lastname:
-              blank: "Name`s Feld darf nicht leer sein"
-            phone:
-              blank: "Telefon`s Feld darf nicht leer sein"
-            email:
-              blank: "E-Mail`s Feld darf nicht leer sein"
-              invalid: "E-Mail`s Adresse ist ungültiges Format"
-            nights:
-              not_a_number: " Übernachtungszahl’s Feld: füllen Sie nur Zahl "
-              blank: " Übernachtung`s Feld: darf nicht leer sein "
-              greater_than: "Übernachtungszahl: muss mindestens 1 sein"
-            houses_bookings:
-              invalid: "Anreisedatum, Abreisedatum und Haus-Kode darf nicht leer sein"
-            with_animals:
-              blank: " Pflichtfeld: Haustier mitnehmen"
-            city:
-              blank: " Pflichtfeld: Ort"
-            postcode:
-              blank: " Pflichtfeld: PLZ"
-            address:
-              blank: " Pflichtfeld: Adresse "
-            price:
-              not_a_number: "Drücken Sie die „Preis-Rechner“ Taste!"
-              
-        user:
-          attributes:
-            username:
-              blank: "Benutzer`s Feld darf nicht leer sein"
-            password:
-              blank: "Passwort`s Feld darf nicht leer sein"
-
 
 # flash üzenetek
   unrestricted_access: Zugriff wird verweigert.

@@ -11,16 +11,173 @@ hu:
     abbr_day_names: [Va, H, K, Sze, Cs, P, Szo]
     month_names: [~, Január, Február, Március, Április, Május, Június, Július, Augusztus, Szeptember, Október, November, December]
     abbr_month_names: [~, Jan, Feb, Már, Ápr, Máj, Jún, Júl, Aug, Szep, Okt, Nov, Dec]
+    order: [ :year, :month, :day ]
 
-  hello: "Szia világ!"
+  support:
+    array:
+      words_connector: ', '
+      last_word_connector: ' és '
+      two_words_connector: ' és '
+
+  number:
+    format:
+      precision: 2
+      separator: ','
+      delimiter: '.'
+    currency:
+      format:
+        unit: '€'
+        format: '%n%u'
+        separator:
+        delimiter:
+        precision:
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+
+  long_date_format: '%Y-%m-%d'
+  validates_timeliness:
+    error_value_formats:
+      date: '%Y-%m-%d'
+      time: '%H:%M:%S'
+      datetime: '%Y-%m-%d %H:%M:%S'
+
+  errors:
+    blank: "nem lehet üres"
+
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'record invalid'
+      template:
+        header: "{{count}} hiba megakadályozta a {{model}} elmentését"
+        body: "Problémák voltak a következő mezők kitöltésével"
+        blank: "a Felhasználónév és Jelszó nem lehet üres"
+        invalid: "a Felhasználónév vagy Jelszó nem megfelő"
+
+    models:
+      house: "Ház"
+      booking: "Foglalás"
+
+    attributes:
+      house:
+        city_id: "Település"
+        code: "Házkód"
+        condition_id: "Állapot"
+        furnishing_id: "Berendezés"
+        house_type_id: "Apartman típusa"
+      houses_booking:
+        from: "Érkezés dátuma"
+        to: "Távozás dátuma"
+      booking:
+        persons: "Személyek száma"
+        nights: "Éjszakák száma"
+        from: "Érkezés dátuma"
+        to: "Távozás dátuma"
+        firstname: "Keresztnév"
+        lastname: "Családnév"
+        email: "E-mail"
+        phone: "Telefon"
+        company: "Cégnév"
+        city: "Település"
+        address: "Cím"
+        country: "Ország"
+        postcode: "Irányítószám"
+      user:
+        username: "Felhasználó név"
+        password: "Jelszó"
+
+      models:
+        house:
+          attributes:
+             furnishing_id:
+               blank: "a Berendezés mező nem lehet üres"
+             condition_id:
+               blank: "az Állapot mező nem lehet üres"
+             house_type_id:
+               blank: "az Apartman típusa mező nem lehet üres"
+             city_id:
+               blank: "a Település mező nem lehet üres"
+             code:
+               blank: "a Házkód mező nem lehet üres"
+        houses_booking:
+          attributes:
+            start_at:
+              blank: "az Érkezés dátuma mező nem lehet üres"
+              invalid_date: "az Érkezés dátuma érvénytelen formátumú"
+              after: "az Érkezés dátuma nem lehet {{restriction}} utáni"
+            end_at:
+              blank: "a Távozás dátuma mező nem lehet üres"
+              invalid_date: "a Távozás dátuma érvénytelen formátumú"
+              before: "a Távozás dátuma nem lehet {{restriction}} előtti"
+        booking:
+          attributes:
+            persons:
+              not_a_number: "a Személyek száma mezőbe csak számot írjon"
+              blank: "a Személyek száma mező nem lehet üres"
+            nights:
+              not_a_number: "az Éjszakák száma mezőbe csak számot írjon"
+              blank: "az Éjszakák száma mező nem lehet üres"
+              greater_than: "az éjszakák száma nem lehet 1-nél kisebb"
+            firstname:
+              blank: "a Keresztnév mező nem lehet üres"
+            lastname:
+              blank: "a Családnév nem lehet üres"
+            phone:
+              blank: "a Telefon mező nem lehet üres"
+            email:
+              blank: "az e-mail cím mező nem lehet üres"
+              invalid: "az e-mail cím nem megfelő formátumú"
+            houses_bookings:
+              invalid: "Érkezés dátuma, Távozás dátuma és a Házkód kitöltése kötelező"
+            with_animals:
+              blank: "a hoz-e állatot? mező kitöltése kötelező"
+            city:
+              blank: "a város kitöltése kötelező"
+            postcode:
+              blank: "az irányítószám mező kitöltése kötelező"
+            address:
+              blank: "a lakcím mező kitöltése kötelező"
+            price:
+              not_a_number: "az Árkalkulátor gombot nyomja meg"
+
+        user:
+          password:
+            blank: "a Felhasználónév és Jelszó nem lehet üres"
+            invalid: "a Felhasználónév vagy Jelszó nem megfelő"
+
   home: Főoldal
-  you_are_here: "Ön itt áll: "
+  you_are_here: "<b>Ön itt áll: </b><span>&nbsp;</span>"
 
+# top menu
+  booking: "Foglalás"
+  cart: Bevásárlókosár
+  cart_title: Bevásárlókosár tartalma
+  special_offers: Akciók
+  contact: Kapcsolat
+  programs: Programok
+
+# left menu
+  infos_a_z: Infók A-Z
+  map: Térkép
+  weather: Időjárás
+  calendar: Balaton kalendárium
+  sights: Balatoni látnivalók, városok
+  offers: Kedvezményes éttermek
+  terms: Üzleti szabályzat
+  impressum: Impresszum
+  owners: Tulajdonosoknak
+  admin_login: Admin belépés
+
+# pages
   title: Cím
-  title_houses_found: Keresési találatok
-  Untitled: 1x Ferienhaus (beta)
-  meta_description: szállás, apartman, balaton, nyaralás
-  slogan: Die besten Ferien in Ungarn.
   published: Élesítve
   body: Törzs
   false: nem
@@ -29,7 +186,7 @@ hu:
   destroy: Törlés
   are_you_sure: Biztos benne?
 
-  New House: Új ház
+# house 
   house: Ház
   city_id: Település
   select_city: Válassz települést
@@ -106,46 +263,17 @@ hu:
   owner_place_id: Háztulajdonos lakik
   select_owner_place: Válassz hol lakik a tulajdonos
   animal_charge: Háziállat felár
-  price_pre_season: Előszezon / Utószezon
-  price_mid_season: Középszezon
-  price_main_season: Főszezon
-  house_description: Megjegyzés
-  admin_description: Admin megjegyzés
-  picture_url: "{{position}}. kép neve"
-  submit: Beküldés
-  House: Ház
-  Houses: Apartmanok
-  Show: Megnéz
-  Details: Részletek
-  Booking: Foglalás
-  Photos: Képek
-  Select: Megjelölés
-  Print:  Nyomtatás
-  Edit: Szerkeszt
-  Destroy: Töröl
-  city: Település
-  discount: Akciós
-  Are you sure: Biztos benne?
-  yes_animal: igen
-  no_animal: nem
-  nincs: nincs
-  pictures: Képek
-  pers: fő
-  meter: m
-  meters: "ca. {{d}} m"
-  sqmeter: m&sup2;
-  items: darab
-  euro: Euro
   pre_saison: Előszezon
   mid_saison: Középszezon
   main_saison: Főszezon
   post_saison: Utószezon
+  price_pre_season: Előszezon / Utószezon
+  price_mid_season: Középszezon
+  price_main_season: Főszezon
+  admin_description: Admin megjegyzés
+  picture_url: "{{position}}. kép neve"
 
-  select: Megjelölés
-  deselect: Törlés a kosárból
-
-
-#field sets
+#field groups
   house_basics: Ház alapinfók
   house_layout: Helyiségek elrendezése
   house_rooms: Helyiségek
@@ -159,35 +287,134 @@ hu:
   house_distances: Távolságok
   house_owner_infos: Háztulajdonos infók
   house_animals: Háziállat
+  house_prices: Árak
   house_price_day: Ár / fő / nap | Euro (&euro;)
   house_price_week: Ár / fő / hét | Euro (&euro;)
   house_description: Leírások
   house_photos: Képek
-#links
-  back_to_list: Vissza a listához
-  Back to houses: Vissza
-  cancel_booking: Mégsem
-  Submit: Mehet
-  Print this Page: Oldal kinyomtatása
 
 #search
   date_from: Érkezés dátuma
   date_to: Távozás dátuma
   search: Keresés
+  search:
+    button: Keresés
+    fieldgroup:
+      basics: Általános
+      equips: Jellemzők
+      others: Egyéb jellemzők
   detailed_search: Részletes kereső
   simple_search: Egyszerű kereső
   rooms: Szobák száma
   all: mindegy
+
+
+#booking
+  New Booking: Foglalás
+  booking_hint: Kérjük pontosan töltse ki az alábbi adatokat.
+  booking_details: Foglalás részletei
+  selected_houses:
+    one: Választott apartman
+    other: Választott apartmanok
+  from: Érkezés dátuma <span class="red">*</span>
+  to: Távozás dátuma <span class="red">*</span>
+  contact_data: Személyes adatok
+  nights: Éjszakák száma <span class="red">*</span>
+  with_animals: Állatot is hozunk
+  animal_details: Háziállat fajtája, súlya
+  calculated_price: Árkalkulátor <span class="red">*</span>
+  persons_count: Személyek száma <span class="red">*</span>
+  children_count: Gyerekek száma
+  children_years: Gyerekek életkora
+  notes: Üzenet
+  phone: Telefon <span class="red">*</span>
+  fax: Fax
+  mobile: Mobil
+  email: E-mail <span class="red">*</span>
+  email_repeat: E-mail megismétlése
+  salut: Megszólítás
+  firstname: Keresztnév <span class="red">*</span>
+  lastname: Vezetéknév <span class="red">*</span>
+  company: Cégnév
+  address: Cím <span class="red">*</span>
+  booking_city: Város <span class="red">*</span>
+  postcode: Irányítószám
+  country: Ország
+  select_country: Válasszon országot
+  status: Állapot
+  calculate_price: Árkalkulátor
+
+# email
+  booking_notification_subject: "Foglalási értesítő"
+
+# titles
+  booking_title: "{{houses}} apartman foglalása"
+  title_houses_found: Keresési találatok
+
+# links & buttons
+  booking_submit: "Foglalás indítása"
+  Bookings: Foglalások
+  Back to List: Vissza a Foglalásokhoz
+  View All: Összes listája
+  Edit Booking: Foglalás szerkesztése
+  cancel_booking: Mégsem
+  submit: Beküldés
+  House: Ház
+  Houses: Apartmanok
+  New House: Új ház
+  Show: Megnéz
+  Details: Részletek
+  Booking: Foglalás
+  Photos: Képek
+  select: Megjelölés
+  deselect: Törlés a kosárból
+  Print:  Nyomtatás
+  Edit: Szerkeszt
+  Destroy: Töröl
+  Print this Page: Oldal kinyomtatása
+  back_to_list: Vissza a listához
+  Back to houses: Vissza
+  Submit: Mehet
+  prev_link: előző
+  next_link: következő
+  add_taggables: Szótárak bővítése
+  Empty Cart: Bevásárlókosár törlése
+  Go to Cart: Bevásárlókosár
+
+# other
+  city: Település
+  discount: Akciós
+  Are you sure: Biztos benne?
+  yes_animals: igen
+  no_animals: nem
+  nincs: -
+  pictures: Képek
+  no_picture: nincs kép
+  pers: fő
+  meter: m
+  meters: "ca. {{d}} m"
+  sqmeter: m&sup2;
+  items: darab
+  euro: Euro
+  page_top: Lap tetejére
+  houses_found: "Találatok száma: <span class=\"count\">{{count}}</span>"
+  tagestip: Napi tipp
+  Untitled: 1xferienhaus
+  meta_description: szállás, apartman, balaton, nyaralás
+  slogan: Ferien im Sonnenland Ungarn
+  or: vagy
+  answer_yes: igen
+  answer_no: nem
+
 #messages
+  booking_warning: 'Achtung! Dies ist eine Buchung und keine Anfrage! Für eine Anfrage shicken Sie bitte eine E-mail.'
+  booking_hint: 'Bitte vervollständigen Sie Ihre Daten. Die mit * gekennzeichneten formularfelder bitte unbedingt ausfüllen!'
   house_added_to_cart: Az {{house}} apartman hozzá lett adva a Bevásárlókosárhoz
   house_removed_from_cart: Az {{house}} apartman törölve lett a Bevásárlókosárból
   house_not_in_any_group: " - (az apartman nem tartozik egyik csoporthoz sem)"
+
   Empty dictionary fields: Üres szótár(ak)
-  add_taggables: Szótárak bővítése
   Setup: Setup
-  or: vagy
-  Empty Cart: Bevásárlókosár törlése
-  Go to Cart: Bevásárlókosár
   not_implemented_yet: Fejlesztés alatt.
   cart_is_empty: A Bevásárlókosara üres
   invalid_house: Ez az apartman nem létezik
@@ -196,202 +423,6 @@ hu:
   created_booking: Köszönjük! Foglalását rögzítettük. Kollégánk hamarosan e-mailben értesíti Önt foglalása állapotáról.
   updated_booking: Foglalás módosítva
   destroyed_booking: Foglalás törölve
-#booking
-  New Booking: Foglalás
-  booking_hint: Kérjük pontosan töltse ki az alábbi adatokat.
-  booking_details: Foglalás részletei
-  from: Érkezés dátuma
-  to: Távozás dátuma
-  contact_data: Személyes adatok
-  nights: Éjszakák száma
-  with_animals: Állatot is hozunk
-  notes: Üzenet
-  phone: Telefon
-  mobile: Mobil
-  email: E-mail
-  email_repeat: E-mail megismétlése
-  firstname: Keresztnév
-  lastname: Vezetéknév
-  company: Cégnév
-  address: Cím
-  city: Város
-  postcode: Irányítószám
-  country: Ország
-  status: Állapot
-  booking_submit: "Foglalás indítása"
-  Bookings: Foglalások
-  Back to List: Vissza a Foglalásokhoz
-  View All: Összes listája
-  Edit Booking: Foglalás szerkesztése
-  booking_notification_subject: "Foglalási értesítő"
-  no_picture: Nincs kép
-  salut: Megszólítás
-  fax: Fax
-  page_top: Lap tetejére
-  calculate_price: Árkalkulátor
-    
-# status
-  status_unknown: "Ismeretlen"
-  status_created: "Rögzítve"
-  status_approved: "Elfogadva"
-  status_deleted: "Törölve"
-
-# top menu
-  booking: "Foglalás"
-  booking_title: "{{houses}} apartman foglalása"
-  cart: Bevásárlókosár
-  cart_title: Bevásárlókosár tartalma
-  special_offers: Akciók
-  contact: Kapcsolat
-  programs: Programok
-
-# left menu
-  infos_a_z: Infók A-Z
-  map: Térkép
-  weather: Időjárás
-  calendar: Balaton kalendárium
-  sights: Balatoni látnivalók, városok
-  offers: Kedvezményes éttermek
-  terms: Üzleti szabályzat
-  impressum: Impresszum
-  owners: Tulajdonosoknak
-  admin_login: Admin belépés
-  houses_found: "Találatok száma: <span class=\"count\">{{count}}</span>"
-  prev_link: előző
-  next_link: következő
-
-  support:
-    array:
-      words_connector: ', '
-      last_word_connector: ' és '
-      two_words_connector: ' és '
-
-  number:
-    format:
-      precision: 2
-      separator: ','
-      delimiter: '.'
-    currency:
-      format:
-        unit: '€'
-        format: '%n%u'
-        separator: 
-        delimiter: 
-        precision: 
-    percentage:
-      format:
-        delimiter: ""
-    precision:
-      format:
-        delimiter: ""
-    human:
-      format:
-        delimiter: ""
-        precision: 1
-
-  long_date_format: '%Y-%m-%d'
-  validates_timeliness:
-    error_value_formats:
-      date: '%Y-%m-%d'
-      time: '%H:%M:%S'
-      datetime: '%Y-%m-%d %H:%M:%S'
-
-  errors:
-    blank: "nem lehet üres"
-
-  activerecord:
-    models:
-      house: "Ház"
-      booking: "Foglalás"
-
-    attributes:
-      house:
-        city_id: "Település"
-        code: "Házkód"
-        condition_id: "Állapot"
-        furnishing_id: "Berendezés"
-        house_type_id: "Apartman típusa"
-      booking:
-        persons: "Személyek száma"
-        nights: "Éjszakák száma"
-        from: "Érkezés dátuma"
-        to: "Távozás dátuma"
-        firstname: "Keresztnév"
-        lastname: "Családnév"
-        email: "E-mail"
-        phone: "Telefon"
-        company: "Cégnév"
-        city: "Település"
-        address: "Cím"
-        country: "Ország"
-        postcode: "Irányítószám"
-      user:
-        username: "Felhasználó név"
-        password: "Jelszó"
-
-    errors:
-      template:
-        header: "{{count}} hiba megakadályozta a {{model}} elmentését"
-        body: "Problémák voltak a következő mezők kitöltésével"
-        blank: "a Felhasználónév és Jelszó nem lehet üres"
-        invalid: "a Felhasználónév vagy Jelszó nem megfelő"
-
-      models:
-        house:
-          attributes:
-             furnishing_id:
-               blank: "a Berendezés mező nem lehet üres"
-             condition_id:
-               blank: "az Állapot mező nem lehet üres"
-             house_type_id:
-               blank: "az Apartman típusa mező nem lehet üres"
-             city_id:
-               blank: "a Település mező nem lehet üres"
-             code:
-               blank: "a Házkód mező nem lehet üres"
-        booking:
-          attributes:
-            persons:
-              not_a_number: "a Személyek száma mezőbe csak számot írjon"
-              blank: "a Személyek száma mező nem lehet üres"
-            nights:
-              not_a_number: "az Éjszakák száma mezőbe csak számot írjon"
-              blank: "az Éjszakák száma mező nem lehet üres"
-            start_at:
-              blank: "az Érkezés dátuma mező nem lehet üres"
-              invalid_date: "az Érkezés dátuma érvénytelen formátumú"
-              after: "az Érkezés dátuma nem lehet {{restriction}} utáni"
-            end_at:
-              blank: "a Távozás dátuma mező nem lehet üres"
-              invalid_date: "a Távozás dátuma érvénytelen formátumú"
-              before: "a Távozás dátuma nem lehet {{restriction}} előtti"
-            firstname:
-              blank: "a Keresztnév mező nem lehet üres"
-            lastname:
-              blank: "a Családnév nem lehet üres"
-            phone:
-              blank: "a Telefon mező nem lehet üres"
-            email:
-              blank: "az e-mail cím mező nem lehet üres"
-              invalid: "az e-mail cím nem megfelő formátumú"
-            with_animals:
-              blank: "a hoz-e állatot? mező kitöltése kötelező"
-            city:
-              blank: "a város kitöltése kötelező"
-            postcode:
-              blank: "az irányítószám mező kitöltése kötelező"
-            address:
-              blank: "a lakcím mező kitöltése kötelező"
-            nights:
-              greater_than: "az éjszakák száma nem lehet 1-nél kisebb"
-            price:
-              not_a_number: "az Árkalkulátor gombot nyomja meg"
-            
-        user:
-          password:
-            blank: "a Felhasználónév és Jelszó nem lehet üres"
-            invalid: "a Felhasználónév vagy Jelszó nem megfelő"
-
 
 # flash üzenetek
   unrestricted_access: Hozzáférés megtagadva.
@@ -629,3 +660,10 @@ hu:
     house_added: Az {{house}} apartman létrehozása sikeres volt
     house_updated: Az {{house}} apartman módosítása sikeres volt
     house_destroyed: Az {{house}} apartman törlése sikeres volt
+
+# status
+  status_unknown: "Ismeretlen"
+  status_created: "Rögzítve"
+  status_approved: "Elfogadva"
+  status_deleted: "Törölve"
+
