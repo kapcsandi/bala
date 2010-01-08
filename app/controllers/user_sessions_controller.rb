@@ -19,11 +19,11 @@ class UserSessionsController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def destroy
     @user_session = UserSession.find
-    event_logger("#{current_user.username} kilépett")
     begin
+      event_logger("#{current_user.username} kilépett")
       @user_session.destroy
     rescue
       logger.info "#{Time.now} hiba a kilépés során: #{$!.to_s}"

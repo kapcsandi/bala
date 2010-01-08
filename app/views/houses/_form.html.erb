@@ -297,7 +297,7 @@
       (0..last).each do |id| %>
       <%= f.label t('admin.picture_url', :position => id+1) %>
       <%= text_field_tag 'house[picture_ids][]', @house.picture_ids ? @house.picture_ids[id] : '' %>
-      <%= image_tag @house.picture_urls('s')[id] unless @house.picture_ids[id].nil? %>
+      <%= image_tag @house.picture_urls('s')[id] if id and @house.picture_ids and @house.picture_ids[id] and @house.picture_urls('s') and @house.picture_urls('s')[id] %>
       <br />
     <% end %>
   <% end %>

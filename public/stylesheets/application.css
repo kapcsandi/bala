@@ -97,7 +97,8 @@ legend {padding:0 10px;margin-left:5px;font-size:1.1em;}
 #top .left{height:50px;background-color:#2B5A88 }
 .categories .category {height:150px;width:168px;border:1px solid #F8F883;padding:5px 10px;margin:0 10px 10px 0;float:left;text-align:center}
 .categories .category.last {margin-right:0}
-.category .title {font-size:1em}
+.category .title {font-size:12px}
+.category .details {font-size:11px;padding-top:3px}
 .mini {line-height:1.5em;overflow:hidden;margin:0 0 10px 0;padding:5px;border:1px solid #cccccc}
 .even {background-color:#f6f6f6}
 .odd {background-color:#efefef}

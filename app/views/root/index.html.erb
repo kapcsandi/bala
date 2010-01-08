@@ -1,4 +1,3 @@
-<% cache do %>
 <%- title t(:home), false -%>
 <div class="categories">
 <%- @categories[0..6].each_with_index do |category, index| %>
@@ -13,7 +12,7 @@
 <%=
 unless category[:house].nil?
   if category[:house].discount.nil?
-    'Ab ' + category[:house].price(Season.which_season?(Date.today)).to_s + ' EURO / Woche / ' + category[:house].persons.to_s + (category[:house].children > 0 ? '+' + category[:house].children.to_s : '') + ' Pers.'
+    category[:house].price(Season.which_season?(Date.today)).to_s + ' EURO / Woche / ' + category[:house].persons.to_s + (category[:house].children > 0 ? '+' + category[:house].children.to_s : '') + ' Pers.'
   else
     truncate( category[:house].discount.description, :length => 40 )
   end
@@ -43,5 +42,4 @@ end -%>
 <script>
 root_init();
 </script>
-<% end %>
 

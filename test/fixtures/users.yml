@@ -1,9 +1,9 @@
 one:
-  username: MyString
-  email: MyString
-  password: MyString
+  username: admin1
+  email: admin1@teszt.com
+  password: adminjelszo
 
 two:
-  username: MyString
-  email: MyString
-  password: MyString
+  username: admin2
+  email: admin2@teszt.com
+  password: adminjelszo

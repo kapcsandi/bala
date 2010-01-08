@@ -186,12 +186,12 @@ ActiveRecord::Schema.define(:version => 20091215152627) do
     t.integer  "distance_mainroad"
     t.integer  "owner_place_id"
     t.integer  "animal_charge"
-    t.integer  "price_pre_season_per_day",   :limit => 10, :precision => 10, :scale => 0
-    t.integer  "price_mid_season_per_day",   :limit => 10, :precision => 10, :scale => 0
-    t.integer  "price_main_season_per_day",  :limit => 10, :precision => 10, :scale => 0
-    t.integer  "price_pre_season_per_week",  :limit => 10, :precision => 10, :scale => 0
-    t.integer  "price_mid_season_per_week",  :limit => 10, :precision => 10, :scale => 0
-    t.integer  "price_main_season_per_week", :limit => 10, :precision => 10, :scale => 0
+    t.integer  "price_pre_season_per_day"
+    t.integer  "price_mid_season_per_day"
+    t.integer  "price_main_season_per_day"
+    t.integer  "price_pre_season_per_week"
+    t.integer  "price_mid_season_per_week"
+    t.integer  "price_main_season_per_week"
     t.string   "pictures"
     t.integer  "balcony_id"
   end
@@ -261,8 +261,8 @@ ActiveRecord::Schema.define(:version => 20091215152627) do
     t.datetime "updated_at"
   end
 
+  add_index "page_translations", ["locale", "page_id"], :name => "index_page_translations_on_page_id_and_locale"
   add_index "page_translations", ["locale"], :name => "index_page_translations_on_locale"
-  add_index "page_translations", ["page_id", "locale"], :name => "index_page_translations_on_page_id_and_locale"
   add_index "page_translations", ["page_id"], :name => "index_page_translations_on_page_id"
 
   create_table "pages", :force => true do |t|
@@ -272,8 +272,8 @@ ActiveRecord::Schema.define(:version => 20091215152627) do
     t.string   "path"
   end
 
+  add_index "pages", ["path", "published"], :name => "index_pages_on_published_and_path"
   add_index "pages", ["path"], :name => "index_pages_on_path"
-  add_index "pages", ["published", "path"], :name => "index_pages_on_published_and_path"
   add_index "pages", ["published"], :name => "index_pages_on_published"
 
   create_table "reservations", :force => true do |t|
@@ -331,8 +331,8 @@ ActiveRecord::Schema.define(:version => 20091215152627) do
     t.datetime "updated_at"
   end
 
+  add_index "tag_translations", ["locale", "tag_id"], :name => "index_tag_translations_on_tag_id_and_locale"
   add_index "tag_translations", ["locale"], :name => "index_tag_translations_on_locale"
-  add_index "tag_translations", ["tag_id", "locale"], :name => "index_tag_translations_on_tag_id_and_locale"
   add_index "tag_translations", ["tag_id"], :name => "index_tag_translations_on_tag_id"
 
   create_table "taggable_translations", :force => true do |t|
@@ -344,8 +344,8 @@ ActiveRecord::Schema.define(:version => 20091215152627) do
     t.datetime "updated_at"
   end
 
+  add_index "taggable_translations", ["locale", "taggable_id"], :name => "index_taggable_translations_on_taggable_id_and_locale"
   add_index "taggable_translations", ["locale"], :name => "index_taggable_translations_on_locale"
-  add_index "taggable_translations", ["taggable_id", "locale"], :name => "index_taggable_translations_on_taggable_id_and_locale"
   add_index "taggable_translations", ["taggable_id"], :name => "index_taggable_translations_on_taggable_id"
 
   create_table "taggables", :force => true do |t|

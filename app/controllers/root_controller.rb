@@ -1,5 +1,5 @@
 class RootController < ApplicationController
-  caches_action :index
+#  caches_action :index
   
   def index
     @categories = Taggable.find_by_field('category').tags.map{|tag| { :name => tag.name, :house => tag.houses.first }}
