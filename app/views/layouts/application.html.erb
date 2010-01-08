@@ -13,9 +13,11 @@
     <% tooltips_include_tag do %>
       <%= yield(:tips) %>
     <% end %>
-    <%= javascript_include_tag 'fckeditor/fckeditor' %>
     <%= stylesheet_link_tag 'event_calendar' %>
     <%= pui_css_theme 'leopard' %>
+  <% end -%>
+  <% if admin? %>
+    <%= javascript_include_tag 'fckeditor/fckeditor' %>
   <% end -%>
   <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
   <%= yield(:head) %>

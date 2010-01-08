@@ -2,7 +2,7 @@
   <%= f.error_messages %>
   <p>
     <%= f.label t('admin.path') %><br />
-    <%= f.text_field :path %>
+    <%= f.text_field :path, :readonly => true %>
   </p>
   <p>
     <%= f.label t('admin.title') %><br />
