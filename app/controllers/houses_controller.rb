@@ -8,8 +8,7 @@ class HousesController < ApplicationController
     if request.xhr? and params[:autocomplete]
       search = House.searchlogic(params[:search])
       @houses = search.all
-      logger.info "#{Time.now} @houses = #{@houses.inspect}"
-      if @houses.size == 1
+      unless @houses.is_a? Array
         respond_to do |format|
           format.js
         end

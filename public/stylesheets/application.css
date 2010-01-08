@@ -165,6 +165,7 @@ select#booking_country {width:215px}
 #lightbox img {height:500px;width:500px}
 fieldset span {width:50%;float:left;}
 fieldset .stamp span, fieldset #houses_bookings span {float:none;}
+fieldset label span.red, .red {width:auto;float:none;display:inline;color:red}
 span.price {background:#fff;padding:0 10px;margin:0 10px 0 0;border:1px solid silver}
 br.zero {margin:0;padding:0;line-height:0.4em}
 .mini .span-7 span {width:50%;float:left;display:block}

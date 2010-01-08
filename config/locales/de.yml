@@ -470,7 +470,7 @@ de:
 
 #messages
   booking_warning: 'Achtung! Dies ist eine Buchung und keine Anfrage! Für eine Anfrage shicken Sie bitte eine E-mail.'
-  booking_hint: 'Bitte vervollständigen Sie Ihre Daten. Die mit * gekennzeichneten formularfelder bitte unbedingt ausfüllen!'
+  booking_hint: 'Bitte vervollständigen Sie Ihre Daten. Die mit <span class="red">*</span> gekennzeichneten formularfelder bitte unbedingt ausfüllen!'
   house_added: Haus hinzugefügt
   house_updated: Hause geändert
   house_destroyed: Haus gelöscht

@@ -109,7 +109,7 @@ class BookingsController < ApplicationController
     to = Date.parse(params[:to]) unless params[:to].empty?
     animals = params[:animals] unless params[:animals].empty?
     @prices = []
-    if !houses.empty? and from and to and to > from
+    if houses and !houses.empty? and from and to and to > from
       houses.each_with_index do |house,index|
         @prices[index] = 0
         season_price = 0
