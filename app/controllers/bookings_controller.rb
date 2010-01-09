@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
   before_filter :find_houses, :only => [:edit, :update]
 
   def index
+    redirect_to root_path
   end
 
 
@@ -118,24 +119,18 @@ class BookingsController < ApplicationController
         prev_season = Season.which_season?(from)
         (from+1..to).step do |day|
           season = Season.which_season?(day)
-    #      logger.info "_start_ days: #{days}, date: #{day}, season: #{season}"
           if season == prev_season
             adds << house.daily_price(season)
-    #        logger.info "same season"
             if days % 7 == 0
-  #            logger.info "7th day of season"
               7.times { adds.pop }
               adds << house.price(season)
               days = 0
             end
           else
-  #         logger.info "new season"
             if (days % 7) != 0
-  #           logger.info "prev season fragment week"
               season_price += days * house.daily_price(prev_season)
               adds << house.daily_price(season)
             else
-  #           logger.info "prev season full week"
               season_price += house.price(prev_season)
               7.times { adds.pop }
               adds << house.price(prev_season)
@@ -144,12 +139,10 @@ class BookingsController < ApplicationController
             days, season_price = 0, 0
             prev_season = season
           end
-  #        logger.info "_end_ days: #{days}, date: #{day}, season: #{season}, adds: #{adds.inspect}"
           days += 1
         end
         adds.each {|elem| @prices[index] += elem }
       end
-  #      logger.info  "_last_ day: #{days}, season: #{prev_season}, adds: #{adds.inspect}"
     end
     respond_to do |format|
       format.js

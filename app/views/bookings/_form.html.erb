@@ -4,17 +4,17 @@
   <% unless admin? %><div id="flash_notice"><%= t(:booking_hint) %></div><% end %>
   <% field_set_tag nil, :class => 'odd' do %>
     <% if houses.size > 0 %>
-      <%= label_tag t('selected_houses', :count => houses.size) %>:
+      <%= label_tag :selected_houses, t('selected_houses', :count => houses.size) %>:
       <ul id="houses_bookings">
       <% for house in houses do %>
         <% content_tag_for :li, house, :class => 'span-5' do %>
           <% f.fields_for 'houses[]', house do |hb_form| %>
-            <div><%= hb_form.label t(:code) %></div>
+            <div><%= hb_form.label :code, t(:code) %></div>
             <div><%= hb_form.text_field :code, :size => 20, :class=> 'code', :readonly => true %>
             <%= render :partial => 'houses/stamp', :locals => { :house => house, :last => (houses.last == house), :open => false} %>
             </div>
             <br class="zero" />
-            <%= f.label t(:calculated_price) %><br />
+            <%= f.label :calculated_price, t(:calculated_price) %><br />
             <span id="house_<%= house.id %>_price" class="price"></span> EURO
           <% end %>
         <% end %>
@@ -24,13 +24,13 @@
     <% else %>
       <% f.fields_for 'houses[]', House.new do |hb_form| %>
         <div id="houses_bookings" class="span-6 append-13">
-          <%= label_tag t('selected_houses', :count => houses.size) %>:<br />
-          <div><%= hb_form.label t(:code) %></div>
+          <%= label_tag 'selected_houses', t('selected_houses', :count => houses.size) %>:<br />
+          <div><%= hb_form.label :code, t(:code) %></div>
           <%= hb_form.text_field_with_auto_complete :code, { :size => 20, :class => 'code' }, { :url => houses_path(:format => :js), :method => :get, :param_name => 'search[conditions][code_like]', :with => "value + '&autocomplete=1'", :indicator => :house_spinner } %>
           <img id="house_spinner" src="/images/active_scaffold/default/indicator.gif" style="display:none">
           <div id="house_stamp"></div>
           <div>
-          <%= f.label t(:calculated_price) %><br />
+          <%= f.label :calculated_price, t(:calculated_price) %><br />
           <span id="house_price" class="price"></span> EURO
           </div>
         </div>
@@ -39,17 +39,17 @@
     <p>Ich reserviere obiges Fehrienhaus für folgenden Zeitraum:</p>
     <% f.fields_for 'houses_booking', houses_bookings || HousesBooking.new do |hb_form| %>
     <div class="span-6">
-      <%= label 'booking', t(:from) %><br />
+      <%= f.label 'from', t(:from) %><br />
       <%= hb_form.calendar_date_select :start_at, :popup => "force", :valid_date_check => "date > new Date()", :size => 20, :onChange =>
   'nights();' %>
     </div>
     <div class="span-6">
-      <%= label 'booking', t(:to) %><br />
+      <%= f.label 'to', t(:to) %><br />
       <%= hb_form.calendar_date_select :end_at, :popup => "force", :size => 20, :onChange => 'nights();' %>
     </div>
   <% end %>
     <div class="span-6">
-      <%= f.label t(:nights) %><br />
+      <%= f.label :nights, t(:nights) %><br />
       <%= f.text_field :nights, :size => 20, :readonly => "true", :value => booking.nights %>
     </div>
     <div class="span-19">
@@ -60,46 +60,46 @@
   <% field_set_tag t('booking_details') do %>
     <% [ :persons_count, :children_count, :children_years ].each do |field| %>
       <div class="span-6">
-        <%= f.label t(field) %><br />
+        <%= f.label field, t(field) %><br />
         <%= f.text_field field.to_s.sub(/_count/,''), :size => 25 %>
       </div>
     <% end %>
     <div class="span-6">
-      <%= f.label t(:with_animals) %>
+      <%= f.label :with_animals, t(:with_animals) %>
       <div>
       <%= t(:answer_yes) %> <%= f.radio_button :with_animals, 1, :checked => (booking and booking.with_animals), :onchange => "if ($('booking_with_animals_1').checked) Form.Element.enable($('booking_animal_details'))" %>
       <%= t(:answer_no) %> <%= f.radio_button :with_animals, 0, :checked => ((booking and not booking.with_animals) or booking.nil?), :onchange => "if ($('booking_with_animals_0').checked) Form.Element.disable($('booking_animal_details'))"  %>
       </div>
     </div>
     <div class="span-6">
-      <%= f.label t(:animal_details) %> <a class="info" name="animal_info" title="Anzahl und Tierart der mitfahrenden Haustiere. Bei Hunden bitte Rasse und ca. kg angeben."> <img src="/images/icons/sexy_flash/info.png" height="15" width="15" alt="info"/></a><br />
+      <%= f.label :animal_details, t(:animal_details) %> <a class="info" name="animal_info" title="Anzahl und Tierart der mitfahrenden Haustiere. Bei Hunden bitte Rasse und ca. kg angeben."> <img src="/images/icons/sexy_flash/info.png" height="15" width="15" alt="info"/></a><br />
       <%= f.text_field :animal_details, :size => 30, :disabled => (booking.nil? or not booking.with_animals?) %>
     </div>
   <% end %>
   <% field_set_tag t('contact_data'), :class => 'odd' do %>
     <div class="span-6">
-      <%= f.label t(:salut) %><br />
+      <%= f.label :salut, t(:salut) %><br />
       <%= f.select :salut, ['Frau', 'Herr', 'Frima'] %>
     </div>
 
     <% [ :firstname, :lastname, :company, :address, :city, :postcode].each do |field| %>
       <div class="span-6">
-        <%= f.label t(field == :city ? 'booking_city' : field ) %><br />
+        <%= f.label :city, t(field == :city ? 'booking_city' : field ) %><br />
         <%= f.text_field field, :size => 25 %>
       </div>
     <% end %>
     <div class="span-6">
-      <%= f.label t(:country) %><br />
+      <%= f.label :country, t(:country) %><br />
       <%= localized_country_select(:booking, :country, [I18n.locale], :width => 25) %>
     </div>
     <% [ :phone, :mobile, :email, :fax ].each do |field| %>
       <div class="span-6">
-        <%= f.label t(field) %><br />
+        <%= f.label field, t(field) %><br />
         <%= f.text_field field, :size => 25 %>
       </div>
     <% end %>
     <div class="clear span-18 prepend-top">
-      <%= f.label t(:notes) %><br />
+      <%= f.label :notes, t(:notes) %><br />
       <%= f.text_area :notes, :rows => 4 %>
     </div>
   <% end %>

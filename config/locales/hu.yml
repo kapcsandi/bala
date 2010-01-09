@@ -53,19 +53,10 @@ hu:
     blank: "nem lehet üres"
 
   activerecord:
-    errors:
-      messages:
-        record_invalid: 'record invalid'
-      template:
-        header: "{{count}} hiba megakadályozta a {{model}} elmentését"
-        body: "Problémák voltak a következő mezők kitöltésével"
-        blank: "a Felhasználónév és Jelszó nem lehet üres"
-        invalid: "a Felhasználónév vagy Jelszó nem megfelő"
-
     models:
       house: "Ház"
       booking: "Foglalás"
-
+    
     attributes:
       house:
         city_id: "Település"
@@ -93,20 +84,28 @@ hu:
       user:
         username: "Felhasználó név"
         password: "Jelszó"
-
+      
+    errors:
+      messages:
+        record_invalid: 'record invalid'
+      template:
+        header: "{{count}} hiba megakadályozta a {{model}} elmentését"
+        body: "Problémák voltak a következő mezők kitöltésével"
+        blank: "a Felhasználónév és Jelszó nem lehet üres"
+        invalid: "a Felhasználónév vagy Jelszó nem megfelő"
       models:
         house:
           attributes:
-             furnishing_id:
-               blank: "a Berendezés mező nem lehet üres"
-             condition_id:
-               blank: "az Állapot mező nem lehet üres"
-             house_type_id:
-               blank: "az Apartman típusa mező nem lehet üres"
-             city_id:
-               blank: "a Település mező nem lehet üres"
-             code:
-               blank: "a Házkód mező nem lehet üres"
+            furnishing_id:
+              blank: "a Berendezés mező nem lehet üres"
+            condition_id:
+              blank: "az Állapot mező nem lehet üres"
+            house_type_id:
+              blank: "az Apartman típusa mező nem lehet üres"
+            city_id:
+              blank: "a Település mező nem lehet üres"
+            code:
+              blank: "a Házkód mező nem lehet üres"
         houses_booking:
           attributes:
             start_at:
@@ -147,11 +146,14 @@ hu:
               blank: "a lakcím mező kitöltése kötelező"
             price:
               not_a_number: "az Árkalkulátor gombot nyomja meg"
-
         user:
-          password:
-            blank: "a Felhasználónév és Jelszó nem lehet üres"
-            invalid: "a Felhasználónév vagy Jelszó nem megfelő"
+          attributes:
+            password:
+              blank: "a Felhasználó név és Jelszó nem lehet üres"
+              invalid: "a Felhasználó név vagy Jelszó nem megfelő"
+              confirmation: "Jelszó mégegyszer nincs kitöltve"
+            password_confirmation:
+              too_short: "Túl rövid jelszó"
 
   home: Főoldal
   you_are_here: "<b>Ön itt áll: </b><span>&nbsp;</span>"

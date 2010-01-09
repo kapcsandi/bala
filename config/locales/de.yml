@@ -96,13 +96,6 @@ de:
     blank: "darf nicht leer sein"
 
   activerecord:
-    errors:
-      messages:
-        record_invalid: 'record invalid'
-      template:
-        header: "{{count}} Fehler hat das {{model}} Speichern blockiert"
-        body: "Bitte überprüfen Sie die folgenden Felder:"
-
     models:
       house: "Haus"
       booking: "Reservierung"
@@ -131,23 +124,30 @@ de:
         address: "Adresse"
         country: "Land"
         postcode: "PZL"
-#      user:
-#        username: "Benutzername"
-#        password: "Passwort"
+      user:
+        username: "Benutzername"
+        password: "Passwort"
+
+    errors:
+      messages:
+        record_invalid: 'record invalid'
+      template:
+        header: "{{count}} Fehler hat das {{model}} Speichern blockiert"
+        body: "Bitte überprüfen Sie die folgenden Felder:"
 
       models:
         house:
           attributes:
-             furnishing_id:
-               blank: "Ausstattung`s Feld darf nicht leer sein"
-             condition_id:
-               blank: "Zustand`s Feld kann nicht leer sein"
-             house_type_id:
-               blank: "Haustyp`s Feld darf nicht leer sein"
-             city_id:
-               blank: "Ort`s Feld darf nicht leer sein"
-             code:
-               blank: "Haus-Kode`s Feld darf nicht leer sein"
+            furnishing_id:
+              blank: "Ausstattung`s Feld darf nicht leer sein"
+            condition_id:
+              blank: "Zustand`s Feld kann nicht leer sein"
+            house_type_id:
+              blank: "Haustyp`s Feld darf nicht leer sein"
+            city_id:
+              blank: "Ort`s Feld darf nicht leer sein"
+            code:
+              blank: "Haus-Kode`s Feld darf nicht leer sein"
         houses_booking:
           attributes:
             start_at:
@@ -163,10 +163,10 @@ de:
             persons:
               not_a_number: "Personenzahl`s Feld füllen Sie nur Zahl"
               blank: "Personenzahl`s Feld darf nicht leer sein"
-            nights:
+#            nights:
 #              not_a_number: "Nachtzahl`s Feld füllen Sie nur Zahl"
 #              blank: "Nachtzahl`s Feld darf nicht leer sein"
-#            nights:
+            nights:
               not_a_number: " Übernachtungszahl’s Feld: füllen Sie nur Zahl "
               blank: " Übernachtung`s Feld: darf nicht leer sein "
               greater_than: "Übernachtungszahl: muss mindestens 1 sein"
@@ -385,7 +385,7 @@ de:
   from: Wunstermin von <span class="red">*</span>
   to: Wunstermin bis <span class="red">*</span>
   contact_data: Personal Daten
-  nights: nacht <span class="red">*</span>
+  nights: Nachts <span class="red">*</span>
   with_animals: Nehmen Sie Haustiere mit?
   animal_details: Anzahl, Tierart, Rasse, kg
   calculated_price: Mietpreis <span class="red">*</span>
