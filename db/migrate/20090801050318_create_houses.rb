@@ -12,11 +12,11 @@ class CreateHouses < ActiveRecord::Migration
       t.integer :distance_center
       t.integer :distance_beach
       t.integer :distance_restaurant
-      t.string :admin_description
+      t.text :admin_description
       t.string :hidden_description
       t.timestamps
     end
-    House.create_translation_table! :house_description => :string
+    House.create_translation_table! :house_description => :text
   end
   
   def self.down

@@ -246,12 +246,12 @@ de:
 
 #pages
   title: "Cím"
-  published: veröffentlicht
+#  published: veröffentlicht
   body: Törzs
   false: falsch
-  show: besichtigen
-  edit: Redaktion
-  destroy: zerstören
+#  show: besichtigen
+#  edit: Redaktion
+#  destroy: zerstören
   are_you_sure: Sind Sie sicher?
 
 #house
@@ -471,26 +471,14 @@ de:
 #messages
   booking_warning: 'Achtung! Dies ist eine Buchung und keine Anfrage! Für eine Anfrage shicken Sie bitte eine E-mail.'
   booking_hint: 'Bitte vervollständigen Sie Ihre Daten. Die mit <span class="red">*</span> gekennzeichneten formularfelder bitte unbedingt ausfüllen!'
-  house_added: Haus hinzugefügt
-  house_updated: Hause geändert
-  house_destroyed: Haus gelöscht
   house_added_to_cart: Haus ist im Warenkorb hinzugefügt worden
   house_removed_from_cart: Haus ist vom Warenkorb hinzugefügt worden
   house_not_in_any_group: "Das Haus zu keine Gruppe gehört."
 
-#  Empty dictionary fields: Leere Felder Wörterbuch
-#  add_taggables: Szótárak bővítése
-  Setup: Installation
-
 # flash üzenetek
   unrestricted_access: Zugriff wird verweigert.
-#  successfully_logged_in: Erfolgreicher anmeldet
-#  successfully_logged_out: Erfolgreicher abmeldet
   cart_limit: Der Warenkorb kann maximal 3 Häuser enthalten!<br /> Zuerst bitte löschen Sie Elemente aus Ihrem warekorb.
-#  registration_successful: Erfolgreich Registration
   created_booking: "<h3>Vielen Dank für Ihre Reservierung.</h3><p>Liebe Ungarnfreunde,</p><p>nach der Absendung Ihrer Bestellung bekommen Sie eine <b>Bestätigung</b> mit dem Gesamtpreis des Aufenthaltes, Höhe und Termin der erste Anzalhlung. Wir werden Ihre Reservierung schnellstens bearbeiten und Ihnen der Unterlagen zukommen lassen.</p>"
   fill_mandatory_fields_for_price: Kérjük töltse ki a kötelező mezőket!
 
-  admin:
-    edit_house: Apartman szerkesztése
  

@@ -4,7 +4,7 @@ class CreateDiscounts < ActiveRecord::Migration
       t.integer :house_id
       t.timestamps
     end
-    Discount.create_translation_table! :description => :string
+    Discount.create_translation_table! :description => :text
   end
   
   def self.down
