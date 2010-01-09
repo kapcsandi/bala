@@ -39,12 +39,12 @@
     <p>Ich reserviere obiges Fehrienhaus für folgenden Zeitraum:</p>
     <% f.fields_for 'houses_booking', houses_bookings || HousesBooking.new do |hb_form| %>
     <div class="span-6">
-      <%= f.label 'from', t(:from) %><br />
+      <%= f.label 'start_at', t(:from) %><br />
       <%= hb_form.calendar_date_select :start_at, :popup => "force", :valid_date_check => "date > new Date()", :size => 20, :onChange =>
   'nights();' %>
     </div>
     <div class="span-6">
-      <%= f.label 'to', t(:to) %><br />
+      <%= f.label 'end_at', t(:to) %><br />
       <%= hb_form.calendar_date_select :end_at, :popup => "force", :size => 20, :onChange => 'nights();' %>
     </div>
   <% end %>
@@ -84,7 +84,7 @@
 
     <% [ :firstname, :lastname, :company, :address, :city, :postcode].each do |field| %>
       <div class="span-6">
-        <%= f.label :city, t(field == :city ? 'booking_city' : field ) %><br />
+        <%= f.label field, t(field == :city ? 'booking_city' : field ) %><br />
         <%= f.text_field field, :size => 25 %>
       </div>
     <% end %>
