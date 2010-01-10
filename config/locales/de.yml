@@ -1,6 +1,9 @@
 # German translations for Ruby on Rails 
 # by Clemens Kofler (clemens@railway.at)
 
+
+
+
 de:
   date:
     formats:
@@ -22,6 +25,9 @@ de:
       words_connector: ", "
       two_words_connector: " und "
       last_word_connector: " und "
+    select:
+      # default value for :prompt => true in FormOptionsHelper
+      prompt: "wählen Sie bitte"
 
   time:
     formats:
@@ -68,6 +74,16 @@ de:
       over_x_years:
         one: 'mehr als 1 Jahr'
         other: 'mehr als {{count}} Jahre'
+#       almost_x_years:
+#         one:   "majdnem 1 év"
+#         other: "majdnem {{count}} év"
+#     prompts:
+#       year:   "Év"
+#       month:  "Hónap"
+#       day:    "Nap"
+#       hour:   "Óra"
+#       minute: "Perc"
+#       second: "Másodperc"
 
   number:
     format:
@@ -91,9 +107,26 @@ de:
       format:
         delimiter: ""
         precision: 1
+      storage_units:
+        format: "%n %u"
+        units:
+#           byte:
+#             one:   "bájt"
+#             other: "bájt"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
 
   errors:
     blank: "darf nicht leer sein"
+
+  long_date_format: '%d-%m-%Y'
+  validates_timeliness:
+    error_value_formats:
+      date: '%d-%m-%Y'
+      time: '%H:%M:%S'
+      datetime: '%d-%m-%Y %H:%M:%S'
 
   activerecord:
     models:
@@ -144,7 +177,8 @@ de:
       template:
         header: "{{count}} Fehler hat das {{model}} Speichern blockiert"
         body: "Bitte überprüfen Sie die folgenden Felder:"
-
+#         blank: "a Felhasználónév és Jelszó nem lehet üres"
+#         invalid: "a Felhasználónév vagy Jelszó nem megfelő"
       models:
         house:
           attributes:
@@ -198,13 +232,16 @@ de:
               blank: " Pflichtfeld: Adresse "
             price:
               not_a_number: "Drücken Sie die „Preis-Rechner“ Taste!"
-
         user:
           attributes:
             username:
-              blank: "Benutzer`s Feld darf nicht leer sein"
+#               blank: "Benutzer`s Feld darf nicht leer sein"
             password:
-              blank: "Passwort`s Feld darf nicht leer sein"
+#               blank: "Passwort`s Feld darf nicht leer sein"
+#               invalid: "a Felhasználó név vagy Jelszó nem megfelő"
+#               confirmation: "Jelszó mégegyszer nincs kitöltve"
+#             password_confirmation:
+#               too_short: "Túl rövid jelszó"
         contact:
           attributes:
             email:
@@ -232,7 +269,6 @@ de:
         less_than_or_equal_to: "muss kleiner oder gleich {{count}} sein"
         odd: "muss ungerade sein"
         even: "muss gerade sein"
-
 
   home: Startseite
   you_are_here: "<b>Sie sind Hier: </b><span>&nbsp;</span>"
@@ -351,6 +387,8 @@ de:
   mid_saison: Mittelsaison
   main_saison: Hauptsaison
   post_saison: Nachsaison
+#   admin_description: Admin megjegyzés
+#   picture_url: "{{position}}. kép neve"
 
 # field groups
   house_basics: Hausbeschreibung
@@ -387,7 +425,6 @@ de:
   simple_search: einfache Suche
   rooms: Anzahl der Zimmer
   all: alles
-
 
 #booking
   New Booking: Neue Reservierung
@@ -460,6 +497,7 @@ de:
 #  submit: Beküldés
   House: House
   Houses: Häuser
+  New House: Új ház
   Show: anzeigen
   Details: Details
   Booking: Reservierung
@@ -472,8 +510,10 @@ de:
   Print this Page: Seite drucken
   back_to_list: Zurück
   Back to houses: Zurück
+#   Submit: Mehet
   prev_link: zurück
   next_link: nächst
+  add_taggables: Szótárak bővítése
   Empty Cart: Leer Warenkorb
   Go to Cart: Zum Warenkorb
   contact_house: Frage zum Haus
@@ -490,6 +530,7 @@ de:
   no_picture: kein Bild
   pers: Pers
   meter: m
+  meters: "ca. {{d}} m"
   sqmeter: m²
   items: stück
   euro: Euro
@@ -511,12 +552,29 @@ de:
   house_added_to_cart: Haus ist im Warenkorb hinzugefügt worden
   house_removed_from_cart: Haus ist vom Warenkorb hinzugefügt worden
   house_not_in_any_group: "Das Haus zu keine Gruppe gehört."
-
-# flash üzenetek
   unrestricted_access: Zugriff wird verweigert.
   cart_limit: Der Warenkorb kann maximal 3 Häuser enthalten!<br /> Zuerst bitte löschen Sie Elemente aus Ihrem warekorb.
   created_booking: "<h3>Vielen Dank für Ihre Reservierung.</h3><p>Liebe Ungarnfreunde,</p><p>nach der Absendung Ihrer Bestellung bekommen Sie eine <b>Bestätigung</b> mit dem Gesamtpreis des Aufenthaltes, Höhe und Termin der erste Anzalhlung. Wir werden Ihre Reservierung schnellstens bearbeiten und Ihnen der Unterlagen zukommen lassen.</p>"
   fill_mandatory_fields_for_price: Kérjük töltse ki a kötelező mezőket!
   contact_sended: Az üzenetét elküldtük, kollégánk hamarosan válaszol Önnek.
 
- 
+  not_implemented_yet: Fejlesztés alatt.
+  cart_is_empty: A Bevásárlókosara üres
+  invalid_house: Ez az apartman nem létezik
+  Are you sure?: Biztos benne?
+  select_houses: Kérjük, válasszon apartmant! A 'Megjelölés' gombbal a <b>Bevásárlókosarába</b> helyezhet többet is.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

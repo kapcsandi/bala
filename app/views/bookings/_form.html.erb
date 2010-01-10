@@ -5,7 +5,7 @@
   <% field_set_tag nil, :class => 'odd' do %>
     <% if houses.size > 0 %>
       <%= label_tag :selected_houses, t('selected_houses', :count => houses.size) %>:
-      <ul id="houses_bookings">
+      <ul id="houses_bookings" class="houses_bookings">
       <% for house in houses do %>
         <% content_tag_for :li, house, :class => 'span-5' do %>
           <% f.fields_for 'houses[]', house do |hb_form| %>
@@ -14,8 +14,6 @@
             <%= render :partial => 'houses/stamp', :locals => { :house => house, :last => (houses.last == house), :open => false} %>
             </div>
             <br class="zero" />
-            <%= f.label :calculated_price, t(:calculated_price) %><br />
-            <span id="house_<%= house.id %>_price" class="price"></span> EURO
           <% end %>
         <% end %>
       <% end %>
@@ -27,12 +25,8 @@
           <%= label_tag 'selected_houses', t('selected_houses', :count => houses.size) %>:<br />
           <div><%= hb_form.label :code, t(:code) %></div>
           <%= hb_form.text_field_with_auto_complete :code, { :size => 20, :class => 'code' }, { :url => houses_path(:format => :js), :method => :get, :param_name => 'search[conditions][code_like]', :with => "value + '&autocomplete=1'", :indicator => :house_spinner } %>
-          <img id="house_spinner" src="/images/active_scaffold/default/indicator.gif" style="display:none">
+          <img id="house_spinner" src="/images/active_scaffold/default/indicator.gif" style="display:none" alt="show &amp; hide" />
           <div id="house_stamp"></div>
-          <div>
-          <%= f.label :calculated_price, t(:calculated_price) %><br />
-          <span id="house_price" class="price"></span> EURO
-          </div>
         </div>
       <% end %>
     <% end %>
@@ -40,17 +34,37 @@
     <% f.fields_for 'houses_booking', houses_bookings || HousesBooking.new do |hb_form| %>
     <div class="span-6">
       <%= f.label 'start_at', t(:from) %><br />
-      <%= hb_form.calendar_date_select :start_at, :popup => "force", :valid_date_check => "date > new Date()", :size => 20, :onChange =>
+      <%= hb_form.calendar_date_select :start_at, :popup => "force", :valid_date_check => "date > new Date()", :size => 20, :onchange =>
   'nights();' %>
     </div>
     <div class="span-6">
       <%= f.label 'end_at', t(:to) %><br />
-      <%= hb_form.calendar_date_select :end_at, :popup => "force", :size => 20, :onChange => 'nights();' %>
+      <%= hb_form.calendar_date_select :end_at, :popup => "force", :size => 20, :onchange => 'nights();' %>
     </div>
   <% end %>
     <div class="span-6">
       <%= f.label :nights, t(:nights) %><br />
       <%= f.text_field :nights, :size => 20, :readonly => "true", :value => booking.nights %>
+    </div>
+    <div class="span-19">
+    <% if houses.size > 0 %>
+      <ul id="booking_prices">
+      <% for house in houses do %>
+        <% content_tag_for :li, house, :class => 'span-5' do %>
+          <%= f.label :calculated_price, t(:calculated_price) %><br />
+          <span id="house_<%= house.id %>_price" class="price"></span> EURO
+        <% end %>
+      <% end %>
+      </ul>
+      <br class="clear" />
+    <% else %>
+      <div id="booking_prices" class="span-6 append-13">
+        <div>
+        <%= f.label :calculated_price, t(:calculated_price) %><br />
+        <span id="house_price" class="price"></span> EURO
+        </div>
+      </div>
+    <% end %>   
     </div>
     <div class="span-19">
       <%= button_to_remote t('calculate_price'), :url => :calculate, :with => "'persons=' + $('booking_persons').value + '&from=' + $('booking_houses_booking_start_at').value + '&to=' + $('booking_houses_booking_end_at').value + '&codes=' + $('houses_bookings').select('input.code').pluck('value') + '&animals=' + $('booking_with_animals_1').checked" %>

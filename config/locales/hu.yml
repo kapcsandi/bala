@@ -1,36 +1,102 @@
+# Hungarian translations for Ruby on Rails
+# by Richard Abonyi (richard.abonyi@gmail.com)
+# thanks to KKata, replaced and #hup.hu
+# Cleaned up by László Bácsi (http://lackac.hu)
+# updated by kfl62 kfl62g@gmail.com
+
 hu:
   date:
     formats:
-      default: "%Y.%m.%d"
-      short: "%b %e"
-      long: "%Y %B %e"
+      default: "%Y.%m.%d."
+      short: "%b %e."
+      long: "%Y. %B %e."
       only_day: "%e"
-      wo_day: "%Y %B"
 
-    day_names: [Vasárnap, Hétfő, Kedd, Szerda, Csütörtök, Péntek, Szombat]
-    abbr_day_names: [Va, H, K, Sze, Cs, P, Szo]
-    month_names: [~, Január, Február, Március, Április, Május, Június, Július, Augusztus, Szeptember, Október, November, December]
-    abbr_month_names: [~, Jan, Feb, Már, Ápr, Máj, Jún, Júl, Aug, Szep, Okt, Nov, Dec]
+    day_names: [vasárnap, hétfő, kedd, szerda, csütörtök, péntek, szombat]
+    abbr_day_names: [v., h., k., sze., cs., p., szo.]
+    month_names: [~, január, február, március, április, május, június, július, augusztus, szeptember, október, november, december]
+    abbr_month_names: [~, jan., febr., márc., ápr., máj., jún., júl., aug., szept., okt., nov., dec.]
     order: [ :year, :month, :day ]
 
   support:
     array:
-      words_connector: ', '
-      last_word_connector: ' és '
-      two_words_connector: ' és '
+#      sentence_connector: "és"
+#      skip_last_comma: true
+      words_connector: ", "
+      two_words_connector: " és "
+      last_word_connector: " és "
+    select:
+      # default value for :prompt => true in FormOptionsHelper
+      prompt: "Válasszon"
+
+  time:
+    formats:
+      default: "%Y. %b %e., %H:%M"
+      short: "%b %e., %H:%M"
+      long: "%Y. %B %e., %A, %H:%M"
+      time: "%H:%M"
+
+    am: "de."
+    pm: "du."
+
+  datetime:
+    distance_in_words:
+      half_a_minute: 'fél perc'
+      less_than_x_seconds:
+#        zero: 'kevesebb, mint 1 másodperc'
+        one: 'kevesebb, mint 1 másodperc'
+        other: 'kevesebb, mint {{count}} másodperc'
+      x_seconds:
+        one: '1 másodperc'
+        other: '{{count}} másodperc'
+      less_than_x_minutes:
+#        zero: 'kevesebb, mint 1 perc'
+        one: 'kevesebb, mint 1 perc'
+        other: 'kevesebb, mint {{count}} perc'
+      x_minutes:
+        one: '1 perc'
+        other: '{{count}} perc'
+      about_x_hours:
+        one: 'kb 1 óra'
+        other: 'kb {{count}} óra'
+      x_days:
+        one: '1 nap'
+        other: '{{count}} nap'
+      about_x_months:
+        one: 'kb 1 hónap'
+        other: 'kb {{count}} hónap'
+      x_months:
+        one: '1 hónap'
+        other: '{{count}} hónap'
+      about_x_years:
+        one: 'kb 1 év'
+        other: 'kb {{count}} év'
+      over_x_years:
+        one: 'több, mint 1 év'
+        other: 'több, mint {{count}} év'
+      almost_x_years:
+        one:   "majdnem 1 év"
+        other: "majdnem {{count}} év"
+    prompts:
+      year:   "Év"
+      month:  "Hónap"
+      day:    "Nap"
+      hour:   "Óra"
+      minute: "Perc"
+      second: "Másodperc"
 
   number:
     format:
       precision: 2
       separator: ','
-      delimiter: '.'
+      delimiter: ' '
     currency:
       format:
-        unit: '€'
-        format: '%n%u'
-        separator:
-        delimiter:
-        precision:
+        unit: 'Ft'
+        precision: 0
+        format: '%n %u'
+        separator: ""
+        delimiter: ""
     percentage:
       format:
         delimiter: ""
@@ -41,6 +107,19 @@ hu:
       format:
         delimiter: ""
         precision: 1
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "bájt"
+            other: "bájt"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+
+  errors:
+    blank: "nem lehet üres"
 
   long_date_format: '%Y-%m-%d'
   validates_timeliness:
@@ -49,13 +128,11 @@ hu:
       time: '%H:%M:%S'
       datetime: '%Y-%m-%d %H:%M:%S'
 
-  errors:
-    blank: "nem lehet üres"
-
   activerecord:
     models:
       house: "Ház"
       booking: "Foglalás"
+      contact: "Kérdés"
     
     attributes:
       house:
@@ -157,6 +234,8 @@ hu:
               not_a_number: "az Árkalkulátor gombot nyomja meg"
         user:
           attributes:
+            username:
+               blank: "a Felhasználó név és Jelszó nem lehet üres"
             password:
               blank: "a Felhasználó név és Jelszó nem lehet üres"
               invalid: "a Felhasználó név vagy Jelszó nem megfelő"
@@ -169,6 +248,27 @@ hu:
               blank: "az e-mail cím nem lehet üres"
               invalid: "az e-mail cím nem megfelő formátumú"
               too_short: "az e-mail cím túl rövid"
+
+      messages:
+        inclusion: "nincs a listában"
+        exclusion: "nem elérhető"
+        invalid: "nem megfelelő"
+        confirmation: "nem egyezik"
+        accepted: "nincs elfogadva"
+        empty: "nincs megadva"
+        blank: "nincs megadva"
+        too_long: "túl hosszú (nem lehet több {{count}} karakternél)"
+        too_short: "túl rövid (legalább {{count}} karakter kell legyen)"
+        wrong_length: "nem megfelelő hosszúságú ({{count}} karakter szükséges)"
+        taken: "már foglalt"
+        not_a_number: "nem szám"
+        greater_than: "nagyobb kell legyen, mint {{count}}"
+        greater_than_or_equal_to: "legalább {{count}} kell legyen"
+        equal_to: "pontosan {{count}} kell legyen"
+        less_than: "kevesebb, mint {{count}} kell legyen"
+        less_than_or_equal_to: "legfeljebb {{count}} lehet"
+        odd: "páratlan kell legyen"
+        even: "páros kell legyen"
 
   home: Főoldal
   you_are_here: "<b>Ön itt áll: </b><span>&nbsp;</span>"
@@ -318,8 +418,8 @@ hu:
   search:
     button: Keresés
     fieldgroup:
-      basics: Általános
-      equips: Jellemzők
+      basics: Ház alapinfók
+      equips: Felszereltség
       others: Egyéb jellemzők
   detailed_search: Részletes kereső
   simple_search: Egyszerű kereső
@@ -452,25 +552,33 @@ hu:
   house_added_to_cart: Az {{house}} apartman hozzá lett adva a Bevásárlókosárhoz
   house_removed_from_cart: Az {{house}} apartman törölve lett a Bevásárlókosárból
   house_not_in_any_group: " - (az apartman nem tartozik egyik csoporthoz sem)"
+  unrestricted_access: Hozzáférés megtagadva.
+  cart_limit: A kosár legfeljebb 3 apartmant tartalmazhat!<br /> Kérjük előbb töröljön a kosarából.
+  created_booking: Köszönjük! Foglalását rögzítettük. Kollégánk hamarosan e-mailben értesíti Önt foglalása állapotáról.
+  fill_mandatory_fields_for_price: Kérjük töltse ki a kötelező mezőket!
+  contact_sended: Az üzenetét elküldtük, kollégánk hamarosan válaszol Önnek.
 
-  Empty dictionary fields: Üres szótár(ak)
-  Setup: Setup
   not_implemented_yet: Fejlesztés alatt.
   cart_is_empty: A Bevásárlókosara üres
   invalid_house: Ez az apartman nem létezik
   Are you sure?: Biztos benne?
   select_houses: Kérjük, válasszon apartmant! A 'Megjelölés' gombbal a <b>Bevásárlókosarába</b> helyezhet többet is.
-  created_booking: Köszönjük! Foglalását rögzítettük. Kollégánk hamarosan e-mailben értesíti Önt foglalása állapotáról.
+
+
+
+# ---------------------------------------------------------
+# ezeket nem kell fordítani
+# ---------------------------------------------------------
+
+  Empty dictionary fields: Üres szótár(ak)
+  Setup: Setup
   updated_booking: Foglalás módosítva
   destroyed_booking: Foglalás törölve
 
 # flash üzenetek
-  unrestricted_access: Hozzáférés megtagadva.
   successfully_logged_in: Sikeres belépés
   successfully_logged_out: Sikeres kilépés
-  cart_limit: A kosár legfeljebb 3 apartmant tartalmazhat!<br /> Kérjük előbb töröljön a kosarából.
   registration_successful: Sikeres regisztráció
-  contact_sended: Az üzenetét elküldtük, kollégánk hamarosan válaszol Önnek.
 
 # login oldal
   login:
@@ -480,18 +588,7 @@ hu:
     submit: Bejelentkezés
   registration: Regisztráció
 
-#kereső
-  search: Keresés
-  search:
-    button: Keresés
-    fieldgroup:
-      basics: Ház alapinfók
-      equips: Felszereltség
-      others: Egyéb jellemzők
 
-# ---------------------------------------------------------
-# ezeket nem kell fordítani
-# ---------------------------------------------------------
 
 # admin felület
   admin:
@@ -707,4 +804,3 @@ hu:
   status_created: "Rögzítve"
   status_approved: "Elfogadva"
   status_deleted: "Törölve"
-

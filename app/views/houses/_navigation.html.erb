@@ -1,7 +1,7 @@
   <div class="span-19 last navi">
-    <span class="field"><%= if action_name == 'show' then button_to( t("Back to houses"), :back, :method => 'get') else button_to t("Details"), {:action => 'show', :id => house, :anchor => 'details'}, :method => 'get' end %></span>
-    <span class="field"><%= button_to t("Photos"), {:action => 'show', :id => house, :anchor => 'photos'}, :method => 'get' %></span>
-    <span class="field"><%= button_to t("Booking"),{:controller => 'bookings', :action => 'new', :id => house.id } %></span>
+    <div class="field"><%= if action_name == 'show' then button_to( t("Back to houses"), :back, :method => 'get') else button_to t("Details"), {:action => 'show', :id => house, :anchor => 'details'}, :method => 'get' end %></div>
+    <div class="field"><%= button_to t("Photos"), {:action => 'show', :id => house, :anchor => 'photos'}, :method => 'get' %></div>
+    <div class="field"><%= button_to t("Booking"),{:controller => 'bookings', :action => 'new', :id => house.id } %></div>
     <%-
 if controller.action_name == 'cart' or @cart.items.include?(house.id)
   cart_button_label = t('deselect')
@@ -10,13 +10,13 @@ else
   cart_button_label = t('select')
   cart_action = 'add'
 end -%>
-    <span class="field"><%= button_to cart_button_label, :action => :cart, :id => house.id, :cart => cart_action %></span>
-    <span class="field"><%=
-    button_to t("Print"), { :controller => 'houses', :action => 'print', :id => house.id} , {:onclick => "this.form.target = 'print'; window.open('','print', 'width = 850, top = 0, left = 0, scrollbars=1')"} %></span>
-    <span class="field"><%= button_to t(:contact_house), :controller => :contact, :action => 'new',  :id => house.id %></span>
+    <div class="field"><%= button_to cart_button_label, :action => :cart, :id => house.id, :cart => cart_action %></div>
+    <div class="field"><%=
+    button_to t("Print"), { :controller => 'houses', :action => 'print', :id => house.id} , {:onclick => "this.form.target = 'print'; window.open('','print', 'width = 850, top = 0, left = 0, scrollbars=1')"} %></div>
+    <div class="field"><%= button_to t(:contact_house), :controller => :contact, :action => 'new',  :id => house.id %></div>
   <%- if admin? -%>
   <br />
-    <span class="field"><%= link_to t('admin.edit'), edit_house_path(house) %></span>
-    <span class="field"><%= link_to t('admin.destroy'), house, :confirm => t('admin.are_you_sure'), :method => :delete %></span>
+    <div class="field"><%= link_to t('admin.edit'), edit_house_path(house) %></div>
+    <div class="field"><%= link_to t('admin.destroy'), house, :confirm => t('admin.are_you_sure'), :method => :delete %></div>
   <%- end -%>
   </div>

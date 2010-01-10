@@ -130,7 +130,8 @@ a.info {cursor:help}
 #pictures a img {margin:5px}
 #houses_bookings .photos a img {/*height:110px*/}
 #houses_bookings .stamp.last {margin-right:0}
-#houses_bookings li {width:33%;float:left;list-style-image:none;list-style-position:outside;list-style-type:none}
+#houses_bookings li, #booking_prices li {width:33%;float:left;list-style-image:none;list-style-position:outside;list-style-type:none;}
+ul#booking_prices {margin:0}
 #houses_bookings .auto_complete li {width:100%}
 #houses_bookings {overflow:hidden;margin:0 auto;}
 .photos a:hover img,
@@ -166,7 +167,7 @@ select#booking_country {width:215px}
 fieldset span {width:50%;float:left;}
 fieldset .stamp span, fieldset #houses_bookings span {float:none;}
 fieldset label span.red, .red {width:auto;float:none;display:inline;color:red}
-span.price {background:#fff;padding:0 10px;margin:0 10px 0 0;border:1px solid silver}
+span.price {background:#fff;padding:0 10px;margin:3px 15px 10px 0;border:1px solid silver;height:1.4em}
 br.zero {margin:0;padding:0;line-height:0.4em}
 .mini .span-7 span {width:50%;float:left;display:block}
 .mini .span-7 span.label {width:150px;float:left;display:block}
@@ -174,7 +175,7 @@ br.zero {margin:0;padding:0;line-height:0.4em}
 .navi .field {float:left;margin:5px 15px}
 .calendar_date_select thead th, .calendar_date_select td, .calendar_date_select caption {padding:0}
 .tags p {width:25%;float:left;}
-#main #carousel {height:150px;width:725px;margin-top:-20px;overflow:hidden}
+#main #carousel {height:150px;width:725px;margin:-20px 0 0 40px;overflow:hidden}
 #main #carousel .container {width:2500px;}
 #main #carousel .container .slide {height:auto;width:125px;float:left}
 #main #carousel .previous_button,

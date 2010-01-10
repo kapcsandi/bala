@@ -3,7 +3,7 @@ if @prices.empty?
 else
   page.assign 'prices', @prices
   price = 0
-  page.select('#houses_bookings .price').each do |value,index|
+  page.select('#booking_prices .price').each do |value,index|
     page << 'var price = prices[index];'
     page << 'Element.update(value, price);'
     page << 'var price_id = "house_"+index+"_price";'

@@ -12,15 +12,13 @@
     <% end %>
   </div>
   <div class="span-4">
-    <div class="photos"><% link_to :action => (current_page?('show_houses') ? '' : 'show'), :id => house, :anchor => 'details' do %>
-    <div>
+    <div class="photos"><div><% link_to :action => (current_page?('show_houses') ? '' : 'show'), :id => house, :anchor => 'details' do %>
     <%- if house.thumb %>
       <%= image_tag house.thumb %>
     <% else %>
     <%= t('no_picture') %>
     <% end %>
-    </div>
-    <% end %></div>
+    <% end %></div></div>
   </div>
   <div class="span-7">
     <span class="label"><%= t(:persons) %>:</span>
