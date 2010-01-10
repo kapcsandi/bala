@@ -61,7 +61,7 @@ class BookingsController < ApplicationController
         if @booking.save
           flash[:notice] = t("created_booking") unless admin?
           notification_mails(@booking)
-          redirect_to @houses
+          redirect_to houses_path
         else
           render :action => 'new'
         end
