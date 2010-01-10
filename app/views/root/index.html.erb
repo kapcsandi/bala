@@ -22,20 +22,19 @@ end -%>
 </div>
 <br class="clear" />
 <h3><%= t(:tagestip) %></h3>
-<div id="horizontal_carousel" class="photos">
+<div id="carousel" class="photos">
 <div class="previous_button"></div>
   <div class="container">
-    <ul>
 <%- for house in @pictures do -%>
-  <li><%- link_to :controller => 'houses', :action => 'show', :id => house.id, :anchor => 'details' do -%>
+  <div class="slide"><%- link_to :controller => 'houses', :action => 'show', :id => house.id, :anchor => 'details' do -%>
   <%- if house.thumb -%>
     <%= image_tag house.thumb -%>
   <%- else -%>
     <%= t('no_picture') -%>
   <%- end -%>
   <span class="field">max. <%=h house.persons.to_s + (house.children > 0 ? '+' + house.children.to_s : '') %> <%= t('pers') %></span>
-  <%- end -%></li>
-<%- end -%></ul>
+  <%- end -%></div>
+<%- end -%>
 </div>
   <div class="next_button"></div>
 </div>

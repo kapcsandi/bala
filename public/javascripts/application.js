@@ -13,32 +13,5 @@ $$("#houses_bookings .price").invoke('update','');
 }}
 
 function root_init() {
-var h = new UI.Carousel("horizontal_carousel");
-var items = 5;
-var direction = 1;
-var hMax = $("horizontal_carousel").getElementsByTagName('li').length-items;
-
-function startScroll() {
-    var i;
-    new PeriodicalExecuter(function(pe) {
-        i = h.currentIndex();
-        if (direction == 1) {
-            if ((i+items) >= hMax) {
-                h.scrollTo(hMax);
-                direction = 2;
-            } else {
-                h.scrollTo(i+items);
-            }
-        } else {
-            if ((i-items) <= 0) {
-                h.scrollTo(0);
-                direction = 1;
-            } else {
-                h.scrollTo(i-items);
-            }
-        }
-    }, 5);
-}
-
-startScroll();
+var h = new Carousel('carousel',$$('#carousel .slide'), false, {auto: true, visibleSlides: 5, circular: true });
 }

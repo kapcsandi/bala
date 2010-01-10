@@ -97,7 +97,7 @@ legend {padding:0 10px;margin-left:5px;font-size:1.1em;}
 #top .left{height:50px;background-color:#2B5A88 }
 .categories .category {height:150px;width:168px;border:1px solid #F8F883;padding:5px 10px;margin:0 10px 10px 0;float:left;text-align:center}
 .categories .category.last {margin-right:0}
-.category .title {font-size:12px}
+.category .title {font-size:12px;display:block}
 .category .details {font-size:11px;padding-top:3px}
 .mini {line-height:1.5em;overflow:hidden;margin:0 0 10px 0;padding:5px;border:1px solid #cccccc}
 .even {background-color:#f6f6f6}
@@ -174,9 +174,8 @@ br.zero {margin:0;padding:0;line-height:0.4em}
 .navi .field {float:left;margin:5px 15px}
 .calendar_date_select thead th, .calendar_date_select td, .calendar_date_select caption {padding:0}
 .tags p {width:25%;float:left;}
-#main #horizontal_carousel {height:150px;width:100%;margin-top:-20px}
-#main #horizontal_carousel .container {height:150px;width:700px;background:none;margin-top:0px}
-#main #horizontal_carousel .container ul {height:auto}
-#main #horizontal_carousel .container li {height:auto;width:120px}
-#main #horizontal_carousel .previous_button,
-#main #horizontal_carousel .next_button {display:none}
+#main #carousel {height:150px;width:725px;margin-top:-20px;overflow:hidden}
+#main #carousel .container {width:2500px;}
+#main #carousel .container .slide {height:auto;width:125px;float:left}
+#main #carousel .previous_button,
+#main #carousel .next_button {display:none}

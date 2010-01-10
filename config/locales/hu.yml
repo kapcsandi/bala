@@ -315,6 +315,10 @@ hu:
   New Booking: Foglalás
   booking_hint: Kérjük pontosan töltse ki az alábbi adatokat.
   booking_details: Foglalás részletei
+  booking_sentence: "Ich reserviere obiges Fehrienhaus für folgenden Zeitraum:"
+  booking_price: "Im Preis bereit enthalten: Bettwäsche, Endreinigung, Gas, Strom, Wasser<br />Nebenkosten: Zuschläge (zahlbar bei Buchung): Ortstaxe"
+  read_terms: "Die {{link}} habe ich gelesen und bin einverstanden."
+  booking_terms: Allgemeinen Geschäftsbedingungen (AGB)
   selected_houses:
     one: Választott apartman
     other: Választott apartmanok

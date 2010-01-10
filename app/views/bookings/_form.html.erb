@@ -36,7 +36,7 @@
         </div>
       <% end %>
     <% end %>
-    <p>Ich reserviere obiges Fehrienhaus für folgenden Zeitraum:</p>
+    <p><%= t(:booking_sentence) %></p>
     <% f.fields_for 'houses_booking', houses_bookings || HousesBooking.new do |hb_form| %>
     <div class="span-6">
       <%= f.label 'start_at', t(:from) %><br />
@@ -54,7 +54,7 @@
     </div>
     <div class="span-19">
       <%= button_to_remote t('calculate_price'), :url => :calculate, :with => "'persons=' + $('booking_persons').value + '&from=' + $('booking_houses_booking_start_at').value + '&to=' + $('booking_houses_booking_end_at').value + '&codes=' + $('houses_bookings').select('input.code').pluck('value') + '&animals=' + $('booking_with_animals_1').checked" %>
-    <span class="right full">Im Preis bereit enthalten: Bettwäsche, Endreinigung, Gas, Strom, Wasser<br />Nebenkosten: Zuschläge (zahlbar bei Buchung): Ortstaxe</span>
+    <span class="right full"><%= t(:booking_price) %></span>
     </div>
   <% end %>
   <% field_set_tag t('booking_details') do %>
@@ -104,7 +104,7 @@
     </div>
   <% end %>
 <br />
-<p>Die <a href="/terms">Allgemeinen Geschäftsbedingungen (AGB)</a> habe ich gelesen und bin einverstanden.</p>
+<p><%= link = link_to(t('booking_terms'), '/terms?print=1', {:popup => true }); t(:read_terms, :link => link) %></p>
 <br />
   <div class="span-6"><%= f.submit t("booking_submit") %></div>
 <% end %>

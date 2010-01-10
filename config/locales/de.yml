@@ -379,6 +379,10 @@ de:
   New Booking: Neue Reservierung
   booking_hint: Füllen Sie bitte die unten Daten genau.
   booking_details: Details der Reservierung
+  booking_sentence: "Ich reserviere obiges Fehrienhaus für folgenden Zeitraum"
+  booking_price: "Im Preis bereit enthalten: Bettwäsche, Endreinigung, Gas, Strom, Wasser<br />Nebenkosten: Zuschläge (zahlbar bei Buchung): Ortstaxe"
+  read_terms: "Die {{link}} habe ich gelesen und bin einverstanden."
+  booking_terms: Allgemeinen Geschäftsbedingungen (AGB)
   selected_houses:
     one: Gewünschtes Ferienhaus
     other: Gewünschtes Ferienhausen

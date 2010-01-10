@@ -20,6 +20,7 @@ class PagesController < ApplicationController
     elsif @page.nil? or not @page.published?
         redirect_to root_url
     end
+    render :layout => 'print' if params[:print]
   end
   
   def new
