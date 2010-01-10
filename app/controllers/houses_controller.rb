@@ -58,7 +58,7 @@ class HousesController < ApplicationController
   def print
     render "show", :layout => 'print'
   end
-  
+
   def new
     @house = House.new
     @discount = @house.build_discount

@@ -84,6 +84,15 @@ hu:
       user:
         username: "Felhasználó név"
         password: "Jelszó"
+      contact:
+        start_at: "Wunsttermin von"
+        end_at: "Wunsttermin bis"
+        firstname: "Vorname"
+        lastname: "Nachname"
+        email: "E-mail"
+        phone: "Telefon"
+        city: "Ort"
+        address: "Adresse"
       
     errors:
       messages:
@@ -154,6 +163,12 @@ hu:
               confirmation: "Jelszó mégegyszer nincs kitöltve"
             password_confirmation:
               too_short: "Túl rövid jelszó"
+        contact:
+          attributes:
+            email:
+              blank: "az e-mail cím nem lehet üres"
+              invalid: "az e-mail cím nem megfelő formátumú"
+              too_short: "az e-mail cím túl rövid"
 
   home: Főoldal
   you_are_here: "<b>Ön itt áll: </b><span>&nbsp;</span>"
@@ -294,6 +309,7 @@ hu:
   house_price_week: Ár / fő / hét | Euro (&euro;)
   house_description: Leírások
   house_photos: Képek
+  contact_house_fieldset: Miben segíthetünk?
 
 #search
   date_from: Érkezés dátuma
@@ -309,7 +325,6 @@ hu:
   simple_search: Egyszerű kereső
   rooms: Szobák száma
   all: mindegy
-
 
 #booking
   New Booking: Foglalás
@@ -350,6 +365,21 @@ hu:
   status: Állapot
   calculate_price: Árkalkulátor
 
+# contact
+  contact_city: Ort / PLZ
+  contact_notes: "Ihre Anfrage zu Haus {{house}}:"
+  contact_from: "Érkezés dátuma"
+  contact_to: "Távozás dátuma"
+  contact_firstname: "Keresztnév"
+  contact_lastname: "Családnév"
+  contact_email: "E-mail"
+  contact_phone: "Telefon"
+  contact_city: "Település"
+  contact_address: "Cím"
+  contact_with_animals: Állatot is hozunk
+  contact_persons_count: Személyek száma
+  contact_children_count: Gyerekek száma
+
 # email
   booking_notification_subject: "Foglalási értesítő"
 
@@ -386,6 +416,8 @@ hu:
   add_taggables: Szótárak bővítése
   Empty Cart: Bevásárlókosár törlése
   Go to Cart: Bevásárlókosár
+  contact_house: Frage zum Haus
+  contact_submit: Kérdés küldése
 
 # other
   city: Település
@@ -411,6 +443,8 @@ hu:
   or: vagy
   answer_yes: igen
   answer_no: nem
+  price_persons: "EURO / hét / {{persons}} fő"
+  short_persons: "max. {{persons}} fő"
 
 #messages
   booking_warning: 'Achtung! Dies ist eine Buchung und keine Anfrage! Für eine Anfrage shicken Sie bitte eine E-mail.'
@@ -436,6 +470,7 @@ hu:
   successfully_logged_out: Sikeres kilépés
   cart_limit: A kosár legfeljebb 3 apartmant tartalmazhat!<br /> Kérjük előbb töröljön a kosarából.
   registration_successful: Sikeres regisztráció
+  contact_sended: Az üzenetét elküldtük, kollégánk hamarosan válaszol Önnek.
 
 # login oldal
   login:

@@ -99,6 +99,7 @@ de:
     models:
       house: "Haus"
       booking: "Reservierung"
+      contact: "Frage zum Haus"
 
     attributes:
       house:
@@ -127,6 +128,15 @@ de:
       user:
         username: "Benutzername"
         password: "Passwort"
+      contact:
+        start_at: "Wunsttermin von"
+        end_at: "Wunsttermin bis"
+        firstname: "Vorname"
+        lastname: "Nachname"
+        email: "E-mail"
+        phone: "Telefon"
+        city: "Ort"
+        address: "Adresse"
 
     errors:
       messages:
@@ -163,9 +173,6 @@ de:
             persons:
               not_a_number: "Personenzahl`s Feld füllen Sie nur Zahl"
               blank: "Personenzahl`s Feld darf nicht leer sein"
-#            nights:
-#              not_a_number: "Nachtzahl`s Feld füllen Sie nur Zahl"
-#              blank: "Nachtzahl`s Feld darf nicht leer sein"
             nights:
               not_a_number: " Übernachtungszahl’s Feld: füllen Sie nur Zahl "
               blank: " Übernachtung`s Feld: darf nicht leer sein "
@@ -198,6 +205,12 @@ de:
               blank: "Benutzer`s Feld darf nicht leer sein"
             password:
               blank: "Passwort`s Feld darf nicht leer sein"
+        contact:
+          attributes:
+            email:
+              blank: "E-Mail`s Feld darf nicht leer sein"
+              invalid: "E-Mail`s Adresse ist ungültiges Format"
+              too_short: "E-Mail`s Adresse túl rövid"
 
       messages:
         inclusion: "ist kein gültiger Wert"
@@ -358,7 +371,8 @@ de:
   house_price_week: Preis / Person / Woche (EUR)
   house_description: Beschreibungen
   house_photos: Bilder
-
+  contact_house_fieldset: Was können wir für Sie tun?
+  
 #search
   date_from: Anreisedatum
   date_to: Abreisedatum
@@ -414,6 +428,21 @@ de:
   status: Status
   calculate_price: Preis-Rechner
 
+# contact
+  contact_city: Ort / PLZ
+  contact_notes: "Ihre Anfrage zu Haus {{house}}"
+  contact_from: "Wunsttermin von"
+  contact_to: "Wunsttermin bis"
+  contact_firstname: "Vorname"
+  contact_lastname: "Nachname"
+  contact_email: E-mail <span class="red">*</span>
+  contact_phone: "Telefon"
+  contact_city: "Ort"
+  contact_address: "Adresse"
+  contact_with_animals: Nehmen Sie Haustiere mit?
+  contact_persons_count: Anzahl Personen
+  contact_children_count: davon Kinder
+
 # email
   booking_notification_subject: Reservierung Nachrichten
 
@@ -447,6 +476,8 @@ de:
   next_link: nächst
   Empty Cart: Leer Warenkorb
   Go to Cart: Zum Warenkorb
+  contact_house: Frage zum Haus
+  contact_submit: Anfrage senden
 
 # other
   city: Ort
@@ -471,6 +502,8 @@ de:
   or: oder
   answer_yes: Ja
   answer_no: Nein
+  price_persons: " EURO / Woche / {{persons}} Pers."
+  short_persons: "für {{persons}} Pers."
 
 #messages
   booking_warning: 'Achtung! Dies ist eine Buchung und keine Anfrage! Für eine Anfrage shicken Sie bitte eine E-mail.'
@@ -484,5 +517,6 @@ de:
   cart_limit: Der Warenkorb kann maximal 3 Häuser enthalten!<br /> Zuerst bitte löschen Sie Elemente aus Ihrem warekorb.
   created_booking: "<h3>Vielen Dank für Ihre Reservierung.</h3><p>Liebe Ungarnfreunde,</p><p>nach der Absendung Ihrer Bestellung bekommen Sie eine <b>Bestätigung</b> mit dem Gesamtpreis des Aufenthaltes, Höhe und Termin der erste Anzalhlung. Wir werden Ihre Reservierung schnellstens bearbeiten und Ihnen der Unterlagen zukommen lassen.</p>"
   fill_mandatory_fields_for_price: Kérjük töltse ki a kötelező mezőket!
+  contact_sended: Az üzenetét elküldtük, kollégánk hamarosan válaszol Önnek.
 
  

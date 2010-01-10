@@ -30,4 +30,12 @@ class Notifications < ActionMailer::Base
     body       :booking => booking, :codes => codes, :houses_bookings => houses_bookings
     sent_on    sent_at
   end
+
+  def contact(contact, code, sent_at = Time.now)
+    recipients "renata.gerhat@1xferienhaus.de" # current_user.email_address_with_name
+    from       "contact@1xferienhaus.de"
+    subject    "1xferienhaus.de admin - Kapcsolatfelvétel"
+    body       :contact => contact, :code => code
+    sent_on    sent_at
+  end
 end

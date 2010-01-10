@@ -1,0 +1,51 @@
+<% title t(:contact_house_fieldset) + ' | ' + ([@house.house_type, @house.code, @house.city].join(', ') ), false %>
+<div class="inner">
+<div class="mini odd">
+<%= render :partial => 'houses/mini', :locals => { :house => @house, :cart => @cart } %>
+<%- unless controller.action_name == 'print' %>
+<%= render :partial => 'houses/navigation' , :locals => { :house => @house }%>
+<% end -%>
+</div>
+<% form_for @contact, :url => {:action => :create} do |f| %>
+  <%= f.error_messages %>
+  <%= f.hidden_field :house_id, :value => @house.id %>
+<% field_set_tag t(:contact_house_fieldset) do %>
+  <% [ :firstname, :lastname, :address, :city, :phone, :email].each do |field| %>
+    <div class="span-6">
+      <%= f.label field, t('contact_' + field.to_s ) %><br />
+      <%= f.text_field field, :size => 25 %>
+    </div>
+  <% end %>
+<% end -%>
+<% field_set_tag nil, :class => 'odd' do %>
+  <div class="span-6">
+    <%= f.label 'start_at', t('contact_from') %><br />
+    <%= f.calendar_date_select :start_at, :popup => "force", :valid_date_check => "date > new Date()", :size => 20 %>
+  </div>
+  <div class="span-6">
+    <%= f.label 'end_at', t('contact_to') %><br />
+    <%= f.calendar_date_select :end_at, :popup => "force", :size => 20 %>
+  </div>
+    <% [ :persons_count, :children_count].each do |field| %>
+      <div class="span-6">
+        <%= f.label field, t('contact_'+field.to_s) %><br />
+        <%= f.text_field field.to_s.sub(/_count/,''), :size => 25 %>
+      </div>
+    <% end %>
+    <div class="span-6">
+      <%= f.label :with_animals, t('contact_with_animals') %>
+      <div>
+      <%= t(:answer_yes) %> <%= f.radio_button :with_animals, 1, :checked => (@contact and @contact.with_animals) %>
+      <%= t(:answer_no) %> <%= f.radio_button :with_animals, 0, :checked => ((@contact and not @contact.with_animals) or @contact.nil?) %>
+      </div>
+    </div>
+<%- end -%>
+<% field_set_tag t(:contact_notes, :house => @house.code) do %>
+ <div class="clear span-18 prepend-top">
+  <%= f.text_area :notes, :rows => 4 %>
+</div>
+<%- end -%>
+<br />
+  <div class="span-6"><%= f.submit t("contact_submit") %></div>
+<% end -%>
+</div>

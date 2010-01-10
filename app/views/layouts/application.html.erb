@@ -30,7 +30,6 @@
           <div id="site-name"><a href="/" title="<%= t :home %>"> 1x ferienhaus </a><span id="slogan"><%= t :slogan %></span></div>
         <% end %>
       </div>
-      <%- if admin? -%>
       <div id="login" class="prepend-8 span-4 last">
         <div class="span-4"> 
           <%- content_tag 'div', :class => 'inner' do -%>
@@ -41,12 +40,11 @@
           <%- end -%>
         </div>
       </div>
-      <%- end -%>
     </div>
     <div id="menu"><div class="inner">
       <%- ['home', 'booking', :cart, :special_offers, :contact, :programs].each do |item|
         title( t(item) ) unless @content_for_title -%>
-        <div class="menu span-4<%= if item == :programs then ' last' end %> <%=
+        <div class="menu-item span-4<%= if item == :programs then ' last' end %> <%=
           case item
           when 'home': if controller_name !~ /bookings|pages/ and action_name !~ /cart/ and not params[:discount] then ' selected' end
           when 'booking': if controller_name == 'bookings' then ' selected' end
@@ -97,7 +95,7 @@
       </div>
     </div>
     <div id="content" class="span-20 last">
-    <% if controller_name !~ /setup|bookings/ -%>
+    <% if controller_name !~ /setup|bookings|contact|page/ -%>
       <div id="search" style="overflow:hidden">
         <% content_tag 'div', :class => 'inner' do -%>
           <% if params[:advanced] %>

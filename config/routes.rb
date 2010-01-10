@@ -1,7 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :event_logs
-
-#   map.calendar '/calendar/:year/:month', :controller => 'calendar', :action => 'index', :year => Time.zone.now.year, :month => Time.zone.now.month
   map.resources :seasons
   map.resources :bookings
   map.resources :houses_bookings
@@ -31,8 +29,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :users
   
-  map.resources :conditions, :active_scaffold => true
-
   map.root :controller => "root", :action => "index"
   
   # The priority is based upon order of creation: first created -> highest priority.

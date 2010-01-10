@@ -13,6 +13,7 @@ end -%>
     <span class="field"><%= button_to cart_button_label, :action => :cart, :id => house.id, :cart => cart_action %></span>
     <span class="field"><%=
     button_to t("Print"), { :controller => 'houses', :action => 'print', :id => house.id} , {:onclick => "this.form.target = 'print'; window.open('','print', 'width = 850, top = 0, left = 0, scrollbars=1')"} %></span>
+    <span class="field"><%= button_to t(:contact_house), :controller => :contact, :action => 'new',  :id => house.id %></span>
   <%- if admin? -%>
   <br />
     <span class="field"><%= link_to t('admin.edit'), edit_house_path(house) %></span>

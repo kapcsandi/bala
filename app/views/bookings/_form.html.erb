@@ -1,6 +1,6 @@
 <% unless admin? %><div id="flash_error"><%= t(:booking_warning) %></div><% end %>
 <% form_for booking do |f| %>
-  <%= f.error_messages%>
+  <%= f.error_messages %>
   <% unless admin? %><div id="flash_notice"><%= t(:booking_hint) %></div><% end %>
   <% field_set_tag nil, :class => 'odd' do %>
     <% if houses.size > 0 %>

@@ -1,0 +1,24 @@
+Kapcsolatfelvétel
+
+Kérdés érkezett a következő adatokkal:
+<% unless @contact.notes.blank? %>
+<%= @contact.name %> <<%= @contact.email %>> üzenete:
+<%= @contact.notes %>
+-- üzenet vége
+
+további adatok:
+<% end %>
+* Név: <%= @contact.name %>
+* Város: <%= @contact.city %>
+* Cím: <%= @contact.address %>
+* Telefon: <%= @contact.phone %>
+* E-mail: <%= @contact.email %>
+* Érkezés: <%= @contact.start_at %>
+* Távozás: <%= @contact.end_at %>
+* Érkező személyek száma: <%= @contact.persons %>
+* Érkező gyerek száma: <%= @contact.children %>
+<%= '* Háziállattal jövünk' if @contact.with_animals -%>
+
+--
+Üdvözlettel,
+  1x ferienhaus.de
