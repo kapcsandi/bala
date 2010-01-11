@@ -1,5 +1,5 @@
 class ImageController < ApplicationController
-  before_filter :authorize
+  before_filter :root_authorize
 
   def index
     @errors = []

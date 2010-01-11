@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_filter :authorize, :except => [:show]
+  before_filter :root_authorize, :except => [:show]
   before_filter :find_page, :only => [:edit, :update, :destroy]
   
   def index
@@ -13,7 +13,7 @@ class PagesController < ApplicationController
     else
       find_page
     end
-    if admin?
+    if root_admin?
       if @page.nil?
         redirect_to new_page_path(:path => page)
       end

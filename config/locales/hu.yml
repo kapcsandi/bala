@@ -11,7 +11,7 @@ hu:
       short: "%b %e."
       long: "%Y. %B %e."
       only_day: "%e"
-
+      wo_day: "%Y %B"
     day_names: [vasárnap, hétfő, kedd, szerda, csütörtök, péntek, szombat]
     abbr_day_names: [v., h., k., sze., cs., p., szo.]
     month_names: [~, január, február, március, április, május, június, július, augusztus, szeptember, október, november, december]
@@ -607,6 +607,7 @@ hu:
     houses: Apartmanok
     season: Szezon
     seasons: Szezonok
+    users: Felhasználók
     event_logs: Események
     image: Házképek feltöltése
     new_discount: Új Akció
@@ -616,6 +617,7 @@ hu:
     new_house: Új Apartman
     new_season: Új Szezon
     new_booking: Új foglalás
+    new_user: Új felhasználó
     edit_discount: Akció szerkesztése
     edit_page: Oldal szerkesztése
     edit_tag: Címke szerkesztése
@@ -750,6 +752,9 @@ hu:
     with_animals: Állatot hoznak?
     notes: Üzenet
     status: Állapot
+    role: Jogosultság
+    logout: Kilépés
+    edit_profile: Adataim
 
 #field sets
     house_basics: Ház alapinfók
@@ -791,14 +796,14 @@ hu:
     successfully_updated_tag: Címke sikeresen módosítva
     successfully_created_taggable: Címkecsoport sikeresen létrehozva
     successfully_updated_taggable: Címkecsoport sikeresen módosítva
-    successfully_updated_profile: Saját adatok módosítása sikeres volt.
+    successfully_updated_profile: Felhasználó adatok módosítása sikeres volt.
     successfully_created_season: Szezon sikeresen létrehozva
     successfully_updated_season: Szezon sikeresen módosítva
     successfully_destroyed_season: Szezon sikeresen törölve
     house_added: Az {{house}} apartman létrehozása sikeres volt
     house_updated: Az {{house}} apartman módosítása sikeres volt
     house_destroyed: Az {{house}} apartman törlése sikeres volt
-
+    user_login_error: "Sikertelen belépés"
 # status
   status_unknown: "Ismeretlen"
   status_created: "Rögzítve"

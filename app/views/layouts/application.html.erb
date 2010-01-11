@@ -25,20 +25,19 @@
 <div id="main" class="<%= 'admin' if admin? %>">
   <div id="top">
     <div class="inner span-24">
-      <div id="logo" class="span-12">
+      <div id="logo" class="span-12 append-7">
         <% content_tag 'div', :class => 'inner' do %>
           <div id="site-name"><a href="/" title="<%= t :home %>"> 1x ferienhaus </a><span id="slogan"><%= t :slogan %></span></div>
         <% end %>
       </div>
-      <div id="login" class="prepend-8 span-4 last">
-        <div class="span-4"> 
+      <div id="login" class="span-5 last">
           <%- content_tag 'div', :class => 'inner' do -%>
-            <%- [:de, :hu].each do |locale| 
+            <%= 'Bejelentkezett felhasználó: <b>' + current_user.username + '</b>' if logged_in? %>
+            <%= '<br />Nyelv: ' if logged_in? %><%- [:de, :hu].each do |locale|
               next if locale == :root or locale == :en -%>
               <%= link_to_unless I18n.locale.to_s == locale.to_s, locale, "?locale="+locale.to_s -%> <%= '|' if locale != :hu %>
             <%- end -%>
           <%- end -%>
-        </div>
       </div>
     </div>
     <div id="menu"><div class="inner">
@@ -61,7 +60,8 @@
       <% end -%>
     <%- if admin? -%>
     <div class="menu" style="float:left;width:100%;clear:both">
-      <% [:pages, :houses, :houses_bookings, :taggables, :seasons, :event_logs, :image].each do |menu| %>
+      <% [:pages, :houses, :houses_bookings, :taggables, :seasons, :event_logs, :image, :users].each do |menu|
+        next if menu.to_s !~ /bookings/ and not root_admin? %>
         <div<%=if current_page?(menu) then ' class="selected"' end %> style="float:left;padding-right:10px">
           <% link_to menu do %>
             <span class="menu-item"><%= t("admin.#{menu}") %></span>
@@ -85,8 +85,8 @@
       <div class="menu span-4<%=
       if current_page?(login_path) then ' selected' end	%>">
         <% if current_user %>
-          <div class="menu-item"><%= link_to "Edit Profile", edit_user_path(:current) %> |
-            <%= link_to "Logout", logout_path %></div>
+          <div class="menu-item"><%= link_to t('admin.edit_profile'), edit_user_path(:current) %> |
+            <%= link_to t('admin.logout'), logout_path %></div>
         <%- else -%>
           <% link_to login_path do %>
             <span class="menu-item"><%= t("admin_login") %></span>
@@ -95,7 +95,7 @@
       </div>
     </div>
     <div id="content" class="span-20 last">
-    <% if controller_name !~ /setup|bookings|contact|page/ -%>
+    <% if controller_name !~ /setup|bookings|contact|pages|users/ -%>
       <div id="search" style="overflow:hidden">
         <% content_tag 'div', :class => 'inner' do -%>
           <% if params[:advanced] %>

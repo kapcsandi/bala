@@ -1,5 +1,5 @@
 class SetupController < ApplicationController
-  before_filter :authorize
+  before_filter :root_authorize
   require 'csv'
   
   def index

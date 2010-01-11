@@ -15,7 +15,8 @@ class UserSessionsController < ApplicationController
 #      end
       redirect_to event_logs_url
     else
-      event_logger("sikertelen belépés: #{params[:user_session][:username]}")
+      event_logger("sikertelen belépés: #{params[:user_session].to_s}")
+      flash[:error] = t('admin.user_login_error')
       render :action => 'new'
     end
   end

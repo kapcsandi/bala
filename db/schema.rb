@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091215152627) do
+ActiveRecord::Schema.define(:version => 20100111212119) do
 
   create_table "bookings", :force => true do |t|
     t.integer  "nights"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20091215152627) do
   create_table "discount_translations", :force => true do |t|
     t.integer  "discount_id"
     t.string   "locale"
-    t.text   "description"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(:version => 20091215152627) do
   create_table "house_translations", :force => true do |t|
     t.integer  "house_id"
     t.string   "locale"
-    t.text   "house_description"
+    t.text     "house_description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(:version => 20091215152627) do
     t.integer  "distance_center"
     t.integer  "distance_beach"
     t.integer  "distance_restaurant"
-    t.text   "admin_description"
+    t.text     "admin_description"
     t.string   "hidden_description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -141,13 +141,13 @@ ActiveRecord::Schema.define(:version => 20091215152627) do
     t.integer  "distance_mainroad"
     t.integer  "owner_place_id"
     t.integer  "animal_charge"
-    t.decimal  "price_pre_season_per_day", :precision => 10, :scale => 2
-    t.decimal  "price_mid_season_per_day", :precision => 10, :scale => 2
-    t.decimal  "price_main_season_per_day", :precision => 10, :scale => 2
-    t.decimal  "price_pre_season_per_week", :precision => 10, :scale => 2
-    t.decimal  "price_mid_season_per_week", :precision => 10, :scale => 2
-    t.decimal  "price_main_season_per_week", :precision => 10, :scale => 2
-    t.text   "pictures"
+    t.integer  "price_pre_season_per_day"
+    t.integer  "price_mid_season_per_day"
+    t.integer  "price_main_season_per_day"
+    t.integer  "price_pre_season_per_week"
+    t.integer  "price_mid_season_per_week"
+    t.integer  "price_main_season_per_week"
+    t.text     "pictures"
     t.integer  "balcony_id"
   end
 
@@ -167,7 +167,7 @@ ActiveRecord::Schema.define(:version => 20091215152627) do
     t.date     "start_at"
     t.date     "end_at"
     t.integer  "status_id",  :default => 0
-    t.text     "description"
+    t.text     "notes"
   end
 
   add_index "houses_bookings", ["booking_id"], :name => "index_houses_bookings_on_booking_id"
@@ -293,6 +293,7 @@ ActiveRecord::Schema.define(:version => 20091215152627) do
     t.string   "persistence_token", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role"
   end
 
 end

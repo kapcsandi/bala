@@ -1,1 +1,24 @@
-<% if current_user %>You are in.<% end %>
+<% title t('admin.users') %>
+
+<table>
+<thead>
+  <tr>
+    <th><%= t('admin.username') %></th>
+    <th><%= t('admin.email') %></th>
+    <th><%= t('admin.role') %></th>
+  </tr>
+</thead>
+<tbody>
+<% for user in @users %>
+  <tr class="<%= cycle('odd', 'even') %>">
+    <td><%=h user.username %></td>
+    <td><%=h user.email %></td>
+    <td><%=h user.role %></td>
+    <td><%= link_to t('admin.edit'), edit_user_path(user) %></td>
+    <td><%= link_to t('admin.destroy'), user, :confirm => t('admin.are_you_sure'), :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<p><%= link_to t('admin.new_user'), new_user_path %></p>

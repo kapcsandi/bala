@@ -16,10 +16,11 @@
     <%= f.label t('admin.password_confirmation') %><br />
     <%= f.password_field :password_confirmation %>
   </p>
+  <%- if root_admin? -%>
   <p>
-    <%= f.label t('admin.locale') %><br />
-    <%= f.text_field :locale %>
+    <%= f.label t('admin.role') %><br />
+    <%= f.text_field :role %>
   </p>
-
+  <% end %>
   <p><%= f.submit t('admin.submit') %></p>
 <% end %>

@@ -14,7 +14,7 @@ end -%>
     <div class="field"><%=
     button_to t("Print"), { :controller => 'houses', :action => 'print', :id => house.id} , {:onclick => "this.form.target = 'print'; window.open('','print', 'width = 850, top = 0, left = 0, scrollbars=1')"} %></div>
     <div class="field"><%= button_to t(:contact_house), :controller => :contact, :action => 'new',  :id => house.id %></div>
-  <%- if admin? -%>
+  <%- if root_admin? -%>
   <br />
     <div class="field"><%= link_to t('admin.edit'), edit_house_path(house) %></div>
     <div class="field"><%= link_to t('admin.destroy'), house, :confirm => t('admin.are_you_sure'), :method => :delete %></div>

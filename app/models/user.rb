@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
   def email_address_with_name
     "#{self.username} <#{self.email}>"
   end
+
+  def admin?
+    self.role == 'admin' || self.id == 1
+  end
 end

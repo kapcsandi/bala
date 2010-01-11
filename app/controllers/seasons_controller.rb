@@ -1,5 +1,5 @@
 class SeasonsController < ApplicationController
-  before_filter :authorize
+  before_filter :root_authorize
   before_filter :find_season, :except => [:index, :new, :create]
   
   def index

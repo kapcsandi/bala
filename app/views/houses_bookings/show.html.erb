@@ -39,6 +39,10 @@
   <strong>Utolsó módosítás:</strong>
   <%=h @houses_booking.updated_at %>
 </p>
+<p>
+  <strong>Megjegyés:</strong>
+  <%=h @houses_booking.notes %>
+</p>
 
 <p>
   <%= link_to t('admin.edit'), edit_houses_booking_path(@houses_booking) %> |

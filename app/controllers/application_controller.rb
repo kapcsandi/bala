@@ -3,7 +3,7 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
-  helper_method :logged_in?, :admin?
+  helper_method :logged_in?, :admin?, :root_admin?
   protect_from_forgery
   
   # See ActionController::Base for details 
@@ -42,7 +42,11 @@ class ApplicationController < ActionController::Base
   def admin?
     current_user
   end
-  
+
+  def root_admin?
+    current_user && current_user.admin?
+  end
+
   def authorize
     unless logged_in?
       flash[:error] = t('unrestricted_access')
@@ -50,6 +54,13 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def root_authorize
+    unless root_admin?
+      flash[:error] = t('unrestricted_access')
+      redirect_to :root
+    end
+  end
+
   def set_locale 
     #if params[:locale] is nil then I18n.default_locale will be used  
     # I18n.locale = extract_locale_from_uri
@@ -82,6 +93,7 @@ class ApplicationController < ActionController::Base
   end
 
   def event_logger(action)
-    EventLog.new(:user_id => User.find(current_user).id, :action => action).save!
+    user = current_user ? User.find(current_user).id : nil
+    EventLog.new(:user_id => user, :action => action).save!
   end
 end

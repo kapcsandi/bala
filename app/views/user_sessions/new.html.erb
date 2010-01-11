@@ -1,7 +1,6 @@
 <% title t('login.title') %>
 
 <% form_for @user_session do |f| %>
-  <%= f.error_messages %>
   <p>
     <%= f.label t('login.username') %><br />
     <%= f.text_field :username %>

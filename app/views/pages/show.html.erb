@@ -3,7 +3,7 @@
   <iframe scrolling="auto" width="500" height="700" marginheight="0" marginwidth="0" noresize="" name="daten" src="http://www.wetteronline.de/cgi-bin/citybild?WMO=12935&amp;LANG=<%= I18n.locale.to_s %>&amp;BKM=Ungarn/Plattensee&amp;SID=129354afe1976bce4b60218b65ad6fbc0a2bfb"/>
 <% end %>
 <%= @page.body %>
-<% if admin? %>
+<% if root_admin? %>
 <p>
   <%= link_to t('admin.edit'), edit_page_path(@page) %> |
   <%= link_to t('admin.destroy'), @page, :confirm => t('admin.are_you_sure'), :method => :delete %> |

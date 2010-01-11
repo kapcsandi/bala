@@ -1,5 +1,5 @@
 class HousesController < ApplicationController
-  before_filter :authorize, :except => [:index, :show, :print, :cart, :empty_cart]
+  before_filter :root_authorize, :except => [:index, :show, :print, :cart, :empty_cart]
   before_filter :search_house, :except => [:index, :new, :create, :cart, :empty_cart]
   before_filter :get_cart, :only => [:index, :cart, :empty_cart, :print, :show]
 #  after_filter :expire_caches, :only => [:create, :update]

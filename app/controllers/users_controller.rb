@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_filter :find_user, :only => [:edit, :update]
 
   def index
+    @users = User.all
   end
 
   def new
@@ -21,9 +22,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id]) if root_admin? and params[:id] != 'current'
   end
 
   def update
+    @user = User.find(params[:id]) if root_admin? and params[:id] != 'current'
     if @user.update_attributes(params[:user])
       flash[:notice] = t('admin.successfully_updated_profile')
       redirect_to :root

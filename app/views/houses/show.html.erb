@@ -24,7 +24,7 @@
       <%= h @house.discount.description %>
     </p>
     <% end -%>
-    <%- if admin? %>
+    <%- if root_admin? %>
     <div class="admin">
       <%= label_tag :admin_description, t(:admin_description) %>:<br />
       <%= h @house.admin_description %>
@@ -36,7 +36,7 @@
       <%= @house.house_description %>
     </p>
     <%- end -%>
-    <%- if admin?
+    <%- if root_admin?
       field = Taggable.find_by_position(80)
        tagnames = []
        for tag in field.tags do tagnames << tag.name if @house.tags.include?(tag) end -%>
@@ -230,7 +230,7 @@
   <% end %>
 <% end %>
   
-<% if admin? %>
+<% if root_admin? %>
 <p>
   <%= link_to t('admin.edit'), edit_house_path(@house) %> |
   <%= link_to t('admin.destroy'), @house, :confirm => t('admin.are_you_sure'), :method => :delete %> |

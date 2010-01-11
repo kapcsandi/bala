@@ -175,6 +175,7 @@ br.zero {margin:0;padding:0;line-height:0.4em}
 .navi .field {float:left;margin:5px 15px}
 .calendar_date_select thead th, .calendar_date_select td, .calendar_date_select caption {padding:0}
 .tags p {width:25%;float:left;}
+.admin #login div {font-size:0.8em;border:1px solid GoldenRod}
 #main #carousel {height:150px;width:725px;margin:-20px 0 0 40px;overflow:hidden}
 #main #carousel .container {width:2500px;}
 #main #carousel .container .slide {height:auto;width:125px;float:left}
