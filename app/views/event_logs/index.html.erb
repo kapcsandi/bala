@@ -12,7 +12,7 @@
 <% for log in @event_logs %>
 <tr class="<%= cycle('odd', 'even') %>">
 <td><%= log.created_at %></td>
-<td><%= h log.action %></td>
+<td><%= log.action %></td>
 </tr>
 <%end %>
 </tbody>

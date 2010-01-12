@@ -38,7 +38,7 @@ class HousesBookingsController < ApplicationController
     end
     if @house and @houses_booking.save
       flash[:notice] = t("admin.created_booking")
-      event_logger("#{current_user.username} foglaltságot rögzített: #{@house.code}, #{@houses_booking.start_at} - #{@houses_booking.end_at}")
+      event_logger("#{current_user.username} foglaltságot rögzített: <a href=\"/houses_bookings/#{@houses_booking.id}\">#{@houses_booking.code}</a>,, #{@houses_booking.start_at} - #{@houses_booking.end_at}")
       redirect_to @houses_booking
     else
       @house ||= House.new
@@ -53,7 +53,7 @@ class HousesBookingsController < ApplicationController
     current_user.houses_bookings << @houses_booking unless @houses_booking.owner
     if @houses_booking.update_attributes(params[:houses_booking])
       flash[:notice] = t("updated_booking")
-      event_logger("#{current_user.username} foglaltságot módosított: #{@house.code}, #{@houses_booking.start_at} - #{@houses_booking.end_at}")
+      event_logger("#{current_user.username} foglaltságot módosított: <a href=\"/houses_bookings/#{@houses_booking.id}\">#{@houses_booking.code}</a>, #{@houses_booking.start_at} - #{@houses_booking.end_at}")
       redirect_to @houses_booking
     else
       render :action => 'edit'
