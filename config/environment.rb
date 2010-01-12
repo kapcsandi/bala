@@ -50,5 +50,4 @@ end
 
 ValidatesTimeliness::Formats.remove_us_formats
 ValidatesTimeliness.enable_datetime_select_extension!
-CalendarDateSelect.format = :iso_date
 DEFAULT_FIELD_OPTIONS = { :size => 25 }

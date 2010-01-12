@@ -11,17 +11,29 @@ class Booking < ActiveRecord::Base
 #   validates_associated :houses_bookings, :houses
   accepts_nested_attributes_for :houses_bookings, :allow_destroy => true, :reject_if => :all_blank
 
-   def states
-     self.houses_bookings.first.states
-   end
+  def code
+    'R' + self.id.to_s
+  end
 
-   def status
-     self.houses_bookings.first.status
-   end
+  def states
+    self.houses_bookings.first.states
+  end
 
-   def status=(status_string)
-     self.houses_bookings.first.status_id=states.index(status_string)
-   end
+  def status
+    self.houses_bookings.first.status
+  end
+
+  def start_at
+    self.houses_bookings.first.start_at
+  end
+
+  def end_at
+    self.houses_bookings.first.end_at
+  end
+
+  def status=(status_string)
+    self.houses_bookings.first.status_id=states.index(status_string)
+  end
 
   def name
     self.firstname + ' ' + self.lastname

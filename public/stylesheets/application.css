@@ -160,6 +160,7 @@ ul#booking_prices {margin:0}
 .calendar_date_select td div.other {color:#FFF000;}
 .fold {text-decoration:none;cursor:hand;cursor:pointer;display:block;margin:-25px 0px 5px 15px}
 #houses_bookings .fold {margin:0;float:none;display:inline}
+#houses_bookings .code {width:160px}
 ul#houses_bookings .fold {margin:0 50px 10px 0;float:right}
 .photos  a.fold:hover img {border:#000}
 select#booking_country {width:215px}

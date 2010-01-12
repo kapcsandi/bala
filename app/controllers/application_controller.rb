@@ -67,6 +67,7 @@ class ApplicationController < ActionController::Base
 
     I18n.locale = params[:locale] || cookies[:locale] || :de
     cookies[:locale] = params[:locale] if params[:locale]
+    CalendarDateSelect.format = (I18n.locale.to_s == 'hu' ? :iso_date : :finnish)
   end
     
   def extract_locale_from_uri 

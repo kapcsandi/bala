@@ -1,6 +1,10 @@
 <% title t('admin.bookings') %>
 
 <p>
+  <strong>Kód:</strong>
+  <%= @houses_booking.code %>
+</p>
+<p>
   <strong>Házkód:</strong>
   <%= link_to @houses_booking.house.code, house_path, :id => @houses_booking.house.id %>
 </p>
@@ -8,7 +12,7 @@
 <% if @houses_booking.booking_id %>
 <p>
   <strong>Foglalás:</strong>
-  <%= link_to @houses_booking.booking_id, booking_path(:id => @houses_booking.booking_id) %>
+  <%= link_to @houses_booking.booking.code, booking_path(:id => @houses_booking.booking_id) %>
 </p>
 <% end %>
 <p>

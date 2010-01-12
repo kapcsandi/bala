@@ -10,6 +10,7 @@ class HousesBookingsController < ApplicationController
     @year, @month = @year.to_i, @month.to_i
     @date = Date.parse("#{@year}-#{@month}-01")
     @house = @search.first
+    debugger
     @shown_month = Date.civil(@year, @month)
     @first_day_of_week = 1
     if @house and params[:search] and not params[:search][:code].empty? then

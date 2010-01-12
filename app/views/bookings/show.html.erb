@@ -1,8 +1,16 @@
 <% title t("Booking") %>
 
 <p>
+  <strong><%= t('admin.booking_code')%>:</strong>
+  <%= @booking.code %>
+</p>
+<p>
   <strong><%= t('admin.houses')%>:</strong>
   <%= houses_links(@booking.houses) %>
+</p>
+<p>
+  <strong><%= t('admin.booking_houses_table')%>:</strong>
+  <%= hb_links(@booking.houses_bookings) %>
 </p>
 <p>
   <strong><%= t('admin.status')%>:</strong>

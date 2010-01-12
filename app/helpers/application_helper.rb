@@ -40,4 +40,14 @@ module ApplicationHelper
     controller_name == 'houses' and action_name == 'show' 
   end
 
+  def date_format
+    case I18n.locale
+    when :de
+      "%d.%M.%Y"
+    when :hu
+      "%Y-%m-%d"
+    else
+      '"%Y-%m-%d"'
+    end
+  end
 end

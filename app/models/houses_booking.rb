@@ -22,7 +22,7 @@ class HousesBooking < ActiveRecord::Base
   end
 
   def name
-    self.house.code
+    self.code
   end
 
   def nights=(day)
@@ -41,4 +41,7 @@ class HousesBooking < ActiveRecord::Base
     self.position=value
   end
 
+  def code
+    "R" + self.booking.id.to_s + '_H' + self.house.code
+  end
 end

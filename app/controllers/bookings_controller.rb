@@ -44,14 +44,13 @@ class BookingsController < ApplicationController
     end
     @houses = houses_found
     unless houses_found.empty?
-#      @booking.houses << houses_found
-      hb = params[:booking].delete(:houses_booking)
+      hb = params[:booking][:houses_booking]
       price = 0
       houses_found.each do |house|
         @houses_booking = house.houses_bookings.build
         @houses_booking.house_id = house.id
-        @houses_booking.start_at = hb[:start_at]
-        @houses_booking.end_at = hb[:end_at]
+        @houses_booking.start_at = hb[:start_at] unless hb[:start_at].empty?
+        @houses_booking.end_at = hb[:end_at] unless hb[:end_at].empty?
         price = if params[:house_0_price] then params[:house_0_price] else params["house_#{house.id}_price"] end
         @houses_booking.price = price
         @booking.houses_bookings << @houses_booking

@@ -20,6 +20,16 @@ module CalendarDateSelect
       :time => " %H:%M",
       :javascript_include => "format_finnish"
     },
+    :hu => {
+      :date => "%Y-%m-%d",
+      :time => " %H:%M",
+      :javascript_include => "format_hu"
+    },
+    :de => {
+      :date => "%d.%m.%Y",
+      :time => " %H:%M",
+      :javascript_include => "format_de"
+    },
     :american => {
       :date => "%m/%d/%Y",
       :time => " %I:%M %p",

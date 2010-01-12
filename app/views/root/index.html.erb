@@ -14,7 +14,7 @@ unless category[:house].nil?
   if category[:house].discount.nil?
     price = category[:house].price(Season.which_season?(Date.today)).to_s
     persons = category[:house].persons.to_s + (category[:house].children > 0 ? '+' + category[:house].children.to_s : '')
-    t(:price_persons, :persons => persons)
+    price + t(:price_persons, :persons => persons)
   else
     truncate( category[:house].discount.description, :length => 40 )
   end

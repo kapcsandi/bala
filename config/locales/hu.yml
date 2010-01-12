@@ -8,6 +8,7 @@ hu:
   date:
     formats:
       default: "%Y.%m.%d."
+      default_str: '%Y.%m.%d'
       short: "%b %e."
       long: "%Y. %B %e."
       only_day: "%e"
@@ -650,6 +651,8 @@ hu:
     select_city: Válassz települést
     select_country: Válassz országot
     code: Ház kód
+    booking_code: Kód
+    booking_houses_table: Foglaltsági tábla kód(ok)
     house_type_id: Ház típus
     select_house_type: Válassz apartman típust
     condition_id: Állapot

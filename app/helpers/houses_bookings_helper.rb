@@ -35,4 +35,10 @@ module HousesBookingsHelper
       link_to(house.code, house_path(house.id))
     end.join(', ')
   end
+
+  def hb_links(hbs)
+    hbs.map do |hb|
+      link_to(hb.code, houses_booking_path(hb.id))
+    end.join(', ')
+  end
 end
