@@ -1,27 +1,44 @@
-Tisztelt <%= @booking.name %>,
+Eingangsbestätigung Ihrer verbindlichen Buchung bei der
+1xferienhaus, <%= I18n.l(Time.now, :locale => :de) %>
 
-foglalása a következő adatokkal megérkezett kollégánkhoz:
+Sehr geherte <%= @booking.salut %> <%= @booking.lastname %>,
 
-* érkezés: <%= @houses_bookings.first.start_at %>
-* távozás: <%= @houses_bookings.first.end_at %>
-* éjszakák száma: <%= @booking.nights %>
-<% @houses_bookings.each do |hb| %>
-* házkód: <%= @codes[hb.house_id] %>
-* ár: <%= hb.price %> EUR
+Sie haben verbindlich Ihr Feriendomizil gebucht. Vielen Dank für Ihr
+Vertrauen. Die Buchungsbestätigung und alle weiteren Dokumente gehen
+Ihnen umgehend per eMail an Ihre eMail-Adresse zu.
+
+<%- @houses_bookings.each do |hb| %>
+Ferienhaus: <%= @codes[hb.house_id] %>
 <% end -%>
+Urlaubszeit von <%= I18n.l(@houses_bookings.first.start_at) %> bis <%= I18n.l(@houses_bookings.first.end_at) %> ;<%= @booking.nights %> Nacht
+Personen <%= @booking.persons %> davon Kinder <%= @booking.children %>
+Alter der Kinder in Jahren: <%= @booking.children_years %>
+Haustier: <%= @booking.animal_details %>
+<%- @houses_bookings.each do |hb| %>
+Mietpreis: <%= hb.price %> EUR
+<% end -%>
+zuzüglich Ortstaxe (maximal 1,70 EUR pro Person und Tag)
+<%= @booking.with_animals ? 'Haustier: 3,00 EUR/Tag' : '' %>
 
-<% unless @booking.notes.blank? -%>
-<%= @booking.name %> <<%= @booking.email %>> üzenete:
-<%= @booking.notes %>
--- üzenet vége
-<% end %>
-további adatok:
-* Érkező személyek száma: <%= @booking.persons %>
-<%= '* Háziállattal jövünk' if @booking.with_animals %>
-* Telefon: <%= @booking.phone %>
-* Mobil: <%= @booking.mobile %>
-* Város: <%= @booking.city %>
+Ihre Buchungsbestätigung geht per eMail an
+Anrede: <%= @booking.salut %>
+Vorname: <%= @booking.firstname %>
+Name: <%= @booking.lastname %>
+Straße: <%= @booking.address %>
+Land: <%= @booking.country_name(I18n.locale) %>
+PLZ: <%= @booking.postcode %>
+Ort: <%= @booking.city %>
+Telefon: <%= @booking.phone %>
+Mobiltelefon: <%= @booking.mobile.empty? ? 'keine Angabe' : @booking.mobile %>
+Fax: <%= @booking.fax.empty? ? 'keine Angabe' : @booking.fax %>
+eMai:<%= @booking.email %>
+zugeteilt am <%= I18n.l(@booking.created_at, :locale => I18n.locale) %>
 
---
-Üdvözlettel,
-  1x ferienhaus.de
+Mit freundlichen Grüßen
+
+Renata Gerhat
+http://www.1xferienhaus.de
+Tel.:
+Fax.:
+Oberveischeder Str. 32b
+57462 Olpe

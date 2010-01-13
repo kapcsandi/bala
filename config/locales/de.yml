@@ -482,7 +482,7 @@ de:
   contact_children_count: davon Kinder
 
 # email
-  booking_notification_subject: Reservierung Nachrichten
+  booking_notification_subject: "Ihre Buchung bei 1xferienhaus {{code}}, {{date}}"
 
 # titles
   booking_title: "Buchung Ferienobjekt: {{houses}}"

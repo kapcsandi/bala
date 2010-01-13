@@ -18,7 +18,7 @@ class Notifications < ActionMailer::Base
   def booking(codes, booking, houses_bookings, sent_at = Time.now)
     recipients booking.email
     from       "buchung@1xferienhaus.de"
-    subject    "#{I18n.t(:booking_notification_subject)}"
+    subject    "#{I18n.t(:booking_notification_subject, :code => booking.code, :date => I18n.l(Date.today, :locale => I18n.locale))}"
     body       :booking => booking, :codes => codes, :houses_bookings => houses_bookings
     sent_on    sent_at
   end

@@ -42,4 +42,8 @@ class Booking < ActiveRecord::Base
   def houses_bookings_attributes=(attributes)
     logger.info "booking model save: #{attributes.inspect}"
   end
+
+  def country_name(locale = :hu)
+    t(:countries, :locale => locale).select{|country| country[0] == self.country.to_sym}[0][1]
+  end
 end

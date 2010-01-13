@@ -121,6 +121,7 @@ class House < ActiveRecord::Base
     self.price_main_season_per_week
     end
   end
+
   def daily_price(name)
     case name
     when /pre|post/
@@ -134,6 +135,10 @@ class House < ActiveRecord::Base
 
   def distance(item)
     self.method("distance_#{item}").call.to_i
+  end
+
+  def name
+    "#{self.code} (#{self.house_type}, #{self.city})"
   end
 end
 

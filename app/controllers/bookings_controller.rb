@@ -148,6 +148,12 @@ class BookingsController < ApplicationController
     end
   end
 
+  def test
+    @booking = Booking.find(params[:id])
+    notification_mails(@booking)
+    redirect_to_index($!)
+  end
+
   private
 
   def find_booking
@@ -165,7 +171,7 @@ class BookingsController < ApplicationController
 
   def notification_mails(booking)
     codes = {}
-    booking.houses.each{|house| codes[house.id] = house.code}
+    booking.houses.each{|house| codes[house.id] = house.name }
     houses_bookings = booking.houses_bookings
     Notifications.deliver_booking(codes,booking, houses_bookings)
     Notifications.deliver_booking_admin(codes,booking, houses_bookings)

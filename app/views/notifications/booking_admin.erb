@@ -9,22 +9,33 @@ Foglalás érkezett a következő adatokkal:
 * házkód: <%= @codes[hb.house_id] %>
 * ár: <%= hb.price %> EUR
 <% end -%>
-
+Részletek:
+* Érkező személyek száma: <%= @booking.persons %>
+* Ebből gyerek: <%= @booking.children %>
+* Gyerekek kora: <%= @booking.children_years %>
+* Háziállatot hoznak: <%= @booking.with_animals ? 'igen' : 'nem' %>
+* Háziállat adatok: <%= @booking.animal_details %>
+* Megszólítás: <%= @booking.salut %>
+* Vezetéknév: <%= @booking.lastname %>
+* Keresztnév: <%= @booking.firstname %>
+* Cégnév: <%= @booking.company %>
+* Irányítószám: <%= @booking.postcode %>
+* Település: <%= @booking.city %>
+* Utca, házszam: <%= @booking.address %>
+* Ország: <%= @booking.country %>
+* Tel: <%= @booking.phone %>
+* Mobil: <%= @booking.mobile %>
+* Fax: <%= @booking.fax %>
+* E-mail: <%= @booking.email %>
 <% unless @booking.notes.blank? %>
-<%= @booking.name %> <<%= @booking.email %>> üzenete:
-<%= @booking.notes %>
+Üzenet:
+<%= h @booking.notes %>
 -- üzenet vége
 <% end %>
-további adatok:
-* Érkező személyek száma: <%= @booking.persons %>
-<%= '* Háziállattal jövünk' if @booking.with_animals %>
-* Telefon: <%= @booking.phone %>
-* Mobil: <%= @booking.mobile %>
-* Város: <%= @booking.city %>
 
  -----
 
-A foglalás adatai elérhetők ezen az oldalon:
+A foglalás adatai elérhetők ezen az admin oldalon:
 <%= booking_url @booking %>
 
 --
