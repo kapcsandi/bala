@@ -133,7 +133,7 @@ class House < ActiveRecord::Base
   end
 
   def distance(item)
-    self.method("distance_#{item}").call
+    self.method("distance_#{item}").call.to_i
   end
 end
 

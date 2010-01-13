@@ -146,7 +146,7 @@
     <% %w{center beach aquapark shop station medical mainroad restaurant}.each do |item| %>
     <p>
       <span class="label"><%= label_tag "distance_#{item}", t("distance_#{item}") %>:</span>
-      <span><%= t('meters', :d => @house.distance(item)) %></span>
+      <span><%= t('meters', :count => @house.distance(item)) %></span>
     </p>
     <%end %>
   <% end %>

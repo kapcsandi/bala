@@ -2,7 +2,7 @@
   <%= f.error_messages %>
   <p>
     <%= f.label t('admin.field') %><br />
-    <%= f.text_field :field, :readonly => true %>
+    <%= f.text_field :field, :readonly => (taggable.new_record? ? false : true) %>
   </p>
   <p>
     <%= f.label t('admin.name') %><br />

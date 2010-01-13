@@ -42,7 +42,7 @@
   <br />
   <% %w{center beach shop restaurant}.each do |item| %>
     <span class="label"><%= t("distance_#{item}") %>:</span>
-    <span class="field"><%= t('meters', :d => house.distance(item)) %></span>
+    <span class="field"><%= t('meters', :count => house.distance(item)) %></span>
   <br />
   <% end %>
   </div>

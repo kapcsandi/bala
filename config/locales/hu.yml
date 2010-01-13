@@ -531,7 +531,9 @@ hu:
   no_picture: nincs kép
   pers: fő
   meter: m
-  meters: "ca. {{d}} m"
+  meters:
+    zero: "közvetlen"
+    other: "ca. {{count}} m"
   sqmeter: m&sup2;
   items: darab
   euro: Euro

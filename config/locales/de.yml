@@ -531,7 +531,9 @@ de:
   no_picture: kein Bild
   pers: Pers
   meter: m
-  meters: "ca. {{d}} m"
+  meters:
+    other: "ca. {{count}} m"
+    zero: "Direkt"
   sqmeter: m²
   items: stück
   euro: Euro
