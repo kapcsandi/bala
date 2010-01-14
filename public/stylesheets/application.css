@@ -112,6 +112,7 @@ tr.odd {background-color:#fff}
 #house_distances span.label {width:60%}
 fieldset.full p {width:30%;float:left}
 #houses_new fieldset p, #houses_edit fieldset p {width:33%;float:left}
+#houses_new fieldset p input, #houses_edit fieldset p input{width:95%}
 #houses_new .half p, #houses_edit .half p {width:50%;float:auto}
 #houses_new .full p, #houses_edit .full p {width:100%;float:auto}
 #new_booking fieldset div.fieldWithErrors {width:auto;float:auto;margin:0 auto}
@@ -148,7 +149,7 @@ ul#booking_prices {margin:0}
 .count{font-size:1.1em;color:#D75A20;font-weight:bold}
 .mini .location {font-size:1.2em}
 .auto_complete {z-index:1;border:1px solid silver}
-.handle {cursor:pointer;display:inline}
+.handle {cursor:move;;display:inline}
 .selected .menu-item {background-color:#E4F1FB;color:#D75A20;}
 .inner {margin:5px}
 .breadcrumb span {padding: 0 2px;font-size:0.7em}
@@ -166,6 +167,8 @@ ul#houses_bookings .fold {margin:0 50px 10px 0;float:right}
 select#booking_country {width:215px}
 #lightbox img {height:500px;width:500px}
 fieldset span {width:50%;float:left;}
+fieldset #sortable span {width:auto;float:none;}
+fieldset #sortable li {list-style-image:none;list-style-position:outside;list-style-type:none;}
 fieldset .stamp span, fieldset #houses_bookings span {float:none;}
 fieldset label span.red, .red {width:auto;float:none;display:inline;color:red}
 span.price {background:#fff;padding:0 10px;margin:3px 15px 10px 0;border:1px solid silver;height:1.4em}

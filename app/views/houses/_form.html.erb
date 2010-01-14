@@ -292,14 +292,20 @@
   <% end %>
 <a name="photos"></a>
   <% field_set_tag t('house_photos') do %>
+  <ul id="sortable">
     <%
       last = (@house.picture_ids && @house.picture_ids.size > 8 ? @house.picture_ids.size : 8)
       (0..last).each do |id| %>
+      <% content_tag :li, id do %>
+      <span class="handle">[mozgat]
+      <%= image_tag @house.picture_urls('s')[id] if id and @house.picture_ids and @house.picture_ids[id] and @house.picture_urls('s') and @house.picture_urls('s')[id] %>
+      </span>
       <%= f.label t('admin.picture_url', :position => id+1) %>
       <%= text_field_tag 'house[picture_ids][]', @house.picture_ids ? @house.picture_ids[id] : '' %>
-      <%= image_tag @house.picture_urls('s')[id] if id and @house.picture_ids and @house.picture_ids[id] and @house.picture_urls('s') and @house.picture_urls('s')[id] %>
-      <br />
+      <% end %>
     <% end %>
+    </ul>
+    <%= sortable_element("sortable", :handle => "handle") %>
   <% end %>
   <p><%= f.submit t(:submit) %></p>
 <% end %>
