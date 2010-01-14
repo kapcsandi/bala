@@ -30,5 +30,5 @@ function nights(field) {
 }
 
 function root_init() {
-var h = new Carousel('carousel',$$('#carousel .slide'), false, {auto: true, visibleSlides: 5, circular: true });
+new Carousel('carousel',$$('#carousel .slide'), false, {auto: true, visibleSlides: 5, circular: true });
 }

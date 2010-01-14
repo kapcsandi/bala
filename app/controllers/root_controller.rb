@@ -9,6 +9,5 @@ class RootController < ApplicationController
       tag = []
     end
     @pictures = House.scroll_pictures(tag).sort_by {rand}
-    @pictures.insert(0, @pictures[0])
   end
 end

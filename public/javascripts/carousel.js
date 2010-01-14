@@ -34,7 +34,7 @@ Carousel = Class.create(Abstract, {
             duration:           1,
             auto:               true,
             frequency:          3,
-            visibleSlides:      1,
+            visibleSlides:      5,
             controlClassName:   'carousel-control',
             jumperClassName:    'carousel-jumper',
             disabledClassName:  'carousel-disabled',
@@ -42,7 +42,8 @@ Carousel = Class.create(Abstract, {
             circular:           true,
             wheel:              true,
             effect:             'scroll',
-            transition:         'sinoidal'
+            transition:         'sinoidal',
+            direction:            1,
         }, options || {});
         
         if (this.options.effect == 'fade') {
@@ -110,7 +111,7 @@ Carousel = Class.create(Abstract, {
 		var elementOffset  = this.current.cumulativeOffset();
 
 		if (this.scrolling) {
-			this.scrolling.cancel();
+//			this.scrolling.cancel();
 		}
 
         switch (this.options.effect) {
@@ -192,7 +193,7 @@ Carousel = Class.create(Abstract, {
 	next: function () {
 		if (this.current) {
 			var currentIndex = this.current._index;
-			var nextIndex = (this.slides.length - 1 == currentIndex) ? (this.options.circular ? 0 : currentIndex) : currentIndex + 1;
+			var nextIndex = (this.slides.length == currentIndex + this.options.visibleSlides) ? (this.options.circular ? 0 : currentIndex) : currentIndex + 1;
         } else {
             var nextIndex = 1;
         }
@@ -200,14 +201,18 @@ Carousel = Class.create(Abstract, {
 		if (nextIndex == 0 && this.options.circular && this.options.effect != 'fade') {
 			this.scroller.scrollLeft = 0;
 			this.scroller.scrollTop  = 0;
-			nextIndex = 1;
+			nextIndex = 0;
         }
 
-		if (nextIndex > this.slides.length - this.options.visibleSlides) {
-			nextIndex = this.slides.length - this.options.visibleSlides - 1;
-		}		
-
-		this.moveTo(this.slides[nextIndex]);
+		if (nextIndex > this.slides.length - (this.options.visibleSlides + 1)) {
+			nextIndex = this.slides.length - this.options.visibleSlides;
+      effect = this.options.effect;
+      this.options.effect='spring';
+      this.first();
+      this.options.effect=effect;
+    } else {
+      this.moveTo(this.slides[nextIndex]);
+    }
 	},
 
 	first: function () {
