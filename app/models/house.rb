@@ -100,7 +100,7 @@ class House < ActiveRecord::Base
   end
   
   def picture_ids
-    pictures.split(',').map{|id| id.sub(/-([0-9]+)$/,'_\1')} if pictures
+    pictures.split(',').select{|id| id =~ /[0-9\-_]+/}.map{|id| id.sub(/-([0-9]+)$/,'_\1')} if pictures
   end
 
   def picture_ids=(ids)
