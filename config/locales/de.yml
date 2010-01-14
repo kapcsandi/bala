@@ -546,7 +546,7 @@ de:
   or: oder
   answer_yes: Ja
   answer_no: Nein
-  price_persons: " EURO / Woche / {{persons}} Pers."
+  price_persons: " &euro; / Woche / {{persons}} Pers."
   short_persons: "für {{persons}} Pers."
 
 #messages

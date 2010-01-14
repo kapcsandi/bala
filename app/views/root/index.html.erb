@@ -33,7 +33,7 @@ end -%>
     <%= image_tag house.thumb -%>
   <%- else -%>
     <%= t('no_picture') -%>
-  <%- end -%>
+  <%- end -%><br />
   <span class="field"><%= persons = house.persons.to_s + (house.children > 0 ? '+' + house.children.to_s : '');  t('short_persons', :persons => persons) %></span>
   <%- end -%></div>
 <%- end -%>

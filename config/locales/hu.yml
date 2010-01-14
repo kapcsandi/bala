@@ -546,7 +546,7 @@ hu:
   or: vagy
   answer_yes: igen
   answer_no: nem
-  price_persons: "EURO / hét / {{persons}} fő"
+  price_persons: "&euro; / hét / {{persons}} fő"
   short_persons: "max. {{persons}} fő"
 
 #messages
