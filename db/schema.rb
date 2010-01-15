@@ -141,12 +141,12 @@ ActiveRecord::Schema.define(:version => 20100111212119) do
     t.integer  "distance_mainroad"
     t.integer  "owner_place_id"
     t.integer  "animal_charge"
-    t.integer  "price_pre_season_per_day"
-    t.integer  "price_mid_season_per_day"
-    t.integer  "price_main_season_per_day"
-    t.integer  "price_pre_season_per_week"
-    t.integer  "price_mid_season_per_week"
-    t.integer  "price_main_season_per_week"
+    t.integer  "price_pre_season_per_day",   :limit => 10, :precision => 10, :scale => 2
+    t.integer  "price_mid_season_per_day",   :limit => 10, :precision => 10, :scale => 2
+    t.integer  "price_main_season_per_day",   :limit => 10, :precision => 10, :scale => 2
+    t.integer  "price_pre_season_per_week",   :limit => 10, :precision => 10, :scale => 2
+    t.integer  "price_mid_season_per_week",   :limit => 10, :precision => 10, :scale => 2
+    t.integer  "price_main_season_per_week",   :limit => 10, :precision => 10, :scale => 2
     t.text     "pictures"
     t.integer  "balcony_id"
   end
@@ -160,7 +160,7 @@ ActiveRecord::Schema.define(:version => 20100111212119) do
   create_table "houses_bookings", :force => true do |t|
     t.integer  "house_id"
     t.integer  "booking_id"
-    t.integer  "position"
+    t.integer  "position",   :limit => 10, :precision => 10, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "owner_id"

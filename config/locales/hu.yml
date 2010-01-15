@@ -332,15 +332,15 @@ hu:
   terrace_id: Terasz
   select_terrace: Válassz terasz típust
   select_balcony: Válassz erkély típust
-  living_room_sq: Nappali
-  living_dining_kitchen_sq: Nappali + étkező + konyha
-  living_dining_room_sq: Nappali + étkező
-  kitchen_sq: Konyha
-  dining_room_sq: Étkező
-  kitchen_dining_room_sq: Étkező + konyha
-  balcony_sq: Erkély
-  terrace_sq: Terasz
-  yard_sq: Kert
+  living_room_sq: Nappali m²
+  living_dining_kitchen_sq: Nappali + étkező + konyha m²
+  living_dining_room_sq: Nappali + étkező m²
+  kitchen_sq: Konyha m²
+  dining_room_sq: Étkező m²
+  kitchen_dining_room_sq: Étkező + konyha m²
+  balcony_sq: Erkély m²
+  terrace_sq: Terasz m²
+  yard_sq: Kert m²
   double_bed: Dupla
   single_bed: Egyszemélyes
   extra_bed: Pótágy
@@ -361,7 +361,7 @@ hu:
   clima_id: Klíma
   select_clima: Válassz klíma típust
   pool: Medence
-  pool_sq: Medence nm
+  pool_sq: Medence m²
   garden_seats: Kiülő
   grill: Grill
   sunbath_seat: Napozóágy
@@ -535,7 +535,7 @@ hu:
   meters:
     zero: "közvetlen"
     other: "ca. {{count}} m"
-  sqmeter: m&sup2;
+  sqmeter: m²
   items: darab
   euro: Euro
   page_top: Lap tetejére

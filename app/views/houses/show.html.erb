@@ -132,9 +132,9 @@
   fields = []
   for field in %w(garden_seats grill sunbath_seat playground) do
     if field == "sunbath_seat"
-      fields << @house[field].to_s + ' ' + t(field) if @house[field]>1
+      fields << @house[field].to_s + ' ' + t(field) if @house[field] and @house[field].to_i>1
     else
-      fields << t(field) if @house[field]==1
+      fields << t(field) if  @house[field] and @house[field].to_i==1
     end
   end -%>
   <%= fields.to_sentence %></p>
