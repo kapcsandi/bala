@@ -94,7 +94,7 @@ de:
     currency:
       format:
         unit: '€'
-        format: '%n%u'
+        format: '%n %u'
         separator: 
         delimiter: 
         precision: 

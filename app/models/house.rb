@@ -133,6 +133,28 @@ class House < ActiveRecord::Base
     end
   end
 
+  def formatted_price(name)
+    case name
+    when /pre|post/
+    "%8.2f" % self.price_pre_season_per_week
+    when /mid/
+    "%8.2f" % self.price_mid_season_per_week
+    when /main/
+    "%8.2f" % self.price_main_season_per_week
+    end
+  end
+
+  def formatted_daily_price(name)
+    case name
+    when /pre|post/
+    "%8.2f" % self.price_pre_season_per_day
+    when /mid/
+    "%8.2f" % self.price_mid_season_per_day
+    when /main/
+    "%8.2f" % self.price_main_season_per_day
+    end
+  end
+
   def distance(item)
     self.method("distance_#{item}").call.to_i
   end

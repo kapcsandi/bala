@@ -12,7 +12,7 @@
 <%=
 unless category[:house].nil?
   if category[:house].discount.nil?
-    price = category[:house].price(Season.which_season?(Date.today)).to_s
+    price = category[:house].formatted_price(Season.which_season?(Date.today))
     persons = category[:house].persons.to_s + (category[:house].children > 0 ? '+' + category[:house].children.to_s : '')
     price + ' ' + t(:price_persons, :persons => persons)
   else
