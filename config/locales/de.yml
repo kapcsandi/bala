@@ -465,6 +465,7 @@ de:
   select_country: wählen Sie Land
   status: Status
   calculate_price: Preis-Rechner
+  animal_info: Anzahl und Tierart der mitfahrenden Haustiere. Bei Hunden bitte Rasse und ca. kg angeben.
 
 # contact
   contact_city: Ort / PLZ

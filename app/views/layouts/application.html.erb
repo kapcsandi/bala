@@ -13,9 +13,9 @@
     <% tooltips_include_tag do %>
       <%= yield(:tips) %>
     <% end %>
-    <%= stylesheet_link_tag 'event_calendar' %>
   <%# end -%>
   <% if admin? %>
+    <%= stylesheet_link_tag 'event_calendar' %>
     <%= javascript_include_tag 'fckeditor/fckeditor' %>
   <% end -%>
   <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
@@ -25,9 +25,9 @@
 <div id="main" class="<%= 'admin' if admin? %>">
   <div id="top">
     <div class="inner span-24">
-      <div id="logo" class="span-12 append-7">
+      <div id="logo" class="span-14 append-5">
         <% content_tag 'div', :class => 'inner' do %>
-          <div id="site-name"><a href="/" title="<%= t :home %>"> 1x ferienhaus </a><span id="slogan"><%= t :slogan %></span></div>
+          <div id="site-name"><a href="/" title="<%= t :home %>"><img src="/images/logo.png" alt="" /></a><span id="slogan"><%= t :slogan %></span></div>
         <% end %>
       </div>
       <div id="login" class="span-5 last">

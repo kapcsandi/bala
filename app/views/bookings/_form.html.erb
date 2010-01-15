@@ -97,7 +97,7 @@
       </div>
     </div>
     <div class="span-6">
-      <%= f.label :animal_details, t(:animal_details) %> <a class="info" name="animal_info" title="Anzahl und Tierart der mitfahrenden Haustiere. Bei Hunden bitte Rasse und ca. kg angeben."> <img src="/images/icons/sexy_flash/info.png" height="15" width="15" alt="info"/></a><br />
+      <%= f.label :animal_details, t(:animal_details) %> <a class="info" name="animal_info" title="<%= t(:animal_info) %>"> <img src="/images/icons/sexy_flash/info.png" height="15" width="15" alt="<%= t(:animal_info) %>"/></a><br />
       <%= f.text_field :animal_details, :size => 30, :disabled => (booking.nil? or not booking.with_animals?) %>
     </div>
   <% end %>

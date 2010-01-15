@@ -75,6 +75,7 @@ legend {padding:0 10px;margin-left:5px;font-size:1.1em;}
 #search legend {padding:0 5px;margin:0; font-size:0.95em}
 #main {height:auto !important;margin:0 auto -8.6em;min-height:100%;}
 .label{font-weight:bold}
+#slogan {padding: 0 10px}
 #search .label {margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
 #search span {display:inline;float:none}
 #menu .menu-item{padding:0;-moz-border-radius-bottomleft:0;-moz-border-radius-bottomright:0;-webkit-border-bottom-left-radius:0;
@@ -124,7 +125,7 @@ fieldset.full p {width:30%;float:left}
 a img,
 #flash_notice, #flash_error, .stamp {-webkit-box-shadow:4px 3px 10px rgba(0,0,0,.5);-moz-box-shadow:4px 3px 10px rgba(0,0,0,.5);box-shadow:4px 3px 10px rgba(0,0,0,.5);border-top:none}
 #houses_bookings a img,
-a.info img, a#bottomNavClose img {-webkit-box-shadow:none;-moz-box-shadow: none;box-shadow: none;}
+a.info img, a#bottomNavClose img, #logo img {-webkit-box-shadow:none;-moz-box-shadow: none;box-shadow: none;}
 a.info {cursor:help}
 .photos div {text-align:center;float:none;margin:5px 10px}
 .photos a img {border:1px solid #a0a0a0}
@@ -176,7 +177,7 @@ br.zero {margin:0;padding:0;line-height:0.4em}
 .mini .span-7 span {width:50%;float:left;display:block}
 .mini .span-7 span.label {width:150px;float:left;display:block}
 .mini .span-7 span.field {width:100px;float:left;display:block}
-.navi .field {float:left;margin:5px 15px}
+.navi .field {float:left;margin:3px 5px}
 .calendar_date_select thead th, .calendar_date_select td, .calendar_date_select caption {padding:0}
 .tags p {width:25%;float:left;}
 .admin #login div {font-size:0.8em;border:1px solid GoldenRod}

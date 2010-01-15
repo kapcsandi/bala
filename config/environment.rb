@@ -51,3 +51,5 @@ end
 ValidatesTimeliness::Formats.remove_us_formats
 ValidatesTimeliness.enable_datetime_select_extension!
 DEFAULT_FIELD_OPTIONS = { :size => 25 }
+ExceptionNotifier.exception_recipients = %w(istvan.kapcsandi@gmail.com)
+ExceptionNotifier.sender_address =  %("Application Error" <app.error@1xferienhaus.de>)

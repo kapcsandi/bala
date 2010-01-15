@@ -465,6 +465,7 @@ hu:
   select_country: Válasszon országot
   status: Állapot
   calculate_price: Árkalkulátor
+  animal_info: Anzahl und Tierart der mitfahrenden Haustiere. Bei Hunden bitte Rasse und ca. kg angeben.
 
 # contact
   contact_city: Ort / PLZ

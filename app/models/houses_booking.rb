@@ -1,5 +1,5 @@
 class HousesBooking < ActiveRecord::Base
-  attr_accessible :house_id, :position, :start_at, :end_at, :status
+  attr_accessible :house_id, :position, :start_at, :end_at, :status, :notes
   belongs_to :house
   belongs_to :booking, :dependent => :destroy
   belongs_to :owner, :class_name => 'User'
