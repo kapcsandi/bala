@@ -15,7 +15,7 @@ Personen <%= @booking.persons %> davon Kinder <%= @booking.children %>
 Alter der Kinder in Jahren: <%= @booking.children_years %>
 Haustier: <%= @booking.animal_details %>
 <%- @houses_bookings.each do |hb| %>
-Mietpreis: <%= hb.price %> EUR
+Mietpreis: <%= hb.formatted_price %> EURO
 <% end -%>
 zuzüglich Ortstaxe (maximal 1,70 EUR pro Person und Tag)
 <%= @booking.with_animals ? 'Haustier: 3,00 EUR/Tag' : '' %>

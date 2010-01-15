@@ -28,8 +28,8 @@
   <%=h @houses_booking.end_at %>
 </p>
 <p>
-  <strong>Ár (EURO):</strong>
-  <%=h @houses_booking.price %>
+  <strong>Ár:</strong>
+  <%=h @houses_booking.formatted_price %> &euro;
 </p>
 <p>
   <strong>Állapot:</strong>
@@ -44,7 +44,7 @@
   <%=h @houses_booking.updated_at %>
 </p>
 <p>
-  <strong>Megjegyés:</strong>
+  <strong>Megjegyzés:</strong>
   <%=h @houses_booking.notes %>
 </p>
 

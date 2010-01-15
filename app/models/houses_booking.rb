@@ -37,6 +37,10 @@ class HousesBooking < ActiveRecord::Base
     self.position
   end
 
+  def formatted_price
+    "%8.2f" % self.position
+  end
+  
   def price=(value)
     self.position=value
   end

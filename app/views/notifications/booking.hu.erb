@@ -7,7 +7,7 @@ foglalása a következő adatokkal megérkezett kollégánkhoz:
 * éjszakák száma: <%= @booking.nights %>
 <% @houses_bookings.each do |hb| %>
 * házkód: <%= @codes[hb.house_id] %>
-* ár: <%= hb.price %> EUR
+* ár: <%= hb.formatted_price %> EURO
 <% end -%>
 
 <% unless @booking.notes.blank? %>
