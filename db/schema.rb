@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(:version => 20100111212119) do
     t.integer  "house_type_id"
     t.integer  "condition_id"
     t.integer  "furnishing_id"
-    t.integer  "persons"
+    t.integer  "persons",  :default => 0
     t.integer  "floor_area"
     t.integer  "animals"
     t.integer  "distance_center"
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(:version => 20100111212119) do
     t.integer  "kitchen"
     t.integer  "dining_room"
     t.integer  "kitchen_dining_room"
-    t.integer  "children"
+    t.integer  "children",  :default => 0
     t.integer  "terrace_id"
     t.integer  "garden"
     t.string   "living_room_sq"

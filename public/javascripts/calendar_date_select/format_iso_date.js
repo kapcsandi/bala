@@ -18,7 +18,7 @@ Date.parseFormattedString = function (string) {
     if (d === null) {
         return Date.parse(string); // at least give javascript a crack at it.
     }
-    var offset = 0; 
+    var offset = 0;
     var date = new Date(d[1], 0, 1); 
     if (d[3]) {
         date.setMonth(d[3] - 1);

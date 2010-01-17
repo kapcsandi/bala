@@ -43,9 +43,9 @@ module ApplicationHelper
   def date_format
     case I18n.locale
     when :de
-      "%d.%M.%Y"
+      '"%d.%M.%Y"'
     when :hu
-      "%Y-%m-%d"
+      '"%Y-%m-%d"'
     else
       '"%Y-%m-%d"'
     end

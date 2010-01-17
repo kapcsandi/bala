@@ -68,7 +68,7 @@ class ApplicationController < ActionController::Base
 
     I18n.locale = params[:locale] || cookies[:locale] || :de
     cookies[:locale] = params[:locale] if params[:locale]
-    CalendarDateSelect.format = (I18n.locale.to_s == 'hu' ? :iso_date : :finnish)
+    CalendarDateSelect.format = I18n.locale.to_sym
   end
     
   def extract_locale_from_uri 
@@ -77,8 +77,8 @@ class ApplicationController < ActionController::Base
   end 
   
   def default_url_options(options={})
-    logger.debug "default_url_options is passed options: #{options.inspect}\n"
-    { :locale => I18n.locale }
+#    logger.debug "default_url_options is passed options: #{options.inspect}\n"
+#    { :locale => I18n.locale }
   end
   
   def empties_helper
