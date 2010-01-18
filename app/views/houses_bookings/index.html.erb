@@ -30,7 +30,7 @@ Válassz apartmant:
   <% for houses_booking in @bookings %>
     <tr class="<%= cycle('odd', 'even') %>">
       <td><%=h houses_booking.house.code unless houses_booking.house_id.nil? %></td>
-      <td><%= link_to_if houses_booking.booking_id, "#{houses_booking.code}", :controller => :bookings, :action => 'show', :id => houses_booking.booking_id %></td>
+      <td><%= link_to_if houses_booking.booking_id, "#{houses_booking.booking.code}", :controller => :bookings, :action => 'show', :id => houses_booking.booking_id %></td> 
       <td><%=h houses_booking.owner.username unless houses_booking.owner_id.nil? %></td>
       <td><%=h houses_booking.start_at %></td>
       <td><%=h houses_booking.end_at %></td>

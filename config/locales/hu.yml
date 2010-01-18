@@ -469,7 +469,8 @@ hu:
 
 # contact
   contact_city: Ort / PLZ
-  contact_notes: "Ihre Anfrage zu Haus {{house}}:"
+  contact_notes_for: "Ihre Anfrage zu Haus {{house}}:"
+  contact_notes: "Ihre Anfrage:"
   contact_from: "Érkezés dátuma"
   contact_to: "Távozás dátuma"
   contact_firstname: "Keresztnév"

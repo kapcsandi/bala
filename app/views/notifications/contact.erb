@@ -1,13 +1,11 @@
 Kapcsolatfelvétel
 
-Kérdés érkezett a következő adatokkal:
-<% unless @contact.notes.blank? %>
+Kérdés érkezett<%= if @code then ' a ' + @code + ' házzal kapcsolatban' end %>:
 <%= @contact.name %> <<%= @contact.email %>> üzenete:
 <%= @contact.notes %>
 -- üzenet vége
 
 további adatok:
-<% end %>
 * Név: <%= @contact.name %>
 * Város: <%= @contact.city %>
 * Cím: <%= @contact.address %>

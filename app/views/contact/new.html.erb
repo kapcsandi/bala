@@ -1,14 +1,24 @@
-<% title t(:contact_house_fieldset) + ' | ' + ([@house.house_type, @house.code, @house.city].join(', ') ), false %>
+<%
+  if @house
+    title t(:contact_house_fieldset) + ' | ' + ([@house.house_type, @house.code, @house.city].join(', ') ), false
+  else
+    title t(:contact_house_fieldset), false
+  end
+%>
 <div class="inner">
+<% if @house %>
 <div class="mini odd">
 <%= render :partial => 'houses/mini', :locals => { :house => @house, :cart => @cart } %>
 <%- unless controller.action_name == 'print' %>
 <%= render :partial => 'houses/navigation' , :locals => { :house => @house }%>
 <% end -%>
 </div>
+<% end -%>
 <% form_for @contact, :url => {:action => :create} do |f| %>
   <%= f.error_messages %>
+<% if @house %>
   <%= f.hidden_field :house_id, :value => @house.id %>
+<% end -%>
 <% field_set_tag t(:contact_house_fieldset) do %>
   <% [ :firstname, :lastname, :address, :city, :phone, :email].each do |field| %>
     <div class="span-6">
@@ -40,7 +50,8 @@
       </div>
     </div>
 <%- end -%>
-<% field_set_tag t(:contact_notes, :house => @house.code) do %>
+<% fs_name = if @house then t(:contact_notes_for, :house => @house.code) else t(:contact_notes) end %>
+<% field_set_tag fs_name do %>
  <div class="clear span-18 prepend-top">
   <%= f.text_area :notes, :rows => 4 %>
 </div>

@@ -42,18 +42,19 @@
       </div>
     </div>
     <div id="menu"><div class="inner">
-      <%- ['home', 'booking', :cart, :special_offers, :contact, :programs].each do |item|
+      <%- ['home', 'booking', :cart, :special_offers, 'contact', :programs].each do |item|
         title( t(item) ) unless @content_for_title -%>
         <div class="menu span-4<%= if item == :programs then ' last' end %> <%=
           case item
           when 'home': if controller_name !~ /bookings|pages/ and action_name !~ /cart/ and not params[:discount] then ' selected' end
-          when 'booking': if controller_name == 'bookings' then ' selected' end
+          when 'booking','contact': if controller_name =~ /#{item}/ then ' selected' end
           else if current_page?(item) then ' selected' end
           end %>">
           <% link_to (
           case item
           when 'home': '/'
           when 'booking': new_booking_path
+          when 'contact': {:action => 'new', :controller => :contact}
           else item
           end
           ) do -%><span class="menu-item <%= item.to_s %>"><%= t(item) %><%= if (item == :cart) and cart_items>0 then ' (' + cart_items.to_s + ')' end %></span><% end -%>

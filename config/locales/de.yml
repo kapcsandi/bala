@@ -469,7 +469,8 @@ de:
 
 # contact
   contact_city: Ort / PLZ
-  contact_notes: "Ihre Anfrage zu Haus {{house}}"
+  contact_notes_for: "Ihre Anfrage zu Haus {{house}}"
+  contact_notes: "Ihre Anfrage"
   contact_from: "Wunsttermin von"
   contact_to: "Wunsttermin bis"
   contact_firstname: "Vorname"
