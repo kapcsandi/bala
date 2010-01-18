@@ -36,8 +36,8 @@
       <%= f.label 'start_at', t(:from) %><br />
       <%= hb_form.calendar_date_select :start_at, :popup => "force",
       :valid_date_check => "date > new Date()",
-      :size => 20, :onchange => "nights(this);return false;",
-      :value => (booking.start_at ? l(booking.start_at, 'date.formats.default') : ''), # :format => "'#{t('date.formats.default_str')}'",
+      :size => 20, :onchange => "nights(this)",
+      :value => (booking.start_at ? l(booking.start_at, 'date.formats.default') : ''),
       :format => "#{date_format}",
       :year_range => 0.years.ago.year..1.years.from_now.year
        %>
@@ -46,8 +46,8 @@
       <%= f.label 'end_at', t(:to) %><br />
       <%= hb_form.calendar_date_select :end_at, :popup => "force",
       :valid_date_check => "date > new Date()",
-      :size => 20, :onchange => "nights(this);return false;",
-      :value => (booking.end_at ? l(booking.end_at, 'date.formats.default') : ''), # :format => "'#{t('date.formats.default_str')}'",
+      :size => 20, :onchange => "nights(this)",
+      :value => (booking.end_at ? l(booking.end_at, 'date.formats.default') : ''),
       :format => "#{date_format}",
       :year_range => 0.years.ago.year..1.years.from_now.year
       %>

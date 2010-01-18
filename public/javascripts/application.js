@@ -29,6 +29,27 @@ function nights(field) {
   $$("#houses_bookings .price").invoke('update','');
 }
 
+function contact_nights(field) {
+  var format = Date.short_date_format;
+  var to, from;
+  var picked_date = new Date.parseExact(field.value,format);
+  if (field.id == 'contact_start_at') {
+    from=picked_date;
+    to=new Date.parseExact($F("contact_end_at"),format);
+    if ( ($F("contact_end_at") == '') || (from.isAfter(to))) {
+      to=picked_date.addWeeks(1);
+      $("contact_end_at").value=to.toString(format);
+    }
+  } else {
+    to=picked_date;
+    from=new Date.parseExact($F("contact_start_at"),format);
+    if ( ($F("contact_start_at") == '') || (from.isAfter(to))) {
+      from=picked_date.addWeeks(-1);
+      $("contact_start_at").value=from.toString(format);
+    }
+  }
+}
+
 function root_init() {
 new Carousel('carousel',$$('#carousel .slide'), false, {auto: true, visibleSlides: 5, circular: true });
 }

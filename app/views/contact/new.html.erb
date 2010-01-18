@@ -30,11 +30,18 @@
 <% field_set_tag nil, :class => 'odd' do %>
   <div class="span-6">
     <%= f.label 'start_at', t('contact_from') %><br />
-    <%= f.calendar_date_select :start_at, :popup => "force", :valid_date_check => "date > new Date()", :size => 20 %>
+    <%= f.calendar_date_select :start_at,
+    :popup => "force",
+    :valid_date_check => "date > new Date()",
+    :onchange => "contact_nights(this)",
+    :size => 20 %>
   </div>
   <div class="span-6">
     <%= f.label 'end_at', t('contact_to') %><br />
-    <%= f.calendar_date_select :end_at, :popup => "force", :size => 20 %>
+    <%= f.calendar_date_select :end_at,
+    :popup => "force",
+    :onchange => "contact_nights(this)",
+    :size => 20 %>
   </div>
     <% [ :persons_count, :children_count].each do |field| %>
       <div class="span-6">

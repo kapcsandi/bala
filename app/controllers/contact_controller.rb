@@ -11,7 +11,6 @@ class ContactController < ApplicationController
     if @contact.house_id
       @house = House.find(@contact.house_id)
       if @contact.valid?
-        debugger
         Notifications.deliver_contact(@contact, @house.code)
         flash[:notice] = t(:contact_sended)
         redirect_to :controller => 'houses', :action => 'show', :id => @house.id

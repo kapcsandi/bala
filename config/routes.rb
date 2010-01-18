@@ -14,7 +14,6 @@ ActionController::Routing::Routes.draw do |map|
   map.home "home", :controller => "root", :action => "index"
   map.cart "cart", :controller => "houses", :action => "cart"
   map.special_offers "special_offers", :controller => "houses", :action => "index", :discount => true, :q => ''
-  map.contact "pages/contact", :controller => "pages", :action => "show", :page => "contact"
   map.programs "pages/programs", :controller => "pages", :action => "show", :page => "programs"
   [:infos_a_z, :map, :weather, :calendar, :sights, :offers, :terms, :impressum, :owners].each do |path|
     map.connect path.to_s, :controller => "pages", :action => "show", :id => path
