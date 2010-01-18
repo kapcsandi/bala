@@ -8,6 +8,7 @@
     <%= f.label t('admin.email') %><br />
     <%= f.text_field :email %>
   </p>
+  <%- if root_admin? -%>
   <p>
     <%= f.label t('admin.password') %><br />
     <%= f.password_field :password %>
@@ -16,7 +17,6 @@
     <%= f.label t('admin.password_confirmation') %><br />
     <%= f.password_field :password_confirmation %>
   </p>
-  <%- if root_admin? -%>
   <p>
     <%= f.label t('admin.role') %><br />
     <%= f.text_field :role %>

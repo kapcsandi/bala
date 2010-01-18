@@ -358,8 +358,8 @@ de:
   select_stove: Wählen Sie Ofen
   sat: SAT
   internet: Internet
-  clima_id: clima
-  select_clima: Wählen Sie clima
+  clima_id: Klima
+  select_clima: Wählen Sie Klima
   pool: Pool
   pool_sq: Pool m²
   garden_seats: Gartenmöbel
@@ -547,7 +547,7 @@ de:
   or: oder
   answer_yes: Ja
   answer_no: Nein
-  price_persons: " &euro; / Woche / {{persons}} Pers."
+  price_persons: "Ab {{price}} &euro; / Woche / {{persons}} Pers."
   short_persons: "für {{persons}} Pers."
 
 #messages

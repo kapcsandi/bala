@@ -46,6 +46,10 @@ class HousesBooking < ActiveRecord::Base
   end
 
   def code
-    "R" + self.booking.id.to_s + '_H' + self.house.code
+    if self.booking_id
+      self.id.to_s + "/" + self.booking.id.to_s + '/' + self.house.stripped_code
+    else
+      self.id.to_s + '/' + self.house.stripped_code
+    end
   end
 end

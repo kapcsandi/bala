@@ -388,7 +388,7 @@ hu:
   price_pre_season: Előszezon / Utószezon
   price_mid_season: Középszezon
   price_main_season: Főszezon
-  admin_description: Admin megjegyzés
+  admin_description: Admin megjegyzés (csak az admin számára látható)
   picture_url: "{{position}}. kép neve"
 
 #field groups
@@ -547,7 +547,7 @@ hu:
   or: vagy
   answer_yes: igen
   answer_no: nem
-  price_persons: "&euro; / hét / {{persons}} fő"
+  price_persons: "{{price}} &euro; / hét / {{persons}} fő"
   short_persons: "max. {{persons}} fő"
 
 #messages
@@ -791,6 +791,7 @@ hu:
     are_you_sure: Biztos benne?
     remove: Töröl
     add_tag: Hozzáad
+    back: Vissza
 # admin flash üzenetek
     successfully_created_page: Oldal sikeresen létrehozva
     successfully_updated_page: Oldal sikeresen módosítva

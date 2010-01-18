@@ -23,11 +23,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id]) if root_admin? and params[:id] != 'current'
   end
 
   def update
-    @user = User.find(params[:id]) if root_admin? and params[:id] != 'current'
     if @user.update_attributes(params[:user])
       flash[:notice] = t('admin.successfully_updated_profile')
       redirect_to :root
@@ -38,6 +36,10 @@ class UsersController < ApplicationController
 
   private
   def find_user
-    @user = current_user
+    if root_admin? and params[:id] != 'current'
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
   end
 end

@@ -44,6 +44,6 @@ class Booking < ActiveRecord::Base
   end
 
   def country_name(locale = :hu)
-    t(:countries, :locale => locale).select{|country| country[0] == self.country.to_sym}[0][1]
+    t(:countries, :locale => locale).select{|country| country[0] == self.country.to_sym}[0][1] unless self.country.empty?
   end
 end

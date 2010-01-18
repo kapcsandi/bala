@@ -24,7 +24,7 @@ class Notifications < ActionMailer::Base
   end
 
   def booking_admin(codes, booking, houses_bookings,  sent_at = Time.now)
-    recipients "renata.gerhat@1xferienhaus.de" # current_user.email_address_with_name
+    recipients "renata.gerhat@1xferienhaus.de"
     from       "buchung@1xferienhaus.de"
     subject    "1xferienhaus.de admin - Foglalás értesítő"
     body       :booking => booking, :codes => codes, :houses_bookings => houses_bookings

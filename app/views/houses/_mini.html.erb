@@ -8,7 +8,7 @@
     </div>
 <br /><% if house.discounted?  %>
     <span class="label"><%= t(:discount) %>:</span>
-    <span class="field"><%=h truncate(house.discount.description, 80) %></span>
+    <span class="field discount"><%=h truncate( house.discount.description, :length => 40 ) %></span>
     <% end %>
   </div>
   <div class="span-4">

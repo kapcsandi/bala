@@ -9,6 +9,8 @@ class House < ActiveRecord::Base
   has_many :houses_bookings
   has_many :bookings, :through => :houses_bookings, :uniq => true
 
+  default_scope :order => 'code ASC'
+  
   accepts_nested_attributes_for :discount, :allow_destroy => true
   accepts_nested_attributes_for :tags, :allow_destroy => true
   
@@ -89,7 +91,7 @@ class House < ActiveRecord::Base
   def stripped_code
     self.code.sub(/-\d+$/,'')
   end
-  
+
   def picture_urls(size)
     pictures.split(',').map{|id| id.sub(/-([0-9]+)$/,'_\1')}.map{|pid| APP_CONFIG['asset_server']+self.stripped_code+'/'+pid+"_#{size}.jpg" if pid !~ /\ |$^/ }.compact if pictures
   end

@@ -7,17 +7,26 @@ class HousesBookingsController < ApplicationController
     @search = House.searchlogic(params[:search])
     @year = params[:date] && params[:date][:year] || Date.today.year
     @month = params[:date] && params[:date][:month] || Date.today.month
+    @all = params[:all]
     @year, @month = @year.to_i, @month.to_i
     @date = Date.parse("#{@year}-#{@month}-01")
     @house = @search.first
-    @shown_month = Date.civil(@year, @month)
-    @first_day_of_week = 1
-    if @house and params[:search] and not params[:search][:code].empty? then
-      @bookings = @house.houses_bookings.on_month(@shown_month).with_assoc
-      @event_strips = @bookings.event_strips_for_month(@shown_month,@first_day_of_week)
+    if @all
+      if @house and params[:search] and not params[:search][:code].empty? then
+        @bookings = @house.houses_bookings.paginate(:page => params[:page], :per_page => 10)
+      else
+        @bookings = HousesBooking.all.paginate(:page => params[:page], :per_page => 10)
+      end
     else
-      @bookings = HousesBooking.on_month(@shown_month).with_assoc
-      @event_strips = HousesBooking.event_strips_for_month(@shown_month,@first_day_of_week)
+      @shown_month = Date.civil(@year, @month)
+      @first_day_of_week = 1
+      if @house and params[:search] and not params[:search][:code].empty? then
+        @bookings = @house.houses_bookings.on_month(@shown_month).with_assoc
+        @event_strips = @bookings.event_strips_for_month(@shown_month,@first_day_of_week)
+      else
+        @bookings = HousesBooking.on_month(@shown_month).with_assoc
+        @event_strips = HousesBooking.event_strips_for_month(@shown_month,@first_day_of_week)
+      end
     end
   end
   

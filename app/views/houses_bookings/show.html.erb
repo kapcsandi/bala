@@ -49,6 +49,7 @@
 </p>
 
 <p>
+  <%= link_to t('admin.back'), :back %> |
   <%= link_to t('admin.edit'), edit_houses_booking_path(@houses_booking) %> |
   <%= link_to t('admin.destroy'), @houses_booking, :confirm => t('Are you sure?'), :method => :delete %> |
   <%= link_to t('admin.view_all'), houses_bookings_path %>
