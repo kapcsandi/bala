@@ -43,7 +43,7 @@ Carousel = Class.create(Abstract, {
             wheel:              true,
             effect:             'scroll',
             transition:         'sinoidal',
-            direction:            1,
+            direction:            1
         }, options || {});
         
         if (this.options.effect == 'fade') {
