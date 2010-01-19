@@ -7,7 +7,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = t('successfully_logged_in')
-      event_logger("#{params[:user_session][:username]} belépett a(z) #{request.remote_ip} IP címről")
+      event_logger("#{params[:user_session][:username]} belépett a #{request.remote_ip} IP címről")
 #      begin
 #        Notifications.deliver_test
 #      rescue
@@ -15,7 +15,8 @@ class UserSessionsController < ApplicationController
 #      end
       redirect_to event_logs_url
     else
-      event_logger("sikertelen belépés: #{params[:user_session].to_s}")
+      logger.warn ("sikertelen belépés: #{params[:user_session].inspect}")
+      event_logger ("sikertelen belépés: #{params[:user_session][:username]} a #{request.remote_ip} IP címről")
       flash[:error] = t('admin.user_login_error')
       render :action => 'new'
     end
