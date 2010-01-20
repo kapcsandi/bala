@@ -38,7 +38,7 @@ class HousesBooking < ActiveRecord::Base
   end
 
   def formatted_price
-    "%8.2f" % self.position
+    "%8.2f" % self.position unless self.position.nil?
   end
   
   def price=(value)
