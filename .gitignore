@@ -3,7 +3,6 @@
 *~
 public/javascripts/cache
 public/stylesheets/cache
-public/javascripts/bundle*
-public/stylesheets/bundle*
+bundle_*
 /public/uploads/*
 /public/pic

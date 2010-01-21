@@ -30,7 +30,7 @@
       <%= h @house.admin_description %>
     </div>
     <% end -%>
-    <%- unless @house.house_description.empty? -%>
+    <%- unless @house.house_description.nil? -%>
     <p>
       <%= label_tag :house_description, t(:house_description) %>:<br />
       <%= @house.house_description %>
