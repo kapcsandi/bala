@@ -113,7 +113,7 @@ tr.odd {background-color:#fff}
 #house_distances span.label {width:60%}
 fieldset.full p {width:30%;float:left}
 #houses_new fieldset p, #houses_edit fieldset p {width:33%;float:left}
-#houses_new fieldset p input, #houses_edit fieldset p input{width:95%}
+#houses_new fieldset p input[type=text], #houses_edit fieldset p input[type=text] {width:95%}
 #houses_new .half p, #houses_edit .half p {width:50%;float:auto}
 #houses_new .full p, #houses_edit .full p {width:100%;float:auto}
 #new_booking fieldset div.fieldWithErrors {width:auto;float:auto;margin:0 auto}
