@@ -98,7 +98,7 @@
     </div>
     <div id="content" class="span-20 last">
     <% if controller_name !~ /setup|bookings|contact|pages|users/ -%>
-      <div id="search" style="overflow:hidden">
+      <div id="search">
         <% content_tag 'div', :class => 'inner' do -%>
           <% if params[:advanced] %>
           <%= render :partial => 'houses/detailed_search' %>

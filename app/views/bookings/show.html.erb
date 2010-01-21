@@ -14,15 +14,15 @@
 </p>
 <p>
   <strong><%= t('admin.status')%>:</strong>
-  <%= @booking.houses_bookings.first.status %>
+  <%= @booking.houses_bookings.first.status if @booking.houses_bookings.first.respond_to?(:status) %>
 </p>
 <p>
   <strong><%= t('admin.from') %>:</strong>
-  <%=h @booking.houses_bookings.first.start_at %>
+  <%=h @booking.houses_bookings.first.start_at if @booking.houses_bookings.first.respond_to?(:start_at) %>
 </p>
 <p>
   <strong><%= t('admin.to') %>:</strong>
-  <%=h @booking.houses_bookings.first.end_at %>
+  <%=h @booking.houses_bookings.first.end_at if @booking.houses_bookings.first.respond_to?(:end_at) %>
 </p>
 <p>
   <strong><%= t('admin.nights') %>:</strong>

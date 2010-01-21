@@ -104,7 +104,7 @@
   <% field_set_tag t('contact_data'), :class => 'odd' do %>
     <div class="span-6">
       <%= f.label :salut, t(:salut) %><br />
-      <%= f.select :salut, ['Frau', 'Herr', 'Frima'] %>
+      <%= f.select :salut, ['Frau', 'Herr', 'Firma'] %>
     </div>
 
     <% [ :firstname, :lastname, :company, :address, :city, :postcode].each do |field| %>
