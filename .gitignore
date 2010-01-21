@@ -1,7 +1,9 @@
 *.log
 *.yml
 *~
-public/javascripts/cache/*
-public/stylesheets/cache/*
+public/javascripts/cache
+public/stylesheets/cache
+public/javascripts/bundle*
+public/stylesheets/bundle*
 /public/uploads/*
 /public/pic
