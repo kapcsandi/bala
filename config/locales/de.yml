@@ -390,6 +390,13 @@ de:
   post_saison: Nachsaison
 #   admin_description: Admin megjegyzés
 #   picture_url: "{{position}}. kép neve"
+  house_prices_info:  Mietpreis pro Haus und Woche in Euro (&euro;)
+  house_prices_from: von
+  house_prices_to: bis
+  house_prices_with: bei Belegung mit .. Personen
+  house_prices_season: bis zu
+  house_prices_price: Mietpreis
+  house_prices_includes_info: "Im Preis bereits enthalten: Battwäsche, Endreinigung, Gas, Strom, Wasser.<br />Nebenkosten: Zuschläge (zalhbar bei Buchung): Ortstaxe<br /> An- und Abreise: Samstags. Mindestanfenhalt 1 Woche. Abweichende An- und  Abreise sowie kürzere Afenthalte in der Nebensaison auf Anfrage möglich (teilweise  Mietpreiszuschlag)"
 
 # field groups
   house_basics: Hausbeschreibung
@@ -406,6 +413,7 @@ de:
   house_owner_infos: Hausbesitzer Information
   house_animals: Haustier
   house_prices: Mietpreis
+  house_prices_includes: Mietbedienungen
   house_price_day: Preis / Person / Tag (EUR)
   house_price_week: Preis / Person / Woche (EUR)
   house_description: Beschreibungen

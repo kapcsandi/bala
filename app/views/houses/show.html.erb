@@ -181,20 +181,20 @@
   <% end %>
 <% field_set_tag t('house_prices') do %>
 <% content_tag :div, :id => :house_prices do %>
-  <p style="width:100%">Mietpreis pro Haus und Woche in Euro (&euro;)</p>
+  <p style="width:100%"><%= t(:house_prices_info) %></p>
   <br />
   <table>
   <thead>
   <tr>
-  <th> von </th>
-  <th> bis </th>
-  <th> bei Belegung mit .. Personen</th>
-  <th>bis zu </th>
-  <th> Mietpreis </th>
+  <th><%= t(:house_prices_from) %></th>
+  <th><%= t(:house_prices_to) %></th>
+  <th><%= t(:house_prices_with) %></th>
+  <th><%= t(:house_prices_season) %></th>
+  <th><%= t(:house_prices_price) %></th>
   </tr>
   </thead>
   <tbody>
-  <% for season in Season.next_year %>
+  <%- for season in Season.next_year %>
     <tr class="<%= cycle('odd', 'even') %>">
     <td><%=l(season.start) %></td>
     <td><%=l(season.end) %></td>
@@ -202,19 +202,13 @@
     <td><%= t(season.name) %></td>
     <td><%=h @house.formatted_price(season.name) %> &euro;</td>
     </tr>
-  <% end %>
+  <%- end %>
   </tbody>
   </table>
-  <% end %>
-  <% end %>
-  <% field_set_tag 'Mietbedienungen', :class => 'odd' do %>
-  <p>
-  Im Preis bereits enthalten: Battwäsche, Endreinigung, Gas, Strom, Wasser.<br />
-  Nebenkosten: Zuschläge (zalhbar bei Buchung): Ortstaxe<br />
-  An- und Abreise: Samstags. Mindestanfenhalt 1 Woche. Abweichende An- und
-  Abreise sowie kürzere Afenthalte in der Nebensaison auf Anfrage möglich (teilweise
-  Mietpreiszuschlag)
-  </p>
+  <%- end %>
+  <%- end %>
+  <%- field_set_tag t(:house_prices_includes), :class => 'odd' do %>
+  <p><%= t(:house_prices_includes_info) %></p>
 <% end %>
 <% if controller.action_name != 'print' %>
   <a name="photos"></a>
