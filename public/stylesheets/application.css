@@ -181,9 +181,9 @@ br.zero {margin:0;padding:0;line-height:0.4em}
 .calendar_date_select thead th, .calendar_date_select td, .calendar_date_select caption {padding:0}
 .tags p {width:25%;float:left;}
 .admin #login div {font-size:0.8em;border:1px solid GoldenRod}
-#main #carousel {height:150px;width:725px;margin:-20px 0 0 40px;overflow:hidden}
-#main #carousel .container {width:8500px;}
-#main #carousel .container .slide {height:auto;width:125px;float:left}
+#main #carousel {width:725px;margin:-20px 0 0 40px;overflow:hidden}
+#main #carousel .container {width:10000px;height:110px}
+#main #carousel .container .slide {height:auto;width:125px;margin-bottom:10px;float:left}
 #main #carousel .previous_button,
 #main #carousel .next_button {display:none}
 #pages_show table, #pages_show td {vertical-align:top}

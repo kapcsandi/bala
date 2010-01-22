@@ -825,3 +825,8 @@ hu:
   status_created: "Rögzítve"
   status_approved: "Elfogadva"
   status_deleted: "Törölve"
+# emails
+  contact_from: "kapcsolat@1xferinehaus.de"
+  booking_from: "foglalas@1xferienhaus.de"
+
+  
