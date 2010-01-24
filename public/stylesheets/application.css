@@ -72,12 +72,16 @@ a:visited{color:#000;}
 a:hover {color:#D75A20}
 .navi input[type=submit] {cursor:pointer}
 legend {padding:0 10px;margin-left:5px;font-size:1.1em;}
-#search legend {padding:0 5px;margin:0; font-size:0.95em}
-#main {height:auto !important;margin:0 auto -8.6em;min-height:100%;}
+.search legend {padding:0 5px;margin:0; font-size:0.95em}
+#main {height:auto !important;margin:0 auto -8.6em;min-height:100%;-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:#3B5378 url(/images/bg-page.png) repeat-x scroll 0 80px;}
 .label{font-weight:bold}
+.left {float:left}
 #slogan {padding: 0 10px}
-#search .label {margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
-#search span {display:inline;float:none}
+.search .label {margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
+.search span {display:inline;float:none}
 #menu .menu-item{padding:0;-moz-border-radius-bottomleft:0;-moz-border-radius-bottomright:0;-webkit-border-bottom-left-radius:0;
 -webkit-border-bottom-right-radius:0;border-radius-bottomleft:0;border-radius-bottomright:0;}
 #menu {background:#8AC9D4/* url(/images/bg0.png) repeat-x*/;margin:0 auto;height:24px;padding-top:5px;overflow:hidden;clear:both;border-bottom:5px solid #E4F1FB}
@@ -89,20 +93,21 @@ legend {padding:0 10px;margin-left:5px;font-size:1.1em;}
 #left .menu-item {font-size:1.1em;padding:2px}
 #menu .last {margin-right:0}
 #menu .inner {width:950px;margin:0 auto;overflow:hidden;clear:both}
+.container .inner {margin-top:0;padding-top:5px}
 .menu-item {margin:2px 0;text-align:center;display:block;border:2px solid #E4F1FB;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;
 -webkit-box-shadow: 0 1px 5px rgba(0,0,0,.2);-moz-box-shadow: 0 1px 5px rgba(0,0,0,.2);box-shadow: 0 1px 5px rgba(0,0,0,.2);font-size:1.1em;font-family:'Trebuchet MS',Lucida,Verdana;}
 #top .menu a, #left .menu a {text-decoration:none;cursor:pointer;display:inline;font-size:1em}
 #menu .selected .menu-item {border:1px solid #fafafa;font-weight:bold}
-#top {margin:0 auto}
-#top .inner {padding:2px;margin:0 auto;float:none}
+#top {margin:0 auto;background:#fff}
+#top .inner {padding:2px;margin:0 auto;float:none;overflow:hidden}
 #top .left{height:50px;background-color:#2B5A88 }
 .categories .category {height:150px;width:168px;border:1px solid #F8F883;padding:5px 10px;margin:0 10px 10px 0;float:left;text-align:center}
 .categories .category.last {margin-right:0}
 .category .title {font-size:12px;display:block}
 .category .details {font-size:11px;padding-top:3px}
 .mini {line-height:1.5em;overflow:hidden;margin:0 0 10px 0;padding:5px;border:1px solid #cccccc}
-.even {background-color:#f6f6f6}
-.odd {background-color:#efefef}
+.even {background-color:#fcfcfc}
+.odd {background-color:#f6f6f6}
 tr.odd {background-color:#fff}
 .calendar_date_select {width:210px}
 .fullwidth span.label {float:left;padding-left:20px;clear:both;width:auto;font-size:1.1em}
@@ -138,12 +143,22 @@ ul#booking_prices {margin:0}
 #houses_bookings {overflow:hidden;margin:0 auto;}
 .photos a:hover img,
 #horizontal_carousel ul li a:hover img {border:1px solid #D75A20}
-#search {border:1px solid #F4C13F;background:transparent url(/images/search-bg.jpg) repeat-y scroll left top;border-left:1px solid #F8F883;padding-bottom:10px;margin-bottom:10px;float:left}
-#search img {margin-top:5px}
-#search fieldset {margin:0;padding:0 15px 1.4em;width:94%}
-#search .label {font-weight:normal}
-#search input[type="submit"] {background:transparent url(/images/icons/24x24/001_38.png) no-repeat scroll 100% 50%;width:100px;height:30px;cursor:pointer}
-.container{}
+#search {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(/images/bg-menu.png) no-repeat scroll 0 -3px;
+padding-bottom:10px;margin-bottom:10px;float:left}
+#adv_search {-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(/images/adv-bg-menu.png) no-repeat scroll 0 -3px;
+padding-bottom:10px;margin-bottom:10px;float:left}
+.search img {margin-top:5px}
+.search fieldset {margin:0 0 0 10px;padding:0 15px 1.4em;width:94%}
+.search .label {font-weight:normal}
+.search input[type="submit"] {background:transparent url(/images/icons/24x24/001_38.png) no-repeat scroll 100% 50%;width:100px;height:30px;cursor:pointer}
+.container{background:#fff;width:960px;padding-left:10px}
 #content {margin:0;}
 #site-name a {font-size:30px;font-weight:bold;text-decoration:none;color:#D75A20;font-family:'Trebuchet MS',Lucida,Verdana;text-shadow: 1px 1px 1px rgba(0,0,0,.4);}
 .pagination {float:right;padding:0 15px}
@@ -188,3 +203,4 @@ br.zero {margin:0;padding:0;line-height:0.4em}
 #main #carousel .next_button {display:none}
 #pages_show table, #pages_show td {vertical-align:top}
 .discount {color:red}
+#foot {height:100px;background:#3B5378 }

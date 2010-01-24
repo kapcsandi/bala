@@ -1,7 +1,7 @@
 <% title t('title_houses_found') %>
 <%= t( :houses_found, :count => @houses_count ) %>
 <%= will_paginate @houses, :previous_label => t(:prev_link), :next_label => t(:next_link) %>
-<div class="span-20 last">
+<div class="span-19 last">
   <% for house in @houses %>
   <div id="house_<%= house.id %>" class="mini house <%= cycle('odd', 'even') %>">
   <%= render :partial => 'mini', :locals => { :house => house, :cart => @cart } %>

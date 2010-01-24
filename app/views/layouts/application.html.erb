@@ -61,7 +61,7 @@
         </div>
       <% end -%>
     <%- if admin? -%>
-    <div class="menu" style="float:left;width:100%;clear:both">
+    <div class="menu span-24">
       <% [:pages, :houses, :houses_bookings, :taggables, :seasons, :event_logs, :image, :users].each do |menu|
         next if menu.to_s !~ /bookings/ and not root_admin? %>
         <div<%=if current_page?(menu) then ' class="selected"' end %> style="float:left;padding-right:10px">
@@ -98,7 +98,7 @@
     </div>
     <div id="content" class="span-20 last">
     <% if controller_name !~ /setup|bookings|contact|pages|users/ -%>
-      <div id="search">
+      <div id="<%= 'adv_' if params[:advanced] %>search" class="search">
         <% content_tag 'div', :class => 'inner' do -%>
           <% if params[:advanced] %>
           <%= render :partial => 'houses/detailed_search' %>
@@ -114,15 +114,15 @@
     <%- if show_title? -%>
       <h1><%=h yield(:title) %></h1>
     <%- end -%>
-    <div class="span-20">
+    <div class="left">
       <%= yield %>
     </div>
   </div>
-  <div class="right">
+  <div class="prepend-21">
     <a href="#top"><%= t('page_top') %></a>
   </div>
 </div>
-<div id="foot" class="span-24"></div>
+<div id="foot"></div>
 </div>
 <%= yield(:foot) -%>
 <!-- <%= "#{RAILS_ENV} runs with Ruby (v#{VERSION}) On Rails (v#{RAILS_GEM_VERSION})" %> -->

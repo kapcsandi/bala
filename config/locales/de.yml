@@ -4,7 +4,7 @@
 # Cleaned up by László Bácsi (http://lackac.hu)
 # updated by kfl62 kfl62g@gmail.com
 
-hu:
+de:
   date:
     formats:
       default: "%d.%m.%Y"
