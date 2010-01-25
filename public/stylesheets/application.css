@@ -94,7 +94,7 @@ legend {padding:0 10px;margin-left:5px;font-size:1.1em;}
 #menu .selected .menu-item {border:1px solid #fafafa;font-weight:bold}
 .categories .category {height:150px;width:168px;border:1px solid #F8F883;padding:5px 10px;margin:0 10px 10px 0;float:left;text-align:center}
 .categories .category.last {margin-right:0}
-.category .title {font-size:12px;display:block}
+.category .title {font-size:12px;display:block;padding:2px 0}
 .category .details {font-size:11px;padding-top:3px}
 .mini {line-height:1.5em;overflow:hidden;margin:0 0 10px 0;padding:5px;border:1px solid #cccccc}
 .even {background-color:#fcfcfc}
@@ -184,4 +184,15 @@ br.zero {margin:0;padding:0;line-height:0.4em}
 #carousel .next_button {display:none}
 #pages_show table, #pages_show td {vertical-align:top}
 .discount {color:red}
-#foot {background:#DDEEEE;margin:30px 20px 10px;padding:30px 0;}
+#foot {background:#DDEEEE;margin:30px 20px 10px;padding:20px 0 10px;text-align:center;
+-x-system-font:none;
+color:#665544;
+font-family:Georgia,"Times New Roman",serif;
+font-size:14px;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:normal;
+line-height:17px;
+margin-bottom:12px;}

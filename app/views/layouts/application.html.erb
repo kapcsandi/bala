@@ -45,7 +45,7 @@
         title( t(item) ) unless @content_for_title -%>
         <li class="span-4 last <%=
           case item
-          when 'home': if controller_name !~ /bookings|pages/ and action_name !~ /cart/ and not params[:discount] then ' selected' end
+          when 'home': if controller_name !~ /bookings|pages|contact/ and action_name !~ /cart/ and not params[:discount] then ' selected' end
           when 'booking','contact': if controller_name =~ /#{item}/ then ' selected' end
           else if current_page?(item) then ' selected' end
           end %>">
@@ -119,7 +119,7 @@
 <div class="prepend-21">
   <a href="#top"><%= t('page_top') %></a>
 </div>
-<div id="foot" class="span-23"></div>
+<div id="foot" class="span-23">&copy; 2010 1xferienhaus.de</div>
 </div>
 <%= yield(:foot) -%>
 <!-- <%= "#{RAILS_ENV} runs with Ruby (v#{VERSION}) On Rails (v#{RAILS_GEM_VERSION})" %> -->
