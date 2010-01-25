@@ -8,6 +8,6 @@ class RootController < ApplicationController
     rescue
       tag = []
     end
-    @pictures = House.scroll_pictures(tag).sort_by {rand}[0..20]
+    @pictures = House.scroll_pictures(tag).sort_by {rand}[0..30]
   end
 end

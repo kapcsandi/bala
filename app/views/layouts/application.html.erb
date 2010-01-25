@@ -23,28 +23,27 @@
   <%= yield(:head) %>
 </head>
 <body<%= ' onload="root_init();"' if controller_name == 'root' %>>
-<div id="main" class="<%= 'admin' if admin? %>">
-  <div id="top">
-    <div class="inner span-24">
-      <div id="logo" class="span-14 append-5">
-        <% content_tag 'div', :class => 'inner' do %>
-          <div id="site-name"><a href="/" title="<%= t :home %>"><img src="/images/logo.png" alt="" /></a><span id="slogan"><%= t :slogan %></span></div>
-        <% end %>
-      </div>
-      <div id="login" class="span-5 last">
-          <%- content_tag 'div', :class => 'inner' do -%>
-            <%= 'Bejelentkezett felhasználó: <b>' + current_user.username + '</b>' if logged_in? %>
-            <%= '<br />Nyelv: ' if logged_in? %><%- [:de, :hu].each do |locale|
-              next if locale == :root or locale == :en -%>
-              <%= link_to_unless I18n.locale.to_s == locale.to_s, locale, "?locale="+locale.to_s -%> <%= '|' if locale != :hu %>
-            <%- end -%>
-          <%- end -%>
-      </div>
+<div class="container <%= controller_name %> <%= action_name %><%= ' admin' if admin? %>" id="<%= controller_name %>_<%= action_name %>">
+  <div id="top" class="span-24">
+    <div id="logo" class="span-14 append-5">
+      <%- content_tag 'div', :class => 'inner' do %>
+        <div id="site-name"><a href="/" title="<%= t :home %>"><img src="/images/logo.png" alt="" /></a><span id="slogan"><%= t :slogan %></span></div>
+      <% end %>
     </div>
-    <div id="menu"><div class="inner">
+    <div id="login" class="span-5 last">
+      <%- content_tag 'div', :class => 'inner' do -%>
+        <%= 'Bejelentkezett felhasználó: <b>' + current_user.username + '</b>' if logged_in? %>
+        <%= '<br />Nyelv: ' if logged_in? %><%- [:de, :hu].each do |locale|
+        next if locale == :root or locale == :en -%>
+        <%= link_to_unless I18n.locale.to_s == locale.to_s, locale, "?locale="+locale.to_s -%> <%= '|' if locale != :hu %>
+        <%- end -%>
+      <%- end -%>
+    </div>
+    <div id="menu">
+    <ul class="span-24">
       <%- ['home', 'booking', :cart, :special_offers, 'contact', :programs].each do |item|
         title( t(item) ) unless @content_for_title -%>
-        <div class="menu span-4<%= if item == :programs then ' last' end %> <%=
+        <li class="span-4 last <%=
           case item
           when 'home': if controller_name !~ /bookings|pages/ and action_name !~ /cart/ and not params[:discount] then ' selected' end
           when 'booking','contact': if controller_name =~ /#{item}/ then ' selected' end
@@ -58,71 +57,69 @@
           else item
           end
           ) do -%><span class="menu-item <%= item.to_s %>"><%= t(item) %><%= if (item == :cart) and cart_items>0 then ' (' + cart_items.to_s + ')' end %></span><% end -%>
-        </div>
-      <% end -%>
+        </li>
+      <% end -%></ul>
     <%- if admin? -%>
-    <div class="menu span-24">
+    <ul class="span-24">
       <% [:pages, :houses, :houses_bookings, :taggables, :seasons, :event_logs, :image, :users].each do |menu|
         next if menu.to_s !~ /bookings/ and not root_admin? %>
-        <div<%=if current_page?(menu) then ' class="selected"' end %> style="float:left;padding-right:10px">
+        <li<%=if current_page?(menu) then ' class="selected"' end %> style="float:left;padding-right:10px">
           <% link_to menu do %>
             <span class="menu-item"><%= t("admin.#{menu}") %></span>
           <% end %>
-        </div>
+        </li>
       <% end %>
-    </div>
+    </ul>
     <%- end -%>
-  </div></div></div>
-  <div class="container" id="<%= controller_name %>_<%= action_name %>">
-    <div class="inner breadcrumb"><%= breadcrumb %></div>
-    <div id="left" class="span-4">
-      <% [:infos_a_z, :map, :weather, :calendar, :sights, :offers, :terms, :impressum, :owners].each do |item| -%>
-        <div class="menu span-4<%=
-        if current_page?(:id => item) then ' selected' end %>">
-          <% link_to :controller => 'pages', :action => 'show', :id => item do %>
-            <span class="menu-item"><%= t item %></span>
-          <% end %>
-        </div>
-      <% end -%>
+  </div></div>
+  <div class="inner small"><%= breadcrumb %></div>
+  <div id="left" class="span-4">
+    <% [:infos_a_z, :map, :weather, :calendar, :sights, :offers, :terms, :impressum, :owners].each do |item| -%>
       <div class="menu span-4<%=
-      if current_page?(login_path) then ' selected' end	%>">
-        <% if current_user %>
-          <div class="menu-item"><% if root_admin? %><%= link_to t('admin.edit_profile'), edit_user_path(:current) %> |<% end -%>
-            <%= link_to t('admin.logout'), logout_path %></div>
-        <%- else -%>
-          <% link_to login_path do %>
-            <span class="menu-item"><%= t("admin_login") %></span>
-          <% end -%>
-        <% end -%>
-      </div>
-    </div>
-    <div id="content" class="span-20 last">
-    <% if controller_name !~ /setup|bookings|contact|pages|users/ -%>
-      <div id="<%= 'adv_' if params[:advanced] %>search" class="search">
-        <% content_tag 'div', :class => 'inner' do -%>
-          <% if params[:advanced] %>
-          <%= render :partial => 'houses/detailed_search' %>
-          <% else %>
-          <%= render :partial => 'houses/search' %>
-          <% end %>
+      if current_page?(:id => item) then ' selected' end %>">
+        <% link_to :controller => 'pages', :action => 'show', :id => item do %>
+          <span class="menu-item"><%= t item %></span>
         <% end %>
       </div>
-    <% end %>
-    <%- flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, :id => "flash_#{name}", :class => "#{name} prepend-6" %>
-    <%- end -%>
-    <%- if show_title? -%>
-      <h1><%=h yield(:title) %></h1>
-    <%- end -%>
-    <div class="left">
-      <%= yield %>
+    <% end -%>
+    <div class="menu span-4<%=
+    if current_page?(login_path) then ' selected' end	%>">
+      <% if current_user %>
+        <div class="menu-item"><% if root_admin? %><%= link_to t('admin.edit_profile'), edit_user_path(:current) %> |<% end -%>
+          <%= link_to t('admin.logout'), logout_path %></div>
+      <%- else -%>
+        <% link_to login_path do %>
+          <span class="menu-item"><%= t("admin_login") %></span>
+        <% end -%>
+      <% end -%>
     </div>
   </div>
-  <div class="prepend-21">
-    <a href="#top"><%= t('page_top') %></a>
+  <div id="content" class="span-20 last">
+  <% if controller_name !~ /setup|bookings|contact|pages|users/ -%>
+    <div id="<%= 'adv_' if params[:advanced] %>search" class="search">
+      <% content_tag 'div', :class => 'inner left' do -%>
+        <% if params[:advanced] %>
+        <%= render :partial => 'houses/detailed_search' %>
+        <% else %>
+        <%= render :partial => 'houses/search' %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  <%- flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, :id => "flash_#{name}", :class => "#{name} prepend-6" %>
+  <%- end -%>
+  <%- if show_title? -%>
+    <h1><%=h yield(:title) %></h1>
+  <%- end -%>
+  <div class="left">
+    <%= yield %>
   </div>
 </div>
-<div id="foot"></div>
+<div class="prepend-21">
+  <a href="#top"><%= t('page_top') %></a>
+</div>
+<div id="foot" class="span-23"></div>
 </div>
 <%= yield(:foot) -%>
 <!-- <%= "#{RAILS_ENV} runs with Ruby (v#{VERSION}) On Rails (v#{RAILS_GEM_VERSION})" %> -->
