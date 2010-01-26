@@ -20,8 +20,10 @@ class House < ActiveRecord::Base
   named_scope :discounts, {:joins => :discount}
   named_scope :scroll_pictures, lambda { |tag|
     {:joins => :houses_tags,
+#    :includes => :tags,
     :conditions => { :houses_tags => {:tag_id => tag }},
-    :select => "houses.id,code,pictures,persons,children"}
+#    :select => "houses.id,code,pictures,persons,children"
+    }
                                        }
 #   named_scope :prices, lambda {|code| {:conditions => {:code => code}, :limit => 1,
 #                                :select => "price_pre_season_per_week,price_pre_season_per_day,

@@ -4,8 +4,8 @@
  <div class="category<%= ' last' if (index%4==3) %>">
   <span class="title"><%= link_to h(category[:name]), :controller => :houses, :action => :index, :commit => '', :category => category[:name] %></span>
 <%- unless category[:house].nil? or category[:house].picture_ids.nil? -%>
-<%- link_to category[:house] do -%>
-  <%= image_tag category[:house].picture_urls('s')[0], :alt => category[:name] -%>
+<%- link_to category[:house], :title => (category[:name] + ': ' + category[:house].name) do -%>
+  <%= image_tag category[:house].picture_urls('s')[0], :alt => (category[:name] + ': ' + category[:house].name) -%>
 <%- end -%>
 <%- end -%>
   <div class="item details">
@@ -28,9 +28,9 @@ end -%>
 <div class="previous_button"></div>
   <div class="container">
 <%- for house in @pictures do -%>
-  <div class="slide"><%- link_to :controller => 'houses', :action => 'show', :id => house.id, :anchor => 'details' do -%>
+  <div class="slide"><%- link_to :controller => 'houses', :action => 'show', :id => house.id, :anchor => 'details', :title => house.name do -%>
   <%- if house.thumb -%>
-    <%= image_tag house.thumb -%>
+    <%= image_tag house.thumb, :alt => house.name -%>
   <%- else -%>
     <%= t('no_picture') -%>
   <%- end -%><br />
