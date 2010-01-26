@@ -91,7 +91,7 @@ legend {padding:0 10px;margin-left:5px;font-size:1.1em;}
 .container .inner {margin-top:0;padding-top:5px}
 .menu-item {margin:5px 0 0;text-align:center;display:block;border:2px solid #E4F1FB;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;
 /*-webkit-box-shadow: 0 1px 5px rgba(0,0,0,.2);-moz-box-shadow: 0 1px 5px rgba(0,0,0,.2);box-shadow: 0 1px 5px rgba(0,0,0,.2)*/;font-size:1.1em;font-family:'Trebuchet MS',Lucida,Verdana;}
-#top .menu a, #left .menu a {text-decoration:none;cursor:pointer;display:inline;font-size:1em}
+#menu a, #left .menu a {text-decoration:none;cursor:pointer;display:inline;font-size:1em}
 #menu .selected .menu-item {border:1px solid #fafafa;font-weight:bold}
 .categories .category {height:150px;width:168px;border:1px solid #F8F883;padding:5px 10px;margin:0 10px 10px 0;float:left;text-align:center}
 .categories .category.last {margin-right:0}
