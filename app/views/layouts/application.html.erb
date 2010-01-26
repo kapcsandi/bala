@@ -112,7 +112,7 @@
   <%- if show_title? -%>
     <h1><%=h yield(:title) %></h1>
   <%- end -%>
-  <div class="left">
+  <div class="span-20 last">
     <%= yield %>
   </div>
 </div>
@@ -121,7 +121,19 @@
 </div>
 <div id="foot" class="span-23">&copy; 2010 1xferienhaus.de</div>
 </div>
-<%= yield(:foot) -%>
 <!-- <%= "#{RAILS_ENV} runs with Ruby (v#{VERSION}) On Rails (v#{RAILS_GEM_VERSION})" %> -->
-</body>
+<%= yield(:foot) -%>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1821522-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+  })();
+
+</script></body>
 </html>
