@@ -12,7 +12,7 @@
     <% end %>
   </div>
   <div class="span-4">
-    <div class="photos"><div><% link_to :action => (current_page?('show_houses') ? '' : 'show'), :id => house, :anchor => 'details', :title => house.name do %>
+    <div class="photos"><div><% link_to({ :action => (current_page?('show_houses') ? '' : 'show'), :id => house, :anchor => 'details'}, :title => house.name) do %>
     <%- if house.thumb %>
       <%= image_tag house.thumb, :alt => house.name %>
     <% else %>

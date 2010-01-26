@@ -28,7 +28,7 @@ end -%>
 <div class="previous_button"></div>
   <div class="container">
 <%- for house in @pictures do -%>
-  <div class="slide"><%- link_to :controller => 'houses', :action => 'show', :id => house.id, :anchor => 'details', :title => house.name do -%>
+  <div class="slide"><%- link_to({ :controller => 'houses', :action => 'show', :id => house.id, :anchor => 'details'}, :title => house.name) do -%>
   <%- if house.thumb -%>
     <%= image_tag house.thumb, :alt => house.name -%>
   <%- else -%>
