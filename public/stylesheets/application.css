@@ -75,6 +75,7 @@ legend {padding:0 10px;margin-left:5px;font-size:1.1em;}
 .search legend {padding:0 5px;margin:0; font-size:0.95em}
 .label{font-weight:bold}
 .left {float:left}
+.pages .left {float:none}
 #slogan {padding: 0 10px}
 .search .label {margin-top:0.5em;margin-bottom:0.1em;text-align:right;vertical-align:center}
 .search span {display:inline;float:none}
