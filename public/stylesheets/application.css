@@ -147,7 +147,8 @@ ul#booking_prices {margin:0}
 .mini .location {font-size:1.2em}
 .auto_complete {z-index:1;border:1px solid silver}
 .handle {cursor:move;;display:inline}
-.selected .menu-item {background-color:#E4F1FB;color:#D75A20;height:23px}
+.selected .menu-item {background-color:#E4F1FB;color:#D75A20;}
+#menu .selected .menu-item {height:23px}
 .inner {margin:5px}
 .breadcrumb span {padding: 0 2px;font-size:0.7em}
 .right {float:right}
