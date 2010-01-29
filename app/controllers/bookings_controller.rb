@@ -58,7 +58,11 @@ class BookingsController < ApplicationController
       @booking.price = price
       begin
         if @booking.save
-          flash[:notice] = t("created_booking") unless admin?
+          if admin?
+            flash[:notice] = t("admin.successfully_created_booking")
+          else
+            flash[:notice] = t("created_booking")
+          end
           notification_mails(@booking)
           redirect_to houses_path
         else

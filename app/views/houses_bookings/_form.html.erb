@@ -10,7 +10,7 @@
   <% end %>
   <% if houses_booking.booking_id %>
   <p>
-    <%= f.label 'Foglalás' %><br />
+    <%= f.label 'Részletes foglalás' %><br />
     <%= link_to houses_booking.booking.code, booking_path(:id => houses_booking.booking_id) %>
   </p>
   <% end %>  

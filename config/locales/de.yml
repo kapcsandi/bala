@@ -1,8 +1,8 @@
-# Hungarian translations for Ruby on Rails
-# by Richard Abonyi (richard.abonyi@gmail.com)
-# thanks to KKata, replaced and #hup.hu
-# Cleaned up by László Bácsi (http://lackac.hu)
-# updated by kfl62 kfl62g@gmail.com
+# German translations for Ruby on Rails 
+# by Clemens Kofler (clemens@railway.at)
+
+
+
 
 de:
   date:
@@ -12,7 +12,7 @@ de:
       short: "%e. %b"
       long: "%e. %B %Y"
       only_day: "%e"
-      wo_day: "%Y %B"
+
     day_names: [Sonntag, Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag]
     abbr_day_names: [So, Mo, Di, Mi, Do, Fr, Sa]
     month_names: [~, Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
@@ -21,8 +21,8 @@ de:
 
   support:
     array:
-#      sentence_connector: "und"
-#      skip_last_comma: true
+      sentence_connector: "und"
+      skip_last_comma: true
       words_connector: ", "
       two_words_connector: " und "
       last_word_connector: " und "
@@ -44,14 +44,14 @@ de:
     distance_in_words:
       half_a_minute: 'eine halbe Minute'
       less_than_x_seconds:
-#        zero: 'weniger als 1 Sekunde'
+        zero: 'weniger als 1 Sekunde'
         one: 'weniger als 1 Sekunde'
         other: 'weniger als {{count}} Sekunden'
       x_seconds:
         one: '1 Sekunde'
         other: '{{count}} Sekunden'
       less_than_x_minutes:
-#        zero: 'weniger als 1 Minute'
+        zero: 'weniger als 1 Minute'
         one: 'weniger als eine Minute'
         other: 'weniger als {{count}} Minuten'
       x_minutes:
@@ -75,16 +75,16 @@ de:
       over_x_years:
         one: 'mehr als 1 Jahr'
         other: 'mehr als {{count}} Jahre'
-      almost_x_years:
-        one: "majdnem 1 év"
-        other: "majdnem {{count}} év"
-    prompts:
-      year: "Év"
-      month: "Hónap"
-      day: "Nap"
-      hour: "Óra"
-      minute: "Perc"
-      second: "Másodperc"
+#       almost_x_years:
+#         one:   "majdnem 1 év"
+#         other: "majdnem {{count}} év"
+#     prompts:
+#       year:   "Év"
+#       month:  "Hónap"
+#       day:    "Nap"
+#       hour:   "Óra"
+#       minute: "Perc"
+#       second: "Másodperc"
 
   number:
     format:
@@ -94,10 +94,10 @@ de:
     currency:
       format:
         unit: '€'
-        precision: '%n %u'
-        format: 
+        format: '%n %u'
         separator: 
         delimiter: 
+        precision: 
     percentage:
       format:
         delimiter: ""
@@ -111,9 +111,9 @@ de:
       storage_units:
         format: "%n %u"
         units:
-          byte:
-            one: "bájt"
-            other: "bájt"
+#           byte:
+#             one:   "bájt"
+#             other: "bájt"
           kb: "KB"
           mb: "MB"
           gb: "GB"
@@ -143,13 +143,13 @@ de:
         furnishing_id: "Ausstattung"
         house_type_id: "Haustyp"
       houses_booking:
-        from: "Wunsttermin von"
-        to: "Wunsttermin bis"
+        start_at: "Wunsttermin von"
+        end_at: "Wunsttermin bis"
       booking:
         persons: "Personenzahl"
         nights: "Nachts"
-        from: "Wunsttermin von"
-        to: "Wunsttermin bis"
+        start_at: "Wunsttermin von"
+        end_at: "Wunsttermin bis"
         firstname: "Vorname"
         lastname: "Nachname"
         email: "E-mail"
@@ -178,8 +178,8 @@ de:
       template:
         header: "{{count}} Fehler hat das {{model}} Speichern blockiert"
         body: "Bitte überprüfen Sie die folgenden Felder:"
-        blank: "a Felhasználónév és Jelszó nem lehet üres"
-        invalid: "a Felhasználónév vagy Jelszó nem megfelő"
+#         blank: "a Felhasználónév és Jelszó nem lehet üres"
+#         invalid: "a Felhasználónév vagy Jelszó nem megfelő"
       models:
         house:
           attributes:
@@ -197,11 +197,11 @@ de:
           attributes:
             start_at:
               blank: "Anreisedatum`s Feld darf nich leer sein"
-              invalid_date: "Anreisedatum ist ungültiges Format"
+              invalid: "Anreisedatum ist ungültiges Format"
               after: "Anreisedatum kann nicht nach {{restriction}}"
             end_at:
               blank: "Abreisedatum`s darf nicht leer sein"
-              invalid_date: "Abreisedatum ist ungültiges Format"
+              invalid: "Abreisedatum ist ungültiges Format"
               before: "Abreisedatum darf nicht vor {{restriction}}"
         booking:
           attributes:
@@ -236,13 +236,13 @@ de:
         user:
           attributes:
             username:
-               blank: "Benutzer`s Feld darf nicht leer sein"
+#               blank: "Benutzer`s Feld darf nicht leer sein"
             password:
-              blank: "Passwort`s Feld darf nicht leer sein"
-              invalid: "a Felhasználó név vagy Jelszó nem megfelő"
-              confirmation: "Jelszó mégegyszer nincs kitöltve"
-            password_confirmation:
-              too_short: "Túl rövid jelszó"
+#               blank: "Passwort`s Feld darf nicht leer sein"
+#               invalid: "a Felhasználó név vagy Jelszó nem megfelő"
+#               confirmation: "Jelszó mégegyszer nincs kitöltve"
+#             password_confirmation:
+#               too_short: "Túl rövid jelszó"
         contact:
           attributes:
             email:
@@ -294,17 +294,17 @@ de:
   owners: Tulajdonosoknak
   admin_login: Admin belépés
 
-# pages
+#pages
   title: "Cím"
-  published: veröffentlicht
+#  published: veröffentlicht
   body: Törzs
   false: falsch
-  show: besichtigen
-  edit: Redaktion
-  destroy: zerstören
+#  show: besichtigen
+#  edit: Redaktion
+#  destroy: zerstören
   are_you_sure: Sind Sie sicher?
 
-# house
+#house
   house: Haus
   city_id: Ort
   select_city: wählen Sie ein Ort
@@ -381,16 +381,16 @@ de:
   owner_place_id: Eigentümer wohnt
   select_owner_place: zu wählen, wo in Eigentum wohnt
   animal_charge: Tier-Gebühr
-  pre_saison: der Saison vor / Nach der Saison
-  mid_saison: Mitte der Saison
-  main_saison: Hochsaison
-  post_saison: Vorsaison
-  price_pre_season: Mittelsaison
-  price_mid_season: Hauptsaison
-  price_main_season: Nachsaison
-  admin_description: Admin megjegyzés
-  picture_url: "{{position}}. kép neve"
-  house_prices_info: Mietpreis pro Haus und Woche in Euro (&euro;)
+  price_pre_season: der Saison vor / Nach der Saison
+  price_mid_season: Mitte der Saison
+  price_main_season: Hochsaison
+  pre_saison: Vorsaison
+  mid_saison: Mittelsaison
+  main_saison: Hauptsaison
+  post_saison: Nachsaison
+#   admin_description: Admin megjegyzés
+#   picture_url: "{{position}}. kép neve"
+  house_prices_info:  Mietpreis pro Haus und Woche in Euro (&euro;)
   house_prices_from: von
   house_prices_to: bis
   house_prices_with: bei Belegung mit .. Personen
@@ -398,7 +398,7 @@ de:
   house_prices_price: Mietpreis
   house_prices_includes_info: "Im Preis bereits enthalten: Battwäsche, Endreinigung, Gas, Strom, Wasser.<br />Nebenkosten: Zuschläge (zalhbar bei Buchung): Ortstaxe<br /> An- und Abreise: Samstags. Mindestanfenhalt 1 Woche. Abweichende An- und  Abreise sowie kürzere Afenthalte in der Nebensaison auf Anfrage möglich (teilweise  Mietpreiszuschlag)"
 
-#field groups
+# field groups
   house_basics: Hausbeschreibung
   house_layout: Hausanlage
   house_rooms: Räumen
@@ -419,7 +419,7 @@ de:
   house_description: Beschreibungen
   house_photos: Bilder
   contact_house_fieldset: Was können wir für Sie tun?
-
+  
 #search
   date_from: Anreisedatum
   date_to: Abreisedatum
@@ -501,11 +501,11 @@ de:
 # links & buttons
   booking_submit: "Buchung absenden"
   Bookings: Reservierungen
-  Back to List: Zurück zur Buchung
+#  Back to List: Zurück zur Buchung
   View All: Alle anzeigen
   Edit Booking: Buchung bearbeiten
   cancel_booking: Zurück
-  submit: Beküldés
+#  submit: Beküldés
   House: House
   Houses: Häuser
   New House: Új ház
@@ -515,13 +515,13 @@ de:
   Photos: Fotos
   select: Merken
   deselect: Unmerken
-  Print: Drucken
+  Print:  Drucken
   Edit: Edit
   Destroy: Speichern
   Print this Page: Seite drucken
   back_to_list: Zurück
   Back to houses: Zurück
-  Submit: Mehet
+#   Submit: Mehet
   prev_link: zurück
   next_link: nächst
   add_taggables: Szótárak bővítése
@@ -542,8 +542,8 @@ de:
   pers: Pers
   meter: m
   meters:
-    zero: "ca. {{count}} m"
-    other: "Direkt"
+    other: "ca. {{count}} m"
+    zero: "Direkt"
   sqmeter: m²
   items: stück
   euro: Euro
@@ -551,7 +551,7 @@ de:
   houses_found: "Trefferzahl: <span class=\"count\">{{count}}</span>"
   tagestip: Tagestipp
   Untitled: 1xferienhaus
-  meta_description: Unterkunft, Appartement, Balaton, Ferienhäuser
+  meta_description: Unterkunft, Appartement, Balaton, Ferienhaus, Urlaub, Plattensee, Balaton, Ferien, Balatonlelle, Balatonboglár
   slogan: Ferien im Sonnenland Ungarn
   or: oder
   answer_yes: Ja
@@ -579,253 +579,15 @@ de:
 
 
 
-# ---------------------------------------------------------
-# ezeket nem kell fordítani
-# ---------------------------------------------------------
-
-  Empty dictionary fields: Üres szótár(ak)
-  Setup: Setup
-  updated_booking: Foglalás módosítva
-  destroyed_booking: Foglalás törölve
-
-# flash üzenetek
-  successfully_logged_in: Sikeres belépés
-  successfully_logged_out: Sikeres kilépés
-  registration_successful: Sikeres regisztráció
-
-# login oldal
-  login:
-    title: Bejelentkezés
-    username: Azonosító
-    password: Jelszó
-    submit: Bejelentkezés
-  registration: Regisztráció
 
 
 
-# admin felület
-  admin:
-# admin oldal címek
-    discounts: Akciók
-    pages: Oldalak
-    discount: Akció
-    tag: Címke
-    tags: Címkék
-    taggables: Címkecsoportok
-    taggable: Címkecsoport
-    booking: Foglalás
-    bookings: Foglalások
-    houses_bookings: Foglalások
-    house: Apartman
-    houses: Apartmanok
-    season: Szezon
-    seasons: Szezonok
-    users: Felhasználók
-    event_logs: Események
-    image: Házképek feltöltése
-    new_discount: Új Akció
-    new_page: Új Oldal
-    new_tag: Új Címke
-    new_taggable: Új Címkecsoport
-    new_house: Új Apartman
-    new_season: Új Szezon
-    new_booking: Új foglalás
-    new_user: Új felhasználó
-    edit_discount: Akció szerkesztése
-    edit_page: Oldal szerkesztése
-    edit_tag: Címke szerkesztése
-    edit_taggable: Címkecsoport szerkesztése
-    edit_user: Profil szerkesztése
-    edit_house: Apartman szerkesztése
-    edit_season: Szezon szerkesztése
-    edit_booking: Foglalás szerkesztése
-# admin adat mezők
-    house: Apartman
-    house_id: Apartman id
-    description: Akció leírása
-    path: Útvonal
-    title: Cím
-    body: Szöveg
-    published: Élesítve
-    name: Név
-    username: Azonosító
-    email: E-mail
-    password: Jelszó
-    password_confirmation: Jelszó mégegyszer
-    locale: Nyelv
-    field: Szótár kód
-    context: Mező
-    multi: Többszörös választásos
-    position: Pozíció
-    start: Kezdete
-    end: Vége
-    city_id: Település
-    select_city: Válassz települést
-    select_country: Válassz országot
-    code: Ház kód
-    booking_code: Kód
-    booking_houses_table: Foglaltsági tábla kód(ok)
-    house_type_id: Ház típus
-    select_house_type: Válassz apartman típust
-    condition_id: Állapot
-    select_condition: Válassz apartman állapotot
-    furnishing_id: Berendezés
-    select_furnishing: Válassz berendezés állapotot
-    discounted: Akciós
-    description: Leírás
-    discount_description: Akció leírása
-    persons: Max. személyek száma (felnőtt)
-    children: Max. gyerekek száma
-    persons_count: Személyek száma
-    children_count: Gyerekek száma
-    children_years: Gyerekek életkora
-    floor_area: Alapterület
-    bedroom: Hálószobák
-    living_room: Nappali
-    living_dining_kitchen: Nappali + étkező + konyha
-    living_dining_room: Nappali + étkező
-    kitchen: Konyha
-    dining_room: Étkező
-    kitchen_dining_room: Étkező + konyha
-    balcony_id: Erkély
-    terrace_id: Terasz
-    select_terrace: Válassz terasz típust
-    select_balcony: Válassz erkély típust
-    living_room_sq: Nappali
-    living_dining_kitchen_sq: Nappali + étkező + konyha
-    living_dining_room_sq: Nappali + étkező
-    kitchen_sq: Konyha
-    dining_room_sq: Étkező
-    kitchen_dining_room_sq: Étkező + konyha
-    balcony_sq: Erkély
-    terrace_sq: Terasz
-    yard_sq: Kert
-    double_bed: Dupla
-    single_bed: Egyszemélyes
-    extra_bed: Pótágy
-    pull_out_bed: Kihúzható
-    bathrooms: Fürdőszobák száma
-    shower: Tusoló
-    bathtub: Fürdőkád
-    shower_bathtub: Tusoló + fürdőkád
-    wcs: WC-k száma
-    wc_separated: külön
-    fridge: Hűtő
-    coffee_machine: Kávéfőző
-    micro: Mikro
-    stove_id: Tűzhely
-    select_stove: Válassz tűzhely típust
-    sat: SAT
-    internet: Internet
-    clima_id: Klíma
-    select_clima: Válassz klíma típust
-    pool: Medence
-    pool_sq: Medence nm
-    garden_seats: Kiülő
-    grill: Grill
-    sunbath_seat: Napozóágy
-    playground: Játszótér
-    parking_id: Parkoló
-    select_parking: Válassz parkoló típust
-    animals: Háziállat hozható?
-    garden: Kertkapcsolat
-    distance_center: Távolság centrumtól
-    distance_beach: Távolság szabadstrandtól
-    distance_aquapark: Távolság élményfürdőtől
-    distance_shop: Távolság élelmiszerbolttól
-    distance_station: Távolság pályaudvartól
-    distance_medical: Távolság orvosi ellátástól
-    distance_mainroad: Távolság főútttól
-    distance_restaurant: Távolság vendéglőtől
-    owner_place_id: Háztulajdonos lakik
-    select_owner_place: Válassz hol lakik a tulajdonos
-    animal_charge: Háziállat felár
-    price_pre_season: Előszezon / Utószezon
-    price_mid_season: Középszezon
-    price_main_season: Főszezon
-    house_description: Megjegyzés 1 (ház leírás)
-    admin_description: Megjegyzés 2 (admin megjegyzés)
-    picture_url: "{{position}}. kép neve"
-    answer_yes: Igen
-    answer_no: Nem
-    animal_details: Háziállat fajtája, súlya
-    calculated_price: Ár
-    persons: "Személyek száma"
-    nights: "Éjszakák száma"
-    from: "Érkezés dátuma"
-    to: "Távozás dátuma"
-    firstname: "Keresztnév"
-    lastname: "Családnév"
-    email: "E-mail"
-    phone: "Telefon"
-    mobile: "Mobil"
-    company: "Cégnév"
-    city: "Település"
-    address: "Cím"
-    country: "Ország"
-    postcode: "Irányítószám"
-    with_animals: Állatot hoznak?
-    notes: Üzenet
-    status: Állapot
-    role: Jogosultság
-    logout: Kilépés
-    edit_profile: Adataim
 
-#field sets
-    house_basics: Ház alapinfók
-    house_layout: Helyiségek elrendezése
-    house_rooms: Helyiségek
-    house_rooms_sq: Helyiségek alapterülete
-    house_beds: Ágyak
-    house_bathrooms: Fürdőszoba
-    house_wc: WC
-    house_kitchen: Konyha
-    house_inters: Egyéb belső felszereltség
-    house_outers: Egyéb külső felszereltség
-    house_distances: Távolságok
-    house_owner_infos: Háztulajdonos infók
-    house_animals: Háziállat
-    house_price: Árak
-    house_price_day: Ár / fő / nap | Euro (&euro;)
-    house_price_week: Ár / fő / hét | Euro (&euro;)
-    house_description: Leírás
-    house_photos: Képek
 
-# admin linkek
-    submit: Mehet
-    show: Megnéz
-    edit: Szerkeszt
-    destroy: Töröl
-    view_all: Mind megtekintése
-    are_you_sure: Biztos benne?
-    remove: Töröl
-    add_tag: Hozzáad
-    back: Vissza
-# admin flash üzenetek
-    successfully_created_page: Oldal sikeresen létrehozva
-    successfully_updated_page: Oldal sikeresen módosítva
-    successfully_destroyed_page: Oldal sikeresen törölve
-    successfully_created_discount: Akció sikeresen létrehozva
-    successfully_updated_discount: Akció sikeresen módosítva
-    successfully_destroyed_discount: Akció sikeresen törölve
-    successfully_created_tag: Címke sikeresen létrehozva
-    successfully_updated_tag: Címke sikeresen módosítva
-    successfully_created_taggable: Címkecsoport sikeresen létrehozva
-    successfully_updated_taggable: Címkecsoport sikeresen módosítva
-    successfully_updated_profile: Felhasználó adatok módosítása sikeres volt.
-    successfully_created_season: Szezon sikeresen létrehozva
-    successfully_updated_season: Szezon sikeresen módosítva
-    successfully_destroyed_season: Szezon sikeresen törölve
-    house_added: Az {{house}} apartman létrehozása sikeres volt
-    house_updated: Az {{house}} apartman módosítása sikeres volt
-    house_destroyed: Az {{house}} apartman törlése sikeres volt
-    user_login_error: "Sikertelen belépés"
-# status
-  status_unknown: "Ismeretlen"
-  status_created: "Rögzítve"
-  status_approved: "Elfogadva"
-  status_deleted: "Törölve"
-# emails
-  contact_from: "kontakt@1xferienhaus.de"
-  booking_from: "buchung@1xferienhaus.de"
+
+
+
+
+
+
 

@@ -1,4 +1,4 @@
-<% title t('admin.bookings') %>
+<% title t('admin.houses_booking') %>
 
 <p>
   <strong>Kód:</strong>
@@ -11,13 +11,13 @@
 
 <% if @houses_booking.booking_id %>
 <p>
-  <strong>Foglalás:</strong>
+  <strong>Részletes foglalás:</strong>
   <%= link_to @houses_booking.booking.code, booking_path(:id => @houses_booking.booking_id) %>
 </p>
 <% end %>
 <p>
   <strong>Rögzítette:</strong>
-  <%= if @houses_booking.owner then @houses_booking.owner.username else '[bejövő előjegyzés]' end  %>
+  <%= if @houses_booking.owner then @houses_booking.owner.username else '[bejövő előjegyzés' + (@houses_booking.booking ? @houses_booking.booking.email : '') + ']' end  %>
 </p>
 <p>
   <strong>Érkezés:</strong>

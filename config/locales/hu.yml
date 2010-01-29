@@ -318,7 +318,7 @@ hu:
   discounted: Akciós
   description: Leírás
   discount_description: Akció leírása
-  persons: Max. személyek száma (felnőtt)
+  persons: Személyek száma
   children: Max. gyerekek száma
   floor_area: Alapterület
   bedroom: Hálószobák
@@ -370,14 +370,14 @@ hu:
   select_parking: Válassz parkoló típust
   animals: Háziállat hozható?
   garden: Kertkapcsolat
-  distance_center: Távolság centrumtól
-  distance_beach: Távolság szabadstrandtól
-  distance_aquapark: Távolság élményfürdőtől
-  distance_shop: Távolság élelmiszerbolttól
-  distance_station: Távolság pályaudvartól
-  distance_medical: Távolság orvosi ellátástól
-  distance_mainroad: Távolság főútttól
-  distance_restaurant: Távolság vendéglőtől
+  distance_center: Centrumtól
+  distance_beach: Szabadstrandtól
+  distance_aquapark: Élményfürdőtől
+  distance_shop: Élelmiszerbolttól
+  distance_station: Pályaudvartól
+  distance_medical: Orvosi ellátástól
+  distance_mainroad: Főútttól
+  distance_restaurant: Vendéglőtől
   owner_place_id: Háztulajdonos lakik
   select_owner_place: Válassz hol lakik a tulajdonos
   animal_charge: Háziállat felár
@@ -477,8 +477,8 @@ hu:
 
 # contact
   contact_city: Ort / PLZ
-  contact_notes_for: "Ihre Anfrage zu Haus {{house}}:"
-  contact_notes: "Ihre Anfrage:"
+  contact_notes_for: "Kérdése a {{house}} házról:"
+  contact_notes: "Az Ön kérdése:"
   contact_from: "Érkezés dátuma"
   contact_to: "Távozás dátuma"
   contact_firstname: "Keresztnév"
@@ -511,7 +511,7 @@ hu:
   New House: Új ház
   Show: Megnéz
   Details: Részletek
-  Booking: Foglalás
+  Booking: Részletes foglalás
   Photos: Képek
   select: Megjelölés
   deselect: Törlés a kosárból
@@ -527,7 +527,7 @@ hu:
   add_taggables: Szótárak bővítése
   Empty Cart: Bevásárlókosár törlése
   Go to Cart: Bevásárlókosár
-  contact_house: Frage zum Haus
+  contact_house: Kérdés a házról
   contact_submit: Kérdés küldése
 
 # other
@@ -543,7 +543,7 @@ hu:
   meter: m
   meters:
     zero: "közvetlen"
-    other: "ca. {{count}} m"
+    other: "kb. {{count}} m"
   sqmeter: m²
   items: darab
   euro: Euro
@@ -551,7 +551,7 @@ hu:
   houses_found: "Találatok száma: <span class=\"count\">{{count}}</span>"
   tagestip: Napi tipp
   Untitled: 1xferienhaus
-  meta_description: szállás, apartman, balaton, nyaralás
+  meta_description: szállás, apartman, balaton, nyaralás, Balatonlelle, Balatonboglár
   slogan: Ferien im Sonnenland Ungarn
   or: vagy
   answer_yes: igen
@@ -613,9 +613,10 @@ hu:
     tags: Címkék
     taggables: Címkecsoportok
     taggable: Címkecsoport
-    booking: Foglalás
-    bookings: Foglalások
-    houses_bookings: Foglalások
+    booking: Részletes foglalás
+    bookings: Részletes foglalások
+    houses_booking: Egyszerű foglalás
+    houses_bookings: Egyszerű foglalások
     house: Apartman
     houses: Apartmanok
     season: Szezon
@@ -629,7 +630,8 @@ hu:
     new_taggable: Új Címkecsoport
     new_house: Új Apartman
     new_season: Új Szezon
-    new_booking: Új foglalás
+    new_booking: Új részletes foglalás
+    new_houses_booking: Új egyszerű foglalás
     new_user: Új felhasználó
     edit_discount: Akció szerkesztése
     edit_page: Oldal szerkesztése
@@ -674,7 +676,7 @@ hu:
     discounted: Akciós
     description: Leírás
     discount_description: Akció leírása
-    persons: Max. személyek száma (felnőtt)
+    persons: Személyek száma
     children: Max. gyerekek száma
     persons_count: Személyek száma
     children_count: Gyerekek száma
@@ -814,6 +816,8 @@ hu:
     successfully_updated_taggable: Címkecsoport sikeresen módosítva
     successfully_updated_profile: Felhasználó adatok módosítása sikeres volt.
     successfully_created_season: Szezon sikeresen létrehozva
+    successfully_created_booking: Részletes foglalás sikeresen létrehozva
+    successfully_created_houses_booking: Egyszerű foglalás sikeresen létrehozva
     successfully_updated_season: Szezon sikeresen módosítva
     successfully_destroyed_season: Szezon sikeresen törölve
     house_added: Az {{house}} apartman létrehozása sikeres volt
@@ -825,8 +829,3 @@ hu:
   status_created: "Rögzítve"
   status_approved: "Elfogadva"
   status_deleted: "Törölve"
-# emails
-  contact_from: "kapcsolat@1xferinehaus.de"
-  booking_from: "foglalas@1xferienhaus.de"
-
-  

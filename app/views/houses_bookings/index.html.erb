@@ -1,5 +1,6 @@
-<% title t("admin.bookings") %>
-<p><%= link_to t('admin.new_booking'), new_houses_booking_path %></p>
+<% title t("admin.houses_bookings") %>
+<p class="span-4 left"><%= link_to t('admin.new_houses_booking'), new_houses_booking_path %></p>
+<p><%= link_to t('admin.new_booking'), new_booking_path %></p>
 <% form_for @search do |f| %>
 Válassz apartmant:
   <%= text_field_with_auto_complete 'search', 'code', { :size => 20, :class => 'code' }, { :url => houses_path(:format => :js), :method => :get, :param_name => 'search[conditions][code_like]', :with => "value + '&autocomplete=1'", :indicator => :house_spinner } %>
@@ -19,7 +20,7 @@ Válassz apartmant:
 <thead>
   <tr>
     <th>Házkód</th>
-    <th>Foglalás</th>
+    <th>Részletes foglalás</th>
     <th>Admin</th>
     <th>Érkezés</th>
     <th>Távozás</th>
@@ -30,7 +31,7 @@ Válassz apartmant:
   <% for houses_booking in @bookings %>
     <tr class="<%= cycle('odd', 'even') %>">
       <td><%=h houses_booking.house.code unless houses_booking.house_id.nil? %></td>
-      <td><%= link_to_if houses_booking.booking_id, "#{(houses_booking.booking.respond_to?(:code) ? houses_booking.booking.code : ' - ')}", :controller => :bookings, :action => 'show', :id => houses_booking.booking_id %></td> 
+      <td><%= link_to_if houses_booking.booking_id, "#{(houses_booking.booking.respond_to?(:code) ? houses_booking.booking.code : ' [direkt] ')}", :controller => :bookings, :action => 'show', :id => houses_booking.booking_id %></td> 
       <td><%=h houses_booking.owner.username unless houses_booking.owner_id.nil? %></td>
       <td><%=h houses_booking.start_at %></td>
       <td><%=h houses_booking.end_at %></td>
@@ -44,4 +45,5 @@ Válassz apartmant:
 </table>
 <%= will_paginate @bookings, :previous_label => t(:prev_link), :next_label => t(:next_link) if @all %>
 
-<p><%= link_to t('admin.new_booking'), new_houses_booking_path %></p>
+<p class="span-4 left"><%= link_to t('admin.new_houses_booking'), new_houses_booking_path %></p>
+<p><%= link_to t('admin.new_booking'), new_booking_path %></p>
