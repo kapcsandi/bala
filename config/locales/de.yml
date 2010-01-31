@@ -271,7 +271,7 @@ de:
         odd: "muss ungerade sein"
         even: "muss gerade sein"
 
-  home: Startseite
+  root: Startseite
   you_are_here: "<b>Sie sind Hier: </b><span>&nbsp;</span>"
 
 # top menu

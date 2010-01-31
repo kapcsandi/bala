@@ -271,7 +271,7 @@ hu:
         odd: "páratlan kell legyen"
         even: "páros kell legyen"
 
-  home: Főoldal
+  root: Főoldal
   you_are_here: "<b>Ön itt áll: </b><span>&nbsp;</span>"
 
 # top menu

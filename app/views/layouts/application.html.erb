@@ -28,31 +28,29 @@
   <div id="top" class="span-24">
     <div id="logo" class="span-14 append-5">
       <%- content_tag 'div', :class => 'inner' do %>
-        <div id="site-name"><a href="/" title="<%= t :home %>"><img src="/images/logo.png" alt="" /></a><span id="slogan"><%= t :slogan %></span></div>
+        <div id="site-name"><% link_to( root_path, :title => t(:root)) do %><img src="/images/logo.png" alt="" /><% end %><span id="slogan"><%= t :slogan %></span></div>
       <% end %>
     </div>
     <div id="login" class="span-5 last">
-      <%- content_tag 'div', :class => 'inner' do -%>
+      <div class='inner'>
         <%= 'Bejelentkezett felhasználó: <b>' + current_user.username + '</b>' if logged_in? %>
-        <%= '<br />Nyelv: ' if logged_in? %><%- [:de, :hu].each do |locale|
-        next if locale == :root or locale == :en -%>
-        <%= link_to_unless I18n.locale.to_s == locale.to_s, locale, "?locale="+locale.to_s -%> <%= '|' if locale != :hu %>
-        <%- end -%>
-      <%- end -%>
+        <%= '<br />Nyelv: ' if logged_in? %>
+        <strong><%= I18n.locale.to_s %></strong> |
+        <%= I18n.locale == 'de' ? link_to('hu', :locale => 'hu') : link_to('de', :locale => 'de') %>
+      </div>
     </div>
     <div id="menu">
     <ul class="span-24">
-      <%- ['home', 'booking', :cart, :special_offers, 'contact', :programs].each do |item|
+      <%- ['root', 'booking', :cart, :special_offers, 'contact', :programs].each do |item|
         title( t(item) ) unless @content_for_title -%>
         <li class="span-4 last <%=
           case item
-          when 'home': if controller_name !~ /bookings|pages|contact/ and action_name !~ /cart/ and not params[:discount] then ' selected' end
+          when 'root': if controller_name !~ /bookings|pages|contact/ and action_name !~ /cart/ and not params[:discount] then ' selected' end
           when 'booking','contact': if controller_name =~ /#{item}/ then ' selected' end
           else if current_page?(item) then ' selected' end
           end %>">
           <% link_to (
           case item
-          when 'home': '/'
           when 'booking': new_booking_path
           when 'contact': {:action => 'new', :controller => :contact}
           else item

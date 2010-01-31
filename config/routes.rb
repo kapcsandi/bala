@@ -11,7 +11,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :pages
   map.resources :discounts
 
-  map.home "home", :controller => "root", :action => "index"
   map.cart "cart", :controller => "houses", :action => "cart"
   map.special_offers "special_offers", :controller => "houses", :action => "index", :discount => true, :q => ''
   map.programs "pages/programs", :controller => "pages", :action => "show", :page => "programs"
@@ -73,3 +72,4 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id.:format'
 end
 ActionController::Routing::Translator.translate_from_file('config','i18n-routes.yml')
+ActionController::Routing::Translator.prefix_on_default_locale = true

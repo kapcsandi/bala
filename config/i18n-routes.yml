@@ -1,14 +1,13 @@
 de:
-  houses: 'hause'
+#  houses: 'hause'
 #  pages:
-  infos_a_z: 'informationen'
-  map: 'carte'
+#  infos_a_z: 'informationen'
+#  map: 'carte'
   weather: 'wetter'
 
 hu:
-  houses: 'hazak'
+#  houses: 'hazak'
 #  pages:
-  infos_a_z: 'informaciok'
-  map: 'terkep'
+#  infos_a_z: 'informaciok'
+#  map: 'terkep'
   weather: 'idojaras'
-

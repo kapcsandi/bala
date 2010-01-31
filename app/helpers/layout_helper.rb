@@ -23,7 +23,7 @@ module LayoutHelper
   
   def breadcrumb
     html, param = [], {}
-    html << link_to(t(:home), '/') unless controller_name == 'root' and action_name == 'index'
+    html << link_to(t(:root), root_path) unless controller_name == 'root' and action_name == 'index'
     if controller_name == 'houses'
       if params[:advanced]
 				param.merge!({ :advanced => '' })
