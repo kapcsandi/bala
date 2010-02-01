@@ -1,3 +1,4 @@
+ActionController::Routing::Translator.prefix_on_default_locale = true
 ActionController::Routing::Routes.draw do |map|
   map.resources :event_logs
   map.resources :seasons
@@ -72,4 +73,3 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id.:format'
 end
 ActionController::Routing::Translator.translate_from_file('config','i18n-routes.yml')
-ActionController::Routing::Translator.prefix_on_default_locale = true
