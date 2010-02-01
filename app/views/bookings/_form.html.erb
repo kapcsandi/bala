@@ -129,7 +129,7 @@
     </div>
   <% end %>
 <br />
-<p><%= link = link_to(t('booking_terms'), '/terms?print=1', {:popup => true }); t(:read_terms, :link => link) %></p>
+<p><%= link = link_to(t('booking_terms'), terms_path(:print => 1), {:popup => true }); t(:read_terms, :link => link) %></p>
 <br />
   <div class="span-6"><%= f.submit t("booking_submit") %></div>
 <% end %>

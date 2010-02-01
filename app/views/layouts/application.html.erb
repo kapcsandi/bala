@@ -52,7 +52,7 @@
           <% link_to (
           case item
           when 'booking': new_booking_path
-          when 'contact': {:action => 'new', :controller => :contact}
+          when 'contact': new_contact_path # {:action => 'new', :controller => :contact}
           else item
           end
           ) do -%><span class="menu-item <%= item.to_s %>"><%= t(item) %><%= if (item == :cart) and cart_items>0 then ' (' + cart_items.to_s + ')' end %></span><% end -%>
@@ -76,7 +76,7 @@
     <% [:infos_a_z, :map, :weather, :calendar, :sights, :offers, :terms, :impressum, :owners].each do |item| -%>
       <div class="menu span-4<%=
       if current_page?(:id => item) then ' selected' end %>">
-        <% link_to :controller => 'pages', :action => 'show', :id => item do %>
+        <% link_to item do %>
           <span class="menu-item"><%= t item %></span>
         <% end %>
       </div>

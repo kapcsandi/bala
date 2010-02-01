@@ -87,7 +87,7 @@
  <% end %>
  <div class="prepend-15 span-4 last">
   <%= submit_tag t('search.button') %><br />
-  <%= link_to  t(:simple_search), url_for(:controller => 'houses', :action => 'index'), :method => :get  %>
+  <%= link_to  t(:simple_search), houses_path(:method => :get)  %>
  </div>
  </div>
 <% end %>

@@ -1,4 +1,5 @@
 ActionController::Routing::Translator.prefix_on_default_locale = true
+
 ActionController::Routing::Routes.draw do |map|
   map.resources :event_logs
   map.resources :seasons
@@ -11,13 +12,23 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :houses
   map.resources :pages
   map.resources :discounts
+  map.resources :contact
 
   map.cart "cart", :controller => "houses", :action => "cart"
   map.special_offers "special_offers", :controller => "houses", :action => "index", :discount => true, :q => ''
-  map.programs "pages/programs", :controller => "pages", :action => "show", :page => "programs"
-  [:infos_a_z, :map, :weather, :calendar, :sights, :offers, :terms, :impressum, :owners].each do |path|
-    map.connect path.to_s, :controller => "pages", :action => "show", :id => path
-  end
+  map.programs  "pages/programs", :controller => "pages", :action => "show", :page => "programs"
+  map.infos_a_z "pages/infos_a_z", :controller => "pages", :action => "show", :page => "infos_a_z"
+  map.map       "pages/map", :controller => "pages", :action => "show", :page => "map"
+  map.weather   "pages/weather", :controller => "pages", :action => "show", :page => "weather"
+  map.calendar  "pages/calendar", :controller => "pages", :action => "show", :page => "calendar"
+  map.sights    "pages/sights", :controller => "pages", :action => "show", :page => "sights"
+  map.offers    "pages/offers", :controller => "pages", :action => "show", :page => "offers"
+  map.terms     "pages/terms", :controller => "pages", :action => "show", :page => "terms"
+  map.impressum "pages/impressum", :controller => "pages", :action => "show", :page => "impressum"
+  map.owners     "pages/owners", :controller => "pages", :action => "show", :page => "owners"
+#  [:infos_a_z, :map, :weather, :calendar, :sights, :offers, :terms, :impressum, :owners].each do |path|
+#    map.connect path.to_s, :controller => "pages", :action => "show", :id => path
+#  end
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
 
@@ -30,45 +41,6 @@ ActionController::Routing::Routes.draw do |map|
   
   map.root :controller => "root", :action => "index"
   
-  # The priority is based upon order of creation: first created -> highest priority.
-
-  # Sample of regular route:
-  #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   map.resources :products
-
-  # Sample resource route with options:
-  #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
-
-  # Sample resource route with sub-resources:
-  #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-  
-  # Sample resource route with more complex sub-resources
-  #   map.resources :products do |products|
-  #     products.resources :comments
-  #     products.resources :sales, :collection => { :recent => :get }
-  #   end
-
-  # Sample resource route within a namespace:
-  #   map.namespace :admin do |admin|
-  #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
-  #     admin.resources :products
-  #   end
-
-  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  # map.root :controller => "welcome"
-
-  # See how all your routes lay out with "rake routes"
-
-  # Install the default routes as the lowest priority.
-  # Note: These default routes make all actions in every controller accessible via GET requests. You should
-  # consider removing the them or commenting them out if you're using named routes and resources.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end
