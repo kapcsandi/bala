@@ -11,5 +11,5 @@
 </div>
 <%= will_paginate @houses, :previous_label => t(:prev_link), :next_label => t(:next_link) %>
 <% if root_admin? %>
-<p><%= link_to t('admin.new_house'), new_house_path %></p>
+<div class="span-24"><%= link_to t('admin.new_house'), new_house_path %></div>
 <% end %>

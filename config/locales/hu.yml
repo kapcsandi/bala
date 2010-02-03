@@ -551,7 +551,8 @@ hu:
   houses_found: "Találatok száma: <span class=\"count\">{{count}}</span>"
   tagestip: Napi tipp
   Untitled: 1xferienhaus
-  meta_description: szállás, apartman, balaton, nyaralás, Balatonlelle, Balatonboglár
+  meta_description: Szállás, apartman foglalás Balaton, nyaralás Balatonlellén Balatonbogláron
+  meta_keywords: szállás, apartman, Balaton, nyaralás, Balatonlelle, Balatonboglár
   slogan: Ferien im Sonnenland Ungarn
   or: vagy
   answer_yes: igen
