@@ -22,7 +22,8 @@ module HousesBookingsHelper
   def event_calendar
     calendar event_calendar_opts do |args|
       event, day = args[:event], args[:day]
-      html = %(<a href="/houses_bookings/#{event.id}" title="#{h(event.name)}">)
+      logger.info 'event.inspect = ' + event.inspect
+      html =  link_to( event.name, booking_path(event.booking_id))    # %(<a href="/houses_bookings/#{event.id}" title="#{h(event.name)}">)
       html << event.name + ' ' + event.status
 #      html << day.strftime('%Y.%m.%d')
       html << %(</a>)

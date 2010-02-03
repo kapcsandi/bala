@@ -1,5 +1,4 @@
 <% title t("admin.houses_bookings") %>
-<p class="span-4 left"><%= link_to t('admin.new_houses_booking'), new_houses_booking_path %></p>
 <p><%= link_to t('admin.new_booking'), new_booking_path %></p>
 <% form_for @search do |f| %>
 Válassz apartmant:
@@ -20,7 +19,7 @@ Válassz apartmant:
 <thead>
   <tr>
     <th>Házkód</th>
-    <th>Részletes foglalás</th>
+    <th>Foglalás</th>
     <th>Admin</th>
     <th>Érkezés</th>
     <th>Távozás</th>
@@ -31,19 +30,23 @@ Válassz apartmant:
   <% for houses_booking in @bookings %>
     <tr class="<%= cycle('odd', 'even') %>">
       <td><%=h houses_booking.house.code unless houses_booking.house_id.nil? %></td>
-      <td><%= link_to_if houses_booking.booking_id, "#{(houses_booking.booking.respond_to?(:code) ? houses_booking.booking.code : ' [direkt] ')}", :controller => :bookings, :action => 'show', :id => houses_booking.booking_id %></td> 
+      <td><%= link_to_if houses_booking.booking_id, "#{(houses_booking.booking.respond_to?(:code) ? houses_booking.code : ' [direkt] ')}", :controller => :bookings, :action => 'show', :id => houses_booking.booking_id %></td>
       <td><%=h houses_booking.owner.username unless houses_booking.owner_id.nil? %></td>
       <td><%=h houses_booking.start_at %></td>
       <td><%=h houses_booking.end_at %></td>
       <td><%=h houses_booking.status %></td>
-      <td><%= link_to t('admin.show'), houses_booking %></td>
-      <td><%= link_to t('admin.edit'), edit_houses_booking_path(houses_booking) %></td>
-      <td><%= link_to t('admin.destroy'), houses_booking, :confirm => t('Are you sure?'), :method => :delete %></td>
+      <td><%= link_to_unless(houses_booking.booking.nil?, t('admin.show'), houses_booking.booking) %></td>
+      <td><%= link_to(t('admin.edit'), edit_booking_path(houses_booking.booking)) unless houses_booking.booking.nil? %></td>
+      <td><%=
+      if houses_booking.booking.nil?
+        link_to(t('admin.destroy'), houses_booking, :confirm => t('Are you sure?'), :method => :delete )
+      else
+        link_to(t('admin.destroy'), houses_booking.booking, :confirm => t('Are you sure?'), :method => :delete )
+      end %></td>
     </tr>
   <% end %>
 </tbody>
 </table>
 <%= will_paginate @bookings, :previous_label => t(:prev_link), :next_label => t(:next_link) if @all %>
 
-<p class="span-4 left"><%= link_to t('admin.new_houses_booking'), new_houses_booking_path %></p>
 <p><%= link_to t('admin.new_booking'), new_booking_path %></p>

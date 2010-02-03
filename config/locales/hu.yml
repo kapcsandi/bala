@@ -7,7 +7,7 @@
 hu:
   date:
     formats:
-      default: "%Y.%m.%d."
+      default: "%Y.%m.%d"
       default_str: '%Y.%m.%d'
       short: "%b %e."
       long: "%Y. %B %e."
@@ -614,10 +614,10 @@ hu:
     tags: Címkék
     taggables: Címkecsoportok
     taggable: Címkecsoport
-    booking: Részletes foglalás
-    bookings: Részletes foglalások
-    houses_booking: Egyszerű foglalás
-    houses_bookings: Egyszerű foglalások
+    booking: Foglalás
+    bookings: Foglalások
+    houses_booking: Foglalás
+    houses_bookings: Foglalások
     house: Apartman
     houses: Apartmanok
     season: Szezon
@@ -631,8 +631,8 @@ hu:
     new_taggable: Új Címkecsoport
     new_house: Új Apartman
     new_season: Új Szezon
-    new_booking: Új részletes foglalás
-    new_houses_booking: Új egyszerű foglalás
+    new_booking: Új foglalás
+    new_houses_booking: Új foglalás
     new_user: Új felhasználó
     edit_discount: Akció szerkesztése
     edit_page: Oldal szerkesztése
@@ -817,8 +817,8 @@ hu:
     successfully_updated_taggable: Címkecsoport sikeresen módosítva
     successfully_updated_profile: Felhasználó adatok módosítása sikeres volt.
     successfully_created_season: Szezon sikeresen létrehozva
-    successfully_created_booking: Részletes foglalás sikeresen létrehozva
-    successfully_created_houses_booking: Egyszerű foglalás sikeresen létrehozva
+    successfully_created_booking: Foglalás sikeresen létrehozva
+    successfully_created_houses_booking: Foglalás sikeresen létrehozva
     successfully_updated_season: Szezon sikeresen módosítva
     successfully_destroyed_season: Szezon sikeresen törölve
     house_added: Az {{house}} apartman létrehozása sikeres volt

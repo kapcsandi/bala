@@ -1,28 +1,41 @@
-<% title t("Booking") %>
+<% title t("admin.booking") %>
+<p>
+  <%= link_to t("admin.edit"), edit_booking_path(@booking) %> |
+  <%= link_to t("admin.destroy"), @booking, :confirm => t('Are you sure?'), :method => :delete %> |
+  <%= link_to t("admin.view_all"), houses_bookings_path %>
+</p>
 
 <p>
   <strong><%= t('admin.booking_code')%>:</strong>
   <%= @booking.code %>
 </p>
 <p>
-  <strong><%= t('admin.houses')%>:</strong>
+  <strong><%= t('admin.house')%>:</strong>
   <%= houses_links(@booking.houses) %>
 </p>
 <p>
-  <strong><%= t('admin.booking_houses_table')%>:</strong>
-  <%= hb_links(@booking.houses_bookings) %>
+  <strong>Ár:</strong>
+  <%= @booking.houses_bookings.map {|hb| hb.formatted_price + ' EUR'}.to_sentence %>
+</p>
+<p>
+  <strong>Rögzítette:</strong>
+  <%= if @houses_booking.owner then @houses_booking.owner.username else '[bejövő előjegyzés: ' + (@houses_booking.booking ? @houses_booking.booking.email : '') + ']' end  %>
 </p>
 <p>
   <strong><%= t('admin.status')%>:</strong>
-  <%= @booking.houses_bookings.first.status if @booking.houses_bookings.first.respond_to?(:status) %>
+  <%= @houses_booking.status if @houses_booking.respond_to?(:status) %>
+</p>
+<p>
+  <strong>Admin megjegyzés:</strong>
+  <%=h @houses_booking.notes %>
 </p>
 <p>
   <strong><%= t('admin.from') %>:</strong>
-  <%=h @booking.houses_bookings.first.start_at if @booking.houses_bookings.first.respond_to?(:start_at) %>
+  <%=h @houses_booking.start_at if @houses_booking.respond_to?(:start_at) %>
 </p>
 <p>
   <strong><%= t('admin.to') %>:</strong>
-  <%=h @booking.houses_bookings.first.end_at if @booking.houses_bookings.first.respond_to?(:end_at) %>
+  <%=h @houses_booking.end_at if @houses_booking.respond_to?(:end_at) %>
 </p>
 <p>
   <strong><%= t('admin.nights') %>:</strong>
@@ -96,7 +109,6 @@
   <strong><%= t('admin.country') %>:</strong>
   <%=h @booking.country_name %>
 </p>
-
 <p>
   <%= link_to t("admin.edit"), edit_booking_path(@booking) %> |
   <%= link_to t("admin.destroy"), @booking, :confirm => t('Are you sure?'), :method => :delete %> |

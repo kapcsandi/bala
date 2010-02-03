@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
   def show
     begin
       @booking = Booking.find(params[:id])
+      @houses_booking = @booking.houses_bookings.first
     rescue
       flash[:error] = 'Nem létező foglalás'
       redirect_to root_path
@@ -24,7 +25,11 @@ class BookingsController < ApplicationController
       @houses = House.find([ params[:id].to_i ])
     else
       cart = find_cart
-      @houses = House.find(cart.items)
+      if admin?
+        @houses = []
+      else
+        @houses = House.find(cart.items)
+      end
     end
     @codes = @houses.map{|house| house.code + ' ' + house.city}.to_sentence
     @booking_title = t('booking_title', :houses => @codes)
@@ -51,8 +56,9 @@ class BookingsController < ApplicationController
         @houses_booking.house_id = house.id
         @houses_booking.start_at = hb[:start_at] unless hb[:start_at].empty?
         @houses_booking.end_at = hb[:end_at] unless hb[:end_at].empty?
-        price = if params[:house_0_price] then params[:house_0_price] else params["house_#{house.id}_price"] end
+        price = if params[:house_0_price] then params["house_#{houses_found.index(house)}_price"] else params["house_#{house.id}_price"] end
         @houses_booking.price = price
+        current_user.houses_bookings << @houses_booking if admin?
         @booking.houses_bookings << @houses_booking
       end
       @booking.price = price
@@ -73,18 +79,28 @@ class BookingsController < ApplicationController
         render :action => 'new'
       end
     else
+      @houses_booking = @booking.houses_bookings.build
       render :action => 'new'
     end
   end
 
   def edit
-    @houses_bookings = @booking.houses_bookings.first
+    @houses_bookings = @booking.houses_bookings
   end
 
   def update
     @houses_bookings = @booking.houses_bookings
     houses = params["booking"].delete("houses") {|house| house.keys}
-    params["booking"]["houses_bookings"] = houses.keys.map {|key| key.to_i}
+    @houses_bookings.each do |hb|
+      logger.info params[:booking][:houses_bookings][hb.house_id.to_s].inspect
+      hb.price = params[:booking][:houses_bookings][hb.house_id.to_s][:price]
+      hb.start_at = params[:booking][:houses_booking][:start_at]
+      hb.end_at = params[:booking][:houses_booking][:end_at]
+      hb.status = params[:booking][:status]
+      current_user.houses_bookings << hb unless hb.owner
+      hb.save
+    end
+    params["booking"].delete("houses_bookings")
     if @booking.update_attributes(params[:booking])
       flash[:notice] = t("updated_booking")
       redirect_to @booking
@@ -96,7 +112,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     flash[:notice] = t "destroyed_booking"
-    redirect_to bookings_url
+    redirect_to houses_bookings_path
   end
 
   def sort
@@ -177,7 +193,7 @@ class BookingsController < ApplicationController
     codes = {}
     booking.houses.each{|house| codes[house.id] = house.name }
     houses_bookings = booking.houses_bookings
-    Notifications.deliver_booking(codes,booking, houses_bookings)
+    Notifications.deliver_booking(codes,booking, houses_bookings) unless admin?
     Notifications.deliver_booking_admin(codes,booking, houses_bookings)
   rescue
     log_error($!)

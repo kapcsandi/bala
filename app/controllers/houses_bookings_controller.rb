@@ -21,15 +21,9 @@ class HousesBookingsController < ApplicationController
       @shown_month = Date.civil(@year, @month)
       @first_day_of_week = 1
       if @house and params[:search] and not params[:search][:code].empty? then
-
-#         @events = Event.events_for_date_range(start_d, end_d)
-#         @event_strips = Event.create_event_strips(start_d, end_d, @events)
-
-
-        @hbookings = @house.houses_bookings         #        .on_month(@shown_month).with_assoc
-        start_d, end_d = @hbookings.get_start_and_end_dates(@shown_month,@first_day_of_week) # optionally pass in @first_day_of_week
+        @hbookings = @house.houses_bookings
+        start_d, end_d = @hbookings.get_start_and_end_dates(@shown_month,@first_day_of_week)
         @bookings = @hbookings.events_for_date_range(start_d, end_d)
-#        @event_strips = @bookings.event_strips_for_month(@shown_month,@first_day_of_week)
         @event_strips = @hbookings.create_event_strips(start_d, end_d, @bookings)
       else
         @bookings = HousesBooking.on_month(@shown_month).with_assoc
@@ -54,7 +48,7 @@ class HousesBookingsController < ApplicationController
     end
     if @house and @houses_booking.save
       flash[:notice] = t("admin.successfully_created_houses_booking")
-      event_logger("#{current_user.username} foglaltságot rögzített: <a href=\"/houses_bookings/#{@houses_booking.id}\">#{@houses_booking.code}</a>,, #{@houses_booking.start_at} - #{@houses_booking.end_at}")
+      event_logger("#{current_user.username} foglaltságot rögzített: #{link_to(@houses_booking.code, houses_bookings_path(@houses_booking))}, #{@houses_booking.start_at} - #{@houses_booking.end_at}")
       redirect_to @houses_booking
     else
       @house ||= House.new
@@ -69,7 +63,7 @@ class HousesBookingsController < ApplicationController
     current_user.houses_bookings << @houses_booking unless @houses_booking.owner
     if @houses_booking.update_attributes(params[:houses_booking])
       flash[:notice] = t("updated_booking")
-      event_logger("#{current_user.username} foglaltságot módosított: <a href=\"/houses_bookings/#{@houses_booking.id}\">#{@houses_booking.code}</a>, #{@houses_booking.start_at} - #{@houses_booking.end_at}")
+      event_logger("#{current_user.username} foglaltságot módosított: #{link_to(@houses_booking.code, houses_bookings_path(@houses_booking))}, #{@houses_booking.start_at} - #{@houses_booking.end_at}")
       redirect_to @houses_booking
     else
       render :action => 'edit'

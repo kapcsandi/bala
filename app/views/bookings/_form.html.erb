@@ -52,7 +52,6 @@
       :year_range => 0.years.ago.year..1.years.from_now.year
       %>
     </div>
-  <% end %>
     <div class="span-6">
       <%= f.label :nights, t(:nights) %><br />
       <%= f.text_field :nights, :size => 20, :readonly => "true", :value => booking.nights %>
@@ -63,7 +62,15 @@
       <% for house in houses do %>
         <% content_tag_for :li, house, :class => 'span-5' do %>
           <%= f.label :calculated_price, t(:calculated_price) %><br />
-          <span id="house_<%= house.id %>_price" class="price"></span> EURO
+      <% if admin? %>
+        <% if booking.new_record? %>
+        <%= hb_form.text_field :price, :size => 10 %>
+        <% else %>
+        <%= f.text_field "booking_houses_#{house.id}_price", :value => booking.houses_bookings.find_by_house_id(house.id).price, :name =>"booking[houses_bookings][#{house.id}][price]", :size => 10 %>
+        <% end %>
+      <% else %>
+          <span id="house_<%= house.id %>_price" class="price"></span>
+      <% end %> EURO
         <% end %>
       <% end %>
       </ul>
@@ -72,13 +79,29 @@
       <div id="booking_prices" class="span-6 append-13">
         <div>
         <%= f.label :calculated_price, t(:calculated_price) %><br />
-        <span id="house_price" class="price"></span> EURO
+      <% if admin? %>
+        <%= hb_form.text_field :price, :size => 10 %>
+      <% else %>
+        <span id="house_price" class="price"></span>
+      <% end %> EURO
         </div>
       </div>
-    <% end %>   
+    <% end %>
     </div>
+  <% end %>
     <div class="span-19">
+    <% if admin? %>
+    <div class="span-6">
+      <%= f.label 'Állapot' %><br />
+      <%= f.select 'status', HousesBooking.states %>
+    </div>
+    <div class="span-12">
+      <%= f.label 'Megjegyzés' %><br />
+      <%= f.text_area :admin_notes, :rows => 3 %>
+    </div>
+    <% else %>
       <%= button_to_remote t('calculate_price'), :url => :calculate, :with => "'persons=' + $('booking_persons').value + '&from=' + $('booking_houses_booking_start_at').value + '&to=' + $('booking_houses_booking_end_at').value + '&codes=' + $('houses_bookings').select('input.code').pluck('value') + '&animals=' + $('booking_with_animals_1').checked" %>
+    <% end %>
     <span class="right full"><%= t(:booking_price) %></span>
     </div>
   <% end %>
@@ -127,6 +150,9 @@
       <%= f.label :notes, t(:notes) %><br />
       <%= f.text_area :notes, :rows => 4 %>
     </div>
+
+
+    
   <% end %>
 <br />
 <p><%= link = link_to(t('booking_terms'), terms_path(:print => 1), {:popup => true }); t(:read_terms, :link => link) %></p>
