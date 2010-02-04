@@ -9,27 +9,27 @@ Foglalás érkezett a következő adatokkal:
 * házkód: <%= @codes[hb.house_id] %>
 * ár: <%= hb.formatted_price %> EURO
 <% end -%>
-<% unless @houses_bookings.first.notes.empty? %>
-* admin megjegyzés: <%= @houses_bookings.first.notes %>
-<% end %>
+<%- unless @houses_bookings.first.notes.nil? %>
+* admin megjegyzés: <%= h @houses_bookings.first.notes %>
+<% end -%>
 Részletek:
-* Érkező személyek száma: <%= @booking.persons %>
-* Ebből gyerek: <%= @booking.children %>
-* Gyerekek kora: <%= @booking.children_years %>
+* Érkező személyek száma: <%= h @booking.persons %>
+* Ebből gyerek: <%= h @booking.children %>
+* Gyerekek kora: <%= h @booking.children_years %>
 * Háziállatot hoznak: <%= @booking.with_animals ? 'igen' : 'nem' %>
-* Háziállat adatok: <%= @booking.animal_details %>
+* Háziállat adatok: <%= h @booking.animal_details %>
 * Megszólítás: <%= @booking.salut %>
-* Vezetéknév: <%= @booking.lastname %>
-* Keresztnév: <%= @booking.firstname %>
-* Cégnév: <%= @booking.company %>
-* Irányítószám: <%= @booking.postcode %>
-* Település: <%= @booking.city %>
-* Utca, házszam: <%= @booking.address %>
+* Vezetéknév: <%= h @booking.lastname %>
+* Keresztnév: <%= h @booking.firstname %>
+* Cégnév: <%= h @booking.company %>
+* Irányítószám: <%= h @booking.postcode %>
+* Település: <%= h @booking.city %>
+* Utca, házszam: <%= h @booking.address %>
 * Ország: <%= @booking.country %>
-* Tel: <%= @booking.phone %>
-* Mobil: <%= @booking.mobile %>
-* Fax: <%= @booking.fax %>
-* E-mail: <%= @booking.email %>
+* Tel: <%= h @booking.phone %>
+* Mobil: <%= h @booking.mobile %>
+* Fax: <%= h @booking.fax %>
+* E-mail: <%= h @booking.email %>
 <% unless @booking.notes.blank? %>
 Üzenet:
 <%= h @booking.notes %>

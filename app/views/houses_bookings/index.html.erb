@@ -12,7 +12,7 @@ Válassz apartmant:
 <div class="span-4"><%= f.submit t("admin.submit") %></div>
 <% end %>
 <br class='clear' />
-<%= event_calendar unless @event_strips.nil? or @all %>
+<%#= event_calendar unless @event_strips.nil? or @all %>
 <br class='clear' />
 <%= will_paginate @bookings, :previous_label => t(:prev_link), :next_label => t(:next_link) if @all %>
 <table>

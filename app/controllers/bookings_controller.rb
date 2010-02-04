@@ -58,6 +58,10 @@ class BookingsController < ApplicationController
         @houses_booking.end_at = hb[:end_at] unless hb[:end_at].empty?
         price = if params[:house_0_price] then params["house_#{houses_found.index(house)}_price"] elsif params["house_#{house.id}_price"] then params["house_#{house.id}_price"] elsif hb[:price] then hb[:price] end
         @houses_booking.price = price
+        @houses_booking.notes = params["booking"]["admin_notes"]
+        logger.info params["booking"]["admin_notes"]
+        @houses_booking.status = params["booking"]["status"]
+        logger.info params["booking"]["status"]
         current_user.houses_bookings << @houses_booking if admin?
         @booking.houses_bookings << @houses_booking
       end
@@ -70,7 +74,11 @@ class BookingsController < ApplicationController
             flash[:notice] = t("created_booking")
           end
           notification_mails(@booking)
-          redirect_to houses_path
+          if admin?
+            redirect_to houses_bookings_path
+          else
+            redirect_to houses_path
+          end
         else
           render :action => 'new'
         end
