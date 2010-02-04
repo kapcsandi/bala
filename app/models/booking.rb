@@ -35,11 +35,11 @@ class Booking < ActiveRecord::Base
   end
 
   def status=(status_string)
-    self.houses_bookings.first.status_id=@@states.index(status_string)
+    self.houses_bookings.first.status_id=@@states.index(status_string) if self.houses_bookings and self.houses_bookings.first
   end
 
   def admin_notes=(notes_string)
-    self.houses_bookings.first.notes=notes_string
+    self.houses_bookings.first.notes=notes_string if self.houses_bookings and self.houses_bookings.first
   end
 
   def name
