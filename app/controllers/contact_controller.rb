@@ -5,6 +5,10 @@ class ContactController < ApplicationController
     @contact = Contact.new
   end
 
+  def index
+    redirect_to new_contact_path
+  end
+
   def create
     @contact = Contact.new(params[:contact])
     @cart = find_cart
