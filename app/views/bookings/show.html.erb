@@ -26,6 +26,14 @@
   <%= @houses_booking.status if @houses_booking.respond_to?(:status) %>
 </p>
 <p>
+  <strong>Létrehozva:</strong>
+  <%=h @houses_booking.created_at %>
+</p>
+<p>
+  <strong>Utolsó módosítás:</strong>
+  <%=h @houses_booking.updated_at %>
+</p>
+<p>
   <strong>Admin megjegyzés:</strong>
   <%=h @houses_booking.notes %>
 </p>

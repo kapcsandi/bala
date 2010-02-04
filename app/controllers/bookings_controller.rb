@@ -56,7 +56,7 @@ class BookingsController < ApplicationController
         @houses_booking.house_id = house.id
         @houses_booking.start_at = hb[:start_at] unless hb[:start_at].empty?
         @houses_booking.end_at = hb[:end_at] unless hb[:end_at].empty?
-        price = if params[:house_0_price] then params["house_#{houses_found.index(house)}_price"] else params["house_#{house.id}_price"] end
+        price = if params[:house_0_price] then params["house_#{houses_found.index(house)}_price"] elsif params["house_#{house.id}_price"] then params["house_#{house.id}_price"] elsif hb[:price] then hb[:price] end
         @houses_booking.price = price
         current_user.houses_bookings << @houses_booking if admin?
         @booking.houses_bookings << @houses_booking

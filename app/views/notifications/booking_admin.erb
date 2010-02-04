@@ -9,6 +9,9 @@ Foglalás érkezett a következő adatokkal:
 * házkód: <%= @codes[hb.house_id] %>
 * ár: <%= hb.formatted_price %> EURO
 <% end -%>
+<% unless @houses_bookings.first.notes.empty? %>
+* admin megjegyzés: <%= @houses_bookings.first.notes %>
+<% end %>
 Részletek:
 * Érkező személyek száma: <%= @booking.persons %>
 * Ebből gyerek: <%= @booking.children %>
