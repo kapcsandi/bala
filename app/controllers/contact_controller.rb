@@ -1,4 +1,6 @@
 class ContactController < ApplicationController
+  protect_from_forgery :only => [:create]
+
   def new
     @house = House.find(params[:id]) if params[:id]
     @cart = find_cart
