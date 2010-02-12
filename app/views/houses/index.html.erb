@@ -11,5 +11,8 @@
 </div>
 <%= will_paginate @houses, :previous_label => t(:prev_link), :next_label => t(:next_link) %>
 <% if root_admin? %>
-<div class="span-24"><%= link_to t('admin.new_house'), new_house_path %></div>
+<div class="span-20"><%= link_to t('admin.new_house'), new_house_path %></div>
 <% end %>
+<div class="span-20"><% link_to url_for(request.path_parameters.merge(request.query_parameters.merge(:format => :xml))) do %>
+<%= image_tag('/images/feed-icon-14x14.png') %>
+<% end %></div>

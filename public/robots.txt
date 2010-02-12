@@ -4,5 +4,7 @@ Disallow: /de/bookings
 Disallow: /hu/bookings
 Disallow: /de/houses/cart
 Disallow: /hu/houses/cart
+Disallow: /hu/houses/index
+Disallow: /de/houses/index
 
 

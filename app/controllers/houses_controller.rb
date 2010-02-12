@@ -18,12 +18,12 @@ class HousesController < ApplicationController
     else
       tag = Taggable.find_by_field('category').tags.find_by_name(params[:category]) unless params[:category].blank?
       if tag
-        search = tag.houses.searchlogic
+        search = tag.houses.with_descriptions.searchlogic
       else
         if params[:discount]
-          search = House.discounts.searchlogic
+          search = House.discounts.with_descriptions.searchlogic
         else
-          search = House.searchlogic
+          search = House.with_descriptions.searchlogic
         end
       end
       search.persons_gte = params[:q][:persons].to_i unless params[:q].nil? or params[:q][:persons].blank?
@@ -48,7 +48,12 @@ class HousesController < ApplicationController
         search.distance_beach_lte = params[:q][:distance_beach].to_i unless params[:q][:distance_beach].blank?
       end
 
-      @houses, @houses_count = search.all(:select => "houses.id,code, city_id, persons, children, animals, pictures, house_type_id, condition_id, furnishing_id, floor_area, distance_center, distance_beach, distance_restaurant, distance_shop, distance_mainroad, distance_station").paginate(:page => params[:page], :per_page => 10), search.count
+      @houses, @houses_count = search.all(:select => "houses.id,code, city_id, persons, children, animals, pictures, house_type_id, condition_id, furnishing_id, floor_area, distance_center, distance_beach, distance_restaurant, distance_shop, distance_mainroad, distance_station, houses.updated_at").paginate(:page => params[:page], :per_page => 10), search.count
+      @feed_url = request.url.sub(/houses/,'houses.xml')
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml #  { render :xml => @houses }
+      end
     end
   end
 
