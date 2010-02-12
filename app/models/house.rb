@@ -158,7 +158,7 @@ class House < ActiveRecord::Base
   end
 
   def name
-    "#{self.code} (#{self.house_type}, #{self.city})"
+    "#{self.code} (#{self.house_type.strip}, #{self.city})"
   end
 end
 
