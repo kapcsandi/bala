@@ -9,7 +9,7 @@ class House < ActiveRecord::Base
   has_many :houses_bookings
   has_many :bookings, :through => :houses_bookings, :uniq => true
 
-  default_scope :order => 'code ASC'
+  default_scope :order => 'code ASC', :include => [:tags, :discount]
   
   accepts_nested_attributes_for :discount, :allow_destroy => true
   accepts_nested_attributes_for :tags, :allow_destroy => true
@@ -18,7 +18,7 @@ class House < ActiveRecord::Base
   validates_uniqueness_of :code
   
   named_scope :discounts, {:joins => :discount}
-  named_scope :with_descriptions, {:joins => 'JOIN house_translations ON houses.id=house_translations.house_id'}
+  named_scope :with_descriptions, {:joins => "JOIN house_translations ON houses.id=house_translations.house_id AND house_translations.locale='#{I18n.locale.to_s}'"}
   named_scope :scroll_pictures, lambda { |tag|
     {:joins => :houses_tags,
     :conditions => { :houses_tags => {:tag_id => tag }},

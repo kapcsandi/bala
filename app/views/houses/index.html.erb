@@ -14,5 +14,8 @@
 <div class="span-20"><%= link_to t('admin.new_house'), new_house_path %></div>
 <% end %>
 <div class="span-20"><% link_to url_for(request.path_parameters.merge(request.query_parameters.merge(:format => :xml))) do %>
-<%= image_tag('/images/feed-icon-14x14.png') %>
+<%= image_tag('/images/feed-icon-14x14.png', :alt => 'rss feed') %>
 <% end %></div>
+<% content_for :head do %>
+<link rel="alternate" type="application/rss+xml" title="RSS" href="<%= url_for(request.path_parameters.merge(request.query_parameters.merge(:format => :xml))) %>" />
+<% end %>
