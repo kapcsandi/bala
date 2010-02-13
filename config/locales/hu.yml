@@ -163,15 +163,15 @@ hu:
         username: "Felhasználó név"
         password: "Jelszó"
       contact:
-        start_at: "Wunsttermin von"
-        end_at: "Wunsttermin bis"
-        firstname: "Vorname"
-        lastname: "Nachname"
+        start_at: "Érkezés dátuma"
+        end_at: "Távozás dátuma"
+        firstname: "Keresztnév"
+        lastname: "Vezetéknév"
         email: "E-mail"
         phone: "Telefon"
-        city: "Ort"
-        address: "Adresse"
-      
+        city: "Település"
+        address: "Cím"
+
     errors:
       messages:
         record_invalid: 'record invalid'
@@ -390,13 +390,13 @@ hu:
   price_main_season: Főszezon
   admin_description: Admin megjegyzés (csak az admin számára látható)
   picture_url: "{{position}}. kép neve"
-  house_prices_info:  Mietpreis pro Haus und Woche in Euro (&euro;)
-  house_prices_from: von
-  house_prices_to: bis
-  house_prices_with: bei Belegung mit .. Personen
-  house_prices_season: bis zu
-  house_prices_price: Mietpreis
-  house_prices_includes_info: "Im Preis bereits enthalten: Bettwäsche, Endreinigung, Gas, Strom, Wasser.<br />Nebenkosten: Zuschläge (zalhbar bei Buchung): Ortstaxe<br /> An- und Abreise: Samstags. Mindestanfenhalt 1 Woche. Abweichende An- und  Abreise sowie kürzere Afenthalte in der Nebensaison auf Anfrage möglich (teilweise  Mietpreiszuschlag)"
+  house_prices_info: Házbérleti dij egy hétre Euroban (&euro;)
+  house_prices_from: tól
+  house_prices_to: ig
+  house_prices_with: Maximum személyek száma
+  house_prices_season: Szezonok
+  house_prices_price: Bérleti díj
+  house_prices_includes_info: "Az ár tartalmazza: ágynemű, végtakarítás, gáz, áram, víz.<br />További költségek: pótköltségek (háztulajdonosnak fizetendő): üdülőhelyi díj<br /> Érkezés és távozás: szombaton. Minimum tartózkodás egy hét. Más napon történő érkezés vagy távozás, illetve rövidebb tartózkodás főszezonon kívül előzetes egyeztetés után lehetséges (adott esetben feláras)."
 
 #field groups
   house_basics: Ház alapinfók
@@ -439,10 +439,10 @@ hu:
   New Booking: Foglalás
   booking_hint: Kérjük pontosan töltse ki az alábbi adatokat.
   booking_details: Foglalás részletei
-  booking_sentence: "Ich reserviere obiges Fehrienhaus für folgenden Zeitraum:"
-  booking_price: "Im Preis bereit enthalten: Bettwäsche, Endreinigung, Gas, Strom, Wasser<br />Nebenkosten: Zuschläge (zahlbar bei Buchung): Ortstaxe"
-  read_terms: "Die {{link}} habe ich gelesen und bin einverstanden."
-  booking_terms: Allgemeinen Geschäftsbedingungen (AGB)
+  booking_sentence: "Lefoglalom a nyaralóházat a következő időtartamra:"
+  booking_price: "Az ár tatalmazza: Ágynemű mosatást, végtakarítást, gáz, villany, vízdíjjat<br />Mellékköltség(ek): helyi idegenforgalmi adó (helyszínen fizetendő)"
+  read_terms: "Az {{link}}ot elolvastam és egyetértek vele."
+  booking_terms: Üzleti Szabályzat
   selected_houses:
     one: Választott apartman
     other: Választott apartmanok
@@ -473,7 +473,7 @@ hu:
   select_country: Válasszon országot
   status: Állapot
   calculate_price: Árkalkulátor
-  animal_info: Anzahl und Tierart der mitfahrenden Haustiere. Bei Hunden bitte Rasse und ca. kg angeben.
+  animal_info: A magukkal hozott háziállatok száma és fajtája. Kutyák esetében a fajtát és a méretét (kg-ban) sziveskedjenek megadni.
 
 # contact
   contact_city: Ort / PLZ
@@ -492,7 +492,7 @@ hu:
   contact_children_count: Gyerekek száma
 
 # email
-  booking_notification_subject: "Foglalási értesítő"
+  booking_notification_subject: "Foglalási értesítő {{code}}, {{date}}"
 
 # titles
   booking_title: "{{houses}} apartman foglalása"

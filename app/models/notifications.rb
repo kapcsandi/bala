@@ -1,6 +1,7 @@
 class Notifications < ActionMailer::Base
   def signup(user)
     recipients  user.email_address_with_name
+    bcc        APP_CONFIG['bcc_email']
     from       APP_CONFIG['reg_email']
     reply_to   APP_CONFIG['root_email']
     subject    "New account information"
@@ -10,15 +11,17 @@ class Notifications < ActionMailer::Base
 
   def booking(codes, booking, houses_bookings, sent_at = Time.now)
     recipients booking.email
+    bcc        APP_CONFIG['bcc_email']
     from       "#{I18n.t(:booking_from, :locale => I18n.locale)}"
     subject    "#{I18n.t(:booking_notification_subject, :code => booking.code, :date => I18n.l(Date.today, :locale => I18n.locale))}"
-    reply_to   "renata.gerhat@1xferienhaus.de"
+    reply_to   APP_CONFIG['root_email']
     body       :booking => booking, :codes => codes, :houses_bookings => houses_bookings
     sent_on    sent_at
   end
 
   def booking_admin(codes, booking, houses_bookings,  sent_at = Time.now)
     recipients APP_CONFIG['root_email']
+    bcc        APP_CONFIG['bcc_email']
     from       APP_CONFIG['book_email']
     subject    "admin - Foglalás értesítő"
     body       :booking => booking, :codes => codes, :houses_bookings => houses_bookings
@@ -27,6 +30,7 @@ class Notifications < ActionMailer::Base
 
   def contact(contact, code, sent_at = Time.now)
     recipients APP_CONFIG['root_email']
+    bcc        APP_CONFIG['bcc_email']
     from       "#{I18n.t(:contact_from, :locale => I18n.locale)}"
     subject    "admin - Kapcsolatfelvétel"
     body       :contact => contact, :code => code

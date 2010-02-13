@@ -3,7 +3,7 @@
 
 class ApplicationController < ActionController::Base
   include ExceptionNotifiable
-  around_filter :you_dont_have_bloody_clue
+#  around_filter :you_dont_have_bloody_clue
   
   helper :all # include all helpers, all the time
   helper_method :logged_in?, :admin?, :root_admin?

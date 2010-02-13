@@ -461,7 +461,7 @@ de:
   fax: Fax
   mobile: Handy
   email: E-mail <span class="red">*</span>
-  email_repeat: E-mail widerholen
+  email_repeat: E-mail wiederholen
   salut: Anrede
   firstname: Vorname <span class="red">*</span>
   lastname: Nachname <span class="red">*</span>
@@ -530,6 +530,9 @@ de:
   contact_house: Frage zum Haus
   contact_submit: Anfrage senden
 
+# email
+  booking_notification_subject: Ihre Buchung bei 1xferienhaus {{code}}, {{date}}
+
 # other
   city: Ort
   discount: Rabatt
@@ -570,16 +573,17 @@ de:
   cart_limit: Der Warenkorb kann maximal 3 Häuser enthalten!<br /> Zuerst bitte löschen Sie Elemente aus Ihrem warekorb.
   created_booking: "<h3>Vielen Dank für Ihre Reservierung.</h3><p>Liebe Ungarnfreunde,</p><p>nach der Absendung Ihrer Bestellung bekommen Sie eine <b>Bestätigung</b> mit dem Gesamtpreis des Aufenthaltes, Höhe und Termin der erste Anzalhlung. Wir werden Ihre Reservierung schnellstens bearbeiten und Ihnen der Unterlagen zukommen lassen.</p>"
   fill_mandatory_fields_for_price: Kérjük töltse ki a kötelező mezőket!
-  contact_sended: Az üzenetét elküldtük, kollégánk hamarosan válaszol Önnek.
+  contact_sended: Ihre Brief ist abgesendet, unsere Kollege beanwortet es bald.
 
-  not_implemented_yet: Fejlesztés alatt.
-  cart_is_empty: A Bevásárlókosara üres
-  invalid_house: Ez az apartman nem létezik
-  Are you sure?: Biztos benne?
-  select_houses: Kérjük, válasszon apartmant! A 'Megjelölés' gombbal a <b>Bevásárlókosarába</b> helyezhet többet is.
+  not_implemented_yet: Unter Entwicklung.
+  cart_is_empty: Ihre Warenkorb ist leer.
+  invalid_house: Diese Appartement existiert nicht.
+  Are you sure?: Sind Sie sicher daran?
+  select_houses: Bitte wählen Sie ein Appartement!  Mit „Markieren” können Sie mehrere Möglichkeiten in den <b>Warenkorb</b> setzen.
 
-
-
+#emails
+  contact_from: kontakt@1xferienhaus.de
+  booking_from: buchung@1xferienhaus.de
 
 
 
