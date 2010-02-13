@@ -4,8 +4,9 @@ class HousesBooking < ActiveRecord::Base
   belongs_to :booking, :dependent => :destroy
   belongs_to :owner, :class_name => 'User'
   validates_presence_of :house_id, :start_at, :end_at
-  named_scope :with_assoc,  {:include => [:house, :booking]}
+  named_scope :with_assoc, {:include => [:house, :booking]}
   named_scope :on_month, lambda{|date| { :conditions => ["start_at >= ? AND end_at <= ?", date.beginning_of_month, date.end_of_month]}}
+  named_scope :with_status, lambda {|status| {:conditions => ["status_id IN ( ? )" , status.map{|st| HousesBooking.states.index(st) } ]}}
 
   has_event_calendar
 

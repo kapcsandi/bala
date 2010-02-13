@@ -2,16 +2,18 @@
 <p><%= link_to t('admin.new_booking'), new_booking_path %></p>
 <% form_for @search do |f| %>
 Válassz apartmant:
-  <%= text_field_with_auto_complete 'search', 'code', { :size => 20, :class => 'code' }, { :url => houses_path(:format => :js), :method => :get, :param_name => 'search[conditions][code_like]', :with => "value + '&autocomplete=1'", :indicator => :house_spinner } %>
-  <img id="house_spinner" src="/images/active_scaffold/default/indicator.gif" style="display:none">
-  <div id="house_stamp"></div>
-  <div>Válassz dátumot:
-  <%= select_year @year, :field_name => 'year' %>
-  <%= select_month @month, :field_name => 'month', :locale => :hu %>
-</div> vagy: <%= check_box_tag 'all', @all, @all %> összes foglaltság
+<%= text_field_with_auto_complete 'search', 'code', { :size => 20, :class => 'code' }, { :url => houses_path(:format => :js), :method => :get, :param_name => 'search[conditions][code_like]', :with => "value + '&autocomplete=1'", :indicator => :house_spinner } %>
+<img id="house_spinner" src="/images/active_scaffold/default/indicator.gif" style="display:none">
+<div id="house_stamp"></div>
+<div>Válassz dátumot:
+<%= select_year @year, :field_name => 'year' %>
+<%= select_month @month, :field_name => 'month', :locale => :hu %>
+ vagy: <%= check_box_tag 'all', @all, @all %> összes időpontra </div>
+<div>Válassz állapotot:<%= select_tag 'status', options_for_select(['Mind'] + HousesBooking.states, params[:status]), :multiple => true %></div>
 <div class="span-4"><%= f.submit t("admin.submit") %></div>
 <% end %>
 <br class='clear' />
+<div>Találatok száma: <%= @bookings.size %></div>
 <%= event_calendar unless @event_strips.nil? or @all %>
 <br class='clear' />
 <%= will_paginate @bookings, :previous_label => t(:prev_link), :next_label => t(:next_link) if @all %>

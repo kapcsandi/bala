@@ -8,27 +8,31 @@ class HousesBookingsController < ApplicationController
     @year = params[:date] && params[:date][:year] || Date.today.year
     @month = params[:date] && params[:date][:month] || Date.today.month
     @all = params[:all]
+    @status = HousesBooking.states
+    @status = params[:status] unless params[:status].nil? or params[:status].index('Mind')
+    
+    logger.info 'STÁTUSZ: ' + @status.inspect
+    
     @year, @month = @year.to_i, @month.to_i
     @date = Date.parse("#{@year}-#{@month}-01")
     @house = @search.first
     if @all
       if @house and params[:search] and not params[:search][:code].empty? then
-        @bookings = @house.houses_bookings.paginate(:page => params[:page], :per_page => 10)
+        @bookings = @house.houses_bookings.with_status(@status).paginate(:page => params[:page], :per_page => 10)
       else
-        @bookings = HousesBooking.all.paginate(:page => params[:page], :per_page => 10)
+        @bookings = HousesBooking.with_status(@status).paginate(:page => params[:page], :per_page => 10)
       end
     else
       @shown_month = Date.civil(@year, @month)
       @first_day_of_week = 1
       if @house and params[:search] and not params[:search][:code].empty? then
-        @hbookings = @house.houses_bookings
-        start_d, end_d = @hbookings.get_start_and_end_dates(@shown_month,@first_day_of_week)
-        @bookings = @hbookings.events_for_date_range(start_d, end_d)
-        @event_strips = @hbookings.create_event_strips(start_d, end_d, @bookings)
+        @hbookings = @house.houses_bookings.with_status(@status)
       else
-        @bookings = HousesBooking.on_month(@shown_month).with_assoc
-        @event_strips = HousesBooking.event_strips_for_month(@shown_month,@first_day_of_week)
+        @hbookings = HousesBooking.with_status(@status)
       end
+      start_d, end_d = @hbookings.get_start_and_end_dates(@shown_month,@first_day_of_week)
+      @bookings = @hbookings.events_for_date_range(start_d, end_d)
+      @event_strips = @hbookings.create_event_strips(start_d, end_d, @bookings)
     end
   end
   

@@ -117,6 +117,7 @@ fieldset.full p {width:30%;float:left}
 #new_booking textarea {height:auto}
 #new_booking fieldset.half div {width:50%}
 #new_booking fieldset div.clear {width:90%}
+.bookings .admin {background-color:pink;padding:5px}
 .fold img {margin:0}
 #new_booking .photos a img {margin:0;padding:0}
 a img,

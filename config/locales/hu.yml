@@ -452,7 +452,7 @@ hu:
   nights: Éjszakák száma <span class="red">*</span>
   with_animals: Állatot is hozunk
   animal_details: Háziállat fajtája, súlya
-  calculated_price: Árkalkulátor <span class="red">*</span>
+  calculated_price: Ár <span class="red">*</span>
   persons_count: Személyek száma <span class="red">*</span>
   children_count: Gyerekek száma
   children_years: Gyerekek életkora

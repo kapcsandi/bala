@@ -56,7 +56,7 @@
       <%= f.label :nights, t(:nights) %><br />
       <%= f.text_field :nights, :size => 20, :readonly => "true", :value => booking.nights %>
     </div>
-    <div class="span-19">
+    <div class="span-19<%= ' admin' if admin? %>">
     <% if houses.size > 0 %>
       <ul id="booking_prices">
       <% for house in houses do %>
@@ -89,7 +89,7 @@
     <% end %>
     </div>
   <% end %>
-    <div class="span-19">
+    <div class="span-19<%= ' admin' if admin? %>">
     <% if admin? %>
     <div class="span-6">
       <%= f.label 'Állapot' %><br />
@@ -100,6 +100,7 @@
       <%= f.text_area :admin_notes, :rows => 3 %>
     </div>
     <% else %>
+      <%= f.hidden_field 'status', :value => HousesBooking.states.first %>
       <%= button_to_remote t('calculate_price'), :url => :calculate, :with => "'persons=' + $('booking_persons').value + '&from=' + $('booking_houses_booking_start_at').value + '&to=' + $('booking_houses_booking_end_at').value + '&codes=' + $('houses_bookings').select('input.code').pluck('value') + '&animals=' + $('booking_with_animals_1').checked" %>
     <% end %>
     <span class="right full"><%= t(:booking_price) %></span>

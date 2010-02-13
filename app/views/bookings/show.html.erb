@@ -23,7 +23,7 @@
 </p>
 <p>
   <strong><%= t('admin.status')%>:</strong>
-  <%= @houses_booking.status if @houses_booking.respond_to?(:status) %>
+  <%= @houses_booking.status unless @houses_booking.status_id.nil? %>
 </p>
 <p>
   <strong>Létrehozva:</strong>
