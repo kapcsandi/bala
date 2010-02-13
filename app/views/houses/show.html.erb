@@ -20,7 +20,7 @@
       <%= tagnames.to_sentence -%>
     </p>
     <%- if @house.discounted? %>
-    <p>
+    <p class="red">
       <%= h @house.discount.description %>
     </p>
     <% end -%>
