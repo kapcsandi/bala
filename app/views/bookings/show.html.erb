@@ -1,7 +1,7 @@
 <% title t("admin.booking") %>
 <p>
-  <%= link_to_if (root_admin? or @houses_booking.owner == current_user), t("admin.edit"), edit_booking_path(@booking) %> |
-  <%= link_to_if (root_admin? or @houses_booking.owner == current_user), t("admin.destroy"), @booking, :confirm => t('Are you sure?'), :method => :delete %> |
+  <%= link_to_if (root_admin? or @houses_booking.owner.nil? or @houses_booking.owner == current_user), t("admin.edit"), edit_booking_path(@booking) %> |
+  <%= link_to_if (root_admin? or @houses_booking.owner.nil? or @houses_booking.owner == current_user), t("admin.destroy"), @booking, :confirm => t('Are you sure?'), :method => :delete %> |
   <%= link_to t("admin.view_all"), houses_bookings_path %>
 </p>
 
@@ -118,7 +118,7 @@
   <%=h @booking.country_name %>
 </p>
 <p>
-  <%= link_to_if (root_admin? or @houses_booking.owner == current_user), t("admin.edit"), edit_booking_path(@booking) %> |
-  <%= link_to_if (root_admin? or @houses_booking.owner == current_user), t("admin.destroy"), @booking, :confirm => t('Are you sure?'), :method => :delete %> |
+  <%= link_to_if (root_admin? or @houses_booking.owner.nil? or @houses_booking.owner == current_user), t("admin.edit"), edit_booking_path(@booking) %> |
+  <%= link_to_if (root_admin? or @houses_booking.owner.nil? or @houses_booking.owner == current_user), t("admin.destroy"), @booking, :confirm => t('Are you sure?'), :method => :delete %> |
   <%= link_to t("admin.view_all"), houses_bookings_path %>
 </p>
