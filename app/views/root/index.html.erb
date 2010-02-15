@@ -11,7 +11,7 @@
   <div class="item details">
 <%=
 unless category[:house].nil?
-  if category[:house].discount.nil?
+  if category[:house].discount.nil? or category[:house].discount.description.nil?
     price = category[:house].formatted_price(Season.which_season?(Date.today))
     persons = category[:house].persons.to_s + (category[:house].children > 0 ? '+' + category[:house].children.to_s : '')
     t(:price_persons, :price => price, :persons => persons)

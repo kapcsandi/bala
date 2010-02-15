@@ -14,7 +14,7 @@
 <% end -%>
 </div>
 <% end -%>
-<% form_for @contact, :url => {:action => :create} do |f| %>
+<% form_for :contact, :url => {:action => :create} do |f| %>
   <%= f.error_messages %>
 <% if @house %>
   <%= f.hidden_field :house_id, :value => @house.id %>
