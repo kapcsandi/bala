@@ -2,6 +2,7 @@
 <a name="details"></a>
 <% end -%>
 <% title ([@house.house_type, @house.code, @house.city].join(', ') ), false %>
+<% description( @house.house_description ) unless @house.house_description.nil? or @house.house_description.empty? %>
 <div class="inner">
 <div class="mini odd">
 <%= render :partial => 'mini', :locals => { :house => @house, :cart => @cart } %>

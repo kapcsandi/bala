@@ -476,7 +476,7 @@ hu:
   animal_info: A magukkal hozott háziállatok száma és fajtája. Kutyák esetében a fajtát és a méretét (kg-ban) sziveskedjenek megadni.
 
 # contact
-  contact_city: Ort / PLZ
+  contact_city: Település / Irányítószám
   contact_notes_for: "Kérdése a {{house}} házról:"
   contact_notes: "Az Ön kérdése:"
   contact_from: "Érkezés dátuma"
@@ -493,6 +493,8 @@ hu:
 
 # email
   booking_notification_subject: "Foglalási értesítő {{code}}, {{date}}"
+  contact_email_from: kapcsolat@1xferienhaus.de
+  booking_email_from: foglalas@1xferienhaus.de
 
 # titles
   booking_title: "{{houses}} apartman foglalása"
@@ -561,8 +563,8 @@ hu:
   short_persons: "max. {{persons}} fő"
 
 #messages
-  booking_warning: 'Achtung! Dies ist eine Buchung und keine Anfrage! Für eine Anfrage shicken Sie bitte eine E-mail.'
-  booking_hint: 'Bitte vervollständigen Sie Ihre Daten. Die mit * gekennzeichneten formularfelder bitte unbedingt ausfüllen!'
+  booking_warning: Figyelem! Ez már a foglalás nem a kérdések helye! Ha kérdése van kérem írjon E-mailt nekünk.
+  booking_hint: Kérem töltse ki a következő mezőket. A *-jelölt mezők kitöltése kötelező!
   house_added_to_cart: Az {{house}} apartman hozzá lett adva a Bevásárlókosárhoz
   house_removed_from_cart: Az {{house}} apartman törölve lett a Bevásárlókosárból
   house_not_in_any_group: " - (az apartman nem tartozik egyik csoporthoz sem)"

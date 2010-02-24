@@ -141,12 +141,12 @@ ActiveRecord::Schema.define(:version => 20100111212119) do
     t.integer  "distance_mainroad",     :default => 0
     t.integer  "owner_place_id"
     t.integer  "animal_charge" ,        :default => 0
-    t.integer  "price_pre_season_per_day",   :limit => 10, :precision => 10, :scale => 2
-    t.integer  "price_mid_season_per_day",   :limit => 10, :precision => 10, :scale => 2
-    t.integer  "price_main_season_per_day",   :limit => 10, :precision => 10, :scale => 2
-    t.integer  "price_pre_season_per_week",   :limit => 10, :precision => 10, :scale => 2
-    t.integer  "price_mid_season_per_week",   :limit => 10, :precision => 10, :scale => 2
-    t.integer  "price_main_season_per_week",   :limit => 10, :precision => 10, :scale => 2
+    t.integer  "price_pre_season_per_day",   :limit => 10, :precision => 10, :scale => 2, :default => 0
+    t.integer  "price_mid_season_per_day",   :limit => 10, :precision => 10, :scale => 2, :default => 0
+    t.integer  "price_main_season_per_day",   :limit => 10, :precision => 10, :scale => 2, :default => 0
+    t.integer  "price_pre_season_per_week",   :limit => 10, :precision => 10, :scale => 2, :default => 0
+    t.integer  "price_mid_season_per_week",   :limit => 10, :precision => 10, :scale => 2, :default => 0
+    t.integer  "price_main_season_per_week",   :limit => 10, :precision => 10, :scale => 2, :default => 0
     t.text     "pictures"
     t.integer  "balcony_id"
   end

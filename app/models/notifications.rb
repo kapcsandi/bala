@@ -12,7 +12,7 @@ class Notifications < ActionMailer::Base
   def booking(codes, booking, houses_bookings, sent_at = Time.now)
     recipients booking.email
     bcc        APP_CONFIG['bcc_email']
-    from       "#{I18n.t(:booking_from, :locale => I18n.locale)}"
+    from       "#{I18n.t(:booking_email_from, :locale => I18n.locale)}"
     subject    "#{I18n.t(:booking_notification_subject, :code => booking.code, :date => I18n.l(Date.today, :locale => I18n.locale))}"
     reply_to   APP_CONFIG['root_email']
     body       :booking => booking, :codes => codes, :houses_bookings => houses_bookings
@@ -31,7 +31,7 @@ class Notifications < ActionMailer::Base
   def contact(contact, code, sent_at = Time.now)
     recipients APP_CONFIG['root_email']
     bcc        APP_CONFIG['bcc_email']
-    from       "#{I18n.t(:contact_from, :locale => I18n.locale)}"
+    from       "#{I18n.t(:contact_email_from, :locale => I18n.locale)}"
     subject    "admin - Kapcsolatfelvétel"
     body       :contact => contact, :code => code
     sent_on    sent_at

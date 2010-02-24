@@ -133,7 +133,7 @@ de:
     models:
       house: "Haus"
       booking: "Reservierung"
-      contact: "Frage zum Haus"
+      contact: "Kontakt/Anfrage"
 
     attributes:
       house:
@@ -248,7 +248,7 @@ de:
             email:
               blank: "E-Mail`s Feld darf nicht leer sein"
               invalid: "E-Mail`s Adresse ist ungültiges Format"
-              too_short: "E-Mail`s Adresse túl rövid"
+              too_short: "E-Mail`s Adresse ist zu kurz"
 
       messages:
         inclusion: "ist kein gültiger Wert"
@@ -279,7 +279,7 @@ de:
   cart: Warenkorb
   cart_title: Warenkorb
   special_offers: Sonderangebote
-  contact: Kontakt
+  contact: Kontakt/Anfrage
   programs: Programme
 
 # left menu
@@ -291,7 +291,7 @@ de:
   offers: Reduziert Restaurants
   terms: AGB
   impressum: Impressum
-  owners: Tulajdonosoknak
+  owners: Háztulajdonosoknak
   admin_login: Admin belépés
 
 #pages
@@ -393,10 +393,10 @@ de:
   house_prices_info:  Mietpreis pro Haus und Woche in Euro (&euro;)
   house_prices_from: von
   house_prices_to: bis
-  house_prices_with: bei Belegung mit .. Personen
+  house_prices_with: max. Personen
   house_prices_season: bis zu
   house_prices_price: Mietpreis
-  house_prices_includes_info: "Im Preis bereits enthalten: Battwäsche, Endreinigung, Gas, Strom, Wasser.<br />Nebenkosten: Zuschläge (zalhbar bei Buchung): Ortstaxe<br /> An- und Abreise: Samstags. Mindestanfenhalt 1 Woche. Abweichende An- und  Abreise sowie kürzere Afenthalte in der Nebensaison auf Anfrage möglich (teilweise  Mietpreiszuschlag)"
+  house_prices_includes_info: "Im Preis bereits enthalten: Battwäsche, Endreinigung, Gas, Strom, Wasser.<br />Nebenkosten: Zuschläge (zalhbar beim Hausbesitzer): Ortstaxe<br /> An- und Abreise: Samstags. Mindestanfenhalt 1 Woche. Abweichende An- und  Abreise sowie kürzere Afenthalte in der Nebensaison auf Anfrage möglich (teilweise  Mietpreiszuschlag)"
 
 # field groups
   house_basics: Hausbeschreibung
@@ -440,7 +440,7 @@ de:
   booking_hint: Füllen Sie bitte die unten Daten genau.
   booking_details: Details der Reservierung
   booking_sentence: "Ich reserviere obiges Fehrienhaus für folgenden Zeitraum"
-  booking_price: "Im Preis bereit enthalten: Bettwäsche, Endreinigung, Gas, Strom, Wasser<br />Nebenkosten: Zuschläge (zahlbar bei Buchung): Ortstaxe"
+  booking_price: "Im Preis bereit enthalten: Bettwäsche, Endreinigung, Gas, Strom, Wasser<br />Nebenkosten: Zuschläge (zahlbar beim Hausbesitzer): Ortstaxe"
   read_terms: "Die {{link}} habe ich gelesen und bin einverstanden."
   booking_terms: Allgemeinen Geschäftsbedingungen (AGB)
   selected_houses:
@@ -493,6 +493,8 @@ de:
 
 # email
   booking_notification_subject: "Ihre Buchung bei 1xferienhaus {{code}}, {{date}}"
+  contact_email_from: kontakt@1xferienhaus.de
+  booking_email_from: buchung@1xferienhaus.de
 
 # titles
   booking_title: "Buchung Ferienobjekt: {{houses}}"
@@ -530,9 +532,6 @@ de:
   contact_house: Frage zum Haus
   contact_submit: Anfrage senden
 
-# email
-  booking_notification_subject: Ihre Buchung bei 1xferienhaus {{code}}, {{date}}
-
 # other
   city: Ort
   discount: Rabatt
@@ -556,7 +555,7 @@ de:
   Untitled: 1xferienhaus
   meta_description: Unterkunft, Appartement, Balaton, Ferienhaus, Urlaub, Plattensee, Balaton, Ferien, Balatonlelle, Balatonboglár
   meta_keywords: Reise, Sommerferien, Sommer, See, Ufer, Ferienzeit, Ausflug, Sandstrand, Zimmer, Miete, Haus, Renata Gerhat, Pusta, Gulasch-Party, nyaralas, nyaralo, kiado
-  slogan: Ferien im Sonnenland Ungarn
+  slogan: Ferien im Sonnenland Ungarn!
   or: oder
   answer_yes: Ja
   answer_no: Nein
