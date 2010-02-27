@@ -47,8 +47,10 @@ class HousesController < ApplicationController
         search.distance_center_lte = params[:q][:distance_center].to_i unless params[:q][:distance_center].blank?
         search.distance_beach_lte = params[:q][:distance_beach].to_i unless params[:q][:distance_beach].blank?
       end
-
-      @houses, @houses_count = search.all(:select => "houses.id,code, city_id, persons, children, animals, pictures, house_type_id, condition_id, furnishing_id, floor_area, distance_center, distance_beach, distance_restaurant, distance_shop, distance_mainroad, distance_station, houses.updated_at").paginate(:page => params[:page], :per_page => 10), search.count
+      if request.format.to_s =~ /xml/
+        order = 'updated_at DESC'
+      end
+      @houses, @houses_count = search.all(:select => "houses.id,code, city_id, persons, children, animals, pictures, house_type_id, condition_id, furnishing_id, floor_area, distance_center, distance_beach, distance_restaurant, distance_shop, distance_mainroad, distance_station, houses.updated_at", :order => order).paginate(:page => params[:page], :per_page => 10), search.count
       @feed_url = request.url.sub(/houses/,'houses.xml')
       respond_to do |format|
         format.html # index.html.erb

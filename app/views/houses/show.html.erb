@@ -50,10 +50,10 @@
     <%- for field in Taggable.find_all_by_position([8, 9, 10, 11])
       tagnames = []
       for tag in field.tags do tagnames << tag.name if @house.tags.include?(tag) and tag.name != t('nincs') and tag.name != '-'  end -%>
-      <%- unless tagnames.empty? -%>
+      <%- unless tagnames.empty? or tagnames.nil? -%>
         <p>
         <%= label_tag field.field, field.name %>:
-        <%= tagnames.map{|tag| '<span>'+tag+'</span>'}.to_sentence -%>
+        <%= tagnames.compact.map{|tag| '<span>'+tag+'</span>'}.to_sentence -%>
         </p>
       <%- end -%>
     <%- end -%>
