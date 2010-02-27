@@ -175,7 +175,7 @@ span.price {background:#fff;padding:0 10px;margin:3px 15px 10px 0;border:1px sol
 br.zero {margin:0;padding:0;line-height:0.4em}
 .mini .span-7 span {width:50%;float:left;display:block}
 .mini .span-7 span.label {width:150px;float:left;display:block;text-align:right;padding-right:10px}
-.mini .span-7 span.field {width:100px;float:left;display:block}
+.mini .span-7 span.field {width:110px;float:left;display:block}
 .navi .field {float:left;margin:3px 5px}
 .calendar_date_select thead th, .calendar_date_select td, .calendar_date_select caption {padding:0}
 .tags p {width:25%;float:left;}
