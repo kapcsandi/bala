@@ -128,7 +128,7 @@
   <% field_set_tag t('contact_data'), :class => 'odd' do %>
     <div class="span-6">
       <%= f.label :salut, t(:salut) %><br />
-      <%= f.select :salut, Taggable.of_field("salut").first.tags.map{|tag| tag.name} %>
+      <%= f.select :salut, Taggable.find_by_field("salut").tags.map{|tag| tag.name} %>
     </div>
 
     <% [ :firstname, :lastname, :company, :address, :city, :postcode].each do |field| %>

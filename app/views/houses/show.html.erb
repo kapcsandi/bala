@@ -90,7 +90,7 @@
   <p><%= label_tag 'house_beds', t('house_beds') %>:
   <%- beds = []
   for field in %w(double_bed single_bed extra_bed pull_out_bed)
-    unless @house[field].nil? or @house[field] == 0
+    unless @house[field].nil? or @house[field].to_i == 0
       beds << @house[field].to_s + ' ' + t(field)
     end
   end %><%= beds.to_sentence %></p>

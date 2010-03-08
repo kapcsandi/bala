@@ -112,44 +112,44 @@ class House < ActiveRecord::Base
   def price(name)
     case name
     when /pre|post/
-    self.price_pre_season_per_week
+    self.price_pre_season_per_week || 0
     when /mid/
-    self.price_mid_season_per_week
+    self.price_mid_season_per_week || 0
     when /main/
-    self.price_main_season_per_week
+    self.price_main_season_per_week || 0
     end
   end
 
   def daily_price(name)
     case name
     when /pre|post/
-    self.price_pre_season_per_day
+    self.price_pre_season_per_day || 0
     when /mid/
-    self.price_mid_season_per_day
+    self.price_mid_season_per_day || 0
     when /main/
-    self.price_main_season_per_day
+    self.price_main_season_per_day || 0
     end
   end
 
   def formatted_price(name)
     case name
     when /pre|post/
-    "%8.2f" % self.price_pre_season_per_week
+    "%8.2f" % (self.price_pre_season_per_week || 0)
     when /mid/
-    "%8.2f" % self.price_mid_season_per_week
+    "%8.2f" % (self.price_mid_season_per_week || 0)
     when /main/
-    "%8.2f" % self.price_main_season_per_week
+    "%8.2f" % (self.price_main_season_per_week || 0)
     end
   end
 
   def formatted_daily_price(name)
     case name
     when /pre|post/
-    "%8.2f" % self.price_pre_season_per_day
+    "%8.2f" % (self.price_pre_season_per_day || 0)
     when /mid/
-    "%8.2f" % self.price_mid_season_per_day
+    "%8.2f" % (self.price_mid_season_per_day || 0)
     when /main/
-    "%8.2f" % self.price_main_season_per_day
+    "%8.2f" % (self.price_main_season_per_day || 0)
     end
   end
 
