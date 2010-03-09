@@ -12,7 +12,7 @@ class Season < ActiveRecord::Base
   
   def self.which_season?(house_id, day=Date.today)
     begin
-      if house.seasons.empty?
+      if House.find(house_id).seasons.empty?
         self.for_all.next_year.select { |season| (day >= season.start) and (day <= season.end) }[0].name
       else
         self.for_house(house_id).next_year.select { |season| (day >= season.start) and (day <= season.end) }[0].name
