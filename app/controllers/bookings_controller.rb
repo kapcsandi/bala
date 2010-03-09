@@ -143,9 +143,9 @@ class BookingsController < ApplicationController
         season_price = 0
         days = 1
         adds = []
-        prev_season = Season.which_season?(from)
+        prev_season = Season.which_season?(house.id, from)
         (from+1..to).step do |day|
-          season = Season.which_season?(day)
+          season = Season.which_season?(house.id, day)
           if season == prev_season
             adds << house.daily_price(season)
             if days % 7 == 0

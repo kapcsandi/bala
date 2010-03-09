@@ -1,23 +1,25 @@
 <% title t('admin.seasons') %>
-<p><%= link_to t('admin.new_season'), new_season_path %></p>
+<p><%= link_to t('admin.new_season'), new_season_path %> | <%= link_to t('admin.custom_seasons'), house_seasons_path %></p>
 <table>
 <thead>
   <tr>
     <th><%= t('admin.name') %></th>
     <th><%= t('admin.start') %></th>
     <th><%= t('admin.end') %></th>
+    <th><%= t('admin.houses') %></th>
   </tr>
 </thead>
 <tbody>
   <% for season in @seasons %>
     <tr class="<%= cycle('odd', 'even') %>">
-      <td><%=h season.name %></td>
+      <td><%=t season.name %></td>
       <td><%=h season.start %></td>
       <td><%=h season.end %></td>
+      <td><%= season.houses.map {|house| house_link(house)}.to_sentence %></td>
       <td><%= link_to t('admin.show'), season %></td>
       <td><%= link_to t('admin.edit'), edit_season_path(season) %></td>
     </tr>
   <% end %>
 </tbody></table>
-<p><%= link_to t('admin.new_season'), new_season_path %></p>
+<p><%= link_to t('admin.new_season'), new_season_path %> | <%= link_to t('admin.custom_seasons'), house_seasons_path %></p>
 

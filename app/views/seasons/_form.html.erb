@@ -2,7 +2,7 @@
   <%= f.error_messages %>
   <p>
     <%= f.label t('admin.name') %><br />
-    <%= f.select :name, %w{pre_saison mid_saison main_saison post_saison} %>
+    <%= f.select :name, %w{pre_saison mid_saison main_saison post_saison}.map {|season| [t(season), season]} %>
   </p>
   <p>
     <%= f.label t('admin.start') %><br />
@@ -12,5 +12,19 @@
     <%= f.label t('admin.end') %><br />
     <%= f.date_select :end %>
   </p>
+  <div id="house_seasons">
+    <%= f.label t('admin.houses') %><br />
+    <% f.fields_for :house_seasons do |hs_form| %>
+    <% unless hs_form.object.new_record? %>
+    <p>
+    <%= hs_form.object.house.code %>
+    <!-- For existing records we add a checkbox to be able to delete records. -->
+    <%= hs_form.label :_delete, t('admin.remove') %>
+    <%= hs_form.check_box :_delete %>
+    <% end %>
+    </p>
+  <% end %>
+  </div>
+  
   <p><%= f.submit t('admin.submit') %></p>
 <% end %>

@@ -624,6 +624,7 @@ hu:
     houses: Apartmanok
     season: Szezon
     seasons: Szezonok
+    custom_seasons: Egyedi szezonok
     users: Felhasználók
     event_logs: Események
     image: Házképek feltöltése

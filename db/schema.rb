@@ -9,11 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100111212119) do
+ActiveRecord::Schema.define(:version => 20100308201216) do
 
   create_table "bookings", :force => true do |t|
-    t.integer  "nights",         :default => 0
-    t.integer  "persons",        :default => 0
+    t.integer  "nights"
+    t.integer  "persons"
     t.boolean  "with_animals"
     t.text     "notes"
     t.string   "phone"
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(:version => 20100111212119) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "fax",            :limit => 20
-    t.integer  "children",       :default => 0
-    t.integer  "price",          :default => 0
+    t.integer  "children"
+    t.integer  "price"
     t.string   "children_years", :limit => 20
     t.string   "animal_details", :limit => 50
     t.string   "salut",          :limit => 20
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20100111212119) do
   create_table "discount_translations", :force => true do |t|
     t.integer  "discount_id"
     t.string   "locale"
-    t.string   "description"
+    t.string   "description", :default => ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -64,10 +64,17 @@ ActiveRecord::Schema.define(:version => 20100111212119) do
 
   add_index "event_logs", ["created_at"], :name => "index_event_logs_on_created_at"
 
+  create_table "house_seasons", :force => true do |t|
+    t.integer  "house_id"
+    t.integer  "season_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "house_translations", :force => true do |t|
     t.integer  "house_id"
     t.string   "locale"
-    t.text     "house_description"
+    t.text     "house_description", :default => ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -82,26 +89,26 @@ ActiveRecord::Schema.define(:version => 20100111212119) do
     t.integer  "house_type_id"
     t.integer  "condition_id"
     t.integer  "furnishing_id"
-    t.integer  "persons",               :default => 0
-    t.integer  "floor_area",            :default => 0
-    t.integer  "animals",               :default => 0
-    t.integer  "distance_center",       :default => 0
-    t.integer  "distance_beach",        :default => 0
-    t.integer  "distance_restaurant",   :default => 0
-    t.text     "admin_description"
+    t.integer  "persons",                                                   :default => 0
+    t.integer  "floor_area",                                                :default => 0
+    t.integer  "animals",                                                   :default => 0
+    t.integer  "distance_center",                                           :default => 0
+    t.integer  "distance_beach",                                            :default => 0
+    t.integer  "distance_restaurant",                                       :default => 0
+    t.text     "admin_description",                                         :default => ""
     t.string   "hidden_description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "bedroom",               :default => 0
-    t.integer  "living_room",           :default => 0
-    t.integer  "living_dining_room",    :default => 0
-    t.integer  "living_dining_kitchen", :default => 0
-    t.integer  "kitchen",               :default => 0
-    t.integer  "dining_room",           :default => 0
-    t.integer  "kitchen_dining_room",   :default => 0
-    t.integer  "children",              :default => 0
+    t.integer  "bedroom",                                                   :default => 0
+    t.integer  "living_room",                                               :default => 0
+    t.integer  "living_dining_room",                                        :default => 0
+    t.integer  "living_dining_kitchen",                                     :default => 0
+    t.integer  "kitchen",                                                   :default => 0
+    t.integer  "dining_room",                                               :default => 0
+    t.integer  "kitchen_dining_room",                                       :default => 0
+    t.integer  "children",                                                  :default => 0
     t.integer  "terrace_id"
-    t.integer  "garden",                :default => 0
+    t.integer  "garden",                                                    :default => 0
     t.string   "living_room_sq"
     t.string   "living_dining_room_sq"
     t.string   "kitchen_sq"
@@ -111,42 +118,42 @@ ActiveRecord::Schema.define(:version => 20100111212119) do
     t.string   "terrace_sq"
     t.string   "balcony_sq"
     t.string   "yard_sq"
-    t.integer  "double_bed",            :default => 0
+    t.integer  "double_bed",                                                :default => 0
     t.string   "single_bed"
-    t.integer  "extra_bed",             :default => 0
-    t.integer  "pull_out_bed",          :default => 0
-    t.integer  "bathrooms",             :default => 0
-    t.integer  "shower",                :default => 0
-    t.integer  "bathtub",               :default => 0
-    t.integer  "wcs",                   :default => 0
-    t.integer  "wc_separated",          :default => 0
-    t.integer  "fridge",                :default => 0
-    t.integer  "coffee_machine",        :default => 0
-    t.integer  "micro",                 :default => 0
+    t.integer  "extra_bed",                                                 :default => 0
+    t.integer  "pull_out_bed",                                              :default => 0
+    t.integer  "bathrooms",                                                 :default => 0
+    t.integer  "shower",                                                    :default => 0
+    t.integer  "bathtub",                                                   :default => 0
+    t.integer  "wcs",                                                       :default => 0
+    t.integer  "wc_separated",                                              :default => 0
+    t.integer  "fridge",                                                    :default => 0
+    t.integer  "coffee_machine",                                            :default => 0
+    t.integer  "micro",                                                     :default => 0
     t.integer  "stove_id"
-    t.integer  "sat",                   :default => 0
-    t.integer  "internet",              :default => 0
+    t.integer  "sat",                                                       :default => 0
+    t.integer  "internet",                                                  :default => 0
     t.integer  "clima_id"
-    t.integer  "pool",                  :default => 0
-    t.integer  "pool_sq",               :default => 0
-    t.integer  "garden_seats",          :default => 0
-    t.integer  "grill",                 :default => 0
-    t.integer  "sunbath_seat",          :default => 0
-    t.integer  "playground",            :default => 0
-    t.integer  "parking_id",            :default => 0
-    t.integer  "distance_aquapark",     :default => 0
-    t.integer  "distance_shop",         :default => 0
-    t.integer  "distance_station",      :default => 0
-    t.integer  "distance_medical",      :default => 0
-    t.integer  "distance_mainroad",     :default => 0
+    t.integer  "pool",                                                      :default => 0
+    t.integer  "pool_sq",                                                   :default => 0
+    t.integer  "garden_seats",                                              :default => 0
+    t.integer  "grill",                                                     :default => 0
+    t.integer  "sunbath_seat",                                              :default => 0
+    t.integer  "playground",                                                :default => 0
+    t.integer  "parking_id"
+    t.integer  "distance_aquapark",                                         :default => 0
+    t.integer  "distance_shop",                                             :default => 0
+    t.integer  "distance_station",                                          :default => 0
+    t.integer  "distance_medical",                                          :default => 0
+    t.integer  "distance_mainroad",                                         :default => 0
     t.integer  "owner_place_id"
-    t.integer  "animal_charge" ,        :default => 0
-    t.integer  "price_pre_season_per_day",   :limit => 10, :precision => 10, :scale => 2, :default => 0
-    t.integer  "price_mid_season_per_day",   :limit => 10, :precision => 10, :scale => 2, :default => 0
-    t.integer  "price_main_season_per_day",   :limit => 10, :precision => 10, :scale => 2, :default => 0
-    t.integer  "price_pre_season_per_week",   :limit => 10, :precision => 10, :scale => 2, :default => 0
-    t.integer  "price_mid_season_per_week",   :limit => 10, :precision => 10, :scale => 2, :default => 0
-    t.integer  "price_main_season_per_week",   :limit => 10, :precision => 10, :scale => 2, :default => 0
+    t.integer  "animal_charge",                                             :default => 0
+    t.decimal  "price_pre_season_per_day",   :precision => 10, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "price_mid_season_per_day",   :precision => 10, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "price_main_season_per_day",  :precision => 10, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "price_pre_season_per_week",  :precision => 10, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "price_mid_season_per_week",  :precision => 10, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "price_main_season_per_week", :precision => 10, :scale => 2, :default => 0.0, :null => false
     t.text     "pictures"
     t.integer  "balcony_id"
   end
@@ -160,13 +167,13 @@ ActiveRecord::Schema.define(:version => 20100111212119) do
   create_table "houses_bookings", :force => true do |t|
     t.integer  "house_id"
     t.integer  "booking_id"
-    t.integer  "position",   :limit => 10, :precision => 10, :scale => 2,   :default => 0
+    t.decimal  "position",   :precision => 10, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "owner_id"
     t.date     "start_at"
     t.date     "end_at"
-    t.integer  "status_id",  :default => 0
+    t.integer  "status_id",                                 :default => 0
     t.text     "notes"
   end
 

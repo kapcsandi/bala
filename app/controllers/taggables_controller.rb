@@ -46,7 +46,7 @@ class TaggablesController < ApplicationController
 
     respond_to do |format|
       if @taggable.save
-        flash[:notice] = t('taggable_successfully_created')
+        flash[:notice] = t('successfully_created_taggable')
         format.html { redirect_to(@taggable) }
         format.xml  { render :xml => @taggable, :status => :created, :location => @taggable }
       else
@@ -61,7 +61,7 @@ class TaggablesController < ApplicationController
   def update
     respond_to do |format|
       if @taggable.update_attributes(params[:taggable])
-        flash[:notice] = t('taggable_successfully_updated')
+        flash[:notice] = t('successfully_updated_taggable')
         format.html { redirect_to(@taggable) }
         format.xml  { head :ok }
       else

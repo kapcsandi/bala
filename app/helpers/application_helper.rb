@@ -50,4 +50,8 @@ module ApplicationHelper
       '"%Y-%m-%d"'
     end
   end
+
+  def house_link(house)
+    link_to(house.code, house_path(house.id))
+  end
 end

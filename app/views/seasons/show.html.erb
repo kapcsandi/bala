@@ -2,7 +2,7 @@
 
 <p>
   <strong><%= t('admin.name') %>:</strong>
-  <%=h @season.name %>
+  <%=t @season.name %>
 </p>
 <p>
   <strong><%= t('admin.start') %>:</strong>
@@ -12,7 +12,12 @@
   <strong><%= t('admin.end') %>:</strong>
   <%=h @season.end %>
 </p>
-
+<% unless @season.houses.empty? %>
+<p>
+  <strong><%= t('admin.houses') %>:</strong>
+  <%= @season.houses.map {|house| house_link(house) }.to_sentence %>
+</p>
+<% end %>
 <p>
   <%= link_to t('admin.edit'), edit_season_path(@season) %> |
   <%= link_to t('admin.destroy'), @season, :confirm => t('Are you sure?'), :method => :delete %> |

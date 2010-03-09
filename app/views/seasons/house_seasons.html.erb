@@ -1,0 +1,28 @@
+<% title t('admin.custom_seasons') %>
+<% form_for :house_seasons do |f| %>
+<table>
+<thead>
+  <tr>
+    <th><%= t('admin.seasons') %></th>
+    <th><%= t('admin.houses') %></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>
+      <%= f.select 'season_ids',
+      options_for_select(Season.all.map {|season|
+      ["#{t season.name} #{season.start} - #{season.end}", season.id.to_s]}, @season_ids ),
+      {},
+      { :multiple => true, :size => 10} %>
+    </td>
+    <td>
+      <%= select :house_seasons, :house_ids,
+      House.all.map {|house| [house.code, house.id.to_s]},
+      {:selected => @house_ids}, { :multiple => true, :size => 10} %>
+    </td>
+  </tr>
+</tbody></table>
+  <p><%= submit_tag t('admin.submit') %></p>
+<% end %>
+

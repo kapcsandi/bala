@@ -571,7 +571,7 @@ de:
   unrestricted_access: Zugriff wird verweigert.
   cart_limit: Der Warenkorb kann maximal 3 Häuser enthalten!<br /> Zuerst bitte löschen Sie Elemente aus Ihrem warekorb.
   created_booking: "<h3>Vielen Dank für Ihre Reservierung.</h3><p>Liebe Ungarnfreunde,</p><p>nach der Absendung Ihrer Bestellung bekommen Sie eine <b>Bestätigung</b> mit dem Gesamtpreis des Aufenthaltes, Höhe und Termin der erste Anzalhlung. Wir werden Ihre Reservierung schnellstens bearbeiten und Ihnen der Unterlagen zukommen lassen.</p>"
-  fill_mandatory_fields_for_price: Kérjük töltse ki a kötelező mezőket!
+  fill_mandatory_fields_for_price: Bitte füllen Sie aus die verbindliche Felder!
   contact_sended: Ihre Brief ist abgesendet, unsere Kollege beanwortet es bald.
 
   not_implemented_yet: Unter Entwicklung.

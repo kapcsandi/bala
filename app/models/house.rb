@@ -8,6 +8,8 @@ class House < ActiveRecord::Base
   has_many :tags, :through => :houses_tags, :uniq => true
   has_many :houses_bookings
   has_many :bookings, :through => :houses_bookings, :uniq => true
+  has_many :house_seasons
+  has_many :seasons, :through => :house_seasons
 
   default_scope :order => 'code ASC', :include => [:tags, :discount]
   
@@ -160,6 +162,13 @@ class House < ActiveRecord::Base
   def name
     "#{self.code} (#{self.house_type.strip}, #{self.city})"
   end
-end
 
-# script/generate model reservation house_id:integer from:date to:date persons:integer user_id:integer status:integer comment:text
+  def h_seasons
+    if self.seasons.empty?
+      Season.for_all.next_year
+    else
+      self.seasons.next_year
+    end
+  end
+  
+end

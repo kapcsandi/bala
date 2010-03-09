@@ -99,7 +99,7 @@
     </div>
   </div>
   <div id="content" class="span-20 last">
-  <% if controller_name !~ /setup|bookings|contact|pages|user_sessions|users/ -%>
+  <% if controller_name =~ /houses$|root/ -%>
     <div id="<%= 'adv_' if params[:advanced] %>search" class="search">
       <% content_tag 'div', :class => 'inner left' do -%>
         <% if params[:advanced] %>

@@ -2,6 +2,7 @@ ActionController::Routing::Translator.prefix_on_default_locale = true
 
 ActionController::Routing::Routes.draw do |map|
   map.resources :event_logs
+  map.house_seasons 'house_seasons', :controller => "seasons", :action => 'house_seasons'
   map.resources :seasons
   map.resources :bookings
   map.resources :houses_bookings
@@ -26,9 +27,6 @@ ActionController::Routing::Routes.draw do |map|
   map.terms     "pages/terms", :controller => "pages", :action => "show", :page => "terms"
   map.impressum "pages/impressum", :controller => "pages", :action => "show", :page => "impressum"
   map.owners     "pages/owners", :controller => "pages", :action => "show", :page => "owners"
-#  [:infos_a_z, :map, :weather, :calendar, :sights, :offers, :terms, :impressum, :owners].each do |path|
-#    map.connect path.to_s, :controller => "pages", :action => "show", :id => path
-#  end
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
 

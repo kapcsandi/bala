@@ -195,7 +195,7 @@
   </tr>
   </thead>
   <tbody>
-  <%- for season in Season.next_year %>
+  <%- for season in @house.h_seasons %>
     <tr class="<%= cycle('odd', 'even') %>">
     <td><%=l(season.start) %></td>
     <td><%=l(season.end) %></td>
