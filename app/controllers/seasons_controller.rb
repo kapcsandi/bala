@@ -11,7 +11,6 @@ class SeasonsController < ApplicationController
   
   def new
     @season = Season.new
-#     @season.house_seasons.build
   end
   
   def create
@@ -49,6 +48,7 @@ class SeasonsController < ApplicationController
   end
 
   def house_seasons
+    @seasons = Season.inactives
     @season_ids, @house_ids = [], []
     @season_ids = params[:house_seasons][:season_ids] if params[:house_seasons] and params[:house_seasons][:season_ids]
     @house_ids  = params[:house_seasons][:house_ids] if params[:house_seasons] and params[:house_seasons][:house_ids]

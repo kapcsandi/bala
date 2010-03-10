@@ -165,9 +165,9 @@ class House < ActiveRecord::Base
 
   def h_seasons
     if self.seasons.empty?
-      Season.for_all.next_year
+      Season.for_all.next_year.actives
     else
-      self.seasons.next_year
+      self.seasons.next_year.actives
     end
   end
   

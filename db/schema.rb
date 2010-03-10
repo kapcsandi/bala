@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100308201216) do
+ActiveRecord::Schema.define(:version => 20100310220824) do
 
   create_table "bookings", :force => true do |t|
     t.integer  "nights"
@@ -232,6 +232,7 @@ ActiveRecord::Schema.define(:version => 20100308201216) do
     t.date     "end"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "active",     :default => 0
   end
 
   add_index "seasons", ["name", "start"], :name => "index_seasons_on_name_and_start"

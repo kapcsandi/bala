@@ -12,6 +12,10 @@
     <%= f.label t('admin.end') %><br />
     <%= f.date_select :end %>
   </p>
+  <p>
+    <%= f.label t('admin.status') %><br />
+    <%= f.check_box :active %>
+  </p>
   <div id="house_seasons">
     <%= f.label t('admin.houses') %><br />
     <% f.fields_for :house_seasons do |hs_form| %>

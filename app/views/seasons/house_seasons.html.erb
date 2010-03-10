@@ -1,4 +1,5 @@
 <% title t('admin.custom_seasons') %>
+<%= @seasons.inspect %>
 <% form_for :house_seasons do |f| %>
 <table>
 <thead>
@@ -11,10 +12,8 @@
   <tr>
     <td>
       <%= f.select 'season_ids',
-      options_for_select(Season.all.map {|season|
-      ["#{t season.name} #{season.start} - #{season.end}", season.id.to_s]}, @season_ids ),
-      {},
-      { :multiple => true, :size => 10} %>
+      @seasons.map {|season| ["#{t season.name} #{season.start} - #{season.end}", season.id.to_s]},
+      {:selected => @season_ids}, { :multiple => true, :size => 10} %>
     </td>
     <td>
       <%= select :house_seasons, :house_ids,
