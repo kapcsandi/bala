@@ -23,8 +23,8 @@
     <p>
     <%= hs_form.object.house.code %>
     <!-- For existing records we add a checkbox to be able to delete records. -->
-    <%= hs_form.label :_delete, t('admin.remove') %>
-    <%= hs_form.check_box :_delete %>
+    <%= hs_form.label :_destroy, t('admin.remove') %>
+    <%= hs_form.check_box :_destroy %>
     <% end %>
     </p>
   <% end %>

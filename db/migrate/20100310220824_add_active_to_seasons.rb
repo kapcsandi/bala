@@ -1,6 +1,6 @@
 class AddActiveToSeasons < ActiveRecord::Migration
   def self.up
-   add_column :seasons, :active, :integer, :default => 0
+   add_column :seasons, :active, :integer, :default => 0, :null => false
   end
 
   def self.down

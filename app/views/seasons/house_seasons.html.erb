@@ -1,5 +1,5 @@
 <% title t('admin.custom_seasons') %>
-<%= @seasons.inspect %>
+<p><%= link_to t('admin.new_season'), new_season_path %> | <%= link_to t('admin.seasons'), seasons_path %></p>
 <% form_for :house_seasons do |f| %>
 <table>
 <thead>
@@ -24,4 +24,4 @@
 </tbody></table>
   <p><%= submit_tag t('admin.submit') %></p>
 <% end %>
-
+<p><%= link_to t('admin.new_season'), new_season_path %> | <%= link_to t('admin.seasons'), seasons_path %></p>

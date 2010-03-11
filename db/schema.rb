@@ -232,7 +232,7 @@ ActiveRecord::Schema.define(:version => 20100310220824) do
     t.date     "end"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "active",     :default => 0
+    t.integer  "active",     :default => 0, :null => false
   end
 
   add_index "seasons", ["name", "start"], :name => "index_seasons_on_name_and_start"
